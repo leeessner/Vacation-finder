@@ -1,6 +1,7 @@
 """Driving trips and trips whose airfare isn't priced yet."""
 
 from datetime import date
+from pathlib import Path
 
 import pytest
 
@@ -125,3 +126,125 @@ def test_history_row_labels_airfare_applicability():
     assert not row(travel_mode="drive").airfare_applies
     assert not row(travel_mode="air", flights_priced=False).airfare_applies
     assert row(travel_mode="air", flights_priced=True).airfare_applies
+
+
+# --------------------------------------------------------------------------- #
+# Lodging coverage honesty
+# --------------------------------------------------------------------------- #
+
+def _cfg(tmp_path, coverage: str, extra: str = "") -> Path:
+    path = tmp_path / "trips.yaml"
+    path.write_text(
+        "settings:\n  home_airports: [STL]\n"
+        "trips:\n  - id: a\n    name: X\n"
+        "    destinations: [ATH]\n"
+        f"    lodging: {{coverage: {coverage}}}\n{extra}"
+        "    dates: {mode: window, earliest: 2027-06-05, latest: 2027-07-10, nights: 7}\n"
+    )
+    return path
+
+
+def test_coverage_none_turns_lodging_off():
+    import tempfile, pathlib
+
+    with tempfile.TemporaryDirectory() as d:
+        trip = load_config(_cfg(pathlib.Path(d), "none")).trips[0]
+    assert trip.lodging.coverage == "none"
+    assert not trip.lodging.enabled
+
+
+def test_coverage_thin_still_queries_lodging():
+    import tempfile, pathlib
+
+    with tempfile.TemporaryDirectory() as d:
+        trip = load_config(_cfg(pathlib.Path(d), "thin")).trips[0]
+    assert trip.lodging.enabled
+
+
+def test_unknown_coverage_rejected():
+    import tempfile, pathlib
+
+    with tempfile.TemporaryDirectory() as d:
+        with pytest.raises(ConfigError, match="coverage must be one of"):
+            load_config(_cfg(pathlib.Path(d), "excellent"))
+
+
+def test_thin_coverage_produces_a_caveat():
+    import tempfile, pathlib
+    from vacation_finder.report import TripReport
+
+    with tempfile.TemporaryDirectory() as d:
+        trip = load_config(_cfg(pathlib.Path(d), "thin")).trips[0]
+    assert "floor" in TripReport(trip=trip).coverage_caveat
+
+
+def test_good_coverage_produces_no_caveat():
+    import tempfile, pathlib
+    from vacation_finder.report import TripReport
+
+    with tempfile.TemporaryDirectory() as d:
+        trip = load_config(_cfg(pathlib.Path(d), "good")).trips[0]
+    assert TripReport(trip=trip).coverage_caveat == ""
+
+
+def test_untracked_lodging_says_so():
+    import tempfile, pathlib
+    from vacation_finder.report import TripReport
+
+    with tempfile.TemporaryDirectory() as d:
+        trip = load_config(_cfg(pathlib.Path(d), "none")).trips[0]
+    assert "price it yourself" in TripReport(trip=trip).coverage_caveat
+
+
+def test_lodging_only_total_is_labelled_as_excluding_airfare():
+    """A total without airfare must never be presented as a trip cost."""
+    import tempfile, pathlib
+    from datetime import datetime, timezone
+    from vacation_finder.email_report import trip_card
+    from vacation_finder.report import TripReport
+    from vacation_finder.storage import HistoryRow
+
+    with tempfile.TemporaryDirectory() as d:
+        trip = load_config(_cfg(pathlib.Path(d), "good", "    flights: {enabled: false}\n")).trips[0]
+
+    row = HistoryRow(
+        captured_at=datetime.now(timezone.utc), trip_id="a", destination="ATH",
+        depart_date=date(2027, 6, 5), return_date=date(2027, 6, 12), nights=7,
+        currency="USD", flight_total=0.0, flight_source="", flight_carriers="",
+        lodging_name="Hotel", lodging_total=4000.0, lodging_per_night=571.0,
+        lodging_rating=4.0, ground_total=300.0, total=4300.0, is_complete=True,
+        travel_mode="air", flights_priced=False,
+    )
+    html = trip_card(TripReport(trip=trip, history=[row], latest=row))
+    assert "excludes airfare" in html
+    assert "not priced yet" in html
+
+
+def test_drive_trip_total_is_a_real_total():
+    import tempfile, pathlib
+    from datetime import datetime, timezone
+    from vacation_finder.email_report import trip_card
+    from vacation_finder.report import TripReport
+    from vacation_finder.storage import HistoryRow
+
+    with tempfile.TemporaryDirectory() as d:
+        path = pathlib.Path(d) / "trips.yaml"
+        path.write_text(
+            "settings:\n  home_airports: [STL]\n"
+            "trips:\n  - id: a\n    name: X\n    travel: drive\n"
+            "    destinations: [BNA]\n"
+            "    dates: {mode: window, earliest: 2027-03-12, latest: 2027-03-19, nights: 4}\n"
+        )
+        trip = load_config(path).trips[0]
+
+    row = HistoryRow(
+        captured_at=datetime.now(timezone.utc), trip_id="a", destination="BNA",
+        depart_date=date(2027, 3, 12), return_date=date(2027, 3, 16), nights=4,
+        currency="USD", flight_total=0.0, flight_source="", flight_carriers="",
+        lodging_name="Inn", lodging_total=1600.0, lodging_per_night=400.0,
+        lodging_rating=3.0, ground_total=157.0, total=1757.0, is_complete=True,
+        travel_mode="drive", flights_priced=False,
+    )
+    html = trip_card(TripReport(trip=trip, history=[row], latest=row))
+    assert "excludes airfare" not in html
+    assert "not priced yet" not in html

@@ -102,6 +102,13 @@ def cmd_validate(args: argparse.Namespace) -> int:
                 f"{', '.join(d.code for d in trip.destinations)}"
                 + ("" if trip.flights.enabled else "  [airfare not priced yet]")
             )
+        if trip.lodging.coverage == "none":
+            print("    NOTE: lodging not tracked — Amadeus can't see cabins or rentals here")
+        elif trip.lodging.coverage == "thin":
+            print("    NOTE: thin lodging coverage — treat the price as a floor")
+        if not trip.flights.enabled and not trip.lodging.enabled:
+            print("    WARNING: nothing to track — neither flights nor lodging are priced")
+
         capacity = trip.lodging.rooms * 4
         if trip.lodging.enabled and trip.party.total > capacity:
             print(
@@ -205,7 +212,14 @@ def cmd_dashboard(args: argparse.Namespace) -> int:
 
 
 def cmd_demo(args: argparse.Namespace) -> int:
-    """Synthesize plausible history so the email and dashboard can be reviewed."""
+    """Synthesize plausible history so the email and dashboard can be reviewed.
+
+    This goes through the same storage path as a real run rather than writing
+    CSV by hand, so the demo can never drift from the real schema.
+    """
+    from .models import FlightQuote, LodgingQuote, TripQuote
+    from .pricing import RunResult
+
     config = _load(args.config)
     rng = random.Random(args.seed)
     today = date.today()
@@ -219,34 +233,70 @@ def cmd_demo(args: argparse.Namespace) -> int:
                 file=sys.stderr,
             )
             return 1
-        path.parent.mkdir(parents=True, exist_ok=True)
+        path.unlink(missing_ok=True)
+
         destination = trip.destinations[0]
         windows = candidate_windows(trip, today, config.settings)
-        depart, ret = windows[0] if windows else (today + timedelta(days=90), today + timedelta(days=97))
+        depart, ret = (
+            windows[0]
+            if windows
+            else (today + timedelta(days=90), today + timedelta(days=97))
+        )
         nights = (ret - depart).days
 
-        base_flight = 320 * trip.party.total * rng.uniform(0.85, 1.2)
-        base_lodging = 240 * nights * rng.uniform(0.8, 1.4)
-        lines = ["captured_at,trip_id,destination,depart_date,return_date,nights,currency,"
-                 "flight_total,flight_source,flight_carriers,flight_stops_out,flight_stops_back,"
-                 "lodging_name,lodging_total,lodging_per_night,lodging_rating,lodging_source,"
-                 "ground_total,total,is_complete,options_priced,notes"]
+        flight = 340 * trip.party.total * rng.uniform(0.85, 1.2)
+        lodging = 210 * nights * trip.lodging.rooms * rng.uniform(0.8, 1.4)
 
-        flight, lodging = base_flight, base_lodging
         for days_ago in range(args.days, 0, -1):
-            stamp = datetime.now(timezone.utc) - timedelta(days=days_ago)
             flight = max(180.0, flight * rng.uniform(0.96, 1.045))
             lodging = max(300.0, lodging * rng.uniform(0.97, 1.035))
-            ground = trip.ground.cost_for(nights)
-            total = flight + lodging + ground
-            lines.append(
-                f"{stamp.replace(microsecond=0).isoformat()},{trip.id},{destination.code},"
-                f"{depart},{ret},{nights},{config.settings.currency},"
-                f"{flight:.2f},demo,AA/DL,0,1,"
-                f"Demo Beach Resort & Spa,{lodging:.2f},{lodging / nights:.2f},4,demo,"
-                f"{ground:.2f},{total:.2f},true,6,"
+
+            quote = TripQuote(
+                trip_id=trip.id,
+                destination=destination.code,
+                depart_date=depart,
+                return_date=ret,
+                nights=nights,
+                currency=config.settings.currency,
+                flight=(
+                    FlightQuote(
+                        origin=trip.origins[0],
+                        destination=destination.code,
+                        depart_date=depart,
+                        return_date=ret,
+                        total_price=round(flight, 2),
+                        currency=config.settings.currency,
+                        carriers=("AA",),
+                        stops_out=1,
+                        stops_back=1,
+                        source="demo",
+                    )
+                    if trip.flights.enabled
+                    else None
+                ),
+                lodging=LodgingQuote(
+                    destination=destination.code,
+                    check_in=depart,
+                    check_out=ret,
+                    property_name="Demo Hotel & Suites",
+                    total_price=round(lodging, 2),
+                    currency=config.settings.currency,
+                    nights=nights,
+                    rating=4.0,
+                    source="demo",
+                ),
+                ground_cost=trip.ground.cost_for(nights),
+                ground_notes=trip.ground.notes,
+                travel_mode=trip.travel_mode,
+                flights_expected=trip.flights.enabled,
             )
-        path.write_text("\n".join(lines) + "\n")
+            append_run(
+                RunResult(
+                    trip_id=trip.id,
+                    captured_at=datetime.now(timezone.utc) - timedelta(days=days_ago),
+                    quotes=[quote],
+                )
+            )
         print(f"wrote {args.days} synthetic days to {path}")
 
     reports = build_reports(config)

@@ -46,6 +46,8 @@ td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
 pre{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:10px;
 font-size:12px;overflow-x:auto;white-space:pre-wrap}
 a{color:var(--accent)}
+.caveat{margin:14px 0 0;padding:8px 11px;border-left:3px solid #d97706;
+background:rgba(217,119,6,.09);color:var(--ink);font-size:13px;border-radius:0 6px 6px 0}
 footer{color:var(--muted);font-size:12px;margin-top:28px;border-top:1px solid var(--line);padding-top:14px}
 """
 
@@ -80,7 +82,7 @@ def _history_table(report: TripReport, limit: int = 14) -> str:
     )
     return (
         '<div class="scroll"><table><thead><tr><th>Checked</th><th>Travel dates</th>'
-        '<th class="num">Flights</th><th class="num">Lodging</th><th class="num">Total</th>'
+        '<th class="num">Flights</th><th class="num">Lodging</th><th class="num">Tracked total</th>'
         "<th>Property</th></tr></thead><tbody>"
         f"{body}</tbody></table></div>"
     )
@@ -140,8 +142,13 @@ def _trip_section(report: TripReport) -> str:
         + "</div>"
         f'<div class="chart">{sparkline(report.series, 640, 90, report.status_color)}</div>'
         f'<div class="grid">{"".join(stats)}</div>'
-        f"{_history_table(report)}"
-        "</section>"
+        + (
+            f'<p class="caveat">{_esc(report.coverage_caveat)}</p>'
+            if report.coverage_caveat
+            else ""
+        )
+        + f"{_history_table(report)}"
+        + "</section>"
     )
 
 

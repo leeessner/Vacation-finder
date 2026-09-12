@@ -42,6 +42,18 @@ class TripReport:
         return self.latest is not None
 
     @property
+    def coverage_caveat(self) -> str:
+        """Plain warning when the lodging number is weaker than it looks."""
+        if not self.trip.lodging.enabled:
+            return "Lodging isn't tracked for this trip — price it yourself."
+        if self.trip.lodging.coverage == "thin":
+            return (
+                "Lodging coverage here is thin (family rooms, small independents). "
+                "Treat this as a floor, not a quote."
+            )
+        return ""
+
+    @property
     def vs_target(self) -> float | None:
         """How far above (+) or below (-) the target total we are, in currency."""
         if self.latest is None or self.trip.target_total is None:

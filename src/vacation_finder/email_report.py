@@ -122,7 +122,13 @@ def trip_card(report: TripReport) -> str:
     ]
     if latest.ground_total:
         rows.append(_row(trip.ground.notes or "Ground transport", money(latest.ground_total, sym)))
-    rows.append(_row("Total", money(latest.total, sym), bold=True, color=report.status_color))
+    # A lodging-only trip's total is not a trip cost, and must not look like one.
+    total_label = (
+        "Total"
+        if latest.airfare_applies or latest.travel_mode == "drive"
+        else "Tracked so far (excludes airfare)"
+    )
+    rows.append(_row(total_label, money(latest.total, sym), bold=True, color=report.status_color))
 
     extras = []
     if report.cheapest_ever and report.cheapest_ever.total < latest.total:
@@ -137,6 +143,15 @@ def trip_card(report: TripReport) -> str:
     delta = delta_phrase(assessment, sym)
     if delta:
         extras.append(delta)
+
+    caveat = report.coverage_caveat
+    caveat_html = (
+        f'<div style="margin-top:9px;padding:7px 10px;background:#fffbeb;'
+        f'border-left:3px solid #d97706;color:#92400e;font-size:12px">'
+        f"{_esc(caveat)}</div>"
+        if caveat
+        else ""
+    )
 
     dates = f"{latest.depart_date:%b %d} – {latest.return_date:%b %d, %Y}"
     carriers = f" · {latest.flight_carriers}" if latest.flight_carriers else ""
@@ -161,6 +176,7 @@ def trip_card(report: TripReport) -> str:
             if extras
             else ""
         )
+        + caveat_html
         + "</td></tr></table>"
     )
 
