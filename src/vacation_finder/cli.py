@@ -74,9 +74,8 @@ def cmd_validate(args: argparse.Namespace) -> int:
         windows = candidate_windows(trip, today, config.settings)
         dests, n_windows = len(trip.destinations), len(windows)
 
-        # Only Amadeus calls count against the 2,000/month free quota. The
-        # Google Flights scrape is free and unmetered, so it is reported
-        # separately rather than inflating the quota estimate.
+        # API calls and scrapes are counted separately: they fail in different
+        # ways and are limited differently.
         flight_calls = dests * n_windows * len(trip.origins) if trip.flights.enabled else 0
         hotel_calls = (dests * n_windows + dests) if trip.lodging.enabled else 0
         per_run = flight_calls + hotel_calls
@@ -124,23 +123,22 @@ def cmd_validate(args: argparse.Namespace) -> int:
         else:
             print("    WARNING: no valid departure dates — check dates.earliest/latest")
         print(
-            f"    ~{per_run} Amadeus call(s) per run"
-            + (f" + {scrapes} free Google scrape(s)" if scrapes else "")
+            f"    ~{per_run} API call(s) per run"
+            + (f" + {scrapes} Google scrape(s)" if scrapes else "")
         )
         print(f"    tags: {', '.join(trip.tags) or 'none'}")
 
-    QUOTA = 2000
-    pct = monthly_calls / QUOTA * 100
+    per_day = monthly_calls / 30
     print(
-        f"\nEstimated ~{monthly_calls:,} Amadeus calls/month at one run per day "
-        f"({pct:.0f}% of the {QUOTA:,} free quota)."
+        f"\nEstimated ~{monthly_calls:,} Travelpayouts calls/month "
+        f"(~{per_day:.0f}/day) at one run per day."
     )
-    if monthly_calls > QUOTA:
-        print("  OVER QUOTA. Lower settings.max_date_samples_per_trip, narrow a")
-        print("  date window, or deactivate a trip.")
-    elif pct > 80:
-        print("  Little headroom left. Narrowing a date window is the cheapest fix:")
-        print("  halving the samples on one trip halves its cost.")
+    # Travelpayouts publishes a rate limit rather than a monthly quota, and
+    # does not document a hard monthly cap the way Amadeus did. Rather than
+    # invent a threshold, flag only volume that is obviously worth a look.
+    if per_day > 200:
+        print("  That is a lot for one run. Travelpayouts rate-limits per minute,")
+        print("  so consider lowering settings.max_date_samples_per_trip.")
     return 0
 
 
@@ -320,6 +318,125 @@ def _has_real_history(path: Path) -> bool:
     return bool(rows)
 
 
+def cmd_doctor(args: argparse.Namespace) -> int:
+    """Make one real call to each source and show exactly what came back.
+
+    Everything else in this project was written without live access to these
+    APIs, so this exists to make the first real contact a single command with
+    readable output instead of a failed workflow run at 9am.
+    """
+    from .sources import google_flights
+    from .sources.base import SourceError, SourceUnavailable
+    from .sources.travelpayouts import TravelpayoutsClient
+
+    config = _load(args.config)
+    trip = config.active_trips[0] if config.active_trips else None
+    if trip is None:
+        print("no active trips to test with", file=sys.stderr)
+        return 1
+
+    origin = trip.origins[0]
+    destination = trip.destinations[0]
+    windows = candidate_windows(trip, date.today(), config.settings)
+    depart, ret = windows[0] if windows else (date.today(), date.today())
+    nights = (ret - depart).days or 1
+    ok = True
+
+    print(f"Testing with: {trip.name}  {origin} -> {destination.code}  {depart} to {ret}\n")
+
+    client = TravelpayoutsClient()
+    print("1. Travelpayouts token")
+    if not client.configured:
+        print("   MISSING — set TRAVELPAYOUTS_TOKEN")
+        return 1
+    print(f"   present ({client.token[:4]}...{client.token[-4:]})")
+
+    print("\n2. Flight prices (/v2/prices/week-matrix)")
+    try:
+        payload = client.get_flights(
+            "/v2/prices/week-matrix",
+            {
+                "origin": origin,
+                "destination": destination.code,
+                "depart_date": depart.isoformat(),
+                "return_date": ret.isoformat(),
+                "currency": config.settings.currency.lower(),
+            },
+        )
+        rows = payload.get("data", []) if isinstance(payload, dict) else []
+        print(f"   {len(rows)} row(s) returned")
+        for row in rows[:3]:
+            print(
+                f"     {row.get('depart_date')} -> {row.get('return_date')}  "
+                f"{row.get('value')} {config.settings.currency} per adult, "
+                f"{row.get('number_of_changes')} stop(s), seen {row.get('found_at')}"
+            )
+        if rows:
+            cheapest = min(float(r["value"]) for r in rows if r.get("value"))
+            print(
+                f"   -> party of {trip.party.total} would be "
+                f"~{cheapest * trip.party.total:,.0f} {config.settings.currency}"
+            )
+        else:
+            print("   NO DATA. This route may have no cached fares; try a busier one.")
+            ok = False
+    except (SourceError, SourceUnavailable) as exc:
+        print(f"   FAILED: {exc}")
+        ok = False
+
+    print("\n3. Hotel prices (Hotellook /cache.json)")
+    try:
+        rows = client.get_hotels(
+            "/cache.json",
+            {
+                "location": destination.label or destination.hotel_city,
+                "checkIn": depart.isoformat(),
+                "checkOut": ret.isoformat(),
+                "currency": config.settings.currency.lower(),
+                "limit": 5,
+            },
+        )
+        if isinstance(rows, list) and rows:
+            print(f"   {len(rows)} hotel(s) returned")
+            for row in rows[:3]:
+                price = row.get("priceFrom") or row.get("priceAvg") or 0
+                print(
+                    f"     {str(row.get('hotelName'))[:36]:<36} "
+                    f"{float(price):>9,.0f}  ({row.get('stars')} star)"
+                )
+            sample = float(rows[0].get("priceFrom") or rows[0].get("priceAvg") or 0)
+            print(
+                f"\n   >>> IS THAT PRICE PER NIGHT OR FOR THE WHOLE {nights}-NIGHT STAY?"
+            )
+            print(f"       If per night, the stay costs {sample * nights:,.0f} and you")
+            print("       should set  hotel_price_is_per_night: true  in trips.yaml.")
+            print(f"       If it is the whole stay ({sample:,.0f}), leave it false.")
+            print("       Check one of those hotels on Google to settle it.")
+        else:
+            print(f"   NO DATA for '{destination.label or destination.hotel_city}'.")
+            print("   Hotellook resolves city names — try adjusting the destination label.")
+            ok = False
+    except (SourceError, SourceUnavailable) as exc:
+        print(f"   FAILED: {exc}")
+        ok = False
+
+    print("\n4. Google Flights scraper (no key needed)")
+    if not google_flights.available():
+        print(f"   unavailable: {google_flights.import_error()}")
+    else:
+        quote = google_flights.search_flights(
+            trip, origin, destination.code, depart, ret,
+            config.settings.currency, config.settings,
+        )
+        if quote:
+            print(f"   {quote.total_price:,.0f} {quote.currency} for the party")
+        else:
+            print("   no result — the scraper may have broken, or the route has no fares")
+
+    print("\n" + ("All sources responded." if ok else "Some sources failed — see above."))
+    return 0 if ok else 1
+
+
 def _deliver(subject: str, html: str, text: str, args: argparse.Namespace) -> None:
     if args.dry_run:
         path = Path(args.out)
@@ -347,6 +464,9 @@ def build_parser() -> argparse.ArgumentParser:
     sub.add_parser("track", help="price trips, record history, fire alerts").set_defaults(func=cmd_track)
     sub.add_parser("digest", help="send the scheduled summary email").set_defaults(func=cmd_digest)
     sub.add_parser("dashboard", help="rebuild docs/index.html").set_defaults(func=cmd_dashboard)
+    sub.add_parser(
+        "doctor", help="make one live call to each source and show what came back"
+    ).set_defaults(func=cmd_doctor)
 
     demo = sub.add_parser("demo", help="generate synthetic history to preview output")
     demo.add_argument("--days", type=int, default=60)

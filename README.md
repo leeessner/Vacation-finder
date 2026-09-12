@@ -10,32 +10,6 @@ email. No subscriptions.
 
 **[Setup instructions →](SETUP.md)**
 
-> ## ⚠️ Status: the price source needs replacing
->
-> This was built against the **Amadeus Self-Service API**, whose free tier was
-> **decommissioned on 17 July 2026** — new registrations were paused earlier in
-> 2026 and existing keys were disabled on that date. Amadeus Enterprise
-> requires IATA/ARC accreditation and is not a realistic substitute.
->
-> Everything else in this project is unaffected: the scheduling, price history,
-> statistics, alerting, email and dashboard are all source-agnostic, and
-> `sources/` is a pluggable layer. What's needed is a new flight and hotel
-> source behind that interface.
->
-> **Candidates under consideration**
->
-> | Source | Covers | Cost | Catch |
-> |---|---|---|---|
-> | `fast-flights` (Google Flights scraper) | Flights | Free, no signup | Already built and wired in. Fragile by nature — breaks when Google changes their page. Actively maintained as of Aug 2026. |
-> | Travelpayouts Data API | Flights | Free, token on signup | Requires a free affiliate-network account. Data is *cached* from other users' recent searches, not live. |
-> | Travelpayouts / Hotellook | Hotels | Free, same token | Same caveats. The only free-forever hotel price source found. |
-> | Makcorps / StayAPI / HotelAPI | Hotels | Trial only (30–100 calls total) | Not sustainable for daily tracking. |
->
-> There is no longer any free, live, general-purpose hotel price API. That is
-> a real constraint, not a temporary one.
-
----
-
 ## The idea
 
 "$3,900 for a week in Cancún" tells you nothing on its own. It means something
@@ -60,34 +34,55 @@ So the tracker:
 | Piece | Service | Cost |
 |---|---|---|
 | Scheduling | GitHub Actions | Free (~5 min/day, well inside the free allowance) |
-| Flights & hotels | *pending replacement* | Amadeus free tier shut down 17 Jul 2026 |
+| Flights & hotels | Travelpayouts + Hotellook | Free affiliate token, no card |
 | Flight cross-check | Google Flights scraper | Free, no key |
 | Email | Gmail SMTP | Free |
 | Storage & dashboard | Git + GitHub Pages | Free |
 
-`python -m vacation_finder validate` prints your projected monthly call count
-and warns before you'd exceed the quota.
+`python -m vacation_finder validate` prints your projected call volume, and
+`python -m vacation_finder doctor` makes one live call to each source and
+shows exactly what came back — the fastest way to confirm a working setup.
 
 ## Where the prices come from
 
-**Amadeus Self-Service** *was* the backbone — see the status notice above.
-The `sources/amadeus.py` client is kept intact because the interface it
-implements is the one a replacement will fill, but it cannot authenticate.
+**Travelpayouts** is the backbone, covering flights and hotels on one free
+affiliate token. Two properties of it shape everything downstream:
 
-**A Google Flights scraper** (`fast-flights`) is now the only working source.
-It needs no key, and it sees fares Amadeus's inventory sometimes misses. It is
+- The data is **cached**, not live — the cheapest fares and rates other
+  people's recent searches turned up. For watching a trend over months that
+  is fine, arguably steadier than live search. For booking it is a pointer,
+  not a quote.
+- Flight prices are **per adult**; the endpoints take no passenger counts.
+  The tracker scales by party size, which overstates slightly since children
+  fly for less.
+
+This replaced **Amadeus Self-Service**, whose free tier was decommissioned on
+17 July 2026.
+
+**A Google Flights scraper** (`fast-flights`) runs alongside for airfare.
+It needs no key, and unlike Travelpayouts it is *live* and prices the actual
+party rather than scaling one adult — so it is the better number when it
+works. It is
 also, unavoidably, fragile: when Google changes their page it stops working. So
-it is strictly optional — if it fails, the run continues on Amadeus alone and
-the failure is logged. When the two sources disagree by more than 10%, the run
-notes it, which is usually the first sign a source has drifted.
+it is strictly optional — if it fails, the run continues on cached data alone
+and the failure is logged. When the two sources disagree by more than 15%, the
+run notes it: some gap is expected between a live scrape and a per-adult
+cached average, but a large one usually means the cache is stale or a source
+has drifted.
 
 ### Known limits, stated plainly
 
-- **Southwest publishes fares nowhere.** Not to Amadeus, not to Google Flights,
-  not to any aggregator. If Southwest flies your route, check it by hand.
-- **Amadeus hotel coverage is chain-weighted.** Large brands are well covered;
-  small independents, boutiques and many all-inclusives are not. For a specific
-  resort you care about, put its `hotel_ids` in the trip config.
+- **Prices are cached, not live.** Travelpayouts reports what recent searches
+  found, so a number can be hours or days stale. The tracker surfaces the
+  fare's age when it is three days or older.
+- **Flight prices are scaled from one adult.** The API takes no passenger
+  counts, so a party of six is one adult fare times six. Real family fares are
+  usually a little lower.
+- **Southwest publishes fares nowhere.** Not to Travelpayouts, not to Google
+  Flights, not to any aggregator. If Southwest flies your route, check by hand.
+- **Hotel coverage varies by destination.** Set `lodging.coverage` per trip
+  (`good`/`thin`/`none`) and the reports will say how much to trust the number
+  rather than presenting all of them with equal confidence.
 - **Vacation rentals (Airbnb/Vrbo) aren't covered.** They have no free API and
   aggressive bot protection.
 - **Car rental and fuel are estimates, not quotes.** Set `ground.per_day_cost`
@@ -142,6 +137,7 @@ python -m vacation_finder validate          # check config, estimate API usage
 python -m vacation_finder track             # price everything, record, alert
 python -m vacation_finder digest            # send the scheduled summary
 python -m vacation_finder dashboard         # rebuild docs/index.html
+python -m vacation_finder doctor            # live-check every price source
 python -m vacation_finder demo --days 60    # synthetic history, to preview output
 ```
 
@@ -163,7 +159,7 @@ Cron in GitHub Actions is always UTC.
 
 ```
 config/trips.yaml ─┐
-                   ├─→ pricing.py ──→ sources/{amadeus,google_flights}.py
+                   ├─→ pricing.py ──→ sources/{travelpayouts,google_flights}.py
 config/destinations.yaml                      │
                                               ▼
                             storage.py ──→ data/history/*.csv  (committed daily)
@@ -184,6 +180,6 @@ pip install -r requirements-dev.txt
 python -m pytest
 ```
 
-79 tests covering date sampling, driving trips, price assessment, alert rules and cooldowns,
+93 tests covering date sampling, driving trips, price assessment, alert rules and cooldowns,
 config validation, storage round-trips, and API response parsing against
 recorded payload shapes. No network access required.

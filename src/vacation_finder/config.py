@@ -172,7 +172,10 @@ class Settings:
     max_date_samples_per_trip: int = 6
     max_hotels_per_query: int = 20
     lookahead_min_days: int = 14
-    amadeus_env: str = "test"
+    # Whether Hotellook's cached price covers one night or the whole stay.
+    # Verify once with `doctor` against a real booking; it is the only
+    # genuinely ambiguous thing about that API.
+    hotel_price_is_per_night: bool = False
     google_flights_enabled: bool = True
     google_flights_price_is_total: bool = True
 
@@ -378,9 +381,12 @@ def _parse_settings(raw: Any) -> Settings:
     raw = raw or {}
     if not isinstance(raw, dict):
         raise ConfigError("'settings' must be a mapping")
-    amadeus_env = str(raw.get("amadeus_env", "test")).lower()
-    if amadeus_env not in {"test", "production"}:
-        raise ConfigError("settings.amadeus_env must be 'test' or 'production'")
+    if "amadeus_env" in raw:
+        raise ConfigError(
+            "settings.amadeus_env is obsolete — the Amadeus Self-Service free tier "
+            "was decommissioned on 2026-07-17. Remove this line; the tracker now "
+            "uses Travelpayouts (see SETUP.md)."
+        )
     return Settings(
         currency=str(raw.get("currency", "USD")).upper(),
         home_airports=tuple(str(a).strip().upper() for a in raw.get("home_airports", []) or []),
@@ -388,7 +394,7 @@ def _parse_settings(raw: Any) -> Settings:
         max_date_samples_per_trip=int(raw.get("max_date_samples_per_trip", 6)),
         max_hotels_per_query=int(raw.get("max_hotels_per_query", 20)),
         lookahead_min_days=int(raw.get("lookahead_min_days", 14)),
-        amadeus_env=amadeus_env,
+        hotel_price_is_per_night=bool(raw.get("hotel_price_is_per_night", False)),
         google_flights_enabled=bool(raw.get("google_flights_enabled", True)),
         google_flights_price_is_total=bool(raw.get("google_flights_price_is_total", True)),
     )

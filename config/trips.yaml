@@ -16,6 +16,16 @@
 # Mon Mar 15, home by Tue–Fri, with the rest of the week at home. No weekday
 # restriction, since you're open to travelling on cheaper days.
 #
+# PRICE SOURCE: Travelpayouts (free affiliate token) plus the keyless Google
+# Flights scraper as a live cross-check. Amadeus Self-Service, which this was
+# originally built on, shut down on 2026-07-17.
+#
+# Travelpayouts data is CACHED — the cheapest fares other people's searches
+# turned up recently, not a live availability check — and its flight prices
+# are per adult, which the tracker scales by party size. That slightly
+# overstates, since children usually fly for less. Good for spotting a trend;
+# not a quote.
+#
 # lodging.coverage says how much to trust a lodging number:
 #   good — chain hotels, priced reliably
 #   thin — family rooms, small independents, alpine and island properties.
@@ -35,10 +45,10 @@ settings:
   max_hotels_per_query: 20
   lookahead_min_days: 14
 
-  # >>> Still 'test' — Amadeus returns cached sample data in this mode, so the
-  # numbers will look plausible and be fake. Switch to 'production' after you
-  # click "Move to Production" in the Amadeus dashboard (free, same quota).
-  amadeus_env: test
+  # Hotellook's cached price is ambiguous about whether it covers one night
+  # or the whole stay. Run `python -m vacation_finder doctor` once against a
+  # real booking to settle it, then set this accordingly.
+  hotel_price_is_per_night: false
 
   google_flights_enabled: true
   google_flights_price_is_total: true

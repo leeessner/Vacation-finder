@@ -1,40 +1,44 @@
 # Setup
 
-> ## ⚠️ Amadeus Self-Service shut down on 17 July 2026
->
-> The free developer tier this project was built on **no longer exists.**
-> Amadeus paused new registrations in early 2026 and decommissioned the
-> self-service portal entirely on 17 July 2026; existing API keys were
-> disabled. What remains is Amadeus Enterprise, which requires IATA/ARC
-> accreditation and negotiated commercial terms — not viable here.
->
-> **Do not attempt the Amadeus signup below.** It is kept only so the
-> configuration it describes still makes sense. A replacement price source is
-> being chosen; see the README for current status.
-
-
 Three one-time steps, about 20 minutes. Everything here is free — no
 subscriptions, no credit card, no per-call charges.
 
+> **Note on history:** this was originally built on the Amadeus Self-Service
+> API, whose free tier was decommissioned on 17 July 2026. Travelpayouts
+> replaces it. If you find any reference to Amadeus elsewhere, it is stale.
+
 ---
 
-## 1. ~~Amadeus API keys~~ — DEFUNCT, skip this section
+## 1. Travelpayouts token (free, ~8 min)
 
-Amadeus's Self-Service tier gives 2,000 free calls a month. The default config
-uses roughly 700, so there is comfortable headroom.
+Travelpayouts is a travel affiliate network. The account is free and needs no
+card, and the API token is issued immediately on signup.
 
-1. Register at <https://developers.amadeus.com/register>. Email and password
-   only — no payment details are requested at any point.
-2. Confirm your email, then go to **My Self-Service Workspace → Create New App**.
-3. Name it anything. You'll be shown an **API Key** and an **API Secret**.
-4. Copy both. The secret is shown once.
+1. Register at <https://www.travelpayouts.com/>. Email and password; no
+   payment details are requested.
+2. Confirm your email and finish the short profile. When it asks what you
+   promote, a personal site or blog is a fine answer — you are not obliged to
+   promote anything, and the API works regardless.
+3. Go to **Tools → API** (or <https://www.travelpayouts.com/programs/100/tools/api>)
+   and copy your **API token**.
+4. While you are there, note your **marker** — the affiliate id shown in your
+   dashboard. It is optional for our purposes but worth storing.
 
-> **Test vs production.** A new app starts in the *test* environment, which
-> returns Amadeus's cached sample data. That is useful for confirming the
-> plumbing works, but the prices are not real. When you're ready for live
-> prices, click **Move to Production** in the Amadeus dashboard (still free,
-> same 2,000-call quota) and set `amadeus_env: production` in
-> `config/trips.yaml`. Until you do that, treat every number as fake.
+### What you are actually signing up for
+
+Worth being clear, since it is a commercial network rather than a plain
+developer portal:
+
+- You are creating an **affiliate marketing account.** Nothing obliges you to
+  use it as one, and the data API works without ever placing a link.
+- The prices are **cached**, not live — they are the cheapest fares and rates
+  that other people's recent searches turned up. For watching a trend over
+  months, which is what this project does, that is fine and arguably steadier
+  than live search. For booking, treat every number as a pointer, not a quote.
+- Flight prices are quoted **per adult**. The API takes no passenger counts at
+  all. The tracker multiplies by your party size, which overstates a little
+  because children usually fly for less. Overstating is the safer direction
+  for a budget, but it is an estimate and the reports say so.
 
 ## 2. Gmail app password (free, ~3 min)
 
@@ -55,8 +59,8 @@ In this repository: **Settings → Secrets and variables → Actions → New rep
 
 | Secret name | Value |
 |---|---|
-| `AMADEUS_CLIENT_ID` | Amadeus API Key from step 1 |
-| `AMADEUS_CLIENT_SECRET` | Amadeus API Secret from step 1 |
+| `TRAVELPAYOUTS_TOKEN` | API token from step 1 |
+| `TRAVELPAYOUTS_MARKER` | Your affiliate marker (optional) |
 | `SMTP_USER` | Your Gmail address |
 | `SMTP_PASSWORD` | The 16-character app password from step 2 |
 | `EMAIL_TO` | Where the reports go (can be the same address) |
@@ -78,18 +82,34 @@ and that link is included in every email.
 
 ---
 
-## Verify it works
+## Verify it works — do this first
 
-From the **Actions** tab, run **Track prices** manually
-(*Run workflow*). Then check:
+From the **Actions** tab, run **Doctor** (*Run workflow*). It makes one call to
+each source and prints exactly what came back, so you find out in 30 seconds
+rather than at 9am tomorrow.
 
-- The run's log ends with a line like `best USD 4231 (2027-02-06 → 2027-02-13)`.
-- A new commit appears with the day's prices.
-- `data/history/<trip-id>.csv` has a row.
+It checks four things: the token is accepted; flight prices come back for a
+real route; hotel prices come back for a real city; and the Google Flights
+scraper still works.
 
-If the log says `amadeus unavailable`, the secrets aren't set or are wrong.
-If it says `no priceable option found`, your date window or filters may be too
-narrow — `max_stops: 0` with an unusual route is the usual culprit.
+### The one thing Doctor asks you to settle
+
+Hotellook's cached price is ambiguous about whether it covers **one night** or
+**the whole stay**, and the documentation does not say. Doctor prints both
+readings with a real hotel name. Look that hotel up on Google for those dates,
+see which figure it resembles, and set `hotel_price_is_per_night` in
+`config/trips.yaml` to match. One minute, once, and every lodging number after
+that is right.
+
+Then run **Track prices** manually. You should see:
+
+- A log line like `best USD 4231 (2027-03-12 → 2027-03-16)`.
+- A new commit with the day's prices.
+- A row in `data/history/<trip-id>.csv`.
+
+If the log says `travelpayouts unavailable`, the token secret is missing or
+wrong. If it says `no priceable option found`, the route may simply have no
+cached fares — Doctor will show you whether any data exists at all.
 
 ## Quick command reference
 
@@ -97,6 +117,7 @@ narrow — `max_stops: 0` with an unusual route is the usual culprit.
 pip install -r requirements-dev.txt
 
 python -m vacation_finder validate           # check config, estimate API usage
+python -m vacation_finder doctor             # live-check every price source
 python -m vacation_finder demo --days 60     # synthetic data, to preview output
 python -m vacation_finder track              # real prices (needs the env vars)
 python -m vacation_finder digest --dry-run   # write the email to build/ instead of sending
@@ -105,7 +126,7 @@ python -m vacation_finder digest --dry-run   # write the email to build/ instead
 Set credentials locally with a `.env`-style export before `track`:
 
 ```bash
-export AMADEUS_CLIENT_ID=... AMADEUS_CLIENT_SECRET=...
+export TRAVELPAYOUTS_TOKEN=...
 export SMTP_USER=... SMTP_PASSWORD=... EMAIL_TO=...
 ```
 
