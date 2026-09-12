@@ -1,11 +1,24 @@
 # Setup
 
+> ## ⚠️ Amadeus Self-Service shut down on 17 July 2026
+>
+> The free developer tier this project was built on **no longer exists.**
+> Amadeus paused new registrations in early 2026 and decommissioned the
+> self-service portal entirely on 17 July 2026; existing API keys were
+> disabled. What remains is Amadeus Enterprise, which requires IATA/ARC
+> accreditation and negotiated commercial terms — not viable here.
+>
+> **Do not attempt the Amadeus signup below.** It is kept only so the
+> configuration it describes still makes sense. A replacement price source is
+> being chosen; see the README for current status.
+
+
 Three one-time steps, about 20 minutes. Everything here is free — no
 subscriptions, no credit card, no per-call charges.
 
 ---
 
-## 1. Amadeus API keys (free tier, ~10 min)
+## 1. ~~Amadeus API keys~~ — DEFUNCT, skip this section
 
 Amadeus's Self-Service tier gives 2,000 free calls a month. The default config
 uses roughly 700, so there is comfortable headroom.

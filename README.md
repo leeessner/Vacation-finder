@@ -5,10 +5,34 @@ plus lodging plus ground transport — every day, builds a price history, and
 emails you when something is genuinely a good deal rather than merely cheap-
 sounding.
 
-Runs entirely on free tiers: GitHub Actions for scheduling, the Amadeus
-Self-Service API for prices, Gmail SMTP for email. No subscriptions.
+Runs entirely on free tiers: GitHub Actions for scheduling, Gmail SMTP for
+email. No subscriptions.
 
 **[Setup instructions →](SETUP.md)**
+
+> ## ⚠️ Status: the price source needs replacing
+>
+> This was built against the **Amadeus Self-Service API**, whose free tier was
+> **decommissioned on 17 July 2026** — new registrations were paused earlier in
+> 2026 and existing keys were disabled on that date. Amadeus Enterprise
+> requires IATA/ARC accreditation and is not a realistic substitute.
+>
+> Everything else in this project is unaffected: the scheduling, price history,
+> statistics, alerting, email and dashboard are all source-agnostic, and
+> `sources/` is a pluggable layer. What's needed is a new flight and hotel
+> source behind that interface.
+>
+> **Candidates under consideration**
+>
+> | Source | Covers | Cost | Catch |
+> |---|---|---|---|
+> | `fast-flights` (Google Flights scraper) | Flights | Free, no signup | Already built and wired in. Fragile by nature — breaks when Google changes their page. Actively maintained as of Aug 2026. |
+> | Travelpayouts Data API | Flights | Free, token on signup | Requires a free affiliate-network account. Data is *cached* from other users' recent searches, not live. |
+> | Travelpayouts / Hotellook | Hotels | Free, same token | Same caveats. The only free-forever hotel price source found. |
+> | Makcorps / StayAPI / HotelAPI | Hotels | Trial only (30–100 calls total) | Not sustainable for daily tracking. |
+>
+> There is no longer any free, live, general-purpose hotel price API. That is
+> a real constraint, not a temporary one.
 
 ---
 
@@ -36,7 +60,7 @@ So the tracker:
 | Piece | Service | Cost |
 |---|---|---|
 | Scheduling | GitHub Actions | Free (~5 min/day, well inside the free allowance) |
-| Flights & hotels | Amadeus Self-Service | Free, 2,000 calls/month; default config uses ~700 |
+| Flights & hotels | *pending replacement* | Amadeus free tier shut down 17 Jul 2026 |
 | Flight cross-check | Google Flights scraper | Free, no key |
 | Email | Gmail SMTP | Free |
 | Storage & dashboard | Git + GitHub Pages | Free |
@@ -46,11 +70,11 @@ and warns before you'd exceed the quota.
 
 ## Where the prices come from
 
-**Amadeus Self-Service** is the backbone — a real API with a genuinely free
-tier, covering flights and chain hotels. It's stable and it won't break when
-someone changes a web page.
+**Amadeus Self-Service** *was* the backbone — see the status notice above.
+The `sources/amadeus.py` client is kept intact because the interface it
+implements is the one a replacement will fill, but it cannot authenticate.
 
-**A Google Flights scraper** (`fast-flights`) runs alongside it for airfare.
+**A Google Flights scraper** (`fast-flights`) is now the only working source.
 It needs no key, and it sees fares Amadeus's inventory sometimes misses. It is
 also, unavoidably, fragile: when Google changes their page it stops working. So
 it is strictly optional — if it fails, the run continues on Amadeus alone and
