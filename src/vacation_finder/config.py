@@ -89,9 +89,19 @@ class FlightPrefs:
     exclude_basic_economy: bool = False
 
 
+# How well Amadeus actually covers the lodging you'd book at a destination.
+#   good — chain hotels, priced reliably
+#   thin — family rooms, small independents, alpine and island properties:
+#          the number is a usable floor, not the thing you'd book
+#   none — cabins, apartments, Airbnb/Vrbo: not covered at all, so don't
+#          pretend by reporting a chain-hotel price instead
+COVERAGE_LEVELS = {"good", "thin", "none"}
+
+
 @dataclass(frozen=True)
 class LodgingPrefs:
     enabled: bool = True
+    coverage: str = "good"
     rooms: int = 1
     min_stars: float | None = None
     min_rating: float | None = None
@@ -294,8 +304,16 @@ def _parse_trip(raw: Any, index: int, settings: Settings) -> Trip:
     )
 
     lodging_raw = raw.get("lodging") or {}
+    coverage = str(lodging_raw.get("coverage", "good")).lower()
+    if coverage not in COVERAGE_LEVELS:
+        raise ConfigError(
+            f"{where}: lodging.coverage must be one of {sorted(COVERAGE_LEVELS)}"
+        )
     lodging = LodgingPrefs(
-        enabled=bool(lodging_raw.get("enabled", True)),
+        # 'none' means we know the API can't see this lodging; querying it
+        # would return an unrelated chain hotel and quietly mislead.
+        enabled=bool(lodging_raw.get("enabled", True)) and coverage != "none",
+        coverage=coverage,
         rooms=int(lodging_raw.get("rooms", 1)),
         min_stars=_opt_float(lodging_raw.get("min_stars")),
         min_rating=_opt_float(lodging_raw.get("min_rating")),

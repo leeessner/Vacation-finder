@@ -8,6 +8,21 @@
 #   * all four kids sit in the 2–11 airline pricing band, so their exact ages
 #     don't change a fare. The ages here are as of today; no need to age them.
 #
+# Plan for the year: one large vacation (Europe, summer 2027) plus a short
+# domestic trip over spring break.
+#
+# Spring break 2027 is Mon Mar 15 – Fri Mar 19. The domestic trip is short
+# (4 nights) and front-loaded: leave Fri Mar 12 (one day off school) through
+# Mon Mar 15, home by Tue–Fri, with the rest of the week at home. No weekday
+# restriction, since you're open to travelling on cheaper days.
+#
+# lodging.coverage says how much to trust a lodging number:
+#   good — chain hotels, priced reliably
+#   thin — family rooms, small independents, alpine and island properties.
+#          The number is a usable floor, not the thing you'd actually book.
+#   none — cabins, apartments, Airbnb/Vrbo. Not covered at all, so lodging
+#          isn't queried rather than reporting a misleading chain-hotel price.
+#
 # After editing:  python -m vacation_finder validate
 # ============================================================================
 
@@ -16,7 +31,6 @@ settings:
   home_airports: [STL]          # St. Louis Lambert
   timezone: America/Chicago
 
-  # Spring break is a fixed week, so each trip only needs a few date samples.
   max_date_samples_per_trip: 3
   max_hotels_per_query: 20
   lookahead_min_days: 14
@@ -30,11 +44,11 @@ settings:
   google_flights_price_is_total: true
 
 # ============================================================================
-# SPRING BREAK 2027 — drivable
+# SPRING BREAK 2027 — short, domestic, by car
 # ----------------------------------------------------------------------------
-# No airfare for six people is the whole advantage here. Fuel is estimated
-# from distance (no free API prices a road trip), so the number that actually
-# moves day to day is lodging.
+# No airfare for six is the whole advantage. Fuel is estimated from distance
+# (no free API prices a road trip), so the number that actually moves day to
+# day is lodging.
 # ============================================================================
 trips:
 
@@ -42,7 +56,7 @@ trips:
     name: "Nashville"
     why: "Four and a half hours by car — no airfare for six, and a real city at the end of it"
     active: true
-    travel: drive                # never prices flights
+    travel: drive
     destinations:
       - code: BNA
         label: "Nashville, TN"
@@ -52,21 +66,21 @@ trips:
       children: [8, 7, 5, 3]
     dates:
       mode: window
-      # >>> CONFIRM: placeholder spring-break window. Replace with the real
-      # week from the school calendar and this gets much more precise.
-      earliest: 2027-03-06
-      latest: 2027-03-21
+      earliest: 2027-03-12        # Fri before break — worth one day off school
+      latest: 2027-03-19          # home by the end of the week
       nights: 4
+    max_date_samples: 4           # only four departures fit; price them all
     lodging:
       enabled: true
+      coverage: good              # downtown chains are well covered
       rooms: 2
       min_stars: 3
-      max_per_night: 400         # across both rooms
+      max_per_night: 400          # across both rooms
     ground:
       drive_round_trip_miles: 620
       mpg: 22
       fuel_price_per_gallon: 3.10
-      flat_cost: 70              # downtown parking, roughly
+      flat_cost: 70               # downtown parking, roughly
       notes: "Driving from STL — fuel and parking"
     alerts:
       # No absolute target, per your note that it depends on the experience.
@@ -79,7 +93,7 @@ trips:
 
   - id: smokies-spring-break
     name: "Great Smoky Mountains"
-    why: "Cabins sleep all six for less than two hotel rooms, and the park itself is free"
+    why: "The park is free and the kids would love it — but it's 8+ hours each way for a 4-night trip"
     active: true
     travel: drive
     destinations:
@@ -91,11 +105,16 @@ trips:
       children: [8, 7, 5, 3]
     dates:
       mode: window
-      earliest: 2027-03-06
-      latest: 2027-03-21
-      nights: 5
+      earliest: 2027-03-12
+      latest: 2027-03-19
+      nights: 4
+    max_date_samples: 4
     lodging:
       enabled: true
+      # The thing you'd actually book here is a cabin, and Amadeus can't see
+      # cabin rentals. What it returns is Pigeon Forge / Sevierville chain
+      # hotels — a real alternative and a useful floor, but not the cabin.
+      coverage: thin
       rooms: 2
       min_stars: 3
       max_per_night: 400
@@ -113,13 +132,24 @@ trips:
     tags: [nature, hiking, national-park, wildlife, kid-friendly, no-passport, road-trip, drive-from-stl]
 
 # ============================================================================
-# SPRING BREAK 2027 — Europe
+# SUMMER 2027 — the big trip. Six candidates, one slot.
 # ----------------------------------------------------------------------------
+# These are competing for the same vacation, which is exactly what the tracker
+# is good at: run them all, compare real numbers in May, pick one.
+#
+# Airfare is OFF for now. You were right that it's early, though not for the
+# reason you'd expect — airlines have loaded June 2027 schedules already, but
+# fares this far out are placeholder-high and tell you nothing. Lodging is a
+# different story: summer European inventory is open now and the good family
+# properties sell out early, so the lodging baseline starts today.
+#
+# Flip `flights.enabled: true` on these around January.
+#
 # Note on multi-city trips: the tracker prices ONE gateway per trip. For
 # Barcelona-and-Madrid it tracks the Barcelona flight and hotel, and the
-# Madrid leg sits in ground.flat_cost as a train estimate. Treating them as
-# two destinations would make the tracker price them as alternatives and
-# report the cheaper one, which would understate the trip.
+# Madrid leg sits in ground.flat_cost as a train estimate. Listing both as
+# destinations would make the tracker price them as alternatives and report
+# the cheaper one, which would understate the trip.
 # ============================================================================
 
   - id: spain-barcelona-madrid
@@ -135,18 +165,20 @@ trips:
       children: [8, 7, 5, 3]
     dates:
       mode: window
-      earliest: 2027-03-06
-      latest: 2027-03-21
-      nights: 9
+      earliest: 2027-06-05
+      latest: 2027-07-17
+      nights: 10
     flights:
+      enabled: false             # flip in January
       max_stops: 1               # nonstop STL–Europe doesn't exist
       cabin: economy
       checked_bags: 3
     lodging:
       enabled: true
+      coverage: good
       rooms: 2
       min_stars: 3
-      max_per_night: 550
+      max_per_night: 600
     ground:
       flat_cost: 520
       notes: "AVE train Barcelona–Madrid for six, plus airport transfers"
@@ -154,7 +186,7 @@ trips:
       drop_pct_vs_median: 10
       percentile_below: 20
       all_time_low: true
-      cooldown_days: 3
+      cooldown_days: 4
     tags: [city, culture, food, europe, walkable, kid-friendly]
 
   - id: paris-versailles
@@ -170,18 +202,20 @@ trips:
       children: [8, 7, 5, 3]
     dates:
       mode: window
-      earliest: 2027-03-06
-      latest: 2027-03-21
-      nights: 8
+      earliest: 2027-06-05
+      latest: 2027-07-17
+      nights: 9
     flights:
+      enabled: false
       max_stops: 1
       cabin: economy
       checked_bags: 3
     lodging:
       enabled: true
+      coverage: good
       rooms: 2
       min_stars: 3
-      max_per_night: 600
+      max_per_night: 650
     ground:
       flat_cost: 340
       notes: "Paris transit passes for six, plus RER to Versailles and CDG"
@@ -189,7 +223,7 @@ trips:
       drop_pct_vs_median: 10
       percentile_below: 20
       all_time_low: true
-      cooldown_days: 3
+      cooldown_days: 4
     tags: [city, culture, food, europe, walkable, kid-friendly]
 
   - id: nice-riviera
@@ -205,18 +239,20 @@ trips:
       children: [8, 7, 5, 3]
     dates:
       mode: window
-      earliest: 2027-03-06
-      latest: 2027-03-21
-      nights: 8
+      earliest: 2027-06-05
+      latest: 2027-07-17
+      nights: 9
     flights:
+      enabled: false
       max_stops: 1
       cabin: economy
       checked_bags: 3
     lodging:
       enabled: true
+      coverage: good
       rooms: 2
       min_stars: 3
-      max_per_night: 550
+      max_per_night: 600
     ground:
       flat_cost: 260
       notes: "Coastal trains and airport transfers for six"
@@ -224,22 +260,8 @@ trips:
       drop_pct_vs_median: 10
       percentile_below: 20
       all_time_low: true
-      cooldown_days: 3
+      cooldown_days: 4
     tags: [beach, city, culture, food, europe, walkable, kid-friendly, reliable-weather]
-
-# ============================================================================
-# SUMMER 2027 — lodging baseline only, for now
-# ----------------------------------------------------------------------------
-# You were right that it's early, though not for the reason you'd expect:
-# airlines load schedules about 11 months out, so June 2027 is already
-# bookable and July/August is right at the edge. The real problem is that
-# fares this far out are placeholder-high and tell you nothing.
-#
-# So: flights.enabled is false and these track LODGING ONLY, which is
-# genuinely useful now — summer European hotel inventory is already open and
-# the good family properties sell out early. Flip `enabled: true` around
-# January and airfare starts recording too.
-# ============================================================================
 
   - id: greece-summer
     name: "Greece — Athens & the islands"
@@ -255,14 +277,17 @@ trips:
     dates:
       mode: window
       earliest: 2027-06-05
-      latest: 2027-07-10
+      latest: 2027-07-17
       nights: 10
     flights:
-      enabled: false             # see the note above; flip in January
+      enabled: false
       max_stops: 1
       checked_bags: 3
     lodging:
       enabled: true
+      # Athens chains price fine; the island half is small family-run places
+      # Amadeus barely sees. The tracked number is the Athens leg.
+      coverage: thin
       rooms: 2
       min_stars: 3
       max_per_night: 600
@@ -290,7 +315,7 @@ trips:
     dates:
       mode: window
       earliest: 2027-06-05
-      latest: 2027-07-10
+      latest: 2027-07-17
       nights: 10
     flights:
       enabled: false
@@ -298,6 +323,7 @@ trips:
       checked_bags: 3
     lodging:
       enabled: true
+      coverage: good             # Lisbon is well covered; the Azores leg is in ground
       rooms: 2
       min_stars: 3
       max_per_night: 450
@@ -325,7 +351,7 @@ trips:
     dates:
       mode: window
       earliest: 2027-06-05
-      latest: 2027-07-10
+      latest: 2027-07-17
       nights: 10
     flights:
       enabled: false
@@ -333,9 +359,13 @@ trips:
       checked_bags: 3
     lodging:
       enabled: true
+      # Alpine family resorts — the exact thing Mary Beth is saving — are
+      # mostly independents Amadeus doesn't carry. Expect a Munich hotel
+      # price, which is a floor and not the resort.
+      coverage: thin
       rooms: 2
       min_stars: 4
-      max_per_night: 650
+      max_per_night: 700
     ground:
       rental_car: true
       per_day_cost: 95
@@ -364,14 +394,15 @@ trips:
       children: [8, 7, 5, 3]
     dates:
       mode: window
-      earliest: 2027-03-06
-      latest: 2027-03-21
-      nights: 6
+      earliest: 2027-03-12
+      latest: 2027-03-19
+      nights: 4
     flights:
       max_stops: 1
       checked_bags: 3
     lodging:
       enabled: true
+      coverage: good
       rooms: 2
       min_stars: 3
       max_per_night: 450
