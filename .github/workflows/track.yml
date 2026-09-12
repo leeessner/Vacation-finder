@@ -6,7 +6,7 @@ name: Track prices
 # scheduled workflows after 60 idle days.
 on:
   schedule:
-    - cron: "0 13 * * *"      # 09:00 America/New_York (EDT) / 08:00 (EST)
+    - cron: "0 14 * * *"      # 09:00 America/Chicago (CDT) / 08:00 (CST)
   workflow_dispatch:           # lets you run it by hand from the Actions tab
 
 permissions:

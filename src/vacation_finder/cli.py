@@ -60,6 +60,10 @@ def _dashboard_url() -> str:
 
 # --------------------------------------------------------------------------- #
 
+def money_fuel(trip) -> str:
+    return f"${trip.ground.fuel_cost:,.0f} fuel"
+
+
 def cmd_validate(args: argparse.Namespace) -> int:
     config = _load(args.config)
     today = date.today()
@@ -68,13 +72,43 @@ def cmd_validate(args: argparse.Namespace) -> int:
     print(f"{len(config.trips)} trip(s) configured, {len(config.active_trips)} active\n")
     for trip in config.trips:
         windows = candidate_windows(trip, today, config.settings)
-        per_run = len(trip.destinations) * len(windows) * (len(trip.origins) + 1)
+        dests, n_windows = len(trip.destinations), len(windows)
+
+        # Only Amadeus calls count against the 2,000/month free quota. The
+        # Google Flights scrape is free and unmetered, so it is reported
+        # separately rather than inflating the quota estimate.
+        flight_calls = dests * n_windows * len(trip.origins) if trip.flights.enabled else 0
+        hotel_calls = (dests * n_windows + dests) if trip.lodging.enabled else 0
+        per_run = flight_calls + hotel_calls
+        scrapes = (
+            dests * n_windows * len(trip.origins)
+            if trip.flights.enabled and config.settings.google_flights_enabled
+            else 0
+        )
         if trip.active:
             monthly_calls += per_run * 30
         flag = "" if trip.active else "  (inactive)"
         print(f"  {trip.id}{flag}")
         print(f"    {trip.name} — {trip.party.adults} adult(s), {len(trip.party.children)} child(ren)")
-        print(f"    from {', '.join(trip.origins)} to {', '.join(d.code for d in trip.destinations)}")
+        if trip.travel_mode == "drive":
+            miles = trip.ground.drive_round_trip_miles
+            print(
+                f"    driving to {', '.join(d.display for d in trip.destinations)}"
+                + (f" ({miles:,.0f} mi round trip, ~{money_fuel(trip)})" if miles else "")
+            )
+        else:
+            print(
+                f"    from {', '.join(trip.origins)} to "
+                f"{', '.join(d.code for d in trip.destinations)}"
+                + ("" if trip.flights.enabled else "  [airfare not priced yet]")
+            )
+        capacity = trip.lodging.rooms * 4
+        if trip.lodging.enabled and trip.party.total > capacity:
+            print(
+                f"    WARNING: {trip.party.total} travellers in {trip.lodging.rooms} room(s). "
+                f"Most hotels cap at 4 per room — set lodging.rooms higher or "
+                f"prices will be unrealistically low."
+            )
         if windows:
             print(
                 f"    {len(windows)} date window(s) per run, "
@@ -82,12 +116,24 @@ def cmd_validate(args: argparse.Namespace) -> int:
             )
         else:
             print("    WARNING: no valid departure dates — check dates.earliest/latest")
-        print(f"    ~{per_run} API calls per run, tags: {', '.join(trip.tags) or 'none'}")
+        print(
+            f"    ~{per_run} Amadeus call(s) per run"
+            + (f" + {scrapes} free Google scrape(s)" if scrapes else "")
+        )
+        print(f"    tags: {', '.join(trip.tags) or 'none'}")
 
-    print(f"\nEstimated ~{monthly_calls:,} calls/month at one run per day.")
-    if monthly_calls > 1800:
-        print("  That is close to the 2,000/month Amadeus free tier. Reduce")
-        print("  settings.max_date_samples_per_trip or deactivate a trip.")
+    QUOTA = 2000
+    pct = monthly_calls / QUOTA * 100
+    print(
+        f"\nEstimated ~{monthly_calls:,} Amadeus calls/month at one run per day "
+        f"({pct:.0f}% of the {QUOTA:,} free quota)."
+    )
+    if monthly_calls > QUOTA:
+        print("  OVER QUOTA. Lower settings.max_date_samples_per_trip, narrow a")
+        print("  date window, or deactivate a trip.")
+    elif pct > 80:
+        print("  Little headroom left. Narrowing a date window is the cheapest fix:")
+        print("  halving the samples on one trip halves its cost.")
     return 0
 
 

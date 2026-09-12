@@ -5,10 +5,10 @@ name: Email digest
 # sent by the tracking workflow the moment a threshold is crossed.
 on:
   schedule:
-    # 00:00 UTC Wednesday and Saturday == Tuesday and Friday 20:00 in
-    # America/New_York (19:00 during standard time). Change these two lines
-    # to move the digest; cron here is always UTC.
-    - cron: "0 0 * * 3,6"
+    # 01:00 UTC Wednesday and Saturday == Tuesday and Friday 20:00 in
+    # America/Chicago (19:00 during standard time, since cron has no DST).
+    # Change this one line to move the digest; cron here is always UTC.
+    - cron: "0 1 * * 3,6"
   workflow_dispatch:
 
 permissions:

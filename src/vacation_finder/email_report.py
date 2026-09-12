@@ -108,8 +108,12 @@ def trip_card(report: TripReport) -> str:
 
     assessment = report.total
     verdict_text = assessment.verdict if assessment else "—"
-    rows = [
-        _row("Flights (whole party)", money(latest.flight_total, sym)),
+    rows = []
+    if latest.airfare_applies:
+        rows.append(_row("Flights (whole party)", money(latest.flight_total, sym)))
+    elif latest.travel_mode != "drive":
+        rows.append(_row("Flights", "not priced yet"))
+    rows += [
         _row(
             f"Lodging · {latest.nights} nights"
             + (f" · {latest.lodging_name[:34]}" if latest.lodging_name else ""),

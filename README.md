@@ -66,8 +66,15 @@ notes it, which is usually the first sign a source has drifted.
   resort you care about, put its `hotel_ids` in the trip config.
 - **Vacation rentals (Airbnb/Vrbo) aren't covered.** They have no free API and
   aggressive bot protection.
-- **Car rental is an estimate, not a quote.** Set `ground.per_day_cost` from
-  what you know; there is no free rental API worth trusting.
+- **Car rental and fuel are estimates, not quotes.** Set `ground.per_day_cost`
+  or `ground.drive_round_trip_miles` from what you know; no free API prices a
+  rental car or a road trip.
+- **One gateway per trip.** A Barcelona-and-Madrid trip is tracked as the
+  Barcelona flight and hotel, with the Madrid leg as a `ground.flat_cost`
+  train estimate. Listing both cities as destinations would make the tracker
+  treat them as alternatives and report the cheaper one.
+- **Six travellers need two rooms.** `lodging.rooms` must reflect that or the
+  prices are fiction; `validate` warns when a party won't fit.
 - **Prices are indicative.** They're the cheapest option found for your filters
   at one moment each day. Always verify before booking.
 
@@ -121,8 +128,8 @@ instead.
 
 | Workflow | When | What |
 |---|---|---|
-| `track.yml` | Daily, 13:00 UTC | Prices everything, commits history, sends alerts |
-| `digest.yml` | Wed & Sat 00:00 UTC (= Tue & Fri evening US Eastern) | Sends the summary email |
+| `track.yml` | Daily, 14:00 UTC (= 9am Central) | Prices everything, commits history, sends alerts |
+| `digest.yml` | Wed & Sat 01:00 UTC (= Tue & Fri 8pm Central) | Sends the summary email |
 | `tests.yml` | On push | Runs the test suite |
 
 Both schedules are one-line cron changes at the top of the workflow files.
@@ -153,6 +160,6 @@ pip install -r requirements-dev.txt
 python -m pytest
 ```
 
-70 tests covering date sampling, price assessment, alert rules and cooldowns,
+79 tests covering date sampling, driving trips, price assessment, alert rules and cooldowns,
 config validation, storage round-trips, and API response parsing against
 recorded payload shapes. No network access required.
