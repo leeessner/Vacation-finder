@@ -1,0 +1,93 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Vacation Deal Watch</title><style>
+:root{--bg:#f6f7f9;--card:#fff;--ink:#111827;--muted:#6b7280;--line:#e5e7eb;--accent:#2563eb}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){
+--bg:#0b0f19;--card:#141a26;--ink:#e8eaf0;--muted:#98a1b3;--line:#242c3d;--accent:#6b9bff}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+font:15px/1.55 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
+.wrap{max-width:960px;margin:0 auto;padding-block:32px;padding-left:20px;padding-right:20px}
+h1{font-size:26px;margin:0 0 4px;letter-spacing:-.02em}
+.sub{color:var(--muted);font-size:14px;margin-bottom:26px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;
+padding:20px;margin-bottom:18px}
+.head{display:flex;flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.name{font-size:19px;font-weight:700;margin:0}
+.why{color:var(--muted);font-size:13px;margin:4px 0 0;max-width:60ch}
+.pill{display:inline-block;padding:3px 11px;border-radius:99px;color:#fff;
+font-size:12px;font-weight:600;white-space:nowrap}
+.big{font-size:30px;font-weight:800;letter-spacing:-.02em;margin:14px 0 2px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-top:16px}
+.stat{border-top:1px solid var(--line);padding-top:9px}
+.stat b{display:block;font-size:17px;font-weight:650}
+.stat span{color:var(--muted);font-size:12px}
+table{width:100%;border-collapse:collapse;margin-top:14px;font-size:13px}
+th,td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--line)}
+th{color:var(--muted);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+.scroll{overflow-x:auto}
+.chart{margin:14px 0 2px}
+pre{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:10px;
+font-size:12px;overflow-x:auto;white-space:pre-wrap}
+a{color:var(--accent)}
+footer{color:var(--muted);font-size:12px;margin-top:28px;border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class='wrap'><h1>Vacation deal watch</h1><p class='sub'>Tracking 0 trip(s) · last checked Sep 12, 2026 at 19:35 UTC</p><section class="card"><div class="head"><div><h2 class="name">Riviera Maya all-inclusive</h2><p class="why">Direct flight, kids' club, and a week of guaranteed sun in the worst of winter</p></div></div><p class="why">No prices captured yet.</p></section><section class="card"><div class="head"><div><h2 class="name">Colorado ski week</h2><p class="why">Everyone skis, one flight, and lift-ticket costs are predictable</p></div></div><p class="why">No prices captured yet.</p></section><section class="card"><h2 class="name">Worth tracking too?</h2><p class="why">Matched on the tags of trips you already track. Paste a block into <code>config/trips.yaml</code> to start tracking it.</p><ul style='padding-left:18px;margin:12px 0 0'><li style='margin-bottom:14px'><b>Puerto Vallarta, Mexico</b><div class='why'>shares all-inclusive, beach, kid-friendly, resort, warm-winter with Riviera Maya all-inclusive; in season for your dates; Cheaper than Cabo with a real town attached, not just a resort strip</div><details><summary style='cursor:pointer;color:var(--accent);font-size:13px;margin-top:6px'>Show config to paste</summary><pre>  - id: puerto-vallarta
+    name: &quot;Puerto Vallarta, Mexico&quot;
+    why: &quot;Cheaper than Cabo with a real town attached, not just a resort strip&quot;
+    active: true
+    destinations:
+      - code: PVR
+        label: &quot;Puerto Vallarta, Mexico&quot;
+        city_code: PVR
+    party: {adults: 2, children: [8, 5]}
+    dates:
+      mode: window
+      earliest: 2027-02-01
+      latest: 2027-03-15
+      nights: 7
+    tags: [beach, all-inclusive, resort, warm-winter, food, culture, kid-friendly]
+</pre></details></li><li style='margin-bottom:14px'><b>Punta Cana, Dominican Republic</b><div class='why'>shares all-inclusive, beach, kid-friendly, resort, warm-winter with Riviera Maya all-inclusive; in season for your dates; Usually the cheapest all-inclusive per night in the Caribbean</div><details><summary style='cursor:pointer;color:var(--accent);font-size:13px;margin-top:6px'>Show config to paste</summary><pre>  - id: punta-cana
+    name: &quot;Punta Cana, Dominican Republic&quot;
+    why: &quot;Usually the cheapest all-inclusive per night in the Caribbean&quot;
+    active: true
+    destinations:
+      - code: PUJ
+        label: &quot;Punta Cana, Dominican Republic&quot;
+        city_code: PUJ
+    party: {adults: 2, children: [8, 5]}
+    dates:
+      mode: window
+      earliest: 2027-02-01
+      latest: 2027-03-15
+      nights: 7
+    tags: [beach, all-inclusive, kid-friendly, warm-winter, resort, budget]
+</pre></details></li><li style='margin-bottom:14px'><b>Aruba</b><div class='why'>shares beach, kid-friendly, resort, warm-winter with Riviera Maya all-inclusive; in season for your dates; Outside the hurricane belt, so late-summer trips aren't a gamble</div><details><summary style='cursor:pointer;color:var(--accent);font-size:13px;margin-top:6px'>Show config to paste</summary><pre>  - id: aruba
+    name: &quot;Aruba&quot;
+    why: &quot;Outside the hurricane belt, so late-summer trips aren't a gamble&quot;
+    active: true
+    destinations:
+      - code: AUA
+        label: &quot;Aruba&quot;
+        city_code: AUA
+    party: {adults: 2, children: [8, 5]}
+    dates:
+      mode: window
+      earliest: 2027-02-01
+      latest: 2027-03-15
+      nights: 7
+    tags: [beach, warm-winter, resort, kid-friendly, surf, reliable-weather]
+</pre></details></li><li style='margin-bottom:14px'><b>Bozeman, Montana</b><div class='why'>shares mountains, no-passport, road-trip, ski with Colorado ski week; in season for your dates; Yellowstone's north gate; summer lodging books far ahead, so early tracking matters</div><details><summary style='cursor:pointer;color:var(--accent);font-size:13px;margin-top:6px'>Show config to paste</summary><pre>  - id: bozeman
+    name: &quot;Bozeman, Montana&quot;
+    why: &quot;Yellowstone's north gate; summer lodging books far ahead, so early tracking matters&quot;
+    active: true
+    destinations:
+      - code: BZN
+        label: &quot;Bozeman, Montana&quot;
+        city_code: BZN
+    party: {adults: 2, children: [8, 5]}
+    dates:
+      mode: window
+      earliest: 2027-01-09
+      latest: 2027-02-20
+      nights: 6
+    tags: [ski, mountains, national-park, wildlife, nature, hiking, no-passport, road-trip]
+</pre></details></li></ul></section><footer>Prices are the cheapest option found across the configured dates, airports and hotels — not a quote. Availability changes faster than this page. Built from the CSVs in <code>data/history/</code>.</footer></div></body></html>

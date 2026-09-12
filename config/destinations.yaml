@@ -1,0 +1,211 @@
+# Candidate destinations the suggester draws from.
+#
+# A suggestion fires when a catalog entry shares tags with a trip you already
+# track. So the tags you put on YOUR trips in trips.yaml are what steer this —
+# if you tag a trip [beach, kid-friendly, all-inclusive] you'll get beach
+# all-inclusives back, not ski towns.
+#
+# Add, delete, and retag freely. `code` is the IATA airport code; `city_code`
+# is the Amadeus city code used for hotel lookups (usually the same).
+
+destinations:
+  # ---- Caribbean & Mexico: warm-winter, high all-inclusive competition ----
+  - code: CUN
+    label: "Cancún / Riviera Maya, Mexico"
+    region: Mexico
+    tags: [beach, all-inclusive, kid-friendly, warm-winter, resort, short-haul, diving]
+    best_months: [1, 2, 3, 4, 11, 12]
+    why: "The densest all-inclusive market anywhere, so resorts genuinely undercut each other"
+
+  - code: PUJ
+    label: "Punta Cana, Dominican Republic"
+    region: Caribbean
+    tags: [beach, all-inclusive, kid-friendly, warm-winter, resort, budget]
+    best_months: [1, 2, 3, 4, 11, 12]
+    why: "Usually the cheapest all-inclusive per night in the Caribbean"
+
+  - code: MBJ
+    label: "Montego Bay, Jamaica"
+    region: Caribbean
+    tags: [beach, all-inclusive, warm-winter, resort, adults-only, culture]
+    best_months: [1, 2, 3, 4, 11, 12]
+    why: "Strong all-inclusive supply and frequent shoulder-season fare sales"
+
+  - code: SJU
+    label: "San Juan, Puerto Rico"
+    region: Caribbean
+    tags: [beach, warm-winter, city, culture, food, kid-friendly, no-passport]
+    best_months: [1, 2, 3, 4, 5, 11, 12]
+    why: "No passport needed and domestic-fare pricing, which keeps airfare volatile in your favor"
+
+  - code: AUA
+    label: "Aruba"
+    region: Caribbean
+    tags: [beach, warm-winter, resort, kid-friendly, surf, reliable-weather]
+    best_months: [1, 2, 3, 4, 5, 11, 12]
+    why: "Outside the hurricane belt, so late-summer trips aren't a gamble"
+
+  - code: SJD
+    label: "Los Cabos, Mexico"
+    region: Mexico
+    tags: [beach, all-inclusive, resort, warm-winter, adults-only, luxury]
+    best_months: [1, 2, 3, 4, 10, 11, 12]
+    why: "West-coast-facing alternative to Cancún with similar resort discounting"
+
+  - code: PVR
+    label: "Puerto Vallarta, Mexico"
+    region: Mexico
+    tags: [beach, all-inclusive, resort, warm-winter, food, culture, kid-friendly]
+    best_months: [1, 2, 3, 4, 11, 12]
+    why: "Cheaper than Cabo with a real town attached, not just a resort strip"
+
+  - code: LIR
+    label: "Guanacaste, Costa Rica"
+    region: Central America
+    tags: [beach, nature, wildlife, resort, warm-winter, surf, kid-friendly, adventure]
+    best_months: [1, 2, 3, 4, 12]
+    why: "Beach and rainforest in one trip; dry season lines up with winter escapes"
+
+  # ---- Hawaii & US warm-weather ----
+  - code: OGG
+    label: "Maui, Hawaii"
+    region: Hawaii
+    tags: [beach, kid-friendly, warm-winter, resort, nature, luxury, no-passport]
+    best_months: [1, 2, 3, 4, 5, 9, 10, 11]
+    why: "Fares swing hundreds of dollars seasonally, which makes tracking pay off"
+
+  - code: KOA
+    label: "Kona, Big Island, Hawaii"
+    region: Hawaii
+    tags: [beach, nature, wildlife, diving, kid-friendly, warm-winter, no-passport]
+    best_months: [1, 2, 3, 4, 5, 9, 10, 11]
+    why: "Volcanoes, snorkeling and lower lodging costs than Maui"
+
+  - code: MCO
+    label: "Orlando, Florida"
+    region: USA
+    tags: [theme-park, kid-friendly, warm-winter, budget, no-passport, short-haul]
+    best_months: [1, 2, 3, 4, 9, 10, 11]
+    why: "Enormous hotel supply keeps lodging cheap outside holiday weeks"
+
+  - code: RSW
+    label: "Fort Myers / Naples, Florida"
+    region: USA
+    tags: [beach, kid-friendly, warm-winter, budget, no-passport, short-haul]
+    best_months: [1, 2, 3, 4, 11, 12]
+    why: "Gulf beaches with condo-style lodging; drivable for much of the eastern US"
+
+  - code: PHX
+    label: "Scottsdale / Phoenix, Arizona"
+    region: USA
+    tags: [warm-winter, resort, golf, hiking, nature, no-passport, luxury]
+    best_months: [1, 2, 3, 4, 10, 11, 12]
+    why: "Resort rates collapse in summer and spike in spring — a wide, trackable range"
+
+  - code: SAN
+    label: "San Diego, California"
+    region: USA
+    tags: [beach, kid-friendly, city, food, no-passport, theme-park, reliable-weather]
+    best_months: [3, 4, 5, 6, 9, 10, 11]
+    why: "Mild year-round, so you can chase the fare instead of the season"
+
+  # ---- Mountains, ski and national parks ----
+  - code: DEN
+    label: "Colorado Rockies (Denver gateway)"
+    region: USA
+    tags: [ski, mountains, hiking, nature, kid-friendly, national-park, no-passport, road-trip]
+    best_months: [1, 2, 3, 6, 7, 8, 9]
+    why: "Cheap, competitive flights into Denver; the cost is lodging and lift tickets"
+
+  - code: SLC
+    label: "Salt Lake City / Utah ski country"
+    region: USA
+    tags: [ski, mountains, national-park, hiking, nature, no-passport, road-trip]
+    best_months: [1, 2, 3, 5, 6, 9, 10]
+    why: "Shortest airport-to-slopes transfer in the US, and five national parks in range"
+
+  - code: JAC
+    label: "Jackson Hole, Wyoming"
+    region: USA
+    tags: [ski, mountains, national-park, wildlife, nature, luxury, no-passport]
+    best_months: [1, 2, 6, 7, 8, 9]
+    why: "Grand Teton and Yellowstone from one base; fares are the swing factor"
+
+  - code: BZN
+    label: "Bozeman, Montana"
+    region: USA
+    tags: [ski, mountains, national-park, wildlife, nature, hiking, no-passport, road-trip]
+    best_months: [1, 2, 6, 7, 8, 9]
+    why: "Yellowstone's north gate; summer lodging books far ahead, so early tracking matters"
+
+  - code: LAS
+    label: "Las Vegas (Zion / Grand Canyon gateway)"
+    region: USA
+    tags: [national-park, road-trip, hiking, nature, budget, no-passport, city]
+    best_months: [3, 4, 5, 9, 10, 11]
+    why: "Cheapest flights and hotels of any western park gateway, by a wide margin"
+
+  # ---- Europe ----
+  - code: LIS
+    label: "Lisbon, Portugal"
+    region: Europe
+    tags: [city, culture, food, beach, europe, budget, walkable]
+    best_months: [4, 5, 6, 9, 10]
+    why: "The cheapest major Western European city for food and lodging"
+
+  - code: BCN
+    label: "Barcelona, Spain"
+    region: Europe
+    tags: [city, culture, food, beach, europe, walkable, kid-friendly]
+    best_months: [4, 5, 6, 9, 10]
+    why: "Beach and a major city in one, with heavy transatlantic fare competition"
+
+  - code: DUB
+    label: "Dublin, Ireland"
+    region: Europe
+    tags: [city, culture, europe, road-trip, nature, kid-friendly, walkable]
+    best_months: [5, 6, 7, 8, 9]
+    why: "Consistently the cheapest transatlantic entry point, and a good road-trip base"
+
+  - code: ATH
+    label: "Athens & the Greek islands"
+    region: Europe
+    tags: [beach, culture, food, europe, island-hopping, luxury]
+    best_months: [5, 6, 9, 10]
+    why: "Shoulder-season prices drop sharply while the weather holds"
+
+  - code: FCO
+    label: "Rome, Italy"
+    region: Europe
+    tags: [city, culture, food, europe, walkable, kid-friendly]
+    best_months: [4, 5, 6, 9, 10]
+    why: "Huge hotel supply means real low-season bargains in November and January"
+
+  - code: KEF
+    label: "Reykjavík, Iceland"
+    region: Europe
+    tags: [nature, road-trip, adventure, europe, wildlife, northern-lights, short-haul-europe]
+    best_months: [2, 3, 6, 7, 8, 9]
+    why: "Shortest flight to Europe from the eastern US; lodging is the expensive half"
+
+  # ---- Longer haul ----
+  - code: BZE
+    label: "Belize City, Belize"
+    region: Central America
+    tags: [beach, diving, nature, adventure, warm-winter, culture]
+    best_months: [1, 2, 3, 4, 11, 12]
+    why: "English-speaking, world-class reef, and far less developed than Cancún"
+
+  - code: NRT
+    label: "Tokyo, Japan"
+    region: Asia
+    tags: [city, culture, food, walkable, adventure, long-haul]
+    best_months: [3, 4, 5, 10, 11]
+    why: "A weak yen has kept on-the-ground costs low; airfare is the whole game"
+
+  - code: SJO
+    label: "San José, Costa Rica"
+    region: Central America
+    tags: [nature, wildlife, adventure, hiking, warm-winter, kid-friendly]
+    best_months: [1, 2, 3, 4, 12]
+    why: "Cheaper gateway than Liberia if you're willing to drive to the coast"
