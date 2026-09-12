@@ -228,6 +228,73 @@ def google_flights_link(origin: str, destination: str, depart: date, ret: date) 
 
 
 # --------------------------------------------------------------------------- #
+# Deal radar — "what is unusually cheap from here right now?"
+# --------------------------------------------------------------------------- #
+
+def cheapest_destinations(
+    client: TravelpayoutsClient,
+    origin: str,
+    currency: str,
+    *,
+    beginning_of_period: date | None = None,
+    period_type: str = "month",
+    limit: int = 100,
+    trip_duration: int | None = None,
+    one_way: bool = False,
+) -> list[dict[str, Any]]:
+    """The cheapest fares found out of `origin` recently, across all destinations.
+
+    This is the inverse of the tracked-trip query: instead of asking what one
+    route costs, it asks what the market is currently giving away from your
+    home airport. It's the raw material for suggesting somewhere you hadn't
+    thought to track, and it costs one call regardless of how many
+    destinations come back.
+
+    Prices are per adult, like every other flight figure from this API.
+    """
+    params: dict[str, Any] = {
+        "origin": origin,
+        "currency": currency.lower(),
+        "period_type": period_type,
+        "one_way": "true" if one_way else "false",
+        "limit": limit,
+        "page": 1,
+        "sorting": "price",
+        "show_to_affiliates": "true",
+        "trip_class": 0,
+    }
+    if period_type == "month":
+        params["beginning_of_period"] = (
+            beginning_of_period or date.today().replace(day=1)
+        ).isoformat()
+    if trip_duration:
+        params["trip_duration"] = trip_duration
+
+    payload = client.get_flights("/v2/prices/latest", params)
+    rows = payload.get("data", []) if isinstance(payload, dict) else []
+
+    out: list[dict[str, Any]] = []
+    for row in rows:
+        value = _opt_float(row.get("value"))
+        if not value or value <= 0:
+            continue
+        out.append(
+            {
+                "origin": row.get("origin", origin),
+                "destination": row.get("destination", ""),
+                "price_per_adult": value,
+                "depart_date": _parse_date(row.get("depart_date")),
+                "return_date": _parse_date(row.get("return_date")),
+                "stops": row.get("number_of_changes"),
+                "found_at": _parse_found_at(row.get("found_at")),
+                "distance": row.get("distance"),
+            }
+        )
+    out.sort(key=lambda r: r["price_per_adult"])
+    return out
+
+
+# --------------------------------------------------------------------------- #
 # Hotels (Hotellook)
 # --------------------------------------------------------------------------- #
 
