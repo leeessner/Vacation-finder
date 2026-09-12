@@ -1,0 +1,9 @@
+[project]
+name = "vacation-finder"
+version = "0.1.0"
+description = "Tracks flight and lodging prices for specific trips and emails you when one is a genuinely good deal."
+requires-python = ">=3.10"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

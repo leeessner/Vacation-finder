@@ -1,0 +1,40 @@
+name: Email digest
+
+# The scheduled summary: every trip's current price, where it sits against its
+# own history, and destinations worth adding. Alerts are separate — those are
+# sent by the tracking workflow the moment a threshold is crossed.
+on:
+  schedule:
+    # 00:00 UTC Wednesday and Saturday == Tuesday and Friday 20:00 in
+    # America/New_York (19:00 during standard time). Change these two lines
+    # to move the digest; cron here is always UTC.
+    - cron: "0 0 * * 3,6"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  digest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Send the digest
+        env:
+          SMTP_HOST: ${{ vars.SMTP_HOST || 'smtp.gmail.com' }}
+          SMTP_PORT: ${{ vars.SMTP_PORT || '587' }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+          EMAIL_FROM: ${{ secrets.SMTP_USER }}
+        run: PYTHONPATH=src python -m vacation_finder digest --verbose

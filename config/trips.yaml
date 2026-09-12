@@ -1,0 +1,177 @@
+# ============================================================================
+# Vacation deal tracker — trip definitions
+# ============================================================================
+# This is the only file you normally edit. Every field is documented below.
+# After changing it, run:  python -m vacation_finder validate
+# ============================================================================
+
+settings:
+  currency: USD
+
+  # >>> REPLACE THESE <<< Your home airports, cheapest first. Every trip is
+  # priced from all of them and the cheapest wins, so listing a second airport
+  # you'd actually drive to is usually worth it.
+  home_airports: [ORD]
+
+  timezone: America/New_York
+
+  # How many departure dates to price per trip per run. A 6-week window has
+  # ~40 possible departure dates; pricing all of them daily would burn the
+  # free API quota in days. 6 evenly-spaced samples catch the shape of the
+  # curve. Raise for tighter windows, lower if you track many trips.
+  max_date_samples_per_trip: 6
+
+  # Hotels pulled per city before pricing. Higher = better chance of catching
+  # a cheap property, but more API calls.
+  max_hotels_per_query: 20
+
+  # Ignore departures sooner than this many days out.
+  lookahead_min_days: 14
+
+  # 'test' returns Amadeus's cached sample data — right for checking the
+  # plumbing, wrong for real decisions. Switch to 'production' once you've
+  # moved your Amadeus app to production (still free, same quota).
+  amadeus_env: test
+
+  # The Google Flights scraper. Free and keyless, but it breaks when Google
+  # changes their page. Set false to rely on Amadeus alone.
+  google_flights_enabled: true
+  google_flights_price_is_total: true
+
+# ============================================================================
+# trips
+# ----------------------------------------------------------------------------
+# The three below are EXAMPLES so you can see the shape and preview the output.
+# Replace them with your real trips — or tell Claude the details and it will.
+# ============================================================================
+trips:
+
+  - id: caribbean-winter-escape        # used as the CSV filename; keep it stable
+    name: "Riviera Maya all-inclusive"
+    # 'why' is for you, and it shows on the dashboard. Write down what makes
+    # this trip worth it, so a year from now you remember what you were after.
+    why: "Direct flight, kids' club, and a week of guaranteed sun in the worst of winter"
+    active: true
+
+    destinations:
+      - code: CUN                      # IATA airport code
+        label: "Cancún / Riviera Maya"
+        city_code: CUN                 # Amadeus city code for hotel search
+        # hotel_ids: [MCCUNBLU]        # optional: track specific properties only
+
+    party:
+      adults: 2
+      children: [8, 5]                 # ages at time of travel, not a count
+
+    dates:
+      mode: window                     # 'window' (flexible) or 'fixed'
+      earliest: 2027-02-01
+      latest: 2027-03-15
+      nights: 7
+      # departure_weekdays: [Sat, Sun] # optional: only price these days
+
+    flights:
+      max_stops: 1                     # 0 = nonstop only
+      cabin: economy                   # economy | premium-economy | business | first
+      checked_bags: 2
+
+    lodging:
+      enabled: true
+      rooms: 1
+      min_stars: 4
+      max_per_night: 600
+      board: all_inclusive             # informational; shows in reports
+
+    ground:
+      rental_car: false
+      flat_cost: 140
+      notes: "Round-trip airport transfer"
+
+    budget:
+      target_total: 5200               # what you'd be content paying
+      great_deal_total: 4400           # what would make you book today
+
+    alerts:
+      total_below: 4600                # absolute trigger
+      flight_below: 1600               # airfare-only trigger
+      drop_pct_vs_median: 12           # fire if 12% under the 30-day median
+      percentile_below: 20             # fire if in the cheapest 20% seen
+      all_time_low: true
+      cooldown_days: 3                 # don't repeat the same alert for 3 days
+
+    # Tags drive the "worth tracking too?" suggestions. Be honest about what
+    # you actually want — these are matched against config/destinations.yaml.
+    tags: [beach, all-inclusive, kid-friendly, warm-winter, resort]
+
+  - id: colorado-ski-week
+    name: "Colorado ski week"
+    why: "Everyone skis, one flight, and lift-ticket costs are predictable"
+    active: true
+    destinations:
+      - code: DEN
+        label: "Denver / Summit County"
+        city_code: DEN
+    party:
+      adults: 2
+      children: [8, 5]
+    dates:
+      mode: window
+      earliest: 2027-01-09
+      latest: 2027-02-20
+      nights: 6
+      departure_weekdays: [Sat]
+    flights:
+      max_stops: 0
+      cabin: economy
+      checked_bags: 2
+    lodging:
+      enabled: true
+      rooms: 1
+      min_stars: 3
+      max_per_night: 450
+    ground:
+      rental_car: true
+      per_day_cost: 85
+      notes: "SUV rental, mountain driving"
+    budget:
+      target_total: 4800
+    alerts:
+      total_below: 4200
+      drop_pct_vs_median: 10
+      cooldown_days: 3
+    tags: [ski, mountains, kid-friendly, no-passport, road-trip]
+
+  - id: portugal-spring
+    name: "Lisbon & the Algarve"
+    why: "Cheapest way into Western Europe, and good food without a fight"
+    active: false                      # set true to start tracking
+    destinations:
+      - code: LIS
+        label: "Lisbon, Portugal"
+        city_code: LIS
+    party:
+      adults: 2
+      children: []
+    dates:
+      mode: window
+      earliest: 2027-04-15
+      latest: 2027-05-31
+      nights: 9
+    flights:
+      max_stops: 1
+      cabin: economy
+      checked_bags: 1
+    lodging:
+      enabled: true
+      rooms: 1
+      min_stars: 4
+      max_per_night: 260
+    ground:
+      rental_car: true
+      per_day_cost: 45
+    budget:
+      target_total: 4000
+    alerts:
+      total_below: 3400
+      percentile_below: 15
+    tags: [city, culture, food, europe, beach, walkable]

@@ -1,0 +1,59 @@
+name: Track prices
+
+# Runs daily, records the day's best price for every active trip, fires any
+# alerts, rebuilds the dashboard, and commits the result. The daily commit also
+# keeps the repository "active", which stops GitHub from auto-disabling these
+# scheduled workflows after 60 idle days.
+on:
+  schedule:
+    - cron: "0 13 * * *"      # 09:00 America/New_York (EDT) / 08:00 (EST)
+  workflow_dispatch:           # lets you run it by hand from the Actions tab
+
+permissions:
+  contents: write
+
+concurrency:
+  group: track-prices
+  cancel-in-progress: false
+
+jobs:
+  track:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Check the config before spending any API calls
+        run: PYTHONPATH=src python -m vacation_finder validate
+
+      - name: Price trips, record history, send alerts
+        env:
+          AMADEUS_CLIENT_ID: ${{ secrets.AMADEUS_CLIENT_ID }}
+          AMADEUS_CLIENT_SECRET: ${{ secrets.AMADEUS_CLIENT_SECRET }}
+          SMTP_HOST: ${{ vars.SMTP_HOST || 'smtp.gmail.com' }}
+          SMTP_PORT: ${{ vars.SMTP_PORT || '587' }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+          EMAIL_FROM: ${{ secrets.SMTP_USER }}
+        run: PYTHONPATH=src python -m vacation_finder track --verbose
+
+      - name: Commit the day's prices
+        run: |
+          git config user.name  "vacation-tracker[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data docs
+          if git diff --staged --quiet; then
+            echo "No price changes to commit."
+          else
+            git commit -m "Prices for $(date -u +%Y-%m-%d)"
+            git push
+          fi
