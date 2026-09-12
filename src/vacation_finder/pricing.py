@@ -10,8 +10,12 @@ from .config import Config, Trip
 from .dates import candidate_windows
 from .models import FlightQuote, LodgingQuote, TripQuote
 from .sources import google_flights
-from .sources.amadeus import AmadeusClient, search_flights, search_lodging
 from .sources.base import SourceError, SourceUnavailable
+from .sources.travelpayouts import (
+    TravelpayoutsClient,
+    search_flights,
+    search_lodging,
+)
 
 log = logging.getLogger(__name__)
 
@@ -40,11 +44,10 @@ class RunResult:
 class TripPricer:
     """Prices trips while keeping the free-tier API call count in check."""
 
-    def __init__(self, config: Config, client: AmadeusClient | None = None) -> None:
+    def __init__(self, config: Config, client: TravelpayoutsClient | None = None) -> None:
         self.config = config
         self.settings = config.settings
-        self.client = client or AmadeusClient(env=config.settings.amadeus_env)
-        self._hotel_id_cache: dict[tuple[str, str], tuple[str, ...]] = {}
+        self.client = client or TravelpayoutsClient()
 
     def price_trip(self, trip: Trip, today: date | None = None) -> RunResult:
         today = today or datetime.now(timezone.utc).date()
@@ -94,18 +97,25 @@ class TripPricer:
         notes: list[str] = []
 
         for origin in trip.origins:
-            amadeus_quote = None
+            api_quote = None
             try:
-                amadeus_quote = search_flights(
-                    self.client, trip, origin, destination, depart, ret, self.settings.currency
+                api_quote = search_flights(
+                    self.client,
+                    trip,
+                    origin,
+                    destination,
+                    depart,
+                    ret,
+                    self.settings.currency,
+                    self.settings,
                 )
                 result.queries_made += 1
             except SourceUnavailable as exc:
-                result.errors.append(f"amadeus unavailable: {exc}")
+                result.errors.append(f"travelpayouts unavailable: {exc}")
             except SourceError as exc:
-                log.info("amadeus flights %s->%s %s: %s", origin, destination, depart, exc)
-            if amadeus_quote:
-                candidates.append(amadeus_quote)
+                log.info("travelpayouts flights %s->%s %s: %s", origin, destination, depart, exc)
+            if api_quote:
+                candidates.append(api_quote)
 
             if self.settings.google_flights_enabled:
                 scraped = google_flights.search_flights(
@@ -114,10 +124,10 @@ class TripPricer:
                 result.queries_made += 1
                 if scraped:
                     candidates.append(scraped)
-                    if amadeus_quote:
-                        notes.append(
-                            _cross_check_note(origin, amadeus_quote, scraped)
-                        )
+                    if api_quote:
+                        note = _cross_check_note(origin, api_quote, scraped)
+                        if note:
+                            notes.append(note)
 
         if not candidates:
             return None, notes
@@ -129,8 +139,9 @@ class TripPricer:
         if not trip.lodging.enabled:
             return None
 
-        city = destination.hotel_city
-        hotel_ids = destination.hotel_ids or self._cached_hotel_ids(trip, city)
+        # Hotellook resolves plain city names, so the label is a better query
+        # than an airport code where one is set (PAR beats CDG for Paris).
+        city = destination.label or destination.hotel_city
         try:
             quote = search_lodging(
                 self.client,
@@ -140,46 +151,31 @@ class TripPricer:
                 ret,
                 self.settings.currency,
                 self.settings,
-                hotel_ids=hotel_ids,
             )
             result.queries_made += 1
             return quote
         except SourceUnavailable as exc:
-            result.errors.append(f"amadeus unavailable: {exc}")
+            result.errors.append(f"travelpayouts unavailable: {exc}")
         except SourceError as exc:
-            log.info("amadeus lodging %s %s: %s", city, depart, exc)
+            log.info("travelpayouts lodging %s %s: %s", city, depart, exc)
         return None
 
-    def _cached_hotel_ids(self, trip: Trip, city: str) -> tuple[str, ...]:
-        """The city's hotel list barely changes; fetch it once per run, not per date."""
-        key = (city, str(trip.lodging.min_stars))
-        if key in self._hotel_id_cache:
-            return self._hotel_id_cache[key]
 
-        from .sources.amadeus import list_city_hotels
+def _cross_check_note(origin: str, cached: FlightQuote, scraped: FlightQuote) -> str:
+    """Flag when the two sources disagree enough to be worth a human look.
 
-        try:
-            hotels = list_city_hotels(
-                self.client, city, trip.lodging, self.settings.max_hotels_per_query
-            )
-            ids = tuple(h["hotelId"] for h in hotels if h.get("hotelId"))
-        except (SourceError, SourceUnavailable) as exc:
-            log.info("hotel list for %s failed: %s", city, exc)
-            ids = ()
-        self._hotel_id_cache[key] = ids
-        return ids
-
-
-def _cross_check_note(origin: str, amadeus: FlightQuote, scraped: FlightQuote) -> str:
-    """Flag when the two sources disagree enough to be worth a human look."""
-    if amadeus.total_price <= 0:
+    Some gap is expected and healthy: Travelpayouts is cached and per-adult
+    scaled, Google Flights is live and prices the real party. A large gap
+    usually means the cache is stale or one source has drifted.
+    """
+    if cached.total_price <= 0:
         return ""
-    gap = (scraped.total_price - amadeus.total_price) / amadeus.total_price * 100
-    if abs(gap) < 10:
+    gap = (scraped.total_price - cached.total_price) / cached.total_price * 100
+    if abs(gap) < 15:
         return ""
-    cheaper = "Google Flights" if gap < 0 else "Amadeus"
+    cheaper = "Google Flights" if gap < 0 else "cached"
     return (
         f"{origin}: sources disagree by {abs(gap):.0f}% "
-        f"(Amadeus {amadeus.total_price:.0f} vs Google {scraped.total_price:.0f}); "
+        f"(cached {cached.total_price:.0f} vs Google {scraped.total_price:.0f}); "
         f"{cheaper} is cheaper"
     )

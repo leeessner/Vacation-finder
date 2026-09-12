@@ -1,0 +1,27 @@
+name: Doctor
+
+# Run this by hand (Actions -> Doctor -> Run workflow) to check that the
+# Travelpayouts token works and to see exactly what the APIs return. It makes
+# a handful of calls and writes nothing.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  doctor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Check every price source
+        env:
+          TRAVELPAYOUTS_TOKEN: ${{ secrets.TRAVELPAYOUTS_TOKEN }}
+          TRAVELPAYOUTS_MARKER: ${{ secrets.TRAVELPAYOUTS_MARKER }}
+        run: PYTHONPATH=src python -m vacation_finder doctor
