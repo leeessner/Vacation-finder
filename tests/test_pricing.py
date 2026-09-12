@@ -288,3 +288,50 @@ def test_every_sampled_window_gets_priced():
         trip, today=date(2026, 9, 12)
     )
     assert len(result.quotes) == SETTINGS.max_date_samples_per_trip
+
+
+# --------------------------------------------------------------------------- #
+# Deal radar
+# --------------------------------------------------------------------------- #
+
+def test_cheapest_destinations_sorts_and_normalises():
+    from vacation_finder.sources.travelpayouts import cheapest_destinations
+
+    client = FakeTravelpayouts(fares=[
+        {"origin": "STL", "destination": "DUB", "value": 410,
+         "depart_date": "2027-06-12", "return_date": "2027-06-22",
+         "number_of_changes": 1, "found_at": "2026-09-11T06:00:00"},
+        {"origin": "STL", "destination": "LIS", "value": 388,
+         "depart_date": "2027-06-08", "return_date": "2027-06-18",
+         "number_of_changes": 1, "found_at": "2026-09-11T07:00:00"},
+        {"origin": "STL", "destination": "XXX", "value": 0,
+         "depart_date": "2027-06-08", "return_date": "2027-06-18"},
+    ])
+    deals = cheapest_destinations(client, "STL", "USD")
+
+    assert [d["destination"] for d in deals] == ["LIS", "DUB"]   # cheapest first
+    assert deals[0]["price_per_adult"] == 388
+    assert deals[0]["depart_date"] == date(2027, 6, 8)
+    assert all(d["price_per_adult"] > 0 for d in deals)          # the 0 row is dropped
+
+
+def test_deal_radar_is_one_call_regardless_of_destination_count():
+    """The whole point: scanning the market must not cost per-destination."""
+    from vacation_finder.sources.travelpayouts import cheapest_destinations
+
+    client = FakeTravelpayouts(fares=[
+        {"origin": "STL", "destination": f"D{i}", "value": 300 + i,
+         "depart_date": "2027-06-08", "return_date": "2027-06-18"}
+        for i in range(60)
+    ])
+    deals = cheapest_destinations(client, "STL", "USD")
+    assert len(deals) == 60
+    assert len(client.calls) == 1
+
+
+def test_deal_radar_omits_month_anchor_for_yearly_scans():
+    from vacation_finder.sources.travelpayouts import cheapest_destinations
+
+    client = FakeTravelpayouts(fares=[])
+    cheapest_destinations(client, "STL", "USD", period_type="year")
+    assert "beginning_of_period" not in client.calls[0][1]
