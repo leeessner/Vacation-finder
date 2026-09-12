@@ -78,7 +78,7 @@ If the log says `amadeus unavailable`, the secrets aren't set or are wrong.
 If it says `no priceable option found`, your date window or filters may be too
 narrow — `max_stops: 0` with an unusual route is the usual culprit.
 
-## Running it locally
+## Quick command reference
 
 ```bash
 pip install -r requirements-dev.txt
@@ -95,3 +95,54 @@ Set credentials locally with a `.env`-style export before `track`:
 export AMADEUS_CLIENT_ID=... AMADEUS_CLIENT_SECRET=...
 export SMTP_USER=... SMTP_PASSWORD=... EMAIL_TO=...
 ```
+
+---
+
+## Working on this from your computer
+
+You don't strictly need a local copy — the tracker runs entirely on GitHub's
+servers, on a schedule, whether or not your laptop is on. But if you want it
+alongside your other projects in `~/Development`, it's the usual clone:
+
+```bash
+cd ~/Development
+git clone https://github.com/leeessner/Vacation-finder.git
+cd Vacation-finder
+git checkout claude/vacation-deal-tracker-ha5wot
+
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements-dev.txt
+
+python -m vacation_finder validate
+```
+
+Then the normal loop — edit `config/trips.yaml`, commit, push:
+
+```bash
+git add config/trips.yaml
+git commit -m "Add Greece to the summer list"
+git push
+```
+
+### One habit worth forming: pull before you edit
+
+This repository is unusual in that **it writes to itself.** The tracking
+workflow commits a new price row every morning, so your local clone falls
+behind daily. If you edit without pulling, your push is rejected and you'll
+have to merge.
+
+```bash
+git pull        # do this first, every time
+```
+
+If you only ever edit `config/trips.yaml` and the bot only ever touches
+`data/` and `docs/`, a stale pull merges cleanly anyway — but pulling first
+saves the annoyance.
+
+### Editing the config without a local clone
+
+You can also edit `config/trips.yaml` directly on github.com — open the file,
+click the pencil, commit. For adding a destination or changing an alert
+threshold that's often quicker, and it sidesteps the pull-first problem
+entirely.

@@ -30,6 +30,8 @@ FIELDS = [
     "return_date",
     "nights",
     "currency",
+    "travel_mode",
+    "flights_priced",
     "flight_total",
     "flight_source",
     "flight_carriers",
@@ -70,6 +72,13 @@ class HistoryRow:
     total: float
     is_complete: bool
     notes: str = ""
+    travel_mode: str = "air"
+    flights_priced: bool = True
+
+    @property
+    def airfare_applies(self) -> bool:
+        """False for a driving trip, or one whose flights we aren't pricing yet."""
+        return self.travel_mode == "air" and self.flights_priced
 
     @property
     def captured_on(self) -> date:
@@ -112,6 +121,8 @@ def _row_from_quote(result: RunResult, quote: TripQuote) -> dict[str, str]:
         "return_date": quote.return_date.isoformat(),
         "nights": str(quote.nights),
         "currency": quote.currency,
+        "travel_mode": quote.travel_mode,
+        "flights_priced": "true" if quote.flights_expected else "false",
         "flight_total": f"{quote.flight_cost:.2f}",
         "flight_source": flight.source if flight else "",
         "flight_carriers": "/".join(flight.carriers) if flight else "",
@@ -170,6 +181,8 @@ def _parse_row(raw: dict[str, str]) -> HistoryRow | None:
             return_date=date.fromisoformat(raw["return_date"]),
             nights=int(raw.get("nights") or 0),
             currency=raw.get("currency", "USD"),
+            travel_mode=raw.get("travel_mode", "air"),
+            flights_priced=str(raw.get("flights_priced", "true")).lower() != "false",
             flight_total=_float(raw.get("flight_total")),
             flight_source=raw.get("flight_source", ""),
             flight_carriers=raw.get("flight_carriers", ""),

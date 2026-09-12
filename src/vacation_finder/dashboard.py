@@ -105,10 +105,12 @@ def _trip_section(report: TripReport) -> str:
     verdict = assessment.verdict if assessment else "—"
     header += f'<span class="pill" style="background:{report.status_color}">{_esc(verdict)}</span></div>'
 
-    stats = [
-        _stat("flights, whole party", money(latest.flight_total, sym)),
-        _stat(f"lodging, {latest.nights} nights", money(latest.lodging_total, sym)),
-    ]
+    stats = []
+    if latest.airfare_applies:
+        stats.append(_stat("flights, whole party", money(latest.flight_total, sym)))
+    elif latest.travel_mode != "drive":
+        stats.append(_stat("flights", "not priced yet"))
+    stats.append(_stat(f"lodging, {latest.nights} nights", money(latest.lodging_total, sym)))
     if latest.ground_total:
         stats.append(_stat(trip.ground.notes or "ground transport", money(latest.ground_total, sym)))
     if report.cheapest_ever:

@@ -60,7 +60,12 @@ class TripPricer:
 
             for depart, ret in windows:
                 nights = (ret - depart).days
-                flight, notes = self._best_flight(trip, destination.code, depart, ret, result)
+                if trip.flights.enabled:
+                    flight, notes = self._best_flight(
+                        trip, destination.code, depart, ret, result
+                    )
+                else:
+                    flight, notes = None, []
                 lodging = self._best_lodging(trip, destination, depart, ret, result)
                 result.quotes.append(
                     TripQuote(
@@ -74,6 +79,8 @@ class TripPricer:
                         lodging=lodging,
                         ground_cost=trip.ground.cost_for(nights),
                         ground_notes=trip.ground.notes,
+                        travel_mode=trip.travel_mode,
+                        flights_expected=trip.flights.enabled,
                         notes=notes,
                     )
                 )

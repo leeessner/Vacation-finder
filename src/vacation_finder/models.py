@@ -106,6 +106,8 @@ class TripQuote:
     lodging: LodgingQuote | None = None
     ground_cost: float = 0.0
     ground_notes: str = ""
+    travel_mode: str = "air"
+    flights_expected: bool = True
     notes: list[str] = field(default_factory=list)
 
     @property
@@ -122,8 +124,16 @@ class TripQuote:
 
     @property
     def is_complete(self) -> bool:
-        """A quote we can honestly compare against history."""
-        return self.flight is not None and self.lodging is not None
+        """A quote we can honestly compare against history.
+
+        A driving trip needs no airfare to be complete, and neither does a trip
+        whose flights we're deliberately not pricing yet. An air trip that was
+        supposed to have a fare and doesn't is incomplete — its total would
+        understate the real cost by thousands.
+        """
+        if self.lodging is None:
+            return False
+        return self.flight is not None or not self.flights_expected
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -137,6 +147,8 @@ class TripQuote:
             "lodging": self.lodging.to_dict() if self.lodging else None,
             "ground_cost": round(self.ground_cost, 2),
             "ground_notes": self.ground_notes,
+            "travel_mode": self.travel_mode,
+            "flights_expected": self.flights_expected,
             "flight_cost": round(self.flight_cost, 2),
             "lodging_cost": round(self.lodging_cost, 2),
             "total_cost": round(self.total_cost, 2),

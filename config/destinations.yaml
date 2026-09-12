@@ -209,3 +209,96 @@ destinations:
     tags: [nature, wildlife, adventure, hiking, warm-winter, kid-friendly]
     best_months: [1, 2, 3, 4, 12]
     why: "Cheaper gateway than Liberia if you're willing to drive to the coast"
+
+  # ---- Europe: the list Mary Beth has been collecting ----
+  - code: MAD
+    label: "Madrid, Spain"
+    region: Europe
+    tags: [city, culture, food, europe, walkable, kid-friendly]
+    best_months: [3, 4, 5, 9, 10]
+    why: "Pairs with Barcelona on one trip; a 3-hour train connects them"
+
+  - code: NCE
+    label: "Nice & the French Riviera"
+    region: Europe
+    tags: [beach, city, culture, food, europe, walkable, kid-friendly, reliable-weather]
+    best_months: [4, 5, 6, 9, 10]
+    why: "Beach, old town and day trips to Monaco and Provence without a car"
+
+  - code: CDG
+    label: "Paris & Versailles, France"
+    region: Europe
+    tags: [city, culture, food, europe, walkable, kid-friendly]
+    best_months: [3, 4, 5, 6, 9, 10]
+    why: "Versailles is a 40-minute train from central Paris; no car needed"
+
+  - code: PDL
+    label: "Azores (Ponta Delgada), Portugal"
+    region: Europe
+    tags: [nature, adventure, hiking, wildlife, europe, road-trip, diving]
+    best_months: [5, 6, 7, 8, 9]
+    why: "Closest European island to the US and far cheaper than Iceland"
+
+  - code: SZG
+    label: "Salzburg & the Austrian Alps"
+    region: Europe
+    tags: [mountains, nature, hiking, kid-friendly, europe, resort, ski, culture]
+    best_months: [1, 2, 6, 7, 8, 9, 12]
+    why: "Family resorts with pools and lifts; lakes in summer, skiing in winter"
+
+  - code: MUC
+    label: "Munich & Bavaria, Germany"
+    region: Europe
+    tags: [city, culture, food, mountains, kid-friendly, europe, resort, walkable]
+    best_months: [5, 6, 7, 8, 9, 12]
+    why: "Castles, lakes and alpine resorts within 90 minutes of a major airport"
+
+  - code: VCE
+    label: "Venice & the Dolomites, Italy"
+    region: Europe
+    tags: [city, culture, food, mountains, hiking, europe, walkable, kid-friendly]
+    best_months: [5, 6, 9, 10]
+    why: "City and alps in one trip; the Dolomites are family-resort country"
+
+  # ---- Drivable from St. Louis: the shorter second trip ----
+  - code: BNA
+    label: "Nashville, Tennessee"
+    region: USA
+    tags: [city, food, culture, kid-friendly, no-passport, road-trip, drive-from-stl, budget]
+    best_months: [3, 4, 5, 9, 10, 11]
+    why: "About 4.5 hours by car — a long weekend without airfare for six"
+
+  - code: TYS
+    label: "Great Smoky Mountains (Knoxville / Gatlinburg)"
+    region: USA
+    tags: [nature, hiking, national-park, wildlife, kid-friendly, no-passport, road-trip, drive-from-stl]
+    best_months: [4, 5, 6, 9, 10]
+    why: "Cabin rentals sleep six for less than two hotel rooms anywhere else"
+
+  - code: BKG
+    label: "Branson & the Ozarks, Missouri"
+    region: USA
+    tags: [kid-friendly, nature, no-passport, road-trip, drive-from-stl, budget, theme-park]
+    best_months: [4, 5, 6, 9, 10]
+    why: "Under four hours; lake houses and shows aimed squarely at families"
+
+  - code: MEM
+    label: "Memphis, Tennessee"
+    region: USA
+    tags: [city, food, culture, no-passport, road-trip, drive-from-stl, budget, kid-friendly]
+    best_months: [3, 4, 5, 9, 10, 11]
+    why: "Under four hours; music history and cheap lodging"
+
+  - code: MDW
+    label: "Chicago, Illinois"
+    region: USA
+    tags: [city, food, culture, walkable, kid-friendly, no-passport, road-trip, drive-from-stl]
+    best_months: [5, 6, 7, 8, 9, 10]
+    why: "Under five hours; museums and lakefront, and family suites are common"
+
+  - code: HOT
+    label: "Hot Springs & the Ouachitas, Arkansas"
+    region: USA
+    tags: [nature, hiking, national-park, no-passport, road-trip, drive-from-stl, budget, kid-friendly]
+    best_months: [3, 4, 5, 10, 11]
+    why: "Five hours, a national park in town, and off-season rates most of the year"

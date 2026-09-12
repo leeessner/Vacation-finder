@@ -79,6 +79,9 @@ class DateWindow:
 
 @dataclass(frozen=True)
 class FlightPrefs:
+    # False when airfare shouldn't be priced at all — a driving trip, or a
+    # departure so far out that airlines haven't loaded schedules yet.
+    enabled: bool = True
     max_stops: int | None = 1
     cabin: str = "economy"
     checked_bags: int = 0
@@ -102,10 +105,21 @@ class GroundPrefs:
     rental_car: bool = False
     flat_cost: float = 0.0
     per_day_cost: float = 0.0
+    # Driving trips: fuel is estimated from distance rather than looked up,
+    # because no free API prices a road trip.
+    drive_round_trip_miles: float = 0.0
+    mpg: float = 25.0
+    fuel_price_per_gallon: float = 3.25
     notes: str = ""
 
+    @property
+    def fuel_cost(self) -> float:
+        if not self.drive_round_trip_miles or self.mpg <= 0:
+            return 0.0
+        return self.drive_round_trip_miles / self.mpg * self.fuel_price_per_gallon
+
     def cost_for(self, nights: int) -> float:
-        return self.flat_cost + self.per_day_cost * nights
+        return self.flat_cost + self.per_day_cost * nights + self.fuel_cost
 
 
 @dataclass(frozen=True)
@@ -125,6 +139,7 @@ class Trip:
     name: str
     why: str = ""
     active: bool = True
+    travel_mode: str = "air"        # "air" or "drive"
     origins: tuple[str, ...] = ()
     destinations: tuple[Destination, ...] = ()
     party: Party = field(default_factory=Party)
@@ -259,12 +274,18 @@ def _parse_trip(raw: Any, index: int, settings: Settings) -> Trip:
             f"{where}: no origins, and settings.home_airports is empty — set one of them"
         )
 
+    travel_mode = str(raw.get("travel", "air")).lower()
+    if travel_mode not in {"air", "drive"}:
+        raise ConfigError(f"{where}: 'travel' must be 'air' or 'drive'")
+
     flights_raw = raw.get("flights") or {}
     cabin = str(flights_raw.get("cabin", "economy")).lower().replace("_", "-")
     if cabin not in CABINS:
         raise ConfigError(f"{where}: flights.cabin must be one of {sorted(CABINS)}")
     max_stops = flights_raw.get("max_stops", 1)
     flights = FlightPrefs(
+        # A driving trip never prices airfare, whatever the flights block says.
+        enabled=bool(flights_raw.get("enabled", True)) and travel_mode == "air",
         max_stops=None if max_stops is None else int(max_stops),
         cabin=cabin,
         checked_bags=int(flights_raw.get("checked_bags", 0)),
@@ -288,6 +309,9 @@ def _parse_trip(raw: Any, index: int, settings: Settings) -> Trip:
         rental_car=bool(ground_raw.get("rental_car", False)),
         flat_cost=float(ground_raw.get("flat_cost", 0) or 0),
         per_day_cost=float(ground_raw.get("per_day_cost", 0) or 0),
+        drive_round_trip_miles=float(ground_raw.get("drive_round_trip_miles", 0) or 0),
+        mpg=float(ground_raw.get("mpg", 25) or 25),
+        fuel_price_per_gallon=float(ground_raw.get("fuel_price_per_gallon", 3.25) or 3.25),
         notes=str(ground_raw.get("notes", "")),
     )
 
@@ -308,6 +332,7 @@ def _parse_trip(raw: Any, index: int, settings: Settings) -> Trip:
         name=str(raw.get("name", trip_id)),
         why=str(raw.get("why", "")),
         active=bool(raw.get("active", True)),
+        travel_mode=travel_mode,
         origins=origins,
         destinations=_parse_destinations(raw.get("destinations"), where),
         party=_parse_party(raw.get("party"), where),

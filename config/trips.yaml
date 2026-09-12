@@ -1,177 +1,386 @@
 # ============================================================================
-# Vacation deal tracker — trip definitions
+# Vacation deal tracker — Essner family
 # ============================================================================
-# This is the only file you normally edit. Every field is documented below.
-# After changing it, run:  python -m vacation_finder validate
+# Party is 6: two adults plus Cecilia, Sebastian, Damian and Agatha.
+# That drives two decisions everywhere below:
+#   * lodging.rooms is 2 — most hotels cap at 4 to a room, and a price for
+#     one room would be fiction.
+#   * all four kids sit in the 2–11 airline pricing band, so their exact ages
+#     don't change a fare. The ages here are as of today; no need to age them.
+#
+# After editing:  python -m vacation_finder validate
 # ============================================================================
 
 settings:
   currency: USD
+  home_airports: [STL]          # St. Louis Lambert
+  timezone: America/Chicago
 
-  # >>> REPLACE THESE <<< Your home airports, cheapest first. Every trip is
-  # priced from all of them and the cheapest wins, so listing a second airport
-  # you'd actually drive to is usually worth it.
-  home_airports: [ORD]
-
-  timezone: America/New_York
-
-  # How many departure dates to price per trip per run. A 6-week window has
-  # ~40 possible departure dates; pricing all of them daily would burn the
-  # free API quota in days. 6 evenly-spaced samples catch the shape of the
-  # curve. Raise for tighter windows, lower if you track many trips.
-  max_date_samples_per_trip: 6
-
-  # Hotels pulled per city before pricing. Higher = better chance of catching
-  # a cheap property, but more API calls.
+  # Spring break is a fixed week, so each trip only needs a few date samples.
+  max_date_samples_per_trip: 3
   max_hotels_per_query: 20
-
-  # Ignore departures sooner than this many days out.
   lookahead_min_days: 14
 
-  # 'test' returns Amadeus's cached sample data — right for checking the
-  # plumbing, wrong for real decisions. Switch to 'production' once you've
-  # moved your Amadeus app to production (still free, same quota).
+  # >>> Still 'test' — Amadeus returns cached sample data in this mode, so the
+  # numbers will look plausible and be fake. Switch to 'production' after you
+  # click "Move to Production" in the Amadeus dashboard (free, same quota).
   amadeus_env: test
 
-  # The Google Flights scraper. Free and keyless, but it breaks when Google
-  # changes their page. Set false to rely on Amadeus alone.
   google_flights_enabled: true
   google_flights_price_is_total: true
 
 # ============================================================================
-# trips
+# SPRING BREAK 2027 — drivable
 # ----------------------------------------------------------------------------
-# The three below are EXAMPLES so you can see the shape and preview the output.
-# Replace them with your real trips — or tell Claude the details and it will.
+# No airfare for six people is the whole advantage here. Fuel is estimated
+# from distance (no free API prices a road trip), so the number that actually
+# moves day to day is lodging.
 # ============================================================================
 trips:
 
-  - id: caribbean-winter-escape        # used as the CSV filename; keep it stable
-    name: "Riviera Maya all-inclusive"
-    # 'why' is for you, and it shows on the dashboard. Write down what makes
-    # this trip worth it, so a year from now you remember what you were after.
-    why: "Direct flight, kids' club, and a week of guaranteed sun in the worst of winter"
+  - id: nashville-spring-break
+    name: "Nashville"
+    why: "Four and a half hours by car — no airfare for six, and a real city at the end of it"
     active: true
-
+    travel: drive                # never prices flights
     destinations:
-      - code: CUN                      # IATA airport code
-        label: "Cancún / Riviera Maya"
-        city_code: CUN                 # Amadeus city code for hotel search
-        # hotel_ids: [MCCUNBLU]        # optional: track specific properties only
-
+      - code: BNA
+        label: "Nashville, TN"
+        city_code: BNA
     party:
       adults: 2
-      children: [8, 5]                 # ages at time of travel, not a count
-
-    dates:
-      mode: window                     # 'window' (flexible) or 'fixed'
-      earliest: 2027-02-01
-      latest: 2027-03-15
-      nights: 7
-      # departure_weekdays: [Sat, Sun] # optional: only price these days
-
-    flights:
-      max_stops: 1                     # 0 = nonstop only
-      cabin: economy                   # economy | premium-economy | business | first
-      checked_bags: 2
-
-    lodging:
-      enabled: true
-      rooms: 1
-      min_stars: 4
-      max_per_night: 600
-      board: all_inclusive             # informational; shows in reports
-
-    ground:
-      rental_car: false
-      flat_cost: 140
-      notes: "Round-trip airport transfer"
-
-    budget:
-      target_total: 5200               # what you'd be content paying
-      great_deal_total: 4400           # what would make you book today
-
-    alerts:
-      total_below: 4600                # absolute trigger
-      flight_below: 1600               # airfare-only trigger
-      drop_pct_vs_median: 12           # fire if 12% under the 30-day median
-      percentile_below: 20             # fire if in the cheapest 20% seen
-      all_time_low: true
-      cooldown_days: 3                 # don't repeat the same alert for 3 days
-
-    # Tags drive the "worth tracking too?" suggestions. Be honest about what
-    # you actually want — these are matched against config/destinations.yaml.
-    tags: [beach, all-inclusive, kid-friendly, warm-winter, resort]
-
-  - id: colorado-ski-week
-    name: "Colorado ski week"
-    why: "Everyone skis, one flight, and lift-ticket costs are predictable"
-    active: true
-    destinations:
-      - code: DEN
-        label: "Denver / Summit County"
-        city_code: DEN
-    party:
-      adults: 2
-      children: [8, 5]
+      children: [8, 7, 5, 3]
     dates:
       mode: window
-      earliest: 2027-01-09
-      latest: 2027-02-20
-      nights: 6
-      departure_weekdays: [Sat]
-    flights:
-      max_stops: 0
-      cabin: economy
-      checked_bags: 2
+      # >>> CONFIRM: placeholder spring-break window. Replace with the real
+      # week from the school calendar and this gets much more precise.
+      earliest: 2027-03-06
+      latest: 2027-03-21
+      nights: 4
     lodging:
       enabled: true
-      rooms: 1
+      rooms: 2
       min_stars: 3
-      max_per_night: 450
+      max_per_night: 400         # across both rooms
     ground:
-      rental_car: true
-      per_day_cost: 85
-      notes: "SUV rental, mountain driving"
-    budget:
-      target_total: 4800
+      drive_round_trip_miles: 620
+      mpg: 22
+      fuel_price_per_gallon: 3.10
+      flat_cost: 70              # downtown parking, roughly
+      notes: "Driving from STL — fuel and parking"
     alerts:
-      total_below: 4200
-      drop_pct_vs_median: 10
+      # No absolute target, per your note that it depends on the experience.
+      # These fire on the trip's own history instead of a fixed number.
+      drop_pct_vs_median: 12
+      percentile_below: 20
+      all_time_low: true
       cooldown_days: 3
-    tags: [ski, mountains, kid-friendly, no-passport, road-trip]
+    tags: [city, food, culture, kid-friendly, no-passport, road-trip, drive-from-stl]
 
-  - id: portugal-spring
-    name: "Lisbon & the Algarve"
-    why: "Cheapest way into Western Europe, and good food without a fight"
-    active: false                      # set true to start tracking
+  - id: smokies-spring-break
+    name: "Great Smoky Mountains"
+    why: "Cabins sleep all six for less than two hotel rooms, and the park itself is free"
+    active: true
+    travel: drive
+    destinations:
+      - code: TYS
+        label: "Gatlinburg / Pigeon Forge, TN"
+        city_code: TYS
+    party:
+      adults: 2
+      children: [8, 7, 5, 3]
+    dates:
+      mode: window
+      earliest: 2027-03-06
+      latest: 2027-03-21
+      nights: 5
+    lodging:
+      enabled: true
+      rooms: 2
+      min_stars: 3
+      max_per_night: 400
+    ground:
+      drive_round_trip_miles: 1060
+      mpg: 22
+      fuel_price_per_gallon: 3.10
+      flat_cost: 40
+      notes: "Driving from STL — fuel and park-adjacent parking"
+    alerts:
+      drop_pct_vs_median: 12
+      percentile_below: 20
+      all_time_low: true
+      cooldown_days: 3
+    tags: [nature, hiking, national-park, wildlife, kid-friendly, no-passport, road-trip, drive-from-stl]
+
+# ============================================================================
+# SPRING BREAK 2027 — Europe
+# ----------------------------------------------------------------------------
+# Note on multi-city trips: the tracker prices ONE gateway per trip. For
+# Barcelona-and-Madrid it tracks the Barcelona flight and hotel, and the
+# Madrid leg sits in ground.flat_cost as a train estimate. Treating them as
+# two destinations would make the tracker price them as alternatives and
+# report the cheaper one, which would understate the trip.
+# ============================================================================
+
+  - id: spain-barcelona-madrid
+    name: "Spain — Barcelona & Madrid"
+    why: "Two great cities on one trip, connected by a three-hour train; walkable with kids"
+    active: true
+    destinations:
+      - code: BCN
+        label: "Barcelona, Spain"
+        city_code: BCN
+    party:
+      adults: 2
+      children: [8, 7, 5, 3]
+    dates:
+      mode: window
+      earliest: 2027-03-06
+      latest: 2027-03-21
+      nights: 9
+    flights:
+      max_stops: 1               # nonstop STL–Europe doesn't exist
+      cabin: economy
+      checked_bags: 3
+    lodging:
+      enabled: true
+      rooms: 2
+      min_stars: 3
+      max_per_night: 550
+    ground:
+      flat_cost: 520
+      notes: "AVE train Barcelona–Madrid for six, plus airport transfers"
+    alerts:
+      drop_pct_vs_median: 10
+      percentile_below: 20
+      all_time_low: true
+      cooldown_days: 3
+    tags: [city, culture, food, europe, walkable, kid-friendly]
+
+  - id: paris-versailles
+    name: "Paris & Versailles"
+    why: "Versailles is a 40-minute train from the city; no car needed all week"
+    active: true
+    destinations:
+      - code: CDG
+        label: "Paris, France"
+        city_code: PAR
+    party:
+      adults: 2
+      children: [8, 7, 5, 3]
+    dates:
+      mode: window
+      earliest: 2027-03-06
+      latest: 2027-03-21
+      nights: 8
+    flights:
+      max_stops: 1
+      cabin: economy
+      checked_bags: 3
+    lodging:
+      enabled: true
+      rooms: 2
+      min_stars: 3
+      max_per_night: 600
+    ground:
+      flat_cost: 340
+      notes: "Paris transit passes for six, plus RER to Versailles and CDG"
+    alerts:
+      drop_pct_vs_median: 10
+      percentile_below: 20
+      all_time_low: true
+      cooldown_days: 3
+    tags: [city, culture, food, europe, walkable, kid-friendly]
+
+  - id: nice-riviera
+    name: "Nice & the French Riviera"
+    why: "Beach plus an old town, and day trips along the coast by train"
+    active: true
+    destinations:
+      - code: NCE
+        label: "Nice, France"
+        city_code: NCE
+    party:
+      adults: 2
+      children: [8, 7, 5, 3]
+    dates:
+      mode: window
+      earliest: 2027-03-06
+      latest: 2027-03-21
+      nights: 8
+    flights:
+      max_stops: 1
+      cabin: economy
+      checked_bags: 3
+    lodging:
+      enabled: true
+      rooms: 2
+      min_stars: 3
+      max_per_night: 550
+    ground:
+      flat_cost: 260
+      notes: "Coastal trains and airport transfers for six"
+    alerts:
+      drop_pct_vs_median: 10
+      percentile_below: 20
+      all_time_low: true
+      cooldown_days: 3
+    tags: [beach, city, culture, food, europe, walkable, kid-friendly, reliable-weather]
+
+# ============================================================================
+# SUMMER 2027 — lodging baseline only, for now
+# ----------------------------------------------------------------------------
+# You were right that it's early, though not for the reason you'd expect:
+# airlines load schedules about 11 months out, so June 2027 is already
+# bookable and July/August is right at the edge. The real problem is that
+# fares this far out are placeholder-high and tell you nothing.
+#
+# So: flights.enabled is false and these track LODGING ONLY, which is
+# genuinely useful now — summer European hotel inventory is already open and
+# the good family properties sell out early. Flip `enabled: true` around
+# January and airfare starts recording too.
+# ============================================================================
+
+  - id: greece-summer
+    name: "Greece — Athens & the islands"
+    why: "Ruins the kids will actually remember, and island ferries instead of a car"
+    active: true
+    destinations:
+      - code: ATH
+        label: "Athens, Greece"
+        city_code: ATH
+    party:
+      adults: 2
+      children: [8, 7, 5, 3]
+    dates:
+      mode: window
+      earliest: 2027-06-05
+      latest: 2027-07-10
+      nights: 10
+    flights:
+      enabled: false             # see the note above; flip in January
+      max_stops: 1
+      checked_bags: 3
+    lodging:
+      enabled: true
+      rooms: 2
+      min_stars: 3
+      max_per_night: 600
+    ground:
+      flat_cost: 700
+      notes: "Ferries and transfers for six (estimate)"
+    alerts:
+      drop_pct_vs_median: 12
+      percentile_below: 20
+      all_time_low: true
+      cooldown_days: 4
+    tags: [beach, culture, food, europe, island-hopping, kid-friendly]
+
+  - id: portugal-azores-summer
+    name: "Portugal & the Azores"
+    why: "Cheapest way into Western Europe, and the Azores are unlike anywhere else"
+    active: true
     destinations:
       - code: LIS
         label: "Lisbon, Portugal"
         city_code: LIS
     party:
       adults: 2
-      children: []
+      children: [8, 7, 5, 3]
     dates:
       mode: window
-      earliest: 2027-04-15
-      latest: 2027-05-31
-      nights: 9
+      earliest: 2027-06-05
+      latest: 2027-07-10
+      nights: 10
     flights:
+      enabled: false
       max_stops: 1
-      cabin: economy
-      checked_bags: 1
+      checked_bags: 3
     lodging:
       enabled: true
-      rooms: 1
+      rooms: 2
+      min_stars: 3
+      max_per_night: 450
+    ground:
+      flat_cost: 900
+      notes: "Lisbon–Ponta Delgada hop for six, plus a rental car on São Miguel"
+    alerts:
+      drop_pct_vs_median: 12
+      percentile_below: 20
+      all_time_low: true
+      cooldown_days: 4
+    tags: [city, culture, food, europe, beach, nature, adventure, kid-friendly]
+
+  - id: austria-bavaria-summer
+    name: "Austria & Bavaria"
+    why: "The family-resort belt Mary Beth has been saving — pools, lakes and lifts"
+    active: true
+    destinations:
+      - code: MUC
+        label: "Munich / Bavarian Alps"
+        city_code: MUC
+    party:
+      adults: 2
+      children: [8, 7, 5, 3]
+    dates:
+      mode: window
+      earliest: 2027-06-05
+      latest: 2027-07-10
+      nights: 10
+    flights:
+      enabled: false
+      max_stops: 1
+      checked_bags: 3
+    lodging:
+      enabled: true
+      rooms: 2
       min_stars: 4
-      max_per_night: 260
+      max_per_night: 650
     ground:
       rental_car: true
-      per_day_cost: 45
-    budget:
-      target_total: 4000
+      per_day_cost: 95
+      notes: "Van rental — the alpine resorts need a car"
     alerts:
-      total_below: 3400
-      percentile_below: 15
-    tags: [city, culture, food, europe, beach, walkable]
+      drop_pct_vs_median: 12
+      percentile_below: 20
+      all_time_low: true
+      cooldown_days: 4
+    tags: [mountains, nature, hiking, kid-friendly, europe, resort, culture]
+
+# ============================================================================
+# PARKED — not tracked, kept so the reasoning isn't lost
+# ============================================================================
+
+  - id: arizona-spring-training
+    name: "Arizona — Cactus League"
+    why: "Spring training was the whole point; parked until a full 2027 schedule is confirmed"
+    active: false
+    destinations:
+      - code: PHX
+        label: "Phoenix / Scottsdale, AZ"
+        city_code: PHX
+    party:
+      adults: 2
+      children: [8, 7, 5, 3]
+    dates:
+      mode: window
+      earliest: 2027-03-06
+      latest: 2027-03-21
+      nights: 6
+    flights:
+      max_stops: 1
+      checked_bags: 3
+    lodging:
+      enabled: true
+      rooms: 2
+      min_stars: 3
+      max_per_night: 450
+    ground:
+      rental_car: true
+      per_day_cost: 90
+      notes: "Van rental — ballparks are spread across the valley"
+    alerts:
+      drop_pct_vs_median: 12
+      percentile_below: 20
+      all_time_low: true
+    tags: [warm-winter, no-passport, kid-friendly, resort, golf, hiking]
