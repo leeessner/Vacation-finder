@@ -458,17 +458,28 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("-v", "--verbose", action="store_true")
     parser.add_argument("--dry-run", action="store_true", help="write email to a file, don't send")
     parser.add_argument("--out", default="build/email-preview.html")
+
+    # The same options, accepted after the subcommand too (`track --verbose`).
+    # SUPPRESS keeps a subcommand from resetting a value given before it.
+    common = argparse.ArgumentParser(add_help=False)
+    common.add_argument("--config", default=argparse.SUPPRESS)
+    common.add_argument("-v", "--verbose", action="store_true", default=argparse.SUPPRESS)
+    common.add_argument("--dry-run", action="store_true", default=argparse.SUPPRESS)
+    common.add_argument("--out", default=argparse.SUPPRESS)
     sub = parser.add_subparsers(dest="command", required=True)
 
-    sub.add_parser("validate", help="check config and estimate API usage").set_defaults(func=cmd_validate)
-    sub.add_parser("track", help="price trips, record history, fire alerts").set_defaults(func=cmd_track)
-    sub.add_parser("digest", help="send the scheduled summary email").set_defaults(func=cmd_digest)
-    sub.add_parser("dashboard", help="rebuild docs/index.html").set_defaults(func=cmd_dashboard)
-    sub.add_parser(
+    def add(name: str, **kwargs) -> argparse.ArgumentParser:
+        return sub.add_parser(name, parents=[common], **kwargs)
+
+    add("validate", help="check config and estimate API usage").set_defaults(func=cmd_validate)
+    add("track", help="price trips, record history, fire alerts").set_defaults(func=cmd_track)
+    add("digest", help="send the scheduled summary email").set_defaults(func=cmd_digest)
+    add("dashboard", help="rebuild docs/index.html").set_defaults(func=cmd_dashboard)
+    add(
         "doctor", help="make one live call to each source and show what came back"
     ).set_defaults(func=cmd_doctor)
 
-    demo = sub.add_parser("demo", help="generate synthetic history to preview output")
+    demo = add("demo", help="generate synthetic history to preview output")
     demo.add_argument("--days", type=int, default=60)
     demo.add_argument("--seed", type=int, default=7)
     demo.add_argument("--force", action="store_true", help="overwrite real history")
