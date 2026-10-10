@@ -1,1 +1,34 @@
-{}
+{
+  "austria-bavaria-summer:all_time_low": {
+    "last_fired": "2026-10-10",
+    "last_price": 950.0
+  },
+  "greece-summer:all_time_low": {
+    "last_fired": "2026-10-10",
+    "last_price": 700.0
+  },
+  "nashville-spring-break:all_time_low": {
+    "last_fired": "2026-10-10",
+    "last_price": 157.36
+  },
+  "nice-riviera:all_time_low": {
+    "last_fired": "2026-10-10",
+    "last_price": 260.0
+  },
+  "paris-versailles:all_time_low": {
+    "last_fired": "2026-10-10",
+    "last_price": 340.0
+  },
+  "portugal-azores-summer:all_time_low": {
+    "last_fired": "2026-10-10",
+    "last_price": 900.0
+  },
+  "smokies-spring-break:all_time_low": {
+    "last_fired": "2026-10-10",
+    "last_price": 189.36
+  },
+  "spain-barcelona-madrid:all_time_low": {
+    "last_fired": "2026-10-10",
+    "last_price": 520.0
+  }
+}
