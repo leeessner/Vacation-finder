@@ -1,0 +1,69 @@
+{
+  "trip_id": "paris-versailles",
+  "captured_at": "2026-10-10T18:05:35.210760+00:00",
+  "queries_made": 0,
+  "errors": [
+    "travelpayouts unavailable: TRAVELPAYOUTS_TOKEN is not set \u2014 get one free at travelpayouts.com (Tools -> API)",
+    "travelpayouts unavailable: TRAVELPAYOUTS_TOKEN is not set \u2014 get one free at travelpayouts.com (Tools -> API)",
+    "travelpayouts unavailable: TRAVELPAYOUTS_TOKEN is not set \u2014 get one free at travelpayouts.com (Tools -> API)"
+  ],
+  "quotes": [
+    {
+      "trip_id": "paris-versailles",
+      "destination": "CDG",
+      "depart_date": "2027-06-05",
+      "return_date": "2027-06-14",
+      "nights": 9,
+      "currency": "USD",
+      "flight": null,
+      "lodging": null,
+      "ground_cost": 340.0,
+      "ground_notes": "Paris transit passes for six, plus RER to Versailles and CDG",
+      "travel_mode": "air",
+      "flights_expected": false,
+      "flight_cost": 0.0,
+      "lodging_cost": 0.0,
+      "total_cost": 340.0,
+      "is_complete": false,
+      "notes": []
+    },
+    {
+      "trip_id": "paris-versailles",
+      "destination": "CDG",
+      "depart_date": "2027-06-21",
+      "return_date": "2027-06-30",
+      "nights": 9,
+      "currency": "USD",
+      "flight": null,
+      "lodging": null,
+      "ground_cost": 340.0,
+      "ground_notes": "Paris transit passes for six, plus RER to Versailles and CDG",
+      "travel_mode": "air",
+      "flights_expected": false,
+      "flight_cost": 0.0,
+      "lodging_cost": 0.0,
+      "total_cost": 340.0,
+      "is_complete": false,
+      "notes": []
+    },
+    {
+      "trip_id": "paris-versailles",
+      "destination": "CDG",
+      "depart_date": "2027-07-08",
+      "return_date": "2027-07-17",
+      "nights": 9,
+      "currency": "USD",
+      "flight": null,
+      "lodging": null,
+      "ground_cost": 340.0,
+      "ground_notes": "Paris transit passes for six, plus RER to Versailles and CDG",
+      "travel_mode": "air",
+      "flights_expected": false,
+      "flight_cost": 0.0,
+      "lodging_cost": 0.0,
+      "total_cost": 340.0,
+      "is_complete": false,
+      "notes": []
+    }
+  ]
+}
