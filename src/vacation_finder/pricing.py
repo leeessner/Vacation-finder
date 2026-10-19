@@ -8,14 +8,12 @@ from datetime import date, datetime, timezone
 
 from .config import Config, Trip
 from .dates import candidate_windows
+from .lodging import LodgingBook, slot_key
 from .models import FlightQuote, LodgingQuote, TripQuote
-from .sources import google_flights
+from .sources import google_flights, google_hotels
 from .sources.base import SourceError, SourceUnavailable
-from .sources.travelpayouts import (
-    TravelpayoutsClient,
-    search_flights,
-    search_lodging,
-)
+from .sources.google_hotels import SerpApiClient
+from .sources.travelpayouts import TravelpayoutsClient, search_flights
 
 log = logging.getLogger(__name__)
 
@@ -42,12 +40,25 @@ class RunResult:
 
 
 class TripPricer:
-    """Prices trips while keeping the free-tier API call count in check."""
+    """Prices trips while keeping the free-tier API call count in check.
 
-    def __init__(self, config: Config, client: TravelpayoutsClient | None = None) -> None:
+    `book` decides which hotel slots get a live search this run and supplies
+    the last price for the rest. Without one, every slot is searched — which
+    is what tests and one-off use want.
+    """
+
+    def __init__(
+        self,
+        config: Config,
+        client: TravelpayoutsClient | None = None,
+        hotels: SerpApiClient | None = None,
+        book: LodgingBook | None = None,
+    ) -> None:
         self.config = config
         self.settings = config.settings
         self.client = client or TravelpayoutsClient()
+        self.hotels = hotels or SerpApiClient()
+        self.book = book
 
     def price_trip(self, trip: Trip, today: date | None = None) -> RunResult:
         today = today or datetime.now(timezone.utc).date()
@@ -69,7 +80,7 @@ class TripPricer:
                     )
                 else:
                     flight, notes = None, []
-                lodging = self._best_lodging(trip, destination, depart, ret, result)
+                lodging = self._best_lodging(trip, destination, depart, ret, result, notes)
                 result.quotes.append(
                     TripQuote(
                         trip_id=trip.id,
@@ -98,22 +109,27 @@ class TripPricer:
 
         for origin in trip.origins:
             api_quote = None
-            try:
-                api_quote = search_flights(
-                    self.client,
-                    trip,
-                    origin,
-                    destination,
-                    depart,
-                    ret,
-                    self.settings.currency,
-                    self.settings,
-                )
-                result.queries_made += 1
-            except SourceUnavailable as exc:
-                result.errors.append(f"travelpayouts unavailable: {exc}")
-            except SourceError as exc:
-                log.info("travelpayouts flights %s->%s %s: %s", origin, destination, depart, exc)
+            # Travelpayouts is optional now; without a token, Google Flights
+            # alone prices airfare and there is nothing worth reporting.
+            if self.client.configured:
+                try:
+                    api_quote = search_flights(
+                        self.client,
+                        trip,
+                        origin,
+                        destination,
+                        depart,
+                        ret,
+                        self.settings.currency,
+                        self.settings,
+                    )
+                    result.queries_made += 1
+                except SourceUnavailable as exc:
+                    result.errors.append(f"travelpayouts unavailable: {exc}")
+                except SourceError as exc:
+                    log.info(
+                        "travelpayouts flights %s->%s %s: %s", origin, destination, depart, exc
+                    )
             if api_quote:
                 candidates.append(api_quote)
 
@@ -134,31 +150,52 @@ class TripPricer:
         return min(candidates, key=lambda q: q.total_price), notes
 
     def _best_lodging(
-        self, trip: Trip, destination, depart: date, ret: date, result: RunResult
+        self,
+        trip: Trip,
+        destination,
+        depart: date,
+        ret: date,
+        result: RunResult,
+        notes: list[str],
     ) -> LodgingQuote | None:
         if not trip.lodging.enabled:
             return None
 
-        # Hotellook resolves plain city names, so the label is a better query
-        # than an airport code where one is set (PAR beats CDG for Paris).
-        city = destination.label or destination.hotel_city
+        query = destination.lodging_query
+        key = slot_key(trip.id, query, depart, ret)
+        if self.book is not None and not self.book.should_search(key):
+            return self._cached_lodging(key, result, notes)
+
         try:
-            quote = search_lodging(
-                self.client,
-                trip,
-                city,
-                depart,
-                ret,
-                self.settings.currency,
-                self.settings,
+            quote = google_hotels.search_lodging(
+                self.hotels, trip, query, depart, ret, self.settings.currency, self.settings
             )
-            result.queries_made += 1
-            return quote
         except SourceUnavailable as exc:
-            result.errors.append(f"travelpayouts unavailable: {exc}")
+            message = f"hotel prices unavailable: {exc}"
+            if message not in result.errors:
+                result.errors.append(message)
+            return self._cached_lodging(key, result, notes)
         except SourceError as exc:
-            log.info("travelpayouts lodging %s %s: %s", city, depart, exc)
-        return None
+            log.info("google hotels %s %s: %s", query, depart, exc)
+            quote = None
+        result.queries_made += 1
+        if self.book is not None:
+            self.book.record(key, quote)
+        return quote
+
+    def _cached_lodging(
+        self, key: str, result: RunResult, notes: list[str]
+    ) -> LodgingQuote | None:
+        if self.book is None:
+            return None
+        quote, age = self.book.cached(key)
+        if quote is not None and age:
+            notes.append(f"hotel price checked {age} day(s) ago")
+        if quote is None and self.book.unavailable_reason:
+            message = f"hotel prices unavailable: {self.book.unavailable_reason}"
+            if message not in result.errors:
+                result.errors.append(message)
+        return quote
 
 
 def _cross_check_note(origin: str, cached: FlightQuote, scraped: FlightQuote) -> str:

@@ -63,6 +63,21 @@ class PriceAssessment:
         return f"{price} — {self.verdict} (bottom {self.percentile:.0f}% of {self.observations})"
 
 
+def comparable_rows(history: list[HistoryRow], field: str) -> list[HistoryRow]:
+    """The rows worth comparing on `field`.
+
+    A trip total is only comparable when it is complete. A day priced with no
+    hotel looks like a spectacular deal — Nashville at $157 of fuel — and
+    counting it would make every honest price after it look terrible and stop
+    the deal alerts from ever firing.
+    """
+    return [
+        r
+        for r in history
+        if getattr(r, field, 0) > 0 and (field != "total" or r.is_complete)
+    ]
+
+
 def percentile_rank(values: list[float], target: float) -> float:
     """Percent of observations at or below `target`. Lower is a better deal."""
     if not values:
@@ -93,7 +108,7 @@ def assess(
     today: date | None = None,
 ) -> PriceAssessment | None:
     """Assess the most recent observation against everything before it."""
-    series = [r for r in history if getattr(r, field, 0) > 0]
+    series = comparable_rows(history, field)
     if not series:
         return None
 
@@ -150,17 +165,15 @@ def assess(
 
 
 def best_ever(history: list[HistoryRow], field: str = "total") -> HistoryRow | None:
-    series = [r for r in history if getattr(r, field, 0) > 0]
+    series = comparable_rows(history, field)
     return min(series, key=lambda r: getattr(r, field)) if series else None
 
 
 def daily_series(history: list[HistoryRow], field: str = "total") -> list[tuple[date, float]]:
     """One point per calendar day (the cheapest that day), oldest first."""
     by_day: dict[date, float] = {}
-    for row in history:
-        value = getattr(row, field, 0)
-        if value <= 0:
-            continue
+    for row in comparable_rows(history, field):
+        value = getattr(row, field)
         day = row.captured_on
         by_day[day] = min(by_day.get(day, value), value)
     return sorted(by_day.items())
