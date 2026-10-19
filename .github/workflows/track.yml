@@ -36,6 +36,7 @@ jobs:
 
       - name: Price trips, record history, send alerts
         env:
+          SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
           TRAVELPAYOUTS_TOKEN: ${{ secrets.TRAVELPAYOUTS_TOKEN }}
           TRAVELPAYOUTS_MARKER: ${{ secrets.TRAVELPAYOUTS_MARKER }}
           SMTP_HOST: ${{ vars.SMTP_HOST || 'smtp.gmail.com' }}

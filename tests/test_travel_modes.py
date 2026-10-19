@@ -11,7 +11,7 @@ from vacation_finder.pricing import TripPricer
 from vacation_finder.config import Config, DateWindow, Settings, Trip
 from vacation_finder.models import Party
 
-from test_pricing import HOTELS, FakeTravelpayouts, fare
+from test_pricing import HOTELS, FakeHotels, FakeTravelpayouts, fare
 
 SETTINGS = Settings(
     home_airports=("STL",), google_flights_enabled=False, max_date_samples_per_trip=2
@@ -74,10 +74,10 @@ def test_drive_trip_spends_no_flight_api_calls():
         dates=DateWindow(mode="window", nights=4,
                          earliest=date(2027, 3, 1), latest=date(2027, 3, 20)),
     )
-    client = FakeTravelpayouts(fares=[fare(9999)], hotels=HOTELS)
-    result = TripPricer(Config(settings=SETTINGS, trips=(trip,)), client=client).price_trip(
-        trip, today=date(2026, 9, 12)
-    )
+    client = FakeTravelpayouts(fares=[fare(9999)])
+    result = TripPricer(
+        Config(settings=SETTINGS, trips=(trip,)), client=client, hotels=FakeHotels(HOTELS)
+    ).price_trip(trip, today=date(2026, 9, 12))
     assert not any("prices" in call[0] for call in client.calls)
     assert result.best.flight is None
     assert result.best.is_complete
