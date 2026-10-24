@@ -1,4 +1,4 @@
-"""Pricing tests against recorded-shape Travelpayouts payloads — no network."""
+"""Pricing tests against recorded-shape API payloads — no network."""
 
 from datetime import date
 
@@ -8,15 +8,13 @@ from vacation_finder.config import Config, DateWindow, Destination, Settings, Tr
 from vacation_finder.models import Party
 from vacation_finder.pricing import TripPricer
 from vacation_finder.sources.base import SourceError
-from vacation_finder.sources.travelpayouts import search_flights, search_lodging
+from vacation_finder.sources.travelpayouts import search_flights
 
 SETTINGS = Settings(
     home_airports=("STL",),
     google_flights_enabled=False,   # keep the scraper out of unit tests
-    max_hotels_per_query=5,
     lookahead_min_days=14,
     max_date_samples_per_trip=2,
-    hotel_price_is_per_night=False,
 )
 
 
@@ -43,24 +41,25 @@ def fare(
     }
 
 
-def hotel(name: str, price: float, stars: int = 4, hotel_id: int = 1) -> dict:
-    """One row as Hotellook /cache.json returns it."""
+def hotel(name: str, stay: float, stars: int = 4) -> dict:
+    """One property as SerpApi's Google Hotels engine returns it."""
     return {
-        "hotelId": hotel_id,
-        "hotelName": name,
-        "stars": stars,
-        "priceFrom": price,
-        "priceAvg": price * 1.2,
-        "location": {"name": "Barcelona"},
+        "type": "hotel",
+        "name": name,
+        "property_token": f"tok-{name}",
+        "total_rate": {"lowest": f"${stay:,.0f}", "extracted_lowest": stay},
+        "extracted_hotel_class": stars,
+        "overall_rating": 4.2,
     }
 
 
 class FakeTravelpayouts:
     """Stands in for the client, returning canned payloads by path."""
 
-    def __init__(self, fares=None, hotels=None, fail_on=()):
+    configured = True
+
+    def __init__(self, fares=None, fail_on=()):
         self.fares = fares if fares is not None else []
-        self.hotels = hotels if hotels is not None else []
         self.fail_on = fail_on
         self.calls: list[tuple[str, dict]] = []
 
@@ -70,11 +69,22 @@ class FakeTravelpayouts:
             raise SourceError(f"stubbed failure for {path}")
         return {"success": True, "data": self.fares}
 
-    def get_hotels(self, path: str, params: dict):
-        self.calls.append((path, params))
-        if any(token in path for token in self.fail_on):
-            raise SourceError(f"stubbed failure for {path}")
-        return self.hotels
+
+class FakeHotels:
+    """Stands in for the SerpApi client."""
+
+    configured = True
+
+    def __init__(self, properties=None, fail=False):
+        self.properties = properties if properties is not None else []
+        self.fail = fail
+        self.calls: list[dict] = []
+
+    def search(self, params: dict) -> dict:
+        self.calls.append(params)
+        if self.fail:
+            raise SourceError("stubbed hotel failure")
+        return {"properties": self.properties}
 
 
 def make_trip(**overrides) -> Trip:
@@ -171,74 +181,25 @@ def test_missing_token_is_reported_as_unavailable():
 
 
 # --------------------------------------------------------------------------- #
-# Lodging
-# --------------------------------------------------------------------------- #
-
-HOTELS = [
-    hotel("Pricey Palace", 3000, stars=5, hotel_id=1),
-    hotel("Good Value Inn", 1200, stars=4, hotel_id=2),
-    hotel("Dodgy Hostel", 200, stars=1, hotel_id=3),
-]
-
-
-def price_lodging(client, trip=None, settings=SETTINGS):
-    return search_lodging(
-        client, trip or make_trip(), "Barcelona",
-        date(2027, 6, 5), date(2027, 6, 15), "USD", settings,
-    )
-
-
-def test_lodging_scales_by_room_count():
-    """Six people need two rooms; a one-room price would be fiction."""
-    from vacation_finder.config import LodgingPrefs
-
-    trip = make_trip(lodging=LodgingPrefs(rooms=2, min_stars=4))
-    quote = price_lodging(FakeTravelpayouts(hotels=HOTELS), trip)
-    assert quote.property_name == "Good Value Inn"
-    assert quote.total_price == 2400.0          # 1200 x 2 rooms
-    assert quote.nights == 10
-
-
-def test_star_filter_excludes_low_rated_properties():
-    from vacation_finder.config import LodgingPrefs
-
-    trip = make_trip(lodging=LodgingPrefs(rooms=1, min_stars=4))
-    quote = price_lodging(FakeTravelpayouts(hotels=HOTELS), trip)
-    assert quote.property_name == "Good Value Inn"   # not the 1-star at 200
-
-
-def test_max_per_night_filters_expensive_stays():
-    from vacation_finder.config import LodgingPrefs
-
-    trip = make_trip(lodging=LodgingPrefs(rooms=1, min_stars=4, max_per_night=50))
-    assert price_lodging(FakeTravelpayouts(hotels=HOTELS), trip) is None
-
-
-def test_per_night_price_basis_multiplies_by_nights():
-    """The one genuinely ambiguous thing about Hotellook, so it's a setting."""
-    from dataclasses import replace
-    from vacation_finder.config import LodgingPrefs
-
-    trip = make_trip(lodging=LodgingPrefs(rooms=1, min_stars=4))
-    per_night = replace(SETTINGS, hotel_price_is_per_night=True)
-    quote = price_lodging(FakeTravelpayouts(hotels=HOTELS), trip, per_night)
-    assert quote.total_price == 1200.0 * 10
-
-
-def test_empty_hotel_list_returns_none():
-    assert price_lodging(FakeTravelpayouts(hotels=[])) is None
-
-
-def test_non_list_hotel_response_is_handled():
-    assert price_lodging(FakeTravelpayouts(hotels={"error": "nope"})) is None
-
-
-# --------------------------------------------------------------------------- #
 # Orchestration
 # --------------------------------------------------------------------------- #
 
 def config_for(trip: Trip) -> Config:
     return Config(settings=SETTINGS, trips=(trip,))
+
+
+HOTELS = [
+    hotel("Pricey Palace", 3000, stars=5),
+    hotel("Good Value Inn", 1200, stars=4),
+    hotel("Dodgy Hostel", 200, stars=1),
+]
+
+
+def pricer(trip, fares=(800,), hotels=None, **kwargs):
+    client = FakeTravelpayouts(fares=[fare(v) for v in fares], **kwargs)
+    return TripPricer(
+        config_for(trip), client=client, hotels=hotels or FakeHotels(HOTELS)
+    )
 
 
 def test_pricer_combines_flights_lodging_and_ground():
@@ -248,10 +209,7 @@ def test_pricer_combines_flights_lodging_and_ground():
         ground=GroundPrefs(flat_cost=520, notes="train"),
         lodging=LodgingPrefs(rooms=2, min_stars=4),
     )
-    client = FakeTravelpayouts(fares=[fare(800)], hotels=HOTELS)
-    best = TripPricer(config_for(trip), client=client).price_trip(
-        trip, today=date(2026, 9, 12)
-    ).best
+    best = pricer(trip).price_trip(trip, today=date(2026, 9, 12)).best
 
     assert best.flight_cost == 4800.0
     assert best.lodging_cost == 2400.0
@@ -260,33 +218,62 @@ def test_pricer_combines_flights_lodging_and_ground():
     assert best.is_complete
 
 
-def test_hotel_lookup_uses_the_city_label_not_the_airport_code():
-    """Hotellook resolves names; 'CDG' is an airport, 'Paris' is a city."""
+def test_hotel_lookup_searches_a_place_not_an_airport_code():
+    """'CDG' is an airport; Google Hotels wants 'Paris'."""
     trip = make_trip(destinations=(Destination(code="CDG", label="Paris"),))
-    client = FakeTravelpayouts(fares=[fare(800)], hotels=HOTELS)
-    TripPricer(config_for(trip), client=client).price_trip(trip, today=date(2026, 9, 12))
+    hotels = FakeHotels(HOTELS)
+    pricer(trip, hotels=hotels).price_trip(trip, today=date(2026, 9, 12))
+    assert hotels.calls
+    assert all(c["q"] == "Paris" for c in hotels.calls)
 
-    hotel_calls = [c for c in client.calls if "cache.json" in c[0]]
-    assert hotel_calls
-    assert all(c[1]["location"] == "Paris" for c in hotel_calls)
+
+def test_hotel_query_overrides_the_label():
+    trip = make_trip(
+        destinations=(
+            Destination(code="MUC", label="Munich / Bavarian Alps", hotel_query="Munich, Germany"),
+        )
+    )
+    hotels = FakeHotels(HOTELS)
+    pricer(trip, hotels=hotels).price_trip(trip, today=date(2026, 9, 12))
+    assert all(c["q"] == "Munich, Germany" for c in hotels.calls)
 
 
 def test_a_failing_lodging_source_does_not_abort_the_run():
-    client = FakeTravelpayouts(fares=[fare(800)], hotels=HOTELS, fail_on=("cache.json",))
-    result = TripPricer(config_for(make_trip()), client=client).price_trip(
-        make_trip(), today=date(2026, 9, 12)
+    trip = make_trip()
+    result = pricer(trip, hotels=FakeHotels(fail=True)).price_trip(
+        trip, today=date(2026, 9, 12)
     )
     assert result.best.flight_cost == 4800.0
     assert result.best.lodging is None
     assert not result.best.is_complete
 
 
-def test_every_sampled_window_gets_priced():
+def test_missing_hotel_key_is_reported_once_per_trip_not_per_window():
+    from vacation_finder.sources.google_hotels import SerpApiClient
+
     trip = make_trip()
-    client = FakeTravelpayouts(fares=[fare(800)], hotels=HOTELS)
-    result = TripPricer(config_for(trip), client=client).price_trip(
+    result = pricer(trip, hotels=SerpApiClient(api_key="")).price_trip(
         trip, today=date(2026, 9, 12)
     )
+    hotel_errors = [e for e in result.errors if "SERPAPI_KEY" in e]
+    assert len(hotel_errors) == 1
+
+
+def test_travelpayouts_is_skipped_silently_without_a_token():
+    """It's optional now; a missing token is not an error worth recording."""
+    from vacation_finder.sources.travelpayouts import TravelpayoutsClient
+
+    trip = make_trip()
+    result = TripPricer(
+        config_for(trip), client=TravelpayoutsClient(token=""), hotels=FakeHotels(HOTELS)
+    ).price_trip(trip, today=date(2026, 9, 12))
+    assert not any("travelpayouts" in e for e in result.errors)
+    assert result.best.flight is None
+
+
+def test_every_sampled_window_gets_priced():
+    trip = make_trip()
+    result = pricer(trip).price_trip(trip, today=date(2026, 9, 12))
     assert len(result.quotes) == SETTINGS.max_date_samples_per_trip
 
 

@@ -1,44 +1,44 @@
 # Setup
 
-Three one-time steps, about 20 minutes. Everything here is free — no
+Three one-time steps, about 15 minutes. Everything here is free — no
 subscriptions, no credit card, no per-call charges.
 
 > **Note on history:** this was originally built on the Amadeus Self-Service
-> API, whose free tier was decommissioned on 17 July 2026. Travelpayouts
-> replaces it. If you find any reference to Amadeus elsewhere, it is stale.
+> API (decommissioned 17 July 2026), then on Travelpayouts, whose signup
+> requires a website with its affiliate script installed. Hotel prices now
+> come from Google Hotels through SerpApi. Any other mention of Amadeus or
+> Hotellook is stale.
 
 ---
 
-## 1. Travelpayouts token (free, ~8 min)
+## 1. SerpApi key, for hotel prices (free, ~3 min)
 
-Travelpayouts is a travel affiliate network. The account is free and needs no
-card, and the API token is issued immediately on signup.
+SerpApi runs Google searches and returns the results as data. Its free plan
+covers Google Hotels at **250 searches a month**, with no card and no website.
 
-1. Register at <https://www.travelpayouts.com/>. Email and password; no
-   payment details are requested.
-2. Confirm your email and finish the short profile. When it asks what you
-   promote, a personal site or blog is a fine answer — you are not obliged to
-   promote anything, and the API works regardless.
-3. Go to **Tools → API** (or <https://www.travelpayouts.com/programs/100/tools/api>)
-   and copy your **API token**.
-4. While you are there, note your **marker** — the affiliate id shown in your
-   dashboard. It is optional for our purposes but worth storing.
+1. Sign up at <https://serpapi.com/users/sign_up> — email and password, or
+   Google sign-in. Confirm your email. If it asks you to verify a phone
+   number, that's part of their normal anti-abuse check.
+2. Choose the **Free** plan if asked.
+3. Open <https://serpapi.com/manage-api-key> and copy your **API key**.
 
 ### What you are actually signing up for
 
-Worth being clear, since it is a commercial network rather than a plain
-developer portal:
+- **250 searches a month, then it stops** until the month resets. It never
+  charges you; there's no card on file. The tracker is built to fit: about
+  7 searches a day (210 a month), keeping 10 spare for Doctor and manual
+  runs, and it checks how many you have left before each run.
+- **Each hotel price is re-checked every few days, not daily.** In between,
+  the last price is reused and labelled with its age. For stays months out,
+  that's plenty.
+- **The prices are Google Hotels' prices** for your real party: two rooms of
+  one adult and two children each, or one rental for all six.
 
-- You are creating an **affiliate marketing account.** Nothing obliges you to
-  use it as one, and the data API works without ever placing a link.
-- The prices are **cached**, not live — they are the cheapest fares and rates
-  that other people's recent searches turned up. For watching a trend over
-  months, which is what this project does, that is fine and arguably steadier
-  than live search. For booking, treat every number as a pointer, not a quote.
-- Flight prices are quoted **per adult**. The API takes no passenger counts at
-  all. The tracker multiplies by your party size, which overstates a little
-  because children usually fly for less. Overstating is the safer direction
-  for a budget, but it is an estimate and the reports say so.
+### Travelpayouts (optional, skip it)
+
+The tracker can also read Travelpayouts' cached flight fares, but nothing
+needs it: airfare comes from the Google Flights scraper, which needs no
+account. Only add `TRAVELPAYOUTS_TOKEN` if you already have one.
 
 ## 2. Gmail app password (free, ~3 min)
 
@@ -59,8 +59,7 @@ In this repository: **Settings → Secrets and variables → Actions → New rep
 
 | Secret name | Value |
 |---|---|
-| `TRAVELPAYOUTS_TOKEN` | API token from step 1 |
-| `TRAVELPAYOUTS_MARKER` | Your affiliate marker (optional) |
+| `SERPAPI_KEY` | API key from step 1 |
 | `SMTP_USER` | Your Gmail address |
 | `SMTP_PASSWORD` | The 16-character app password from step 2 |
 | `EMAIL_TO` | Where the reports go (can be the same address) |
@@ -84,40 +83,36 @@ and that link is included in every email.
 
 ## Verify it works — do this first
 
-From the **Actions** tab, run **Doctor** (*Run workflow*). It makes one call to
-each source and prints exactly what came back, so you find out in 30 seconds
-rather than at 9am tomorrow.
+From the **Actions** tab, run **Doctor** (*Run workflow*). It uses one of the
+month's hotel searches and prints exactly what came back, so you find out in
+30 seconds rather than at 9am tomorrow.
 
-It checks four things: the token is accepted; flight prices come back for a
-real route; hotel prices come back for a real city; and the Google Flights
-scraper still works.
-
-### The one thing Doctor asks you to settle
-
-Hotellook's cached price is ambiguous about whether it covers **one night** or
-**the whole stay**, and the documentation does not say. Doctor prints both
-readings with a real hotel name. Look that hotel up on Google for those dates,
-see which figure it resembles, and set `hotel_price_is_per_night` in
-`config/trips.yaml` to match. One minute, once, and every lodging number after
-that is right.
+It shows: that the key works and how many searches are left; the cheapest
+hotels Google returns for your first trip, and which one the tracker would
+record (with a link to check it on Google); and whether the Google Flights
+scraper works.
 
 Then run **Track prices** manually. You should see:
 
-- A log line like `best USD 4231 (2027-03-12 → 2027-03-16)`.
-- A new commit with the day's prices.
-- A row in `data/history/<trip-id>.csv`.
+- `SerpApi: N search(es) left this month` and `hotel searches this run: 7 of 26 slot(s)`.
+- Lines like `best USD 1597 (2027-03-12 → 2027-03-16)`.
+- A new commit with the day's prices, including `data/state/lodging.json`
+  (the hotel-price cache).
 
-If the log says `travelpayouts unavailable`, the token secret is missing or
-wrong. If it says `no priceable option found`, the route may simply have no
-cached fares — Doctor will show you whether any data exists at all.
+It takes about four daily runs before every trip has a hotel price. Until a
+trip has one, its total is marked incomplete and isn't judged or alerted on.
+
+If the log says `SERPAPI_KEY is not set`, the secret is missing or misnamed.
+If Doctor says nothing meets the trip's lodging rules, loosen `min_stars` or
+`max_per_night`, or check that `hotel_query` is a real place.
 
 ## Quick command reference
 
 ```bash
 pip install -r requirements-dev.txt
 
-python -m vacation_finder validate           # check config, estimate API usage
-python -m vacation_finder doctor             # live-check every price source
+python -m vacation_finder validate           # check config, show hotel-search cadence
+python -m vacation_finder doctor             # live-check every price source (1 search)
 python -m vacation_finder demo --days 60     # synthetic data, to preview output
 python -m vacation_finder track              # real prices (needs the env vars)
 python -m vacation_finder digest --dry-run   # write the email to build/ instead of sending
@@ -126,7 +121,7 @@ python -m vacation_finder digest --dry-run   # write the email to build/ instead
 Set credentials locally with a `.env`-style export before `track`:
 
 ```bash
-export TRAVELPAYOUTS_TOKEN=...
+export SERPAPI_KEY=...
 export SMTP_USER=... SMTP_PASSWORD=... EMAIL_TO=...
 ```
 

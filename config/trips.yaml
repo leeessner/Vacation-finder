@@ -16,22 +16,25 @@
 # Mon Mar 15, home by Tue–Fri, with the rest of the week at home. No weekday
 # restriction, since you're open to travelling on cheaper days.
 #
-# PRICE SOURCE: Travelpayouts (free affiliate token) plus the keyless Google
-# Flights scraper as a live cross-check. Amadeus Self-Service, which this was
-# originally built on, shut down on 2026-07-17.
-#
-# Travelpayouts data is CACHED — the cheapest fares other people's searches
-# turned up recently, not a live availability check — and its flight prices
-# are per adult, which the tracker scales by party size. That slightly
-# overstates, since children usually fly for less. Good for spotting a trend;
-# not a quote.
+# PRICE SOURCES:
+#   Hotels and rentals — Google Hotels, through SerpApi (free key, 250
+#     searches a month). Live prices for the real guests, children's ages
+#     included. The monthly cap means each hotel price is re-checked every
+#     few days rather than daily; see the hotel_* settings below.
+#   Flights — the keyless Google Flights scraper, plus Travelpayouts' cached
+#     fares if a TRAVELPAYOUTS_TOKEN is ever set (optional).
+# Amadeus Self-Service, which this was originally built on, shut down on
+# 2026-07-17.
 #
 # lodging.coverage says how much to trust a lodging number:
-#   good — chain hotels, priced reliably
-#   thin — family rooms, small independents, alpine and island properties.
-#          The number is a usable floor, not the thing you'd actually book.
-#   none — cabins, apartments, Airbnb/Vrbo. Not covered at all, so lodging
-#          isn't queried rather than reporting a misleading chain-hotel price.
+#   good — the number is the kind of place you'd actually book
+#   thin — the number is a usable floor, not the thing you'd actually book
+#          (e.g. a city hotel standing in for an island or alpine stay)
+#   none — lodging isn't queried at all, rather than reporting a misleading
+#          price
+#
+# lodging.kind is `hotel` (lodging.rooms identical rooms at one hotel) or
+# `rental` (one cabin/apartment/house for everyone, lodging.bedrooms+).
 #
 # After editing:  python -m vacation_finder validate
 # ============================================================================
@@ -42,13 +45,15 @@ settings:
   timezone: America/Chicago
 
   max_date_samples_per_trip: 3
-  max_hotels_per_query: 20
   lookahead_min_days: 14
 
-  # Hotellook's cached price is ambiguous about whether it covers one night
-  # or the whole stay. Run `python -m vacation_finder doctor` once against a
-  # real booking to settle it, then set this accordingly.
-  hotel_price_is_per_night: false
+  # Hotel searches: SerpApi's free plan is 250 a month. Each daily run spends
+  # up to hotel_searches_per_run (7 x 30 = 210), keeping hotel_search_reserve
+  # back for Doctor and manual runs. Prices not re-checked today are reused
+  # for up to hotel_price_max_age_days. `validate` shows the resulting cadence.
+  hotel_searches_per_run: 7
+  hotel_search_reserve: 10
+  hotel_price_max_age_days: 10
 
   google_flights_enabled: true
   google_flights_price_is_total: true
@@ -110,6 +115,7 @@ trips:
       - code: TYS
         label: "Gatlinburg / Pigeon Forge, TN"
         city_code: TYS
+        hotel_query: "Gatlinburg, TN"
     party:
       adults: 2
       children: [8, 7, 5, 3]
@@ -121,12 +127,12 @@ trips:
     max_date_samples: 4
     lodging:
       enabled: true
-      # The thing you'd actually book here is a cabin, and Amadeus can't see
-      # cabin rentals. What it returns is Pigeon Forge / Sevierville chain
-      # hotels — a real alternative and a useful floor, but not the cabin.
-      coverage: thin
-      rooms: 2
-      min_stars: 3
+      # The thing you'd actually book here is a cabin, and Google Hotels
+      # lists vacation rentals — so this prices one cabin for all six rather
+      # than two chain-hotel rooms. Set kind: hotel to compare against hotels.
+      kind: rental
+      coverage: good
+      bedrooms: 3
       max_per_night: 400
     ground:
       drive_round_trip_miles: 1060
@@ -295,8 +301,8 @@ trips:
       checked_bags: 3
     lodging:
       enabled: true
-      # Athens chains price fine; the island half is small family-run places
-      # Amadeus barely sees. The tracked number is the Athens leg.
+      # The tracked number is the Athens leg; the islands are a separate
+      # stay this one search can't represent.
       coverage: thin
       rooms: 2
       min_stars: 3
@@ -355,6 +361,9 @@ trips:
       - code: MUC
         label: "Munich / Bavarian Alps"
         city_code: MUC
+        # Change to a resort town (e.g. "Garmisch-Partenkirchen") to price
+        # the alpine family resorts instead of Munich hotels.
+        hotel_query: "Munich, Germany"
     party:
       adults: 2
       children: [8, 7, 5, 3]
@@ -370,8 +379,8 @@ trips:
     lodging:
       enabled: true
       # Alpine family resorts — the exact thing Mary Beth is saving — are
-      # mostly independents Amadeus doesn't carry. Expect a Munich hotel
-      # price, which is a floor and not the resort.
+      # out in the mountains, not in Munich. This prices a Munich hotel,
+      # which is a floor and not the resort; see hotel_query above.
       coverage: thin
       rooms: 2
       min_stars: 4
@@ -399,6 +408,7 @@ trips:
       - code: PHX
         label: "Phoenix / Scottsdale, AZ"
         city_code: PHX
+        hotel_query: "Scottsdale, AZ"
     party:
       adults: 2
       children: [8, 7, 5, 3]
