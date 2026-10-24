@@ -1,6 +1,5 @@
 """One-off live probe of SerpApi behaviour. Temporary — removed after use."""
-import json
-import os
+import math
 import sys
 
 sys.path.insert(0, "src")
@@ -8,73 +7,45 @@ from vacation_finder.sources.google_hotels import SerpApiClient  # noqa: E402
 
 client = SerpApiClient()
 print("searches left:", client.searches_left())
-
-BASE = {"currency": "USD", "gl": "us", "hl": "en"}
-HOTEL = {**BASE, "check_in_date": "2027-03-12", "check_out_date": "2027-03-16"}
+BASE = {"currency": "USD", "gl": "us", "hl": "en", "rating": 8, "hotel_class": "3,4,5"}
 
 
-def hotels(label, params):
+def miles(a, b):
+    lat1, lon1, lat2, lon2 = map(math.radians, (a[0], a[1], b[0], b[1]))
+    h = math.sin((lat2 - lat1) / 2) ** 2 + math.cos(lat1) * math.cos(lat2) * math.sin((lon2 - lon1) / 2) ** 2
+    return 3958.8 * 2 * math.asin(math.sqrt(h))
+
+
+def run(label, center, params):
     print(f"\n===== {label} =====")
     try:
-        payload = client.search({**HOTEL, **params})
+        payload = client.search({**BASE, **params})
     except Exception as exc:  # noqa: BLE001
         print("FAILED:", exc)
         return
-    print("top-level keys:", sorted(payload.keys()))
     props = payload.get("properties") or []
-    print("properties:", len(props))
-    if props:
-        print("first property keys:", sorted(props[0].keys()))
-    for p in props[:12]:
+    info = payload.get("search_information") or {}
+    print("properties:", len(props), "| search_information:", info)
+    print("pagination:", bool(payload.get("serpapi_pagination")))
+    for p in props[:20]:
+        gps = p.get("gps_coordinates") or {}
+        d = miles(center, (gps.get("latitude"), gps.get("longitude"))) if gps else float("nan")
         print(
-            f"  {str(p.get('name'))[:46]:<46} type={p.get('type')!s:<16} "
-            f"class={p.get('extracted_hotel_class')} rating={p.get('overall_rating')} "
-            f"total={((p.get('total_rate') or {}).get('extracted_lowest'))} "
-            f"night={((p.get('rate_per_night') or {}).get('extracted_lowest'))}"
+            f"  {d:5.1f} mi  {str(p.get('name'))[:44]:<44} class={p.get('extracted_hotel_class')} "
+            f"rating={p.get('overall_rating')} total={((p.get('total_rate') or {}).get('extracted_lowest'))}"
         )
-    if props:
-        print("first property sample:", json.dumps(
-            {k: props[0].get(k) for k in ("essential_info", "amenities", "nearby_places", "prices", "deal", "description") if k in props[0]},
-        )[:1500])
 
 
-hotels("A: Nashville, ONE room, 2 adults + 4 kids, rating 4.0+",
-       {"q": "Nashville, TN", "adults": 2, "children": 4, "children_ages": "8,7,5,3",
-        "rating": 8, "sort_by": 3})
-hotels("B: 'Embassy Suites Nashville, TN', one room for six",
-       {"q": "Embassy Suites Nashville, TN", "adults": 2, "children": 4,
-        "children_ages": "8,7,5,3"})
-hotels("C: Gatlinburg cabins (vacation rentals), 3+ bedrooms",
-       {"q": "Gatlinburg, TN", "adults": 2, "children": 4, "children_ages": "8,7,5,3",
-        "vacation_rentals": "true", "bedrooms": 3, "rating": 8, "sort_by": 3})
+NASH = (36.1627, -86.7816)   # downtown Nashville
+PARIS = (48.8566, 2.3522)    # Hôtel de Ville, central Paris
+NASH_DATES = {"check_in_date": "2027-03-12", "check_out_date": "2027-03-16",
+              "adults": 2, "children": 4, "children_ages": "8,7,5,3"}
 
-print("\n===== D: Google Flights STL->CDG Jun 5-14 2027, 2 adults + 4 kids =====")
-try:
-    payload = client._get(
-        "https://serpapi.com/search.json",
-        {**BASE, "engine": "google_flights", "departure_id": "STL", "arrival_id": "CDG",
-         "outbound_date": "2027-06-05", "return_date": "2027-06-14", "type": 1,
-         "adults": 2, "children": 4},
-    )
-    print("top-level keys:", sorted(payload.keys()))
-    if payload.get("error"):
-        print("error:", payload["error"])
-    insights = payload.get("price_insights") or {}
-    hist = insights.get("price_history") or []
-    print("price_insights keys:", sorted(insights.keys()))
-    print("lowest:", insights.get("lowest_price"), "level:", insights.get("price_level"),
-          "typical range:", insights.get("typical_price_range"))
-    print("history points:", len(hist), "first:", hist[:2], "last:", hist[-2:])
-    for group in ("best_flights", "other_flights"):
-        rows = payload.get(group) or []
-        print(group, len(rows), [r.get("price") for r in rows[:6]])
-        if rows:
-            first = rows[0]
-            legs = first.get("flights") or []
-            print("  first option:", first.get("price"), first.get("type"),
-                  [(leg.get("airline"), (leg.get("departure_airport") or {}).get("id"),
-                    (leg.get("arrival_airport") or {}).get("id")) for leg in legs])
-except Exception as exc:  # noqa: BLE001
-    print("FAILED:", exc)
-
+run("N1: 'Downtown Nashville, TN', 1 room for 6, cheapest first", NASH,
+    {**NASH_DATES, "q": "Downtown Nashville, TN", "sort_by": 3})
+run("N2: 'Nashville, TN', 1 room for 6, Google's default order", NASH,
+    {**NASH_DATES, "q": "Nashville, TN"})
+run("P1: 'Paris, France', 1 adult + 2 kids per room, cheapest first", PARIS,
+    {"q": "Paris, France", "check_in_date": "2027-06-05", "check_out_date": "2027-06-14",
+     "adults": 1, "children": 2, "children_ages": "8,7", "sort_by": 3})
 print("\nsearches left:", client.searches_left())
