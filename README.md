@@ -34,57 +34,62 @@ So the tracker:
 | Piece | Service | Cost |
 |---|---|---|
 | Scheduling | GitHub Actions | Free (~5 min/day, well inside the free allowance) |
-| Flights & hotels | Travelpayouts + Hotellook | Free affiliate token, no card |
-| Flight cross-check | Google Flights scraper | Free, no key |
+| Hotels & rentals | Google Hotels via SerpApi | Free key, 250 searches/month, no card |
+| Flights | Google Flights scraper | Free, no key |
+| Flight cross-check (optional) | Travelpayouts | Free affiliate token, if you have one |
 | Email | Gmail SMTP | Free |
 | Storage & dashboard | Git + GitHub Pages | Free |
 
-`python -m vacation_finder validate` prints your projected call volume, and
-`python -m vacation_finder doctor` makes one live call to each source and
-shows exactly what came back — the fastest way to confirm a working setup.
+`python -m vacation_finder validate` prints your projected hotel-search volume
+against the free 250, and `python -m vacation_finder doctor` makes one live
+call to each source and shows exactly what came back — the fastest way to
+confirm a working setup.
 
 ## Where the prices come from
 
-**Travelpayouts** is the backbone, covering flights and hotels on one free
-affiliate token. Two properties of it shape everything downstream:
+**Google Hotels**, through SerpApi, prices lodging. Google aggregates
+Booking.com, Expedia, Hotels.com, the hotels' own sites and vacation rentals,
+and it prices the real guests: adults plus each child's age. A hotel stay for
+six is priced as `lodging.rooms` identical rooms, each holding its share of
+the party; a trip with `lodging.kind: rental` is priced as one cabin or
+apartment for everyone.
 
-- The data is **cached**, not live — the cheapest fares and rates other
-  people's recent searches turned up. For watching a trend over months that
-  is fine, arguably steadier than live search. For booking it is a pointer,
-  not a quote.
-- Flight prices are **per adult**; the endpoints take no passenger counts.
-  The tracker scales by party size, which overstates slightly since children
-  fly for less.
+The free plan is **250 searches a month**, so hotel prices are not re-checked
+daily. Each run searches the 7 "slots" (trip × date window) that have gone
+longest without a check and reuses the last price for the rest, for up to 10
+days; the reports say how old a price is. With the current trips that is a
+fresh look at every slot about every four days — plenty for stays months out.
+`lodging.py` explains the budgeting; `validate` prints the cadence.
+
+**A Google Flights scraper** (`fast-flights`) prices airfare. It needs no
+key, is live, and prices the actual party. It is also, unavoidably, fragile:
+when Google changes their page it stops working, so a failure is logged and
+the run continues.
+
+**Travelpayouts** cached fares are used alongside it *if* a
+`TRAVELPAYOUTS_TOKEN` is set. It's optional — its signup demands a website
+with its affiliate script installed. When both sources price a flight and
+disagree by more than 15%, the run notes it.
 
 This replaced **Amadeus Self-Service**, whose free tier was decommissioned on
-17 July 2026.
-
-**A Google Flights scraper** (`fast-flights`) runs alongside for airfare.
-It needs no key, and unlike Travelpayouts it is *live* and prices the actual
-party rather than scaling one adult — so it is the better number when it
-works. It is
-also, unavoidably, fragile: when Google changes their page it stops working. So
-it is strictly optional — if it fails, the run continues on cached data alone
-and the failure is logged. When the two sources disagree by more than 15%, the
-run notes it: some gap is expected between a live scrape and a per-adult
-cached average, but a large one usually means the cache is stale or a source
-has drifted.
+17 July 2026, and then Travelpayouts' Hotellook for hotels.
 
 ### Known limits, stated plainly
 
-- **Prices are cached, not live.** Travelpayouts reports what recent searches
-  found, so a number can be hours or days stale. The tracker surfaces the
-  fare's age when it is three days or older.
-- **Flight prices are scaled from one adult.** The API takes no passenger
-  counts, so a party of six is one adult fare times six. Real family fares are
-  usually a little lower.
-- **Southwest publishes fares nowhere.** Not to Travelpayouts, not to Google
-  Flights, not to any aggregator. If Southwest flies your route, check by hand.
-- **Hotel coverage varies by destination.** Set `lodging.coverage` per trip
+- **Hotel prices are a few days old at most, not today's.** 250 free
+  searches a month can't re-check every slot daily; a reused price is labelled
+  with its age, and dropped once it's older than `hotel_price_max_age_days`.
+- **A hotel stay is priced as identical rooms.** Two rooms at one hotel, each
+  priced for three guests. A family suite might be cheaper; set
+  `lodging.kind: rental` to price an apartment or house instead.
+- **Southwest publishes fares nowhere.** Not to Google Flights, not to any
+  aggregator. If Southwest flies your route, check by hand.
+- **Coverage still varies by destination.** Set `lodging.coverage` per trip
   (`good`/`thin`/`none`) and the reports will say how much to trust the number
-  rather than presenting all of them with equal confidence.
-- **Vacation rentals (Airbnb/Vrbo) aren't covered.** They have no free API and
-  aggressive bot protection.
+  — e.g. a Munich hotel standing in for an alpine resort is `thin`.
+- **Days without a hotel price don't count.** A total with no lodging looks
+  like a bargain; it's kept in the CSV but left out of every "is this a good
+  price" judgement and every alert.
 - **Car rental and fuel are estimates, not quotes.** Set `ground.per_day_cost`
   or `ground.drive_round_trip_miles` from what you know; no free API prices a
   rental car or a road trip.
@@ -159,7 +164,7 @@ Cron in GitHub Actions is always UTC.
 
 ```
 config/trips.yaml ─┐
-                   ├─→ pricing.py ──→ sources/{travelpayouts,google_flights}.py
+                   ├─→ pricing.py ──→ sources/{google_hotels,google_flights}.py
 config/destinations.yaml                      │
                                               ▼
                             storage.py ──→ data/history/*.csv  (committed daily)

@@ -56,10 +56,17 @@ class Destination:
     label: str = ""
     city_code: str = ""      # Amadeus city code for hotels; defaults to `code`
     hotel_ids: tuple[str, ...] = ()
+    # What to type into Google Hotels, when the label isn't a searchable place
+    # ("Munich / Bavarian Alps" reads well but searches badly).
+    hotel_query: str = ""
 
     @property
     def display(self) -> str:
         return self.label or self.code
+
+    @property
+    def lodging_query(self) -> str:
+        return self.hotel_query or self.label or self.code
 
     @property
     def hotel_city(self) -> str:
@@ -89,20 +96,24 @@ class FlightPrefs:
     exclude_basic_economy: bool = False
 
 
-# How well Amadeus actually covers the lodging you'd book at a destination.
-#   good — chain hotels, priced reliably
-#   thin — family rooms, small independents, alpine and island properties:
-#          the number is a usable floor, not the thing you'd book
-#   none — cabins, apartments, Airbnb/Vrbo: not covered at all, so don't
-#          pretend by reporting a chain-hotel price instead
+# How well the lodging price reflects what you'd actually book.
+#   good — the number is the kind of place you'd book
+#   thin — a usable floor, not the thing you'd book
+#   none — not priced at all, rather than reporting a misleading number
 COVERAGE_LEVELS = {"good", "thin", "none"}
+
+# hotel  — N identical rooms (lodging.rooms) at one hotel
+# rental — one vacation rental (cabin, apartment, house) for the whole party
+LODGING_KINDS = {"hotel", "rental"}
 
 
 @dataclass(frozen=True)
 class LodgingPrefs:
     enabled: bool = True
     coverage: str = "good"
+    kind: str = "hotel"
     rooms: int = 1
+    bedrooms: int | None = None     # rentals only; defaults to `rooms`
     min_stars: float | None = None
     min_rating: float | None = None
     max_per_night: float | None = None
@@ -170,12 +181,14 @@ class Settings:
     home_airports: tuple[str, ...] = ()
     timezone: str = "America/New_York"
     max_date_samples_per_trip: int = 6
-    max_hotels_per_query: int = 20
     lookahead_min_days: int = 14
-    # Whether Hotellook's cached price covers one night or the whole stay.
-    # Verify once with `doctor` against a real booking; it is the only
-    # genuinely ambiguous thing about that API.
-    hotel_price_is_per_night: bool = False
+    # Google Hotels via SerpApi: 250 free searches a month. Each run spends at
+    # most `hotel_searches_per_run` and keeps `hotel_search_reserve` back for
+    # Doctor and manual runs; slots not refreshed today reuse their last price
+    # for up to `hotel_price_max_age_days`.
+    hotel_searches_per_run: int = 7
+    hotel_search_reserve: int = 10
+    hotel_price_max_age_days: int = 10
     google_flights_enabled: bool = True
     google_flights_price_is_total: bool = True
 
@@ -228,6 +241,7 @@ def _parse_destinations(raw: Any, where: str) -> tuple[Destination, ...]:
                 label=str(item.get("label", "")),
                 city_code=str(item.get("city_code", "")).strip().upper(),
                 hotel_ids=tuple(str(h).strip().upper() for h in item.get("hotel_ids", []) or []),
+                hotel_query=str(item.get("hotel_query", "")).strip(),
             )
         )
     return tuple(out)
@@ -312,12 +326,17 @@ def _parse_trip(raw: Any, index: int, settings: Settings) -> Trip:
         raise ConfigError(
             f"{where}: lodging.coverage must be one of {sorted(COVERAGE_LEVELS)}"
         )
+    kind = str(lodging_raw.get("kind", "hotel")).lower()
+    if kind not in LODGING_KINDS:
+        raise ConfigError(f"{where}: lodging.kind must be one of {sorted(LODGING_KINDS)}")
     lodging = LodgingPrefs(
-        # 'none' means we know the API can't see this lodging; querying it
-        # would return an unrelated chain hotel and quietly mislead.
+        # 'none' means we know the source can't see this lodging; querying it
+        # would return an unrelated property and quietly mislead.
         enabled=bool(lodging_raw.get("enabled", True)) and coverage != "none",
         coverage=coverage,
+        kind=kind,
         rooms=int(lodging_raw.get("rooms", 1)),
+        bedrooms=_opt_int(lodging_raw.get("bedrooms")),
         min_stars=_opt_float(lodging_raw.get("min_stars")),
         min_rating=_opt_float(lodging_raw.get("min_rating")),
         max_per_night=_opt_float(lodging_raw.get("max_per_night")),
@@ -392,9 +411,10 @@ def _parse_settings(raw: Any) -> Settings:
         home_airports=tuple(str(a).strip().upper() for a in raw.get("home_airports", []) or []),
         timezone=str(raw.get("timezone", "America/New_York")),
         max_date_samples_per_trip=int(raw.get("max_date_samples_per_trip", 6)),
-        max_hotels_per_query=int(raw.get("max_hotels_per_query", 20)),
         lookahead_min_days=int(raw.get("lookahead_min_days", 14)),
-        hotel_price_is_per_night=bool(raw.get("hotel_price_is_per_night", False)),
+        hotel_searches_per_run=int(raw.get("hotel_searches_per_run", 7)),
+        hotel_search_reserve=int(raw.get("hotel_search_reserve", 10)),
+        hotel_price_max_age_days=int(raw.get("hotel_price_max_age_days", 10)),
         google_flights_enabled=bool(raw.get("google_flights_enabled", True)),
         google_flights_price_is_total=bool(raw.get("google_flights_price_is_total", True)),
     )
