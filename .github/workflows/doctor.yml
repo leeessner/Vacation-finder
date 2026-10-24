@@ -25,4 +25,4 @@ jobs:
           SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
           TRAVELPAYOUTS_TOKEN: ${{ secrets.TRAVELPAYOUTS_TOKEN }}
           TRAVELPAYOUTS_MARKER: ${{ secrets.TRAVELPAYOUTS_MARKER }}
-        run: PYTHONPATH=src python -m vacation_finder doctor
+        run: python scripts/probe.py
