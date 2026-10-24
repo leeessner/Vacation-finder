@@ -83,14 +83,16 @@ and that link is included in every email.
 
 ## Verify it works — do this first
 
-From the **Actions** tab, run **Doctor** (*Run workflow*). It uses one of the
-month's hotel searches and prints exactly what came back, so you find out in
-30 seconds rather than at 9am tomorrow.
+From the **Actions** tab, run **Doctor** (*Run workflow*). It uses about
+three of the month's searches and prints exactly what came back, so you find
+out in 30 seconds rather than at 9am tomorrow.
 
 It shows: that the key works and how many searches are left; the cheapest
-hotels Google returns for your first trip, and which one the tracker would
-record (with a link to check it on Google); and whether the Google Flights
-scraper works.
+hotels Google returns for your first trip, each with its distance from the
+trip's `center`, and which one the tracker would record under your rules
+(with a link to check it on Google); the preferred-brand search (Embassy
+Suites); Google Flights' verdict and typical price range for the first flying
+trip; and whether the Google Flights scraper works.
 
 Then run **Track prices** manually. You should see:
 
@@ -105,6 +107,20 @@ trip has one, its total is marked incomplete and isn't judged or alerted on.
 If the log says `SERPAPI_KEY is not set`, the secret is missing or misnamed.
 If Doctor says nothing meets the trip's lodging rules, loosen `min_stars` or
 `max_per_night`, or check that `hotel_query` is a real place.
+
+## Seeing the results
+
+Three places, all updated after every daily run:
+
+- **Email** — the digest (Tuesday and Friday evenings) and instant deal
+  alerts. Needs the Gmail secrets from step 2 and 3.
+- **Dashboard** — a web page with a chart per trip (flights, hotel and total
+  as separate lines), the outlook, and the last two weeks of checks. Needs
+  step 4 (GitHub Pages).
+- **Spreadsheet** — `data/prices-over-time.csv` in the repository: one row
+  per day, flights / hotel / total for every trip. Click it on GitHub to see
+  it as a table, or download it into Excel or Google Sheets. The dashboard
+  links to it.
 
 ## Quick command reference
 

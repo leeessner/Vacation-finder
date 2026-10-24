@@ -29,6 +29,7 @@ class CatalogEntry:
     city_code: str = ""
     why: str = ""
     region: str = ""
+    drive_hours: float | None = None   # from home; within the limit, it's a drive
 
     @property
     def hotel_city(self) -> str:
@@ -66,6 +67,9 @@ def load_catalog(path: Path = CATALOG_PATH) -> list[CatalogEntry]:
                 city_code=str(item.get("city_code", "")).strip().upper(),
                 why=str(item.get("why", "")),
                 region=str(item.get("region", "")),
+                drive_hours=(
+                    float(item["drive_hours"]) if item.get("drive_hours") is not None else None
+                ),
             )
         )
     return out
@@ -142,9 +146,20 @@ def suggest(
     return ranked[:limit]
 
 
-def as_trip_yaml(suggestion: Suggestion, like: Trip, today: date | None = None) -> str:
-    """A ready-to-paste trips.yaml block, so accepting a suggestion is a copy job."""
+def as_trip_yaml(
+    suggestion: Suggestion,
+    like: Trip,
+    today: date | None = None,
+    max_drive_hours: float = 6.0,
+) -> str:
+    """A ready-to-paste trips.yaml block, so accepting a suggestion is a copy job.
+
+    Within `max_drive_hours` the block is a drive, not a flight, and a US
+    destination gets one room (a suite) rather than two.
+    """
     entry = suggestion.entry
+    drive = entry.drive_hours is not None and entry.drive_hours <= max_drive_hours
+    in_us = entry.region.upper() in {"USA", "US", "HAWAII"}
     trip_id = entry.label.split(",")[0].strip().lower().replace(" ", "-").replace("/", "-")
     trip_id = "".join(ch for ch in trip_id if ch.isalnum() or ch in "-_") or entry.code.lower()
     window = like.dates
@@ -166,11 +181,15 @@ def as_trip_yaml(suggestion: Suggestion, like: Trip, today: date | None = None) 
         f"    name: \"{entry.label}\"\n"
         f"    why: \"{entry.why}\"\n"
         f"    active: true\n"
-        f"    destinations:\n"
+        + (f"    travel: drive\n" if drive else "")
+        + f"    destinations:\n"
         f"      - code: {entry.code}\n"
         f"        label: \"{entry.label}\"\n"
         f"        city_code: {entry.hotel_city}\n"
+        + (f"        drive_hours: {entry.drive_hours:g}\n" if entry.drive_hours else "")
+        + "        # add center: [lat, lng] and within_miles to keep hotels close in\n"
         f"    party: {{adults: {like.party.adults}, children: [{children}]}}\n"
         f"    dates:\n{dates_block}\n"
+        f"    lodging: {{rooms: {1 if in_us else 2}, min_stars: 3, min_rating: 4.0}}\n"
         f"    tags: [{', '.join(entry.tags)}]\n"
     )

@@ -10,7 +10,14 @@ from datetime import date, datetime, timezone
 from pathlib import Path
 
 from .config import Config
-from .report import TripReport, money, sparkline
+from .report import (
+    OUTLOOK_COLORS,
+    TripReport,
+    display_notes,
+    line_chart,
+    money,
+    trend_lines,
+)
 from .suggest import Suggestion
 
 OUTPUT = Path("docs/index.html")
@@ -46,6 +53,10 @@ td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
 pre{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:10px;
 font-size:12px;overflow-x:auto;white-space:pre-wrap}
 a{color:var(--accent)}
+.outlook{margin:14px 0 0;padding:10px 12px;border-radius:8px;background:var(--bg)}
+.outlook b{font-size:15px}
+.moves{margin-top:10px;font-size:14px}
+.note{color:var(--muted);font-size:13px;margin-top:4px}
 .caveat{margin:14px 0 0;padding:8px 11px;border-left:3px solid #d97706;
 background:rgba(217,119,6,.09);color:var(--ink);font-size:13px;border-radius:0 6px 6px 0}
 footer{color:var(--muted);font-size:12px;margin-top:28px;border-top:1px solid var(--line);padding-top:14px}
@@ -74,7 +85,7 @@ def _history_table(report: TripReport, limit: int = 14) -> str:
     body = "".join(
         f"<tr><td>{r.captured_on:%b %d}</td>"
         f"<td>{_esc(r.depart_date.strftime('%b %d'))}–{_esc(r.return_date.strftime('%b %d'))}</td>"
-        f'<td class="num">{money(r.flight_total, sym)}</td>'
+        f'<td class="num">{money(r.flight_total, sym) if r.airfare_applies else "—"}</td>'
         f'<td class="num">{money(r.lodging_total, sym)}</td>'
         f'<td class="num"><b>{money(r.total, sym)}</b></td>'
         f"<td>{_esc(r.lodging_name[:30])}</td></tr>"
@@ -133,6 +144,27 @@ def _trip_section(report: TripReport) -> str:
             )
         )
 
+    outlook = ""
+    if report.outlook is not None:
+        color = OUTLOOK_COLORS.get(report.outlook.label, "var(--ink)")
+        outlook = (
+            f'<div class="outlook" style="border-left:4px solid {color}">'
+            f'<b style="color:{color}">{_esc(report.outlook.label)}</b>'
+            f'<span class="note"> · {_esc(report.outlook.confidence)} confidence</span>'
+            f'<div style="font-size:14px;margin-top:3px">{_esc("; ".join(report.outlook.reasons))}</div>'
+            "</div>"
+        )
+    moves = "".join(f"<div>{_esc(line)}</div>" for line in trend_lines(report))
+    notes = "".join(f'<div class="note">{_esc(n)}</div>' for n in display_notes(latest))
+    chart = line_chart(
+        {
+            "Flights": report.flight_series if latest.airfare_applies else [],
+            "Hotel": report.lodging_series,
+            "Total": report.series,
+        },
+        currency_symbol=sym,
+    )
+
     return (
         f'<section class="card">{header}'
         f'<div class="big" style="color:{report.status_color}">{money(latest.total, sym)}</div>'
@@ -140,7 +172,10 @@ def _trip_section(report: TripReport) -> str:
         f"{latest.depart_date:%b %d} – {latest.return_date:%b %d, %Y}"
         + (f" · {_esc(latest.flight_carriers)}" if latest.flight_carriers else "")
         + "</div>"
-        f'<div class="chart">{sparkline(report.series, 640, 90, report.status_color)}</div>'
+        + notes
+        + outlook
+        + (f'<div class="moves">{moves}</div>' if moves else "")
+        + f'<div class="chart">{chart}</div>'
         f'<div class="grid">{"".join(stats)}</div>'
         + (
             f'<p class="caveat">{_esc(report.coverage_caveat)}</p>'
@@ -160,7 +195,11 @@ def _suggestions_section(suggestions: list[Suggestion], config: Config) -> str:
     items = []
     for suggestion in suggestions:
         like = config.trip(suggestion.like_trip)
-        snippet = as_trip_yaml(suggestion, like) if like else ""
+        snippet = (
+            as_trip_yaml(suggestion, like, max_drive_hours=config.settings.max_drive_hours)
+            if like
+            else ""
+        )
         items.append(
             f"<li style='margin-bottom:14px'><b>{_esc(suggestion.entry.label)}</b>"
             f"<div class='why'>{_esc(suggestion.summary)}</div>"
@@ -185,6 +224,7 @@ def build(
     config: Config,
     suggestions: list[Suggestion] | None = None,
     output: Path = OUTPUT,
+    spreadsheet_url: str = "",
 ) -> Path:
     now = datetime.now(timezone.utc)
     priced = [r for r in reports if r.has_data]
@@ -195,7 +235,13 @@ def build(
         f"<style>{CSS}</style></head><body><div class='wrap'>"
         "<h1>Vacation deal watch</h1>"
         f"<p class='sub'>Tracking {len(priced)} trip(s) · "
-        f"last checked {now:%b %d, %Y at %H:%M} UTC</p>"
+        f"last checked {now:%b %d, %Y at %H:%M} UTC"
+        + (
+            f' · <a href="{_esc(spreadsheet_url)}">all prices as a spreadsheet</a>'
+            if spreadsheet_url
+            else ""
+        )
+        + "</p>"
         + "".join(_trip_section(r) for r in reports)
         + _suggestions_section(suggestions or [], config)
         + "<footer>Prices are the cheapest option found across the configured dates, "

@@ -4,9 +4,11 @@ SerpApi's free plan is 250 searches a month, about 8 a day, and the tracker
 has roughly 25 "slots" to price — every trip times every sampled date window.
 So not every slot can be searched every day. Instead:
 
-- Each run refreshes the slots that have gone longest without a search, up to
-  `settings.hotel_searches_per_run`, and never below the reserve kept back
-  for Doctor and manual runs.
+- Each run refreshes the slots that have gone longest without a search, within
+  the searches left for hotels after this run's flight insights (see
+  `settings.searches_per_run`), and never below the reserve kept back for
+  Doctor and manual runs. A slot with a preferred brand costs one search
+  more per brand.
 - Every other slot reuses its last price, for up to
   `settings.hotel_price_max_age_days`. A hotel stay five months out moves
   over days, not hours, so a price two or three days old is still the price;
@@ -69,22 +71,30 @@ class LodgingBook:
         unavailable_reason: str = "",
     ) -> "LodgingBook":
         entries = dict(entries or {})
-        keys = [
-            slot_key(trip.id, dest.lodging_query, check_in, check_out)
+        costs = {
+            slot_key(trip.id, dest.lodging_query, check_in, check_out): slot_cost(trip)
             for trip, dest, check_in, check_out in lodging_slots(config, today)
-        ]
+        }
         # Never-searched slots first, then the stalest. Python's sort is
         # stable, so ties keep trip order and the choice is deterministic.
-        ordered = sorted(keys, key=lambda k: entries.get(k, {}).get("checked_on", ""))
+        ordered = sorted(costs, key=lambda k: entries.get(k, {}).get("checked_on", ""))
+        refresh: set[str] = set()
+        budget = max(0, allowance)
+        for key in ordered:
+            if costs[key] > budget:
+                break          # don't skip ahead: the stalest slot keeps its place
+            refresh.add(key)
+            budget -= costs[key]
         book = cls(
             today=today,
             max_age_days=config.settings.hotel_price_max_age_days,
-            refresh=set(ordered[: max(0, allowance)]),
-            entries=_prune(entries, set(keys)),
+            refresh=refresh,
+            entries=_prune(entries, set(costs)),
             unavailable_reason=unavailable_reason,
         )
         log.info(
-            "hotel searches this run: %d of %d slot(s)", len(book.refresh), len(keys)
+            "hotel searches this run: %d slot(s) of %d, %d search(es)",
+            len(refresh), len(costs), max(0, allowance) - budget,
         )
         return book
 
@@ -107,13 +117,18 @@ class LodgingBook:
     def should_search(self, key: str) -> bool:
         return key in self.refresh
 
-    def record(self, key: str, quote: LodgingQuote | None) -> None:
+    def record(self, key: str, quote: LodgingQuote | None, note: str = "") -> None:
         """Store a fresh result. A search that found nothing is stored too,
         so an empty slot isn't searched again tomorrow at the top of the queue."""
         self.entries[key] = {
             "checked_on": self.today.isoformat(),
             "quote": quote.to_dict() if quote else None,
+            "note": note,
         }
+
+    def note(self, key: str) -> str:
+        """What was worth saying when the slot was last searched."""
+        return str((self.entries.get(key) or {}).get("note") or "")
 
     def cached(self, key: str) -> tuple[LodgingQuote | None, int | None]:
         """The last price for a slot and its age in days, if still usable."""
@@ -127,6 +142,11 @@ class LodgingBook:
         if age > self.max_age_days:
             return None, age
         return _quote_from_dict(entry["quote"]), age
+
+
+def slot_cost(trip: Trip) -> int:
+    """Searches one check of this trip's slot takes."""
+    return 1 + len(trip.lodging.prefer)
 
 
 def _prune(entries: dict[str, dict[str, Any]], live: Iterable[str]) -> dict[str, dict[str, Any]]:
@@ -152,6 +172,7 @@ def _quote_from_dict(raw: dict[str, Any]) -> LodgingQuote | None:
             refundable=raw.get("refundable"),
             source=str(raw.get("source", "unknown")),
             deep_link=str(raw.get("deep_link", "")),
+            distance_miles=raw.get("distance_miles"),
         )
     except (KeyError, TypeError, ValueError):
         return None

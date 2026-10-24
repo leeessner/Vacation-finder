@@ -177,3 +177,66 @@ def daily_series(history: list[HistoryRow], field: str = "total") -> list[tuple[
         day = row.captured_on
         by_day[day] = min(by_day.get(day, value), value)
     return sorted(by_day.items())
+
+
+# --------------------------------------------------------------------------- #
+# Direction of travel
+# --------------------------------------------------------------------------- #
+
+# Below this many days of data a slope is noise, not a trend.
+MIN_TREND_DAYS = 7
+# A weekly move smaller than this share of the price is "steady".
+STEADY_PCT_PER_WEEK = 1.0
+
+
+@dataclass(frozen=True)
+class Trend:
+    """Which way a price is moving, fitted over the recent window."""
+
+    direction: str             # "rising", "falling", "steady"
+    per_week: float            # currency per week (negative = falling)
+    pct_per_week: float
+    days: int                  # span of data the fit covers
+    points: int
+
+    def phrase(self, currency_symbol: str = "$") -> str:
+        if self.direction == "steady":
+            return f"steady over {self.days} days"
+        word = "up" if self.per_week > 0 else "down"
+        return (
+            f"{word} about {currency_symbol}{abs(self.per_week):,.0f}/week "
+            f"({abs(self.pct_per_week):.1f}%) over {self.days} days"
+        )
+
+
+def trend(series: list[tuple[date, float]], window_days: int = 28) -> Trend | None:
+    """Least-squares slope of the last `window_days` of a daily series.
+
+    A straight-line fit, not a forecast: it says how the price has been
+    moving, which is the honest part. Returns None until there are at least
+    MIN_TREND_DAYS days of data, because a two-day "trend" is just noise.
+    """
+    if not series:
+        return None
+    cutoff = series[-1][0] - timedelta(days=window_days)
+    points = [(d, v) for d, v in series if d >= cutoff and v > 0]
+    if len(points) < 3:
+        return None
+    span = (points[-1][0] - points[0][0]).days
+    if span < MIN_TREND_DAYS - 1:
+        return None
+
+    xs = [(d - points[0][0]).days for d, _ in points]
+    ys = [v for _, v in points]
+    mean_x, mean_y = statistics.fmean(xs), statistics.fmean(ys)
+    var_x = sum((x - mean_x) ** 2 for x in xs)
+    if var_x == 0:
+        return None
+    slope = sum((x - mean_x) * (y - mean_y) for x, y in zip(xs, ys)) / var_x
+    per_week = slope * 7
+    pct = per_week / mean_y * 100 if mean_y else 0.0
+    if abs(pct) < STEADY_PCT_PER_WEEK:
+        direction = "steady"
+    else:
+        direction = "rising" if per_week > 0 else "falling"
+    return Trend(direction, per_week, pct, span + 1, len(points))

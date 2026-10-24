@@ -1,8 +1,8 @@
 name: Doctor
 
 # Run this by hand (Actions -> Doctor -> Run workflow) to check that the
-# SerpApi key works and to see exactly what Google Hotels returns. It spends
-# one of the month's 250 free hotel searches and writes nothing.
+# SerpApi key works and to see exactly what Google returns. It spends about
+# three of the month's 250 free searches and writes nothing.
 on:
   workflow_dispatch:
 
@@ -25,4 +25,4 @@ jobs:
           SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
           TRAVELPAYOUTS_TOKEN: ${{ secrets.TRAVELPAYOUTS_TOKEN }}
           TRAVELPAYOUTS_MARKER: ${{ secrets.TRAVELPAYOUTS_MARKER }}
-        run: python scripts/probe.py
+        run: PYTHONPATH=src python -m vacation_finder doctor

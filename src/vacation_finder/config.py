@@ -59,6 +59,14 @@ class Destination:
     # What to type into Google Hotels, when the label isn't a searchable place
     # ("Munich / Bavarian Alps" reads well but searches badly).
     hotel_query: str = ""
+    # Where you want to be, as (latitude, longitude), and how far from it a
+    # place may be. The cheapest hotel "in Nashville" is 9 miles out; this is
+    # what keeps the tracked price somewhere you'd actually stay.
+    center: tuple[float, float] | None = None
+    within_miles: float | None = None
+    # Driving time from home. Within settings.max_drive_hours, a trip should
+    # be a drive, not a flight; `validate` says so.
+    drive_hours: float | None = None
 
     @property
     def display(self) -> str:
@@ -119,6 +127,10 @@ class LodgingPrefs:
     max_per_night: float | None = None
     board: str = ""
     property_names: tuple[str, ...] = ()
+    # Hotel brands you'd pick over a cheaper alternative ("Embassy Suites").
+    # Each costs one extra search per check; when one qualifies, it is the
+    # tracked price and the cheapest alternative is noted beside it.
+    prefer: tuple[str, ...] = ()
 
 
 @dataclass(frozen=True)
@@ -182,13 +194,20 @@ class Settings:
     timezone: str = "America/New_York"
     max_date_samples_per_trip: int = 6
     lookahead_min_days: int = 14
-    # Google Hotels via SerpApi: 250 free searches a month. Each run spends at
-    # most `hotel_searches_per_run` and keeps `hotel_search_reserve` back for
-    # Doctor and manual runs; slots not refreshed today reuse their last price
-    # for up to `hotel_price_max_age_days`.
-    hotel_searches_per_run: int = 7
+    # SerpApi: 250 free searches a month, shared by hotel prices and weekly
+    # Google Flights price insights. Each run spends at most
+    # `searches_per_run` and keeps `hotel_search_reserve` back for Doctor and
+    # manual runs; hotel prices not refreshed today are reused for up to
+    # `hotel_price_max_age_days`.
+    searches_per_run: int = 7
     hotel_search_reserve: int = 10
     hotel_price_max_age_days: int = 10
+    flight_insight_days: int = 7
+    # Within this many hours' drive, a trip should be driven, not flown.
+    max_drive_hours: float = 6.0
+    # When fares for long-haul trips are usually lowest, in months before
+    # departure. Rough guidance from published booking studies, not a law.
+    booking_window_months: tuple[int, int] = (5, 7)
     google_flights_enabled: bool = True
     google_flights_price_is_total: bool = True
 
@@ -242,6 +261,9 @@ def _parse_destinations(raw: Any, where: str) -> tuple[Destination, ...]:
                 city_code=str(item.get("city_code", "")).strip().upper(),
                 hotel_ids=tuple(str(h).strip().upper() for h in item.get("hotel_ids", []) or []),
                 hotel_query=str(item.get("hotel_query", "")).strip(),
+                center=_parse_center(item.get("center"), where),
+                within_miles=_opt_float(item.get("within_miles")),
+                drive_hours=_opt_float(item.get("drive_hours")),
             )
         )
     return tuple(out)
@@ -342,6 +364,7 @@ def _parse_trip(raw: Any, index: int, settings: Settings) -> Trip:
         max_per_night=_opt_float(lodging_raw.get("max_per_night")),
         board=str(lodging_raw.get("board", "")),
         property_names=tuple(str(p) for p in lodging_raw.get("properties", []) or []),
+        prefer=tuple(str(p).strip() for p in lodging_raw.get("prefer", []) or [] if str(p).strip()),
     )
 
     ground_raw = raw.get("ground") or {}
@@ -388,6 +411,30 @@ def _parse_trip(raw: Any, index: int, settings: Settings) -> Trip:
     )
 
 
+def _parse_center(raw: Any, where: str) -> tuple[float, float] | None:
+    if raw is None:
+        return None
+    try:
+        lat, lng = (float(v) for v in raw)
+    except (TypeError, ValueError):
+        raise ConfigError(f"{where}: 'center' must be [latitude, longitude]") from None
+    if not (-90 <= lat <= 90 and -180 <= lng <= 180):
+        raise ConfigError(f"{where}: 'center' {raw} is not a valid [latitude, longitude]")
+    return (lat, lng)
+
+
+def _parse_window(raw: Any) -> tuple[int, int]:
+    if raw is None:
+        return (5, 7)
+    try:
+        low, high = (int(v) for v in raw)
+    except (TypeError, ValueError):
+        raise ConfigError("settings.booking_window_months must be [low, high]") from None
+    if not 0 < low <= high:
+        raise ConfigError("settings.booking_window_months must be [low, high] with low <= high")
+    return (low, high)
+
+
 def _opt_float(value: Any) -> float | None:
     return None if value is None else float(value)
 
@@ -412,9 +459,14 @@ def _parse_settings(raw: Any) -> Settings:
         timezone=str(raw.get("timezone", "America/New_York")),
         max_date_samples_per_trip=int(raw.get("max_date_samples_per_trip", 6)),
         lookahead_min_days=int(raw.get("lookahead_min_days", 14)),
-        hotel_searches_per_run=int(raw.get("hotel_searches_per_run", 7)),
+        searches_per_run=int(
+            raw.get("searches_per_run", raw.get("hotel_searches_per_run", 7))
+        ),
         hotel_search_reserve=int(raw.get("hotel_search_reserve", 10)),
         hotel_price_max_age_days=int(raw.get("hotel_price_max_age_days", 10)),
+        flight_insight_days=int(raw.get("flight_insight_days", 7)),
+        max_drive_hours=float(raw.get("max_drive_hours", 6.0)),
+        booking_window_months=_parse_window(raw.get("booking_window_months")),
         google_flights_enabled=bool(raw.get("google_flights_enabled", True)),
         google_flights_price_is_total=bool(raw.get("google_flights_price_is_total", True)),
     )

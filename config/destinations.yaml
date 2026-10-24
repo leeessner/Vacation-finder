@@ -6,7 +6,9 @@
 # all-inclusives back, not ski towns.
 #
 # Add, delete, and retag freely. `code` is the IATA airport code; `city_code`
-# is the Amadeus city code used for hotel lookups (usually the same).
+# is a legacy city code (usually the same). `drive_hours` is the drive from
+# St. Louis: within settings.max_drive_hours (6), a suggestion comes back
+# configured as a drive, not a flight.
 
 destinations:
   # ---- Caribbean & Mexico: warm-winter, high all-inclusive competition ----
@@ -264,6 +266,7 @@ destinations:
   - code: BNA
     label: "Nashville, Tennessee"
     region: USA
+    drive_hours: 4.5
     tags: [city, food, culture, kid-friendly, no-passport, road-trip, drive-from-stl, budget]
     best_months: [3, 4, 5, 9, 10, 11]
     why: "About 4.5 hours by car — a long weekend without airfare for six"
@@ -271,6 +274,7 @@ destinations:
   - code: TYS
     label: "Great Smoky Mountains (Knoxville / Gatlinburg)"
     region: USA
+    drive_hours: 8
     tags: [nature, hiking, national-park, wildlife, kid-friendly, no-passport, road-trip, drive-from-stl]
     best_months: [4, 5, 6, 9, 10]
     why: "Cabin rentals sleep six for less than two hotel rooms anywhere else"
@@ -278,6 +282,7 @@ destinations:
   - code: BKG
     label: "Branson & the Ozarks, Missouri"
     region: USA
+    drive_hours: 4
     tags: [kid-friendly, nature, no-passport, road-trip, drive-from-stl, budget, theme-park]
     best_months: [4, 5, 6, 9, 10]
     why: "Under four hours; lake houses and shows aimed squarely at families"
@@ -285,6 +290,7 @@ destinations:
   - code: MEM
     label: "Memphis, Tennessee"
     region: USA
+    drive_hours: 4
     tags: [city, food, culture, no-passport, road-trip, drive-from-stl, budget, kid-friendly]
     best_months: [3, 4, 5, 9, 10, 11]
     why: "Under four hours; music history and cheap lodging"
@@ -292,6 +298,7 @@ destinations:
   - code: MDW
     label: "Chicago, Illinois"
     region: USA
+    drive_hours: 5
     tags: [city, food, culture, walkable, kid-friendly, no-passport, road-trip, drive-from-stl]
     best_months: [5, 6, 7, 8, 9, 10]
     why: "Under five hours; museums and lakefront, and family suites are common"
@@ -299,6 +306,31 @@ destinations:
   - code: HOT
     label: "Hot Springs & the Ouachitas, Arkansas"
     region: USA
+    drive_hours: 5.5
     tags: [nature, hiking, national-park, no-passport, road-trip, drive-from-stl, budget, kid-friendly]
     best_months: [3, 4, 5, 10, 11]
     why: "Five hours, a national park in town, and off-season rates most of the year"
+
+  - code: IND
+    label: "Indianapolis, Indiana"
+    region: USA
+    drive_hours: 4
+    tags: [city, food, culture, kid-friendly, no-passport, road-trip, drive-from-stl, budget]
+    best_months: [4, 5, 6, 9, 10]
+    why: "Four hours; the Children's Museum is the largest in the world"
+
+  - code: MKE
+    label: "Milwaukee, Wisconsin"
+    region: USA
+    drive_hours: 6
+    tags: [city, food, culture, walkable, kid-friendly, no-passport, road-trip, drive-from-stl]
+    best_months: [6, 7, 8, 9]
+    why: "Six hours; lakefront summer festivals and a cheaper Chicago alternative"
+
+  - code: TUL
+    label: "Tulsa, Oklahoma"
+    region: USA
+    drive_hours: 6
+    tags: [city, food, culture, kid-friendly, no-passport, road-trip, drive-from-stl, budget]
+    best_months: [4, 5, 9, 10]
+    why: "Six hours down Route 66; Gathering Place is one of the best family parks in the US"

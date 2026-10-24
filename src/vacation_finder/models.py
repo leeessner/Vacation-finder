@@ -83,6 +83,7 @@ class LodgingQuote:
     refundable: bool | None = None
     source: str = "unknown"
     deep_link: str = ""
+    distance_miles: float | None = None   # from the destination's center, if set
 
     @property
     def per_night(self) -> float:

@@ -3,10 +3,20 @@
 # ============================================================================
 # Party is 6: two adults and four children.
 # That drives two decisions everywhere below:
-#   * lodging.rooms is 2 — most hotels cap at 4 to a room, and a price for
-#     one room would be fiction.
+#   * in the US, one room for all six — in practice a suite (Embassy Suites
+#     preferred). Google only returns rooms that fit six, so the price is
+#     real. In Europe, where a room for six barely exists, two rooms.
 #   * all four kids sit in the 2–11 airline pricing band, so their exact ages
 #     don't change a fare. The ages here are as of today; no need to age them.
+#
+# House rules for lodging, everywhere:
+#   * guest rating 4.0 or better (min_rating), 3-star class or better
+#   * close to what you'd do: each destination has a `center` and
+#     `within_miles`, and anything farther out is ignored. The cheapest hotel
+#     "in Nashville" is nine miles from downtown; this is what stops that.
+#   * cabins/rentals only where that's the point of the trip (the Smokies)
+#   * anything within a six-hour drive is a drive, not a flight
+#     (settings.max_drive_hours; `validate` flags a trip that breaks it)
 #
 # Plan for the year: one large vacation (Europe, summer 2027) plus a short
 # domestic trip over spring break.
@@ -47,13 +57,23 @@ settings:
   max_date_samples_per_trip: 3
   lookahead_min_days: 14
 
-  # Hotel searches: SerpApi's free plan is 250 a month. Each daily run spends
-  # up to hotel_searches_per_run (7 x 30 = 210), keeping hotel_search_reserve
-  # back for Doctor and manual runs. Prices not re-checked today are reused
-  # for up to hotel_price_max_age_days. `validate` shows the resulting cadence.
-  hotel_searches_per_run: 7
+  # SerpApi's free plan is 250 searches a month, shared by hotel prices and a
+  # weekly Google Flights check per flying trip (which gives Google's
+  # "typical price" range). Each daily run spends up to searches_per_run
+  # (7 x 30 = 210), keeping hotel_search_reserve back for Doctor and manual
+  # runs. Hotel prices not re-checked today are reused for up to
+  # hotel_price_max_age_days. `validate` shows the resulting cadence.
+  searches_per_run: 7
   hotel_search_reserve: 10
   hotel_price_max_age_days: 10
+  flight_insight_days: 7
+
+  # Within this many hours' drive, drive — don't fly.
+  max_drive_hours: 6
+
+  # When long-haul fares are usually lowest, in months before departure.
+  # Rough guidance from published booking studies; used by the outlook.
+  booking_window_months: [5, 7]
 
   google_flights_enabled: true
   google_flights_price_is_total: true
@@ -76,6 +96,10 @@ trips:
       - code: BNA
         label: "Nashville, TN"
         city_code: BNA
+        hotel_query: "Downtown Nashville, TN"
+        center: [36.1627, -86.7816]   # downtown, Broadway & 5th
+        within_miles: 3               # downtown, the Gulch, Midtown, Vanderbilt
+        drive_hours: 4.5
     party:
       adults: 2
       children: [8, 7, 5, 3]
@@ -88,9 +112,11 @@ trips:
     lodging:
       enabled: true
       coverage: good              # downtown chains are well covered
-      rooms: 2
+      rooms: 1                    # one suite for all six
+      prefer: ["Embassy Suites"]  # tracked whenever one qualifies
       min_stars: 3
-      max_per_night: 400          # across both rooms
+      min_rating: 4.0
+      max_per_night: 400
     ground:
       drive_round_trip_miles: 620
       mpg: 22
@@ -116,6 +142,9 @@ trips:
         label: "Gatlinburg / Pigeon Forge, TN"
         city_code: TYS
         hotel_query: "Gatlinburg, TN"
+        center: [35.7143, -83.5102]   # Gatlinburg, at the park entrance
+        within_miles: 10              # Gatlinburg to Pigeon Forge
+        drive_hours: 8                # over the 6-hour line; kept as a drive by choice
     party:
       adults: 2
       children: [8, 7, 5, 3]
@@ -133,6 +162,7 @@ trips:
       kind: rental
       coverage: good
       bedrooms: 3
+      min_rating: 4.0
       max_per_night: 400
     ground:
       drive_round_trip_miles: 1060
@@ -153,13 +183,12 @@ trips:
 # These are competing for the same vacation, which is exactly what the tracker
 # is good at: run them all, compare real numbers in May, pick one.
 #
-# Airfare is OFF for now. You were right that it's early, though not for the
-# reason you'd expect — airlines have loaded June 2027 schedules already, but
-# fares this far out are placeholder-high and tell you nothing. Lodging is a
-# different story: summer European inventory is open now and the good family
-# properties sell out early, so the lodging baseline starts today.
-#
-# Flip `flights.enabled: true` on these around January.
+# Airfare is ON from late October 2026. Flights and hotels are most of the
+# cost of these trips, and summer fares to Europe are usually lowest booked
+# about 5-7 months out — November to January for June — so the tracking has
+# to be running before that window opens, not after. Daily fares come from
+# the keyless Google Flights scraper; once a week each trip also gets
+# Google's own verdict (low / typical / high) and typical price range.
 #
 # Note on multi-city trips: the tracker prices ONE gateway per trip. For
 # Barcelona-and-Madrid it tracks the Barcelona flight and hotel, and the
@@ -176,6 +205,8 @@ trips:
       - code: BCN
         label: "Barcelona, Spain"
         city_code: BCN
+        center: [41.3870, 2.1700]   # Plaça de Catalunya
+        within_miles: 2.5
     party:
       adults: 2
       children: [8, 7, 5, 3]
@@ -185,7 +216,7 @@ trips:
       latest: 2027-07-17
       nights: 10
     flights:
-      enabled: false             # flip in January
+      enabled: true
       max_stops: 1               # nonstop STL–Europe doesn't exist
       cabin: economy
       checked_bags: 3
@@ -194,6 +225,7 @@ trips:
       coverage: good
       rooms: 2
       min_stars: 3
+      min_rating: 4.0
       max_per_night: 600
     ground:
       flat_cost: 520
@@ -213,6 +245,8 @@ trips:
       - code: CDG
         label: "Paris, France"
         city_code: PAR
+        center: [48.8566, 2.3522]   # Hôtel de Ville
+        within_miles: 2.5
     party:
       adults: 2
       children: [8, 7, 5, 3]
@@ -222,7 +256,7 @@ trips:
       latest: 2027-07-17
       nights: 9
     flights:
-      enabled: false
+      enabled: true
       max_stops: 1
       cabin: economy
       checked_bags: 3
@@ -231,6 +265,7 @@ trips:
       coverage: good
       rooms: 2
       min_stars: 3
+      min_rating: 4.0
       max_per_night: 650
     ground:
       flat_cost: 340
@@ -250,6 +285,8 @@ trips:
       - code: NCE
         label: "Nice, France"
         city_code: NCE
+        center: [43.6975, 7.2700]   # Place Masséna
+        within_miles: 2
     party:
       adults: 2
       children: [8, 7, 5, 3]
@@ -259,7 +296,7 @@ trips:
       latest: 2027-07-17
       nights: 9
     flights:
-      enabled: false
+      enabled: true
       max_stops: 1
       cabin: economy
       checked_bags: 3
@@ -268,6 +305,7 @@ trips:
       coverage: good
       rooms: 2
       min_stars: 3
+      min_rating: 4.0
       max_per_night: 600
     ground:
       flat_cost: 260
@@ -287,6 +325,8 @@ trips:
       - code: ATH
         label: "Athens, Greece"
         city_code: ATH
+        center: [37.9755, 23.7348]   # Syntagma Square
+        within_miles: 2
     party:
       adults: 2
       children: [8, 7, 5, 3]
@@ -296,7 +336,7 @@ trips:
       latest: 2027-07-17
       nights: 10
     flights:
-      enabled: false
+      enabled: true
       max_stops: 1
       checked_bags: 3
     lodging:
@@ -306,6 +346,7 @@ trips:
       coverage: thin
       rooms: 2
       min_stars: 3
+      min_rating: 4.0
       max_per_night: 600
     ground:
       flat_cost: 700
@@ -325,6 +366,8 @@ trips:
       - code: LIS
         label: "Lisbon, Portugal"
         city_code: LIS
+        center: [38.7139, -9.1394]   # Rossio
+        within_miles: 2.5
     party:
       adults: 2
       children: [8, 7, 5, 3]
@@ -334,7 +377,7 @@ trips:
       latest: 2027-07-17
       nights: 10
     flights:
-      enabled: false
+      enabled: true
       max_stops: 1
       checked_bags: 3
     lodging:
@@ -342,6 +385,7 @@ trips:
       coverage: good             # Lisbon is well covered; the Azores leg is in ground
       rooms: 2
       min_stars: 3
+      min_rating: 4.0
       max_per_night: 450
     ground:
       flat_cost: 900
@@ -364,6 +408,8 @@ trips:
         # Change to a resort town (e.g. "Garmisch-Partenkirchen") to price
         # the alpine family resorts instead of Munich hotels.
         hotel_query: "Munich, Germany"
+        center: [48.1374, 11.5755]   # Marienplatz
+        within_miles: 3
     party:
       adults: 2
       children: [8, 7, 5, 3]
@@ -373,7 +419,7 @@ trips:
       latest: 2027-07-17
       nights: 10
     flights:
-      enabled: false
+      enabled: true
       max_stops: 1
       checked_bags: 3
     lodging:
@@ -384,6 +430,7 @@ trips:
       coverage: thin
       rooms: 2
       min_stars: 4
+      min_rating: 4.0
       max_per_night: 700
     ground:
       rental_car: true
@@ -425,6 +472,7 @@ trips:
       coverage: good
       rooms: 2
       min_stars: 3
+      min_rating: 4.0
       max_per_night: 450
     ground:
       rental_car: true
