@@ -600,7 +600,12 @@ def cmd_doctor(args: argparse.Namespace) -> int:
             s_depart, s_ret, currency, config.settings,
         )
         if quote:
-            print(f"   {quote.total_price:,.0f} {quote.currency} for the party")
+            how = (
+                " (estimated: 2-adult fare scaled to the party)"
+                if quote.source == "google_flights_scaled"
+                else ""
+            )
+            print(f"   {quote.total_price:,.0f} {quote.currency} for the party{how}")
         else:
             print("   no result — the scraper may have broken, or the route has no fares")
 
