@@ -1,3 +1,67 @@
 {
-  "slots": {}
+  "slots": {
+    "nashville-spring-break|Downtown Nashville, TN|2027-03-12|2027-03-16": {
+      "checked_on": "2026-10-25",
+      "note": "Embassy Suites: $176 less than the cheapest qualifying option, Kasa Capitol Hill Downtown Nashville ($1,350)",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-03-12",
+        "check_out": "2027-03-16",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=Embassy%20Suites%20by%20Hilton%20Nashville%20at%20Vanderbilt%20Embassy%20Suites%20Nashville%2C%20TN&checkin=2027-03-12&checkout=2027-03-16",
+        "destination": "Embassy Suites Nashville, TN",
+        "distance_miles": 1.1,
+        "nights": 4,
+        "property_id": "ChgIldb85OXt5pCOARoLL2cvMXRocDhxbDcQAQ",
+        "property_name": "Embassy Suites by Hilton Nashville at Vanderbilt",
+        "rating": 4.2,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": 3.0,
+        "total_price": 1174.0
+      }
+    },
+    "nashville-spring-break|Downtown Nashville, TN|2027-03-13|2027-03-17": {
+      "checked_on": "2026-10-25",
+      "note": "Embassy Suites: $368 more than the cheapest qualifying option, Holiday Inn Express and Suites Nashville West End Univ Area, an IHG Hotel ($763)",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-03-13",
+        "check_out": "2027-03-17",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=Embassy%20Suites%20by%20Hilton%20Nashville%20at%20Vanderbilt%20Embassy%20Suites%20Nashville%2C%20TN&checkin=2027-03-13&checkout=2027-03-17",
+        "destination": "Embassy Suites Nashville, TN",
+        "distance_miles": 1.1,
+        "nights": 4,
+        "property_id": "ChgIldb85OXt5pCOARoLL2cvMXRocDhxbDcQAQ",
+        "property_name": "Embassy Suites by Hilton Nashville at Vanderbilt",
+        "rating": 4.2,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": 3.0,
+        "total_price": 1131.0
+      }
+    },
+    "nashville-spring-break|Downtown Nashville, TN|2027-03-14|2027-03-18": {
+      "checked_on": "2026-10-25",
+      "note": "Embassy Suites: $364 more than the cheapest qualifying option, Holiday Inn Express and Suites Nashville West End Univ Area, an IHG Hotel ($657)",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-03-14",
+        "check_out": "2027-03-18",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=Embassy%20Suites%20by%20Hilton%20Nashville%20at%20Vanderbilt%20Embassy%20Suites%20Nashville%2C%20TN&checkin=2027-03-14&checkout=2027-03-18",
+        "destination": "Embassy Suites Nashville, TN",
+        "distance_miles": 1.1,
+        "nights": 4,
+        "property_id": "ChgIldb85OXt5pCOARoLL2cvMXRocDhxbDcQAQ",
+        "property_name": "Embassy Suites by Hilton Nashville at Vanderbilt",
+        "rating": 4.2,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": 3.0,
+        "total_price": 1021.0
+      }
+    }
+  }
 }
