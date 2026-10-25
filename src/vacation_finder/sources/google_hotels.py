@@ -59,15 +59,15 @@ class SerpApiClient:
     def configured(self) -> bool:
         return bool(self.api_key)
 
-    def search(self, params: dict[str, Any]) -> dict[str, Any]:
+    def search(self, params: dict[str, Any], engine: str = "google_hotels") -> dict[str, Any]:
         if not self.configured:
             raise SourceUnavailable(f"SERPAPI_KEY is not set — {SIGNUP_HINT}")
-        payload = self._get(SEARCH_URL, {**params, "engine": "google_hotels"})
+        payload = self._get(SEARCH_URL, {**params, "engine": engine})
         error = payload.get("error")
         if error:
-            # "Google Hotels hasn't returned any results" arrives as an error
-            # too; either way there is nothing to price and nothing was spent.
-            raise SourceError(f"Google Hotels: {error}")
+            # "hasn't returned any results" arrives as an error too; either
+            # way there is nothing to price and nothing was spent.
+            raise SourceError(f"{engine}: {error}")
         return payload
 
     def searches_left(self) -> int | None:
@@ -184,8 +184,17 @@ def search_lodging(
     check_out: date,
     currency: str,
     settings: Settings,
+    *,
+    center: tuple[float, float] | None = None,
+    within_miles: float | None = None,
+    name_contains: str = "",
 ) -> LodgingQuote | None:
-    """Cheapest property that meets the trip's lodging rules, for the whole party."""
+    """Cheapest property that meets the trip's lodging rules, for the whole party.
+
+    With `center` and `within_miles`, anything farther away is skipped — the
+    cheapest hotel "in Nashville" is nine miles from downtown. With
+    `name_contains`, only that brand counts (the preferred-brand search).
+    """
     prefs = trip.lodging
     nights = (check_out - check_in).days or 1
     rental = prefs.kind == "rental"
@@ -206,6 +215,15 @@ def search_lodging(
         if not rental and "rental" in kind:
             continue
 
+        name = str(prop.get("name") or "unknown")
+        if name_contains and name_contains.lower() not in name.lower():
+            continue
+        distance = None
+        if center is not None:
+            distance = distance_from(center, prop.get("gps_coordinates"))
+            if within_miles is not None and (distance is None or distance > within_miles):
+                continue
+
         one_unit = stay_price(prop, nights)
         if one_unit is None:
             continue
@@ -222,7 +240,6 @@ def search_lodging(
         if best is not None and total >= best.total_price:
             continue
 
-        name = str(prop.get("name") or "unknown")
         best = LodgingQuote(
             destination=query,
             check_in=check_in,
@@ -236,8 +253,24 @@ def search_lodging(
             stars=stars,
             source="google_hotels",
             deep_link=google_hotels_link(name, query, check_in, check_out),
+            distance_miles=None if distance is None else round(distance, 1),
         )
     return best
+
+
+def distance_from(center: tuple[float, float], gps: Any) -> float | None:
+    """Straight-line miles from `center` to a property's coordinates."""
+    if not isinstance(gps, dict):
+        return None
+    lat, lng = _opt_float(gps.get("latitude")), _opt_float(gps.get("longitude"))
+    if lat is None or lng is None:
+        return None
+    lat1, lng1, lat2, lng2 = map(math.radians, (center[0], center[1], lat, lng))
+    h = (
+        math.sin((lat2 - lat1) / 2) ** 2
+        + math.cos(lat1) * math.cos(lat2) * math.sin((lng2 - lng1) / 2) ** 2
+    )
+    return 3958.8 * 2 * math.asin(math.sqrt(h))
 
 
 def stay_price(prop: dict[str, Any], nights: int) -> float | None:

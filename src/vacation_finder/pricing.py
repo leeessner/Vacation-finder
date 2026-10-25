@@ -53,12 +53,14 @@ class TripPricer:
         client: TravelpayoutsClient | None = None,
         hotels: SerpApiClient | None = None,
         book: LodgingBook | None = None,
+        insights: dict | None = None,
     ) -> None:
         self.config = config
         self.settings = config.settings
         self.client = client or TravelpayoutsClient()
         self.hotels = hotels or SerpApiClient()
         self.book = book
+        self.insights = insights or {}
 
     def price_trip(self, trip: Trip, today: date | None = None) -> RunResult:
         today = today or datetime.now(timezone.utc).date()
@@ -146,8 +148,32 @@ class TripPricer:
                             notes.append(note)
 
         if not candidates:
+            fallback = self._insight_fare(trip, destination, depart, ret)
+            if fallback is not None:
+                notes.append("airfare from this week's Google Flights check (scraper failed)")
+                return fallback, notes
             return None, notes
         return min(candidates, key=lambda q: q.total_price), notes
+
+    def _insight_fare(
+        self, trip: Trip, destination: str, depart: date, ret: date
+    ) -> FlightQuote | None:
+        """The weekly Google Flights fare for the same dates, if the daily
+        scraper came back empty — so one broken scrape doesn't blank a day."""
+        insight = self.insights.get(trip.id)
+        if insight is None or not insight.lowest:
+            return None
+        if (insight.depart, insight.return_) != (depart, ret):
+            return None
+        return FlightQuote(
+            origin=trip.origins[0] if trip.origins else "",
+            destination=destination,
+            depart_date=depart,
+            return_date=ret,
+            total_price=float(insight.lowest),
+            currency=self.settings.currency,
+            source="google_flights_weekly",
+        )
 
     def _best_lodging(
         self,
@@ -167,9 +193,7 @@ class TripPricer:
             return self._cached_lodging(key, result, notes)
 
         try:
-            quote = google_hotels.search_lodging(
-                self.hotels, trip, query, depart, ret, self.settings.currency, self.settings
-            )
+            quote = self._search_hotels(trip, destination, query, depart, ret)
         except SourceUnavailable as exc:
             message = f"hotel prices unavailable: {exc}"
             if message not in result.errors:
@@ -179,9 +203,75 @@ class TripPricer:
             log.info("google hotels %s %s: %s", query, depart, exc)
             quote = None
         result.queries_made += 1
+
+        note = ""
+        if trip.lodging.prefer:
+            quote, note = self._prefer_brand(trip, destination, depart, ret, quote, result)
+        if note:
+            notes.append(note)
         if self.book is not None:
-            self.book.record(key, quote)
+            self.book.record(key, quote, note)
         return quote
+
+    def _search_hotels(
+        self, trip: Trip, destination, query: str, depart: date, ret: date, brand: str = ""
+    ) -> LodgingQuote | None:
+        return google_hotels.search_lodging(
+            self.hotels, trip, query, depart, ret, self.settings.currency, self.settings,
+            center=destination.center,
+            within_miles=destination.within_miles,
+            name_contains=brand,
+        )
+
+    def _prefer_brand(
+        self,
+        trip: Trip,
+        destination,
+        depart: date,
+        ret: date,
+        cheapest: LodgingQuote | None,
+        result: RunResult,
+    ) -> tuple[LodgingQuote | None, str]:
+        """Swap in the preferred brand when one qualifies, noting what it costs.
+
+        A brand search names the brand plus the plain place ("Embassy Suites
+        Nashville, TN"); the brand rarely shows among the cheapest results.
+        """
+        place = destination.label or destination.lodging_query
+        found: list[LodgingQuote] = []
+        for brand in trip.lodging.prefer:
+            try:
+                quote = self._search_hotels(
+                    trip, destination, f"{brand} {place}", depart, ret, brand=brand
+                )
+            except SourceError as exc:
+                log.info("google hotels %s %s %s: %s", brand, place, depart, exc)
+                quote = None
+            result.queries_made += 1
+            if quote is not None:
+                found.append(quote)
+
+        brands = " / ".join(trip.lodging.prefer)
+        if not found:
+            where = (
+                f" within {destination.within_miles:g} mi" if destination.within_miles else ""
+            )
+            return cheapest, f"no {brands}{where} met the rules for these dates"
+        preferred = min(found, key=lambda q: q.total_price)
+        cheapest_is_preferred = cheapest is not None and any(
+            b.lower() in cheapest.property_name.lower() for b in trip.lodging.prefer
+        )
+        if cheapest is None or cheapest_is_preferred:
+            # Nothing cheaper to compare against: the preferred brand won outright.
+            if cheapest is not None and cheapest.total_price < preferred.total_price:
+                return cheapest, ""
+            return preferred, ""
+        gap = preferred.total_price - cheapest.total_price
+        word = "more" if gap >= 0 else "less"
+        return preferred, (
+            f"{brands}: ${abs(gap):,.0f} {word} than the cheapest qualifying option, "
+            f"{cheapest.property_name} (${cheapest.total_price:,.0f})"
+        )
 
     def _cached_lodging(
         self, key: str, result: RunResult, notes: list[str]
@@ -191,6 +281,8 @@ class TripPricer:
         quote, age = self.book.cached(key)
         if quote is not None and age:
             notes.append(f"hotel price checked {age} day(s) ago")
+        if quote is not None and self.book.note(key):
+            notes.append(self.book.note(key))
         if quote is None and self.book.unavailable_reason:
             message = f"hotel prices unavailable: {self.book.unavailable_reason}"
             if message not in result.errors:

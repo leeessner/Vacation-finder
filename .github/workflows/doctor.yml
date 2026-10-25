@@ -1,8 +1,8 @@
 name: Doctor
 
 # Run this by hand (Actions -> Doctor -> Run workflow) to check that the
-# SerpApi key works and to see exactly what Google Hotels returns. It spends
-# one of the month's 250 free hotel searches and writes nothing.
+# SerpApi key works and to see exactly what Google returns. It spends about
+# three of the month's 250 free searches and writes nothing.
 on:
   workflow_dispatch:
 

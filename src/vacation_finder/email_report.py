@@ -17,7 +17,14 @@ from email.utils import formataddr
 
 from .alerts import Alert
 from .config import Config
-from .report import TripReport, delta_phrase, money
+from .report import (
+    OUTLOOK_COLORS,
+    TripReport,
+    delta_phrase,
+    display_notes,
+    money,
+    trend_lines,
+)
 from .suggest import Suggestion, as_trip_yaml
 
 log = logging.getLogger(__name__)
@@ -156,6 +163,28 @@ def trip_card(report: TripReport) -> str:
     dates = f"{latest.depart_date:%b %d} – {latest.return_date:%b %d, %Y}"
     carriers = f" · {latest.flight_carriers}" if latest.flight_carriers else ""
 
+    outlook_html = ""
+    if report.outlook is not None:
+        color = OUTLOOK_COLORS.get(report.outlook.label, INK)
+        outlook_html = (
+            f'<div style="margin-top:12px;padding:9px 11px;border-radius:8px;'
+            f'background:#f8fafc;border-left:4px solid {color}">'
+            f'<div style="font-size:14px;font-weight:700;color:{color}">'
+            f"{_esc(report.outlook.label)}"
+            f'<span style="font-weight:400;color:{MUTED};font-size:12px"> · '
+            f"{_esc(report.outlook.confidence)} confidence</span></div>"
+            f'<div style="font-size:13px;color:{INK};margin-top:3px">'
+            f"{_esc('; '.join(report.outlook.reasons))}</div></div>"
+        )
+    movement = "".join(
+        f'<div style="font-size:13px;color:{INK};margin-top:3px">{_esc(line)}</div>'
+        for line in trend_lines(report)
+    )
+    notes = "".join(
+        f'<div style="font-size:12px;color:{MUTED};margin-top:3px">{_esc(n)}</div>'
+        for n in display_notes(latest)
+    )
+
     return (
         f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" '
         f'style="border:1px solid {LINE};border-radius:10px;padding:16px;margin:0 0 16px">'
@@ -168,6 +197,9 @@ def trip_card(report: TripReport) -> str:
         f"{_esc(verdict_text)}</div>"
         f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" '
         f'style="margin-top:12px;border-top:1px solid {LINE}">{"".join(rows)}</table>'
+        + notes
+        + outlook_html
+        + (f'<div style="margin-top:10px">{movement}</div>' if movement else "")
         + bar_chart(report.series, report.status_color)
         + (
             f'<div style="color:{MUTED};font-size:13px;margin-top:8px">'

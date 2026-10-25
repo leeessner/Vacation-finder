@@ -26,6 +26,7 @@ from .pricing import TripPricer
 from .report import build_reports
 from .storage import HISTORY_DIR, append_run, load_history, load_state
 from .suggest import load_catalog, suggest
+from .summary import write_summary
 
 log = logging.getLogger("vacation_finder")
 
@@ -55,6 +56,15 @@ def _dashboard_url() -> str:
     if "/" in repo:
         owner, name = repo.split("/", 1)
         return f"https://{owner}.github.io/{name}/"
+    return ""
+
+
+def _spreadsheet_url() -> str:
+    """Where data/prices-over-time.csv can be opened on GitHub."""
+    repo = os.environ.get("GITHUB_REPOSITORY", "")
+    branch = os.environ.get("GITHUB_REF_NAME", "")
+    if "/" in repo and branch:
+        return f"https://github.com/{repo}/blob/{branch}/data/prices-over-time.csv"
     return ""
 
 
@@ -102,7 +112,13 @@ def cmd_validate(args: argparse.Namespace) -> int:
                 bedrooms = trip.lodging.bedrooms or trip.lodging.rooms
                 print(f"    lodging: one vacation rental, {bedrooms}+ bedroom(s), near {where}")
             else:
-                print(f"    lodging: {trip.lodging.rooms} hotel room(s) near {where}")
+                rooms = trip.lodging.rooms
+                what = (
+                    f"one room for all {trip.party.total} (in practice a suite)"
+                    if rooms == 1 and trip.party.total > 4
+                    else f"{rooms} hotel room(s)"
+                )
+                print(f"    lodging: {what} near {where}")
         if trip.lodging.coverage == "none":
             print("    NOTE: lodging not tracked (coverage: none)")
         elif trip.lodging.coverage == "thin":
@@ -110,13 +126,23 @@ def cmd_validate(args: argparse.Namespace) -> int:
         if not trip.flights.enabled and not trip.lodging.enabled:
             print("    WARNING: nothing to track — neither flights nor lodging are priced")
 
-        capacity = trip.lodging.rooms * 4
-        if trip.lodging.enabled and trip.lodging.kind == "hotel" and trip.party.total > capacity:
-            print(
-                f"    WARNING: {trip.party.total} travellers in {trip.lodging.rooms} room(s). "
-                f"Most hotels cap at 4 per room — set lodging.rooms higher or "
-                f"prices will be unrealistically low."
-            )
+        for dest in trip.destinations:
+            hours = dest.drive_hours
+            limit = settings.max_drive_hours
+            if hours is not None and trip.travel_mode == "air" and hours <= limit:
+                print(
+                    f"    WARNING: {dest.display} is a {hours:g}-hour drive — within your "
+                    f"{limit:g}-hour rule. Set `travel: drive` on this trip."
+                )
+            if trip.lodging.enabled and dest.center is None:
+                print(
+                    f"    NOTE: no `center` for {dest.display} — the cheapest hotel may be "
+                    "far from anything you'd do"
+                )
+            elif trip.lodging.enabled and dest.within_miles:
+                print(f"    hotels within {dest.within_miles:g} mi of the center")
+        if trip.lodging.prefer:
+            print(f"    preferred: {', '.join(trip.lodging.prefer)} (tracked when one qualifies)")
         if windows:
             print(
                 f"    {len(windows)} date window(s) per run, "
@@ -133,57 +159,79 @@ def cmd_validate(args: argparse.Namespace) -> int:
             print(f"    {' + '.join(parts)}")
         print(f"    tags: {', '.join(trip.tags) or 'none'}")
 
-    # Hotel searches are the scarce resource: SerpApi's free plan is 250 a
-    # month. Slots are refreshed stalest-first, a few per run.
-    slots = len(lodging_slots(config, today))
-    per_run = settings.hotel_searches_per_run
-    monthly = min(slots, per_run) * 30
-    print(f"\nHotel prices: {slots} slot(s), up to {per_run} search(es) per daily run.")
+    # SerpApi searches are the scarce resource: 250 free a month, shared by
+    # hotel prices and the weekly Google Flights check for each flying trip.
+    from .insights import flying_trips
+    from .lodging import slot_cost
+
+    slots = lodging_slots(config, today)
+    cycle_cost = sum(slot_cost(trip) for trip, *_ in slots)
+    per_run = settings.searches_per_run
+    flights_per_run = len(flying_trips(config)) / max(1, settings.flight_insight_days)
+    hotel_per_run = max(0.0, per_run - flights_per_run)
+    print(f"\nSerpApi budget: up to {per_run} search(es) per daily run, of 250 free a month.")
+    print(
+        f"  Flights: {len(flying_trips(config))} trip(s) checked every "
+        f"{settings.flight_insight_days} days (~{flights_per_run * 30:.0f}/month)."
+    )
     if slots:
-        cycle = -(-slots // per_run) if per_run else 0
+        cycle = cycle_cost / hotel_per_run if hotel_per_run else float("inf")
         print(
-            f"  Each slot is re-checked about every {cycle} day(s); "
-            f"~{monthly} SerpApi searches/month of the 250 free."
+            f"  Hotels: {len(slots)} slot(s) costing {cycle_cost} search(es) per full pass; "
+            f"each re-checked about every {cycle:.0f} day(s)."
         )
         if cycle > settings.hotel_price_max_age_days:
             print(
-                "  WARNING: slots will age past hotel_price_max_age_days before being "
-                "re-checked — fewer date windows or more searches per run."
+                "  WARNING: hotel prices will age past hotel_price_max_age_days before "
+                "being re-checked — fewer date windows, or more searches per run."
             )
+    monthly = per_run * 31
     if monthly + settings.hotel_search_reserve > 250:
         print(
-            "  WARNING: that is more than the free plan allows; the tracker will stop "
-            "searching when the month runs out. Lower settings.hotel_searches_per_run."
+            f"  WARNING: up to {monthly} searches in a 31-day month plus the reserve is more "
+            "than the free 250; the tracker stops searching when the month runs out."
         )
     return 0
 
 
 def cmd_track(args: argparse.Namespace) -> int:
+    from . import insights as insights_mod
     from .lodging import LodgingBook, run_allowance
     from .sources.google_hotels import SIGNUP_HINT, SerpApiClient
 
     config = _load(args.config)
     hotels = SerpApiClient()
     settings = config.settings
+    today = date.today()
     if hotels.configured:
         left = hotels.searches_left()
-        allowance = run_allowance(
-            left, settings.hotel_searches_per_run, settings.hotel_search_reserve
-        )
+        allowance = run_allowance(left, settings.searches_per_run, settings.hotel_search_reserve)
         if left is not None:
             log.info("SerpApi: %d search(es) left this month", left)
         reason = "" if allowance else "this month's free SerpApi searches are used up"
     else:
         allowance, reason = 0, f"SERPAPI_KEY is not set — {SIGNUP_HINT}"
-    book = LodgingBook.load(config, date.today(), allowance, unavailable_reason=reason)
-    pricer = TripPricer(config, hotels=hotels, book=book)
+
+    # Flight insights first: one search a week per flying trip, and the only
+    # source of "is this fare typical?" Hotels get what's left.
+    insights = insights_mod.load_insights()
+    for trip in insights_mod.due(config, insights, today)[:allowance]:
+        fresh = insights_mod.fetch(hotels, trip, config, today)
+        allowance -= 1
+        if fresh is not None:
+            insights[trip.id] = fresh
+            log.info("%s: Google Flights insight — %s", trip.id, fresh.phrase())
+    insights_mod.save_insights(insights)
+
+    book = LodgingBook.load(config, today, allowance, unavailable_reason=reason)
+    pricer = TripPricer(config, hotels=hotels, book=book, insights=insights)
     trips_by_id = {t.id: t for t in config.trips}
     fired: list[alerts_mod.Alert] = []
     state = load_state(alerts_mod.STATE_NAME)
 
     for trip in config.active_trips:
         log.info("pricing %s", trip.id)
-        result = pricer.price_trip(trip)
+        result = pricer.price_trip(trip, today=today)
         for error in result.errors:
             log.warning("%s: %s", trip.id, error)
 
@@ -213,8 +261,9 @@ def cmd_track(args: argparse.Namespace) -> int:
 
     reports = build_reports(config)
     suggestions = suggest(config, load_catalog())
-    dashboard_mod.build(reports, config, suggestions)
+    dashboard_mod.build(reports, config, suggestions, spreadsheet_url=_spreadsheet_url())
     log.info("dashboard written to docs/index.html")
+    write_summary(config)
 
     if fired:
         subject, html, text = email_report.render_alerts_only(fired, _dashboard_url())
@@ -234,13 +283,17 @@ def cmd_digest(args: argparse.Namespace) -> int:
         reports, [], suggestions, config, _dashboard_url()
     )
     _deliver(subject, html, text, args)
-    dashboard_mod.build(reports, config, suggestions)
+    dashboard_mod.build(reports, config, suggestions, spreadsheet_url=_spreadsheet_url())
+    write_summary(config)
     return 0
 
 
 def cmd_dashboard(args: argparse.Namespace) -> int:
     config = _load(args.config)
-    path = dashboard_mod.build(build_reports(config), config, suggest(config, load_catalog()))
+    path = dashboard_mod.build(
+        build_reports(config), config, suggest(config, load_catalog()),
+        spreadsheet_url=_spreadsheet_url(),
+    )
     print(f"wrote {path}")
     return 0
 
@@ -254,9 +307,12 @@ def cmd_demo(args: argparse.Namespace) -> int:
     from .models import FlightQuote, LodgingQuote, TripQuote
     from .pricing import RunResult
 
+    from .insights import load_insights
+
     config = _load(args.config)
     rng = random.Random(args.seed)
     today = date.today()
+    demo_insights = load_insights()
 
     for trip in config.active_trips:
         path = HISTORY_DIR / f"{trip.id}.csv"
@@ -278,7 +334,14 @@ def cmd_demo(args: argparse.Namespace) -> int:
         )
         nights = (ret - depart).days
 
-        flight = 340 * trip.party.total * rng.uniform(0.85, 1.2)
+        # Start from Google's typical fare where the tracker has one, so the
+        # preview's outlook isn't fooled by a made-up bargain.
+        known = demo_insights.get(trip.id)
+        flight = (
+            known.lowest * rng.uniform(0.95, 1.1)
+            if known and known.lowest
+            else 340 * trip.party.total * rng.uniform(0.85, 1.2)
+        )
         lodging = 210 * nights * trip.lodging.rooms * rng.uniform(0.8, 1.4)
 
         for days_ago in range(args.days, 0, -1):
@@ -335,14 +398,18 @@ def cmd_demo(args: argparse.Namespace) -> int:
 
     reports = build_reports(config)
     suggestions = suggest(config, load_catalog())
-    dashboard_mod.build(reports, config, suggestions)
+    dashboard_mod.build(reports, config, suggestions, spreadsheet_url=_spreadsheet_url())
     subject, html, text = email_report.render_digest(
         reports, [], suggestions, config, _dashboard_url()
     )
     preview = Path(args.out)
     preview.parent.mkdir(parents=True, exist_ok=True)
     preview.write_text(html)
-    print(f"dashboard: docs/index.html\nemail preview: {preview}\nsubject: {subject}")
+    sheet = write_summary(config)
+    print(
+        f"dashboard: docs/index.html\nemail preview: {preview}\n"
+        f"spreadsheet: {sheet}\nsubject: {subject}"
+    )
     return 0
 
 
@@ -413,14 +480,20 @@ def cmd_doctor(args: argparse.Namespace) -> int:
 
     if payload is not None:
         props = [p for p in payload.get("properties") or [] if isinstance(p, dict)]
+        center = destination.center
         print(f"   {len(props)} propert(ies) returned, cheapest first:")
-        for prop in props[:6]:
+        for prop in props[:8]:
             stay = google_hotels.stay_price(prop, nights)
             stars = prop.get("extracted_hotel_class")
+            dist = (
+                google_hotels.distance_from(center, prop.get("gps_coordinates"))
+                if center else None
+            )
             print(
                 f"     {str(prop.get('name'))[:38]:<38} "
                 f"{(str(stars) + '*') if stars else '  ':>3} "
-                f"{prop.get('overall_rating') or '-':>4}  "
+                f"{prop.get('overall_rating') or '-':>4} "
+                + (f"{dist:5.1f} mi  " if dist is not None else "         ")
                 + (f"{stay:>8,.0f} {currency} stay / {stay / nights:,.0f} a night"
                    if stay else "no price")
             )
@@ -428,28 +501,70 @@ def cmd_doctor(args: argparse.Namespace) -> int:
         class _Replay:
             configured = True
 
-            def search(self, _params):
+            def search(self, _params, engine="google_hotels"):
                 return payload
 
         pick = google_hotels.search_lodging(
-            _Replay(), trip, query, depart, ret, currency, config.settings
+            _Replay(), trip, query, depart, ret, currency, config.settings,
+            center=center, within_miles=destination.within_miles,
+        )
+        rules = f"rating {trip.lodging.min_rating or '-'}+, " + (
+            f"within {destination.within_miles:g} mi" if destination.within_miles else "any distance"
         )
         if pick:
             print(
-                f"\n   -> tracker would record {pick.property_name}: "
+                f"\n   -> cheapest meeting the rules ({rules}): {pick.property_name}, "
                 f"{pick.total_price:,.0f} {currency} for the stay "
-                f"({pick.per_night:,.0f} a night, all rooms)"
+                f"({pick.per_night:,.0f} a night)"
+                + (f", {pick.distance_miles:g} mi out" if pick.distance_miles is not None else "")
             )
             print(f"      check it: {pick.deep_link}")
         else:
             print(
-                "\n   -> nothing meets this trip's lodging rules "
-                "(min_stars / min_rating / max_per_night). Loosen them, or check "
-                "that the search phrase is a real place."
+                f"\n   -> nothing meets this trip's rules ({rules}, min_stars, "
+                "max_per_night). Loosen them, or check the search phrase and center."
             )
             ok = False
 
-    print("\n3. Travelpayouts flights (optional)")
+        for brand in trip.lodging.prefer:
+            place = destination.label or query
+            print(f'\n   Preferred brand: "{brand} {place}"  (uses 1 search)')
+            try:
+                found = google_hotels.search_lodging(
+                    hotels, trip, f"{brand} {place}", depart, ret, currency, config.settings,
+                    center=center, within_miles=destination.within_miles, name_contains=brand,
+                )
+            except (SourceError, SourceUnavailable) as exc:
+                print(f"   FAILED: {exc}")
+                continue
+            if found:
+                print(
+                    f"   -> {found.property_name}: {found.total_price:,.0f} {currency} "
+                    f"({found.per_night:,.0f} a night)"
+                    + (f", {found.distance_miles:g} mi out" if found.distance_miles is not None else "")
+                    + " — this is what the tracker records"
+                )
+            else:
+                print(f"   -> no {brand} meets the rules for these dates; the cheapest above is used")
+
+    from . import insights as insights_mod
+
+    flyer = next(iter(insights_mod.flying_trips(config)), None)
+    print("\n3. Google Flights verdict (weekly, uses 1 search)")
+    if flyer is None:
+        print("   skipped — no trip has flights switched on")
+    else:
+        insight = insights_mod.fetch(hotels, flyer, config, date.today())
+        if insight and (insight.lowest or insight.level):
+            print(
+                f"   {flyer.name} {insight.depart} to {insight.return_}: "
+                f"lowest {insight.lowest or 0:,.0f} {currency} for the party"
+                + (f" — {insight.phrase()}" if insight.phrase() else "")
+            )
+        else:
+            print("   no verdict returned for this route and dates")
+
+    print("\n4. Travelpayouts flights (optional)")
     client = TravelpayoutsClient()
     if not client.configured:
         print("   skipped — no TRAVELPAYOUTS_TOKEN; airfare comes from Google Flights")
@@ -470,14 +585,19 @@ def cmd_doctor(args: argparse.Namespace) -> int:
         except (SourceError, SourceUnavailable) as exc:
             print(f"   FAILED: {exc}")
 
-    print("\n4. Google Flights scraper (no key needed)")
+    print("\n5. Google Flights scraper (no key needed)")
+    scrape_trip = flyer or trip
+    scrape_windows = candidate_windows(scrape_trip, date.today(), config.settings)
     if not google_flights.available():
         print(f"   unavailable: {google_flights.import_error()}")
-    elif not trip.origins:
-        print("   skipped — test trip has no origin airport")
+    elif not scrape_trip.origins or not scrape_windows:
+        print("   skipped — no origin airport or dates to test with")
     else:
+        s_depart, s_ret = scrape_windows[0]
+        print(f"   {scrape_trip.name} {s_depart} to {s_ret}")
         quote = google_flights.search_flights(
-            trip, trip.origins[0], destination.code, depart, ret, currency, config.settings,
+            scrape_trip, scrape_trip.origins[0], scrape_trip.destinations[0].code,
+            s_depart, s_ret, currency, config.settings,
         )
         if quote:
             print(f"   {quote.total_price:,.0f} {quote.currency} for the party")

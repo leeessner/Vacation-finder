@@ -24,10 +24,38 @@ So the tracker:
    git, so the price history is permanent and diffable.
 3. Judges today's number against that history (percentile, all-time low, change
    versus the 30-day median) instead of against your gut.
-4. Emails you a digest on a schedule, and an alert the moment a threshold
+4. Shows which way each price is moving — flights and hotel separately — and
+   gives an **outlook** for each trip: *Good time to book*, *Book soon*,
+   *Keep watching* or *Wait if you can*, with its reasons and how much
+   evidence it rests on (see "The outlook" below).
+5. Emails you a digest on a schedule, and an alert the moment a threshold
    you set is crossed.
-5. Suggests destinations you aren't tracking that match the tags on the ones you
+6. Keeps one spreadsheet of every trip's prices over time,
+   `data/prices-over-time.csv` — a row per day, flights / hotel / total per
+   trip, ready for Excel or Google Sheets.
+7. Suggests destinations you aren't tracking that match the tags on the ones you
    are, with ready-to-paste config for each.
+
+### House rules for lodging
+
+Set per trip in `config/trips.yaml`:
+
+- **Guest rating 4.0+** (`min_rating`) and 3-star class or better.
+- **Close to what you'd do.** Each destination has a `center` and
+  `within_miles`; anything farther out is ignored. The cheapest hotel "in
+  Nashville" is nine miles from downtown, and staying close in costs roughly
+  twice as much there — the tracker shows that honestly rather than tracking
+  a price you'd never pay.
+- **One room for six in the US** (`rooms: 1`): Google only returns rooms that
+  fit the whole party, which in practice means suites. Two rooms in Europe.
+- **A preferred brand** (`prefer: ["Embassy Suites"]`) is tracked whenever one
+  qualifies, with the cheapest alternative noted beside it. One extra search
+  per check.
+- **Cabins and rentals** (`kind: rental`) only where that's the point of the
+  trip.
+- **Drive, don't fly, within six hours** (`settings.max_drive_hours`):
+  `validate` warns about a flying trip whose destination is a shorter drive,
+  and suggestions for nearby cities come back configured as drives.
 
 ## What it costs to run
 
@@ -54,17 +82,43 @@ six is priced as `lodging.rooms` identical rooms, each holding its share of
 the party; a trip with `lodging.kind: rental` is priced as one cabin or
 apartment for everyone.
 
-The free plan is **250 searches a month**, so hotel prices are not re-checked
-daily. Each run searches the 7 "slots" (trip × date window) that have gone
-longest without a check and reuses the last price for the rest, for up to 10
-days; the reports say how old a price is. With the current trips that is a
-fresh look at every slot about every four days — plenty for stays months out.
-`lodging.py` explains the budgeting; `validate` prints the cadence.
+The free plan is **250 searches a month**, shared with the weekly flight
+check below, so hotel prices are not re-checked daily. Each run spends up to
+7 searches: flying trips due their weekly check first, then the hotel
+"slots" (trip × date window) that have gone longest without a check. The last
+price is reused for the rest, for up to 10 days, and the reports say how old
+it is. With the current trips each hotel price is re-checked about every five
+days — plenty for stays months out. `lodging.py` explains the budgeting;
+`validate` prints the cadence.
 
-**A Google Flights scraper** (`fast-flights`) prices airfare. It needs no
-key, is live, and prices the actual party. It is also, unavoidably, fragile:
-when Google changes their page it stops working, so a failure is logged and
-the run continues.
+**A Google Flights scraper** (`fast-flights`) prices airfare daily for every
+date window. It needs no key, is live, and prices the actual party. It is
+also, unavoidably, fragile: when Google changes their page it stops working.
+
+**Google Flights through SerpApi**, once a week per flying trip, adds
+Google's own verdict — *low*, *typical* or *high* — and the typical price
+range for the route and dates ($7,800–$9,400 for six to Paris in June, when
+this was written). That is the one piece of price context that doesn't have
+to be built up day by day. Its fare also stands in for a day when the scraper
+fails. Google returns no price *history* for trips this far out (checked
+live), so trends come from the tracker's own daily prices.
+
+### The outlook
+
+Nobody can predict next month's fare, and the outlook doesn't pretend to. It
+combines the three things that genuinely help (`forecast.py`):
+
+1. Where today's fare sits against Google's typical range.
+2. Which way the tracker's own prices have been moving (a least-squares
+   trend over the last four weeks, from seven days of data on).
+3. How far away the trip is, against when long-haul fares are usually lowest:
+   **5–7 months before departure** (`settings.booking_window_months`, rough
+   guidance from published booking studies). For June 2027 that's November
+   to January.
+
+Each outlook lists its reasons and a confidence — *low* until there are a few
+weeks of tracking and a Google verdict, *high* after about two months. Drive
+trips get a hotel-only outlook.
 
 **Travelpayouts** cached fares are used alongside it *if* a
 `TRAVELPAYOUTS_TOKEN` is set. It's optional — its signup demands a website
