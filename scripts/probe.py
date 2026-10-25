@@ -19,15 +19,47 @@ spain = cfg.trip("spain-barcelona-madrid")
 JUNE = (date(2027, 6, 5), date(2027, 6, 15))
 MARCH = (date(2027, 3, 12), date(2027, 3, 16))
 
-cases = [
-    ("A STL-BCN exactly as tracked", spain, "BCN", JUNE),
-    ("B STL-BCN no checked bags", replace(spain, flights=replace(spain.flights, checked_bags=0)), "BCN", JUNE),
-    ("C STL-BCN 1 adult, no bags", replace(spain, party=Party(adults=1), flights=replace(spain.flights, checked_bags=0)), "BCN", JUNE),
-    ("D STL-BCN any stops, no bags", replace(spain, flights=FlightPrefs(max_stops=None)), "BCN", JUNE),
-    ("E STL-CDG exactly as tracked", spain, "CDG", JUNE),
-    ("F STL-BNA control (worked before)", replace(spain, flights=replace(spain.flights, checked_bags=0)), "BNA", MARCH),
-]
+import time
+from fast_flights import FlightQuery, Passengers, create_query
 
+
+def q(adults=2, children=4, stops=1, dest="BCN", dates=JUNE, trip="round-trip"):
+    d, r = dates
+    legs = [FlightQuery(date=d.isoformat(), from_airport="STL", to_airport=dest, max_stops=stops)]
+    if trip == "round-trip":
+        legs.append(FlightQuery(date=r.isoformat(), from_airport=dest, to_airport="STL", max_stops=stops))
+    return create_query(
+        flights=legs, trip=trip, seat="economy",
+        passengers=Passengers(adults=adults, children=children),
+        currency="USD", max_stops=stops,
+    )
+
+
+variants = [
+    ("A1 family, <=1 stop, try 1", q()),
+    ("A2 family, <=1 stop, try 2 (after 5s)", "WAIT", ),
+    ("A3 family, <=1 stop, try 3 (after 5s)", "WAIT"),
+    ("G 6 adults, <=1 stop", q(adults=6, children=0)),
+    ("I 2 adults, <=1 stop", q(adults=2, children=0)),
+    ("L family, <=2 stops", q(stops=2)),
+    ("K family one-way, <=1 stop", q(trip="one-way")),
+    ("M family, <=1 stop, Paris", q(dest="CDG")),
+    ("N 2 adults + 4 children, any stops, Paris", q(dest="CDG", stops=None)),
+]
+for item in variants:
+    label, query = item[0], item[1]
+    if query == "WAIT":
+        time.sleep(5)
+        query = q()
+    try:
+        html = fetch_flights_html(query)
+        res = parse(html)
+        print(f"{label:45s} -> {len(res)} result(s), cheapest {min((f.price for f in res), default=None)}")
+    except Exception as exc:  # noqa: BLE001
+        print(f"{label:45s} -> FAILED {type(exc).__name__}: {exc}")
+print("passenger protobuf for the family:", Passengers(adults=2, children=4).pb())
+print("url:", q().url()[:200])
+raise SystemExit(0)
 
 def shape(x, depth=0):
     if isinstance(x, list):
