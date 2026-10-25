@@ -47,37 +47,8 @@ def search_flights(
         log.debug("fast-flights unavailable: %s", import_error())
         return None
 
-    party = trip.party
     try:
-        query = create_query(
-            flights=[
-                FlightQuery(
-                    date=depart.isoformat(),
-                    from_airport=origin,
-                    to_airport=destination,
-                    max_stops=trip.flights.max_stops,
-                ),
-                FlightQuery(
-                    date=ret.isoformat(),
-                    from_airport=destination,
-                    to_airport=origin,
-                    max_stops=trip.flights.max_stops,
-                ),
-            ],
-            trip="round-trip",
-            seat=trip.flights.cabin,
-            passengers=Passengers(
-                adults=party.adult_equivalents,
-                children=party.child_seats,
-                infants_in_seat=0,
-                infants_on_lap=party.infants,
-            ),
-            currency=currency,
-            max_stops=trip.flights.max_stops,
-            checked_bags=trip.flights.checked_bags,
-            carry_on_bags=trip.flights.carry_on_bags,
-            exclude_basic_economy=trip.flights.exclude_basic_economy,
-        )
+        query = build_query(trip, origin, destination, depart, ret, currency)
         results = get_flights(query)
     except Exception as exc:  # noqa: BLE001 - scraping fails in many shapes
         log.warning("Google Flights scrape failed %s->%s %s: %s", origin, destination, depart, exc)
@@ -115,6 +86,40 @@ def search_flights(
             f"Flights%20to%20{destination}%20from%20{origin}%20on%20"
             f"{depart.isoformat()}%20through%20{ret.isoformat()}"
         ),
+    )
+
+
+def build_query(trip: Trip, origin: str, destination: str, depart: date, ret: date, currency: str):
+    """The fast-flights query for one round trip, for the whole party."""
+    party = trip.party
+    return create_query(
+        flights=[
+            FlightQuery(
+                date=depart.isoformat(),
+                from_airport=origin,
+                to_airport=destination,
+                max_stops=trip.flights.max_stops,
+            ),
+            FlightQuery(
+                date=ret.isoformat(),
+                from_airport=destination,
+                to_airport=origin,
+                max_stops=trip.flights.max_stops,
+            ),
+        ],
+        trip="round-trip",
+        seat=trip.flights.cabin,
+        passengers=Passengers(
+            adults=party.adult_equivalents,
+            children=party.child_seats,
+            infants_in_seat=0,
+            infants_on_lap=party.infants,
+        ),
+        currency=currency,
+        max_stops=trip.flights.max_stops,
+        checked_bags=trip.flights.checked_bags,
+        carry_on_bags=trip.flights.carry_on_bags,
+        exclude_basic_economy=trip.flights.exclude_basic_economy,
     )
 
 
