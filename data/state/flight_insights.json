@@ -1,0 +1,62 @@
+{
+  "austria-bavaria-summer": {
+    "checked_on": "2026-10-25",
+    "depart": "2027-06-05",
+    "level": "typical",
+    "lowest": 7861.0,
+    "return_": "2027-06-15",
+    "trip_id": "austria-bavaria-summer",
+    "typical_high": 12000.0,
+    "typical_low": 7600.0
+  },
+  "greece-summer": {
+    "checked_on": "2026-10-25",
+    "depart": "2027-06-05",
+    "level": "",
+    "lowest": 7742.0,
+    "return_": "2027-06-15",
+    "trip_id": "greece-summer",
+    "typical_high": null,
+    "typical_low": null
+  },
+  "nice-riviera": {
+    "checked_on": "2026-10-25",
+    "depart": "2027-06-05",
+    "level": "typical",
+    "lowest": 8154.0,
+    "return_": "2027-06-14",
+    "trip_id": "nice-riviera",
+    "typical_high": 11500.0,
+    "typical_low": 8000.0
+  },
+  "paris-versailles": {
+    "checked_on": "2026-10-25",
+    "depart": "2027-06-05",
+    "level": "typical",
+    "lowest": 8481.0,
+    "return_": "2027-06-14",
+    "trip_id": "paris-versailles",
+    "typical_high": 9500.0,
+    "typical_low": 7900.0
+  },
+  "portugal-azores-summer": {
+    "checked_on": "2026-10-25",
+    "depart": "2027-06-05",
+    "level": "low",
+    "lowest": 7642.0,
+    "return_": "2027-06-15",
+    "trip_id": "portugal-azores-summer",
+    "typical_high": 11500.0,
+    "typical_low": 8300.0
+  },
+  "spain-barcelona-madrid": {
+    "checked_on": "2026-10-25",
+    "depart": "2027-06-05",
+    "level": "low",
+    "lowest": 7615.0,
+    "return_": "2027-06-15",
+    "trip_id": "spain-barcelona-madrid",
+    "typical_high": 11500.0,
+    "typical_low": 8200.0
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "trip_id": "paris-versailles",
+  "captured_at": "2026-10-25T16:26:01.059504+00:00",
+  "queries_made": 3,
+  "errors": [],
+  "quotes": [
+    {
+      "trip_id": "paris-versailles",
+      "destination": "CDG",
+      "depart_date": "2027-06-05",
+      "return_date": "2027-06-14",
+      "nights": 9,
+      "currency": "USD",
+      "flight": {
+        "origin": "STL",
+        "destination": "CDG",
+        "depart_date": "2027-06-05",
+        "return_date": "2027-06-14",
+        "total_price": 8463.0,
+        "currency": "USD",
+        "carriers": [
+          "Air Canada"
+        ],
+        "stops_out": null,
+        "stops_back": null,
+        "source": "google_flights_scaled",
+        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20CDG%20from%20STL%20on%202027-06-05%20through%202027-06-14"
+      },
+      "lodging": null,
+      "ground_cost": 340.0,
+      "ground_notes": "Paris transit passes for six, plus RER to Versailles and CDG",
+      "travel_mode": "air",
+      "flights_expected": true,
+      "flight_cost": 8463.0,
+      "lodging_cost": 0.0,
+      "total_cost": 8803.0,
+      "is_complete": false,
+      "notes": [
+        "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)"
+      ]
+    },
+    {
+      "trip_id": "paris-versailles",
+      "destination": "CDG",
+      "depart_date": "2027-06-21",
+      "return_date": "2027-06-30",
+      "nights": 9,
+      "currency": "USD",
+      "flight": {
+        "origin": "STL",
+        "destination": "CDG",
+        "depart_date": "2027-06-21",
+        "return_date": "2027-06-30",
+        "total_price": 7641.0,
+        "currency": "USD",
+        "carriers": [
+          "Delta"
+        ],
+        "stops_out": null,
+        "stops_back": null,
+        "source": "google_flights_scaled",
+        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20CDG%20from%20STL%20on%202027-06-21%20through%202027-06-30"
+      },
+      "lodging": null,
+      "ground_cost": 340.0,
+      "ground_notes": "Paris transit passes for six, plus RER to Versailles and CDG",
+      "travel_mode": "air",
+      "flights_expected": true,
+      "flight_cost": 7641.0,
+      "lodging_cost": 0.0,
+      "total_cost": 7981.0,
+      "is_complete": false,
+      "notes": [
+        "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)"
+      ]
+    },
+    {
+      "trip_id": "paris-versailles",
+      "destination": "CDG",
+      "depart_date": "2027-07-08",
+      "return_date": "2027-07-17",
+      "nights": 9,
+      "currency": "USD",
+      "flight": {
+        "origin": "STL",
+        "destination": "CDG",
+        "depart_date": "2027-07-08",
+        "return_date": "2027-07-17",
+        "total_price": 8160.0,
+        "currency": "USD",
+        "carriers": [
+          "Delta"
+        ],
+        "stops_out": null,
+        "stops_back": null,
+        "source": "google_flights_scaled",
+        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20CDG%20from%20STL%20on%202027-07-08%20through%202027-07-17"
+      },
+      "lodging": null,
+      "ground_cost": 340.0,
+      "ground_notes": "Paris transit passes for six, plus RER to Versailles and CDG",
+      "travel_mode": "air",
+      "flights_expected": true,
+      "flight_cost": 8160.0,
+      "lodging_cost": 0.0,
+      "total_cost": 8500.0,
+      "is_complete": false,
+      "notes": [
+        "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)"
+      ]
+    }
+  ]
+}

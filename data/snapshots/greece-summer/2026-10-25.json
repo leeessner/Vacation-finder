@@ -1,0 +1,113 @@
+{
+  "trip_id": "greece-summer",
+  "captured_at": "2026-10-25T16:26:08.413232+00:00",
+  "queries_made": 3,
+  "errors": [],
+  "quotes": [
+    {
+      "trip_id": "greece-summer",
+      "destination": "ATH",
+      "depart_date": "2027-06-05",
+      "return_date": "2027-06-15",
+      "nights": 10,
+      "currency": "USD",
+      "flight": {
+        "origin": "STL",
+        "destination": "ATH",
+        "depart_date": "2027-06-05",
+        "return_date": "2027-06-15",
+        "total_price": 8814.0,
+        "currency": "USD",
+        "carriers": [
+          "American"
+        ],
+        "stops_out": null,
+        "stops_back": null,
+        "source": "google_flights_scaled",
+        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20ATH%20from%20STL%20on%202027-06-05%20through%202027-06-15"
+      },
+      "lodging": null,
+      "ground_cost": 700.0,
+      "ground_notes": "Ferries and transfers for six (estimate)",
+      "travel_mode": "air",
+      "flights_expected": true,
+      "flight_cost": 8814.0,
+      "lodging_cost": 0.0,
+      "total_cost": 9514.0,
+      "is_complete": false,
+      "notes": [
+        "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)"
+      ]
+    },
+    {
+      "trip_id": "greece-summer",
+      "destination": "ATH",
+      "depart_date": "2027-06-21",
+      "return_date": "2027-07-01",
+      "nights": 10,
+      "currency": "USD",
+      "flight": {
+        "origin": "STL",
+        "destination": "ATH",
+        "depart_date": "2027-06-21",
+        "return_date": "2027-07-01",
+        "total_price": 7257.0,
+        "currency": "USD",
+        "carriers": [
+          "Air Canada"
+        ],
+        "stops_out": null,
+        "stops_back": null,
+        "source": "google_flights_scaled",
+        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20ATH%20from%20STL%20on%202027-06-21%20through%202027-07-01"
+      },
+      "lodging": null,
+      "ground_cost": 700.0,
+      "ground_notes": "Ferries and transfers for six (estimate)",
+      "travel_mode": "air",
+      "flights_expected": true,
+      "flight_cost": 7257.0,
+      "lodging_cost": 0.0,
+      "total_cost": 7957.0,
+      "is_complete": false,
+      "notes": [
+        "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)"
+      ]
+    },
+    {
+      "trip_id": "greece-summer",
+      "destination": "ATH",
+      "depart_date": "2027-07-07",
+      "return_date": "2027-07-17",
+      "nights": 10,
+      "currency": "USD",
+      "flight": {
+        "origin": "STL",
+        "destination": "ATH",
+        "depart_date": "2027-07-07",
+        "return_date": "2027-07-17",
+        "total_price": 7578.0,
+        "currency": "USD",
+        "carriers": [
+          "United"
+        ],
+        "stops_out": null,
+        "stops_back": null,
+        "source": "google_flights_scaled",
+        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20ATH%20from%20STL%20on%202027-07-07%20through%202027-07-17"
+      },
+      "lodging": null,
+      "ground_cost": 700.0,
+      "ground_notes": "Ferries and transfers for six (estimate)",
+      "travel_mode": "air",
+      "flights_expected": true,
+      "flight_cost": 7578.0,
+      "lodging_cost": 0.0,
+      "total_cost": 8278.0,
+      "is_complete": false,
+      "notes": [
+        "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)"
+      ]
+    }
+  ]
+}
