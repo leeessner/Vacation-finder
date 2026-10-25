@@ -27,6 +27,10 @@ log = logging.getLogger(__name__)
 
 STATE_NAME = "flight_insights"
 
+# At most this many weekly checks a run, so they spread across the week
+# instead of all falling due on one day and starving that day's hotels.
+MAX_PER_RUN = 2
+
 # SerpApi's `stops` codes: 0 any, 1 nonstop, 2 one stop or fewer, 3 two or fewer.
 STOPS_CODE = {None: 0, 0: 1, 1: 2, 2: 3}
 
