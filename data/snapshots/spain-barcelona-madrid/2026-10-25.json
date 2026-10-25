@@ -1,7 +1,7 @@
 {
   "trip_id": "spain-barcelona-madrid",
-  "captured_at": "2026-10-25T16:29:58.747437+00:00",
-  "queries_made": 3,
+  "captured_at": "2026-10-25T17:17:49.083428+00:00",
+  "queries_made": 4,
   "errors": [],
   "quotes": [
     {
@@ -26,15 +26,31 @@
         "source": "google_flights_scaled",
         "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20BCN%20from%20STL%20on%202027-06-05%20through%202027-06-15"
       },
-      "lodging": null,
+      "lodging": {
+        "destination": "Barcelona, Spain",
+        "check_in": "2027-06-05",
+        "check_out": "2027-06-15",
+        "property_name": "Room018BCN",
+        "total_price": 3332.0,
+        "currency": "USD",
+        "property_id": "ChgI2deaofCA6aJ6GgwvZy8xcTYybTZ3ZnEQAQ",
+        "nights": 10,
+        "rating": 4.1,
+        "stars": 3.0,
+        "board_type": "",
+        "refundable": null,
+        "source": "google_hotels",
+        "deep_link": "https://www.google.com/travel/search?q=Room018BCN%20Barcelona%2C%20Spain&checkin=2027-06-05&checkout=2027-06-15",
+        "distance_miles": 2.1
+      },
       "ground_cost": 520.0,
       "ground_notes": "AVE train Barcelona\u2013Madrid for six, plus airport transfers",
       "travel_mode": "air",
       "flights_expected": true,
       "flight_cost": 8235.0,
-      "lodging_cost": 0.0,
-      "total_cost": 8755.0,
-      "is_complete": false,
+      "lodging_cost": 3332.0,
+      "total_cost": 12087.0,
+      "is_complete": true,
       "notes": [
         "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)"
       ]

@@ -62,6 +62,116 @@
         "stars": 3.0,
         "total_price": 1021.0
       }
+    },
+    "nashville-spring-break|Downtown Nashville, TN|2027-03-15|2027-03-19": {
+      "checked_on": "2026-10-25",
+      "note": "Embassy Suites: $151 more than the cheapest qualifying option, Kasa Capitol Hill Downtown Nashville ($976)",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-03-15",
+        "check_out": "2027-03-19",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=Embassy%20Suites%20by%20Hilton%20Nashville%20at%20Vanderbilt%20Embassy%20Suites%20Nashville%2C%20TN&checkin=2027-03-15&checkout=2027-03-19",
+        "destination": "Embassy Suites Nashville, TN",
+        "distance_miles": 1.1,
+        "nights": 4,
+        "property_id": "ChgIldb85OXt5pCOARoLL2cvMXRocDhxbDcQAQ",
+        "property_name": "Embassy Suites by Hilton Nashville at Vanderbilt",
+        "rating": 4.2,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": 3.0,
+        "total_price": 1127.0
+      }
+    },
+    "smokies-spring-break|Gatlinburg, TN|2027-03-12|2027-03-16": {
+      "checked_on": "2026-10-25",
+      "note": "",
+      "quote": null
+    },
+    "smokies-spring-break|Gatlinburg, TN|2027-03-13|2027-03-17": {
+      "checked_on": "2026-10-25",
+      "note": "",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-03-13",
+        "check_out": "2027-03-17",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=Spacious%20Condo%20with%20beautiful%20Mountain%20Views.%202%20BR/2Bath%20sleeps%206%20guests.%20Gatlinburg%2C%20TN&checkin=2027-03-13&checkout=2027-03-17",
+        "destination": "Gatlinburg, TN",
+        "distance_miles": 3.1,
+        "nights": 4,
+        "property_id": "ChkQ8LTb6dzzjI4GGg0vZy8xMXhsbXpqZmsxEAI",
+        "property_name": "Spacious Condo with beautiful Mountain Views. 2 BR/2Bath sleeps 6 guests.",
+        "rating": 4.5,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": null,
+        "total_price": 692.0
+      }
+    },
+    "smokies-spring-break|Gatlinburg, TN|2027-03-14|2027-03-18": {
+      "checked_on": "2026-10-25",
+      "note": "",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-03-14",
+        "check_out": "2027-03-18",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=Spacious%20Condo%20with%20beautiful%20Mountain%20Views.%202%20BR/2Bath%20sleeps%206%20guests.%20Gatlinburg%2C%20TN&checkin=2027-03-14&checkout=2027-03-18",
+        "destination": "Gatlinburg, TN",
+        "distance_miles": 3.1,
+        "nights": 4,
+        "property_id": "ChkQ8LTb6dzzjI4GGg0vZy8xMXhsbXpqZmsxEAI",
+        "property_name": "Spacious Condo with beautiful Mountain Views. 2 BR/2Bath sleeps 6 guests.",
+        "rating": 4.5,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": null,
+        "total_price": 695.0
+      }
+    },
+    "smokies-spring-break|Gatlinburg, TN|2027-03-15|2027-03-19": {
+      "checked_on": "2026-10-25",
+      "note": "",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-03-15",
+        "check_out": "2027-03-19",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=Spacious%20Condo%20with%20beautiful%20Mountain%20Views.%202%20BR/2Bath%20sleeps%206%20guests.%20Gatlinburg%2C%20TN&checkin=2027-03-15&checkout=2027-03-19",
+        "destination": "Gatlinburg, TN",
+        "distance_miles": 3.1,
+        "nights": 4,
+        "property_id": "ChkQ8LTb6dzzjI4GGg0vZy8xMXhsbXpqZmsxEAI",
+        "property_name": "Spacious Condo with beautiful Mountain Views. 2 BR/2Bath sleeps 6 guests.",
+        "rating": 4.5,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": null,
+        "total_price": 703.0
+      }
+    },
+    "spain-barcelona-madrid|Barcelona, Spain|2027-06-05|2027-06-15": {
+      "checked_on": "2026-10-25",
+      "note": "",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-06-05",
+        "check_out": "2027-06-15",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=Room018BCN%20Barcelona%2C%20Spain&checkin=2027-06-05&checkout=2027-06-15",
+        "destination": "Barcelona, Spain",
+        "distance_miles": 2.1,
+        "nights": 10,
+        "property_id": "ChgI2deaofCA6aJ6GgwvZy8xcTYybTZ3ZnEQAQ",
+        "property_name": "Room018BCN",
+        "rating": 4.1,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": 3.0,
+        "total_price": 3332.0
+      }
     }
   }
 }
