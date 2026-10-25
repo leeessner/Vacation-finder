@@ -1,17 +1,31 @@
-"""Temporary: run the real flight search for every summer trip, live."""
+"""Temporary: why do Nice, Munich and one Barcelona date still return nothing?"""
 import sys
 from datetime import date
 
 sys.path.insert(0, "src")
-from vacation_finder.config import load_config  # noqa: E402
-from vacation_finder.dates import candidate_windows  # noqa: E402
-from vacation_finder.insights import flying_trips  # noqa: E402
-from vacation_finder.sources.google_flights import search_flights  # noqa: E402
+from fast_flights import FlightQuery, Passengers, create_query, get_flights  # noqa: E402
 
-cfg = load_config("config/trips.yaml")
-for trip in flying_trips(cfg):
-    for depart, ret in candidate_windows(trip, date.today(), cfg.settings):
-        q = search_flights(trip, trip.origins[0], trip.destinations[0].code, depart, ret,
-                           cfg.settings.currency, cfg.settings)
-        result = f"{q.total_price:,.0f} USD via {q.source} ({'/'.join(q.carriers)})" if q else "NO FARE"
-        print(f"{trip.id:24s} STL-{trip.destinations[0].code} {depart}..{ret}: {result}")
+
+def run(label, dest, d, r, adults, children, stops):
+    legs = [FlightQuery(date=d, from_airport="STL", to_airport=dest, max_stops=stops),
+            FlightQuery(date=r, from_airport=dest, to_airport="STL", max_stops=stops)]
+    q = create_query(flights=legs, trip="round-trip", seat="economy",
+                     passengers=Passengers(adults=adults, children=children),
+                     currency="USD", max_stops=stops)
+    try:
+        res = get_flights(q)
+        best = min(res, key=lambda f: f.price) if res else None
+        print(f"{label:42s} -> {len(res)} result(s)" + (f", cheapest {best.price} {best.airlines}" if best else ""))
+    except Exception as exc:  # noqa: BLE001
+        print(f"{label:42s} -> none ({type(exc).__name__})")
+
+
+for dest, d, r in [("NCE", "2027-06-05", "2027-06-14"), ("MUC", "2027-06-05", "2027-06-15"),
+                   ("BCN", "2027-07-07", "2027-07-17")]:
+    print(f"\n== STL-{dest} {d} ==")
+    run(f"{dest} 1 adult <=1 stop", dest, d, r, 1, 0, 1)
+    run(f"{dest} 2 adults <=1 stop", dest, d, r, 2, 0, 1)
+    run(f"{dest} 2 adults <=2 stops", dest, d, r, 2, 0, 2)
+    run(f"{dest} 2 adults any stops", dest, d, r, 2, 0, None)
+    run(f"{dest} family any stops", dest, d, r, 2, 4, None)
+    run(f"{dest} 2 adults nonstop", dest, d, r, 2, 0, 0)
