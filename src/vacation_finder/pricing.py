@@ -154,11 +154,13 @@ class TripPricer:
                 return fallback, notes
             return None, notes
         best = min(candidates, key=lambda q: q.total_price)
-        if best.source == "google_flights_scaled":
+        if "scaled" in best.source:
             notes.append(
-                "airfare estimated from a 2-adult fare scaled to the party "
-                "(Google lists no six-seat results on this route)"
+                "airfare estimated: a smaller party's fare scaled to yours "
+                "(Google's page lists no fares for the whole party here)"
             )
+        if "extra_stop" in best.source:
+            notes.append("airfare allows one more stop than your limit — none was found within it")
         return best, notes
 
     def _insight_fare(

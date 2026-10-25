@@ -10,15 +10,17 @@ route that page is empty — checked live in October 2026: STL-Barcelona and
 STL-Paris returned nothing for six (adults or a family, with or without bags,
 on retry), while two adults returned six itineraries. The full interactive
 site, which SerpApi drives, does list them. So when the whole-party search
-comes back empty, this prices two adults and scales to the party. Checked
-against Google's own family-of-six price that day, the estimate ran 3-8% high
-— the safe direction for a budget, and constant from day to day, so trends
-are unaffected. Such fares are marked `google_flights_scaled` and noted.
+comes back empty, this works down `fallback_ladder`: two adults scaled to the
+party, one adult scaled, then the same with one more stop allowed. Checked
+against Google's own family-of-six price that day, the two-adult estimate ran
+3-8% high — the safe direction for a budget. Every fare records which rung
+produced it (`source`), and the reports say when it's an estimate.
 """
 
 from __future__ import annotations
 
 import logging
+from dataclasses import dataclass
 from datetime import date
 
 from ..config import Settings, Trip
@@ -58,16 +60,16 @@ def search_flights(
         return None
 
     party = trip.party
-    found = _cheapest(trip, origin, destination, depart, ret, currency)
-    source = "google_flights"
-    if found is None and party.total > SCALE_FROM:
-        # Google's first-rendered page lists nothing for big parties on many
-        # long-haul routes (see the module docstring); price two adults.
-        found = _cheapest(trip, origin, destination, depart, ret, currency, sample=True)
-        if found is not None:
-            per_person = found[0] / SCALE_FROM
-            found = (per_person * party.total, found[1])
-            source = "google_flights_scaled"
+    found, source = None, "google_flights"
+    for step in fallback_ladder(trip):
+        hit = _cheapest(
+            trip, origin, destination, depart, ret, currency,
+            adults=step.adults, extra_stops=step.extra_stops,
+        )
+        if hit is not None:
+            price = hit[0] if step.adults is None else hit[0] / step.adults * party.total
+            found, source = (price, hit[1]), step.source
+            break
     if found is None:
         return None
 
@@ -94,9 +96,40 @@ def search_flights(
     )
 
 
-# Adults priced when the whole party can't be: the smallest search that
-# reliably returns long-haul results, and still a real two-seat booking.
-SCALE_FROM = 2
+@dataclass(frozen=True)
+class Step:
+    """One rung of the fallback ladder.
+
+    `adults` None means the whole party at its real composition; a number
+    means that many adults, scaled to the party. `extra_stops` loosens the
+    trip's stop limit by that many.
+    """
+
+    adults: int | None
+    extra_stops: int
+    source: str
+
+
+def fallback_ladder(trip: Trip) -> list[Step]:
+    """Searches to try in order, stopping at the first that returns a fare.
+
+    Ordered by how faithfully each prices the real trip. Checked live in
+    October 2026 (STL to Europe, family of six, at most one stop): the whole
+    party returned nothing to Barcelona or Paris, two adults did; for one
+    July Barcelona date only one adult did; Munich only appeared once a
+    second stop was allowed. Nice returned nothing at all — that trip's
+    airfare comes from the weekly SerpApi check instead.
+    """
+    steps = [Step(None, 0, "google_flights")]
+    if trip.party.total > 2:
+        steps.append(Step(2, 0, "google_flights_scaled"))
+    if trip.party.total > 1:
+        steps.append(Step(1, 0, "google_flights_scaled"))
+    if trip.flights.max_stops is not None:
+        steps.append(Step(None, 1, "google_flights_extra_stop"))
+        if trip.party.total > 2:
+            steps.append(Step(2, 1, "google_flights_scaled_extra_stop"))
+    return steps
 
 
 def _cheapest(
@@ -106,17 +139,24 @@ def _cheapest(
     depart: date,
     ret: date,
     currency: str,
-    sample: bool = False,
+    adults: int | None = None,
+    extra_stops: int = 0,
 ) -> tuple[float, tuple[str, ...]] | None:
     """(price, airlines) of the cheapest result, or None if there were none."""
-    who = "2 adults" if sample else "party"
+    who = "party" if adults is None else f"{adults} adult(s)"
     try:
-        query = build_query(trip, origin, destination, depart, ret, currency, sample=sample)
+        query = build_query(
+            trip, origin, destination, depart, ret, currency,
+            adults=adults, extra_stops=extra_stops,
+        )
         results = get_flights(query)
     except Exception as exc:  # noqa: BLE001 - scraping fails in many shapes
         # An empty results page makes fast-flights raise TypeError rather than
         # return nothing; either way there is no fare here.
-        log.info("Google Flights %s %s->%s %s: no results (%s)", who, origin, destination, depart, exc)
+        log.info(
+            "Google Flights %s +%d stop(s) %s->%s %s: no results (%s)",
+            who, extra_stops, origin, destination, depart, exc,
+        )
         return None
 
     best: tuple[float, tuple[str, ...]] | None = None
@@ -136,13 +176,18 @@ def build_query(
     depart: date,
     ret: date,
     currency: str,
-    sample: bool = False,
+    adults: int | None = None,
+    extra_stops: int = 0,
 ):
     """The fast-flights query for one round trip: the whole party, or with
-    `sample`, two adults and no bag filter (a two-seat stand-in)."""
+    `adults`, that many adults and no bag filter (a stand-in to scale)."""
     party = trip.party
+    sample = adults is not None
+    stops = trip.flights.max_stops
+    if stops is not None:
+        stops += extra_stops
     if sample:
-        passengers = Passengers(adults=SCALE_FROM)
+        passengers = Passengers(adults=adults)
     else:
         passengers = Passengers(
             adults=party.adult_equivalents,
@@ -156,20 +201,20 @@ def build_query(
                 date=depart.isoformat(),
                 from_airport=origin,
                 to_airport=destination,
-                max_stops=trip.flights.max_stops,
+                max_stops=stops,
             ),
             FlightQuery(
                 date=ret.isoformat(),
                 from_airport=destination,
                 to_airport=origin,
-                max_stops=trip.flights.max_stops,
+                max_stops=stops,
             ),
         ],
         trip="round-trip",
         seat=trip.flights.cabin,
         passengers=passengers,
         currency=currency,
-        max_stops=trip.flights.max_stops,
+        max_stops=stops,
         checked_bags=0 if sample else trip.flights.checked_bags,
         carry_on_bags=0 if sample else trip.flights.carry_on_bags,
         exclude_basic_economy=trip.flights.exclude_basic_economy,
