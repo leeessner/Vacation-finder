@@ -322,3 +322,28 @@ def test_deal_radar_omits_month_anchor_for_yearly_scans():
     client = FakeTravelpayouts(fares=[])
     cheapest_destinations(client, "STL", "USD", period_type="year")
     assert "beginning_of_period" not in client.calls[0][1]
+
+
+def test_best_prefers_a_priced_airfare_over_a_date_with_nothing_found():
+    """With no hotels yet, the date with no fare must not look cheapest."""
+    from datetime import datetime, timezone
+
+    from vacation_finder.models import FlightQuote, TripQuote
+    from vacation_finder.pricing import RunResult
+
+    def quote(depart, flight):
+        d = date.fromisoformat(depart)
+        return TripQuote(
+            trip_id="t", destination="NCE", depart_date=d, return_date=d, nights=9,
+            flight=FlightQuote(
+                origin="STL", destination="NCE", depart_date=d, return_date=d,
+                total_price=flight, currency="USD",
+            ) if flight else None,
+            ground_cost=260.0, flights_expected=True,
+        )
+
+    result = RunResult(
+        trip_id="t", captured_at=datetime.now(timezone.utc),
+        quotes=[quote("2027-06-05", 8154.0), quote("2027-06-21", None), quote("2027-07-08", None)],
+    )
+    assert result.best.flight_cost == 8154.0

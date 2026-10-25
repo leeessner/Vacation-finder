@@ -34,9 +34,23 @@ class RunResult:
 
     @property
     def best(self) -> TripQuote | None:
-        """Cheapest option we could fully cost; falls back to partial quotes."""
-        pool = self.complete_quotes or self.quotes
-        return min(pool, key=lambda q: q.total_cost) if pool else None
+        """The cheapest of the most fully costed options.
+
+        Complete quotes win. Failing that, a date with its airfare priced
+        beats one without, and one with its lodging beats one without —
+        otherwise a date where nothing was found looks like the cheapest.
+        """
+        if not self.quotes:
+            return None
+
+        def coverage(q: TripQuote) -> tuple[bool, bool, bool]:
+            has_fare = q.flight is not None or not q.flights_expected
+            return (q.is_complete, has_fare, q.lodging is not None)
+
+        top = max(coverage(q) for q in self.quotes)
+        return min(
+            (q for q in self.quotes if coverage(q) == top), key=lambda q: q.total_cost
+        )
 
 
 class TripPricer:

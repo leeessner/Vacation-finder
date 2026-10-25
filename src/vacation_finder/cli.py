@@ -215,7 +215,7 @@ def cmd_track(args: argparse.Namespace) -> int:
     # Flight insights first: one search a week per flying trip, and the only
     # source of "is this fare typical?" Hotels get what's left.
     insights = insights_mod.load_insights()
-    for trip in insights_mod.due(config, insights, today)[:allowance]:
+    for trip in insights_mod.due(config, insights, today)[: min(allowance, insights_mod.MAX_PER_RUN)]:
         fresh = insights_mod.fetch(hotels, trip, config, today)
         allowance -= 1
         if fresh is not None:
