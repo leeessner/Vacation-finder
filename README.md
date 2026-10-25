@@ -92,8 +92,20 @@ days — plenty for stays months out. `lodging.py` explains the budgeting;
 `validate` prints the cadence.
 
 **A Google Flights scraper** (`fast-flights`) prices airfare daily for every
-date window. It needs no key, is live, and prices the actual party. It is
-also, unavoidably, fragile: when Google changes their page it stops working.
+date window. It needs no key and is live. It is also, unavoidably, fragile:
+when Google changes their page it stops working.
+
+It reads the version of the results page Google renders first, and for six
+people on a transatlantic route that page is often empty — the full site
+does list the flights, the first page just doesn't. So each search works
+down a ladder and stops at the first rung with a fare: the whole party; two
+adults scaled to six; one adult scaled; the whole party with one extra stop
+allowed; two adults with an extra stop. Checked live in October 2026, that
+priced 15 of the 18 summer date windows (all but Nice, whose airfare comes
+from the weekly check below). The two-adult estimate ran 3–8% above Google's
+own family price — the safe direction. Every fare records which rung it came
+from, and the email and dashboard say when it's an estimate or has an extra
+stop.
 
 **Google Flights through SerpApi**, once a week per flying trip, adds
 Google's own verdict — *low*, *typical* or *high* — and the typical price
