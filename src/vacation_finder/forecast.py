@@ -75,7 +75,9 @@ def outlook(
 
     evidence = days_of_history + (30 if insight else 0)
     result.confidence = "high" if evidence >= 60 else "medium" if evidence >= 21 else "low"
-    if days_of_history < 14:
+    if days_of_history == 0:
+        result.reasons.append("no prices tracked yet")
+    elif days_of_history < 14:
         result.reasons.append(f"only {days_of_history} day(s) of tracking so far")
     return result
 

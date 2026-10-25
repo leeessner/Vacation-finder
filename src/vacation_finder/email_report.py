@@ -18,12 +18,16 @@ from email.utils import formataddr
 from .alerts import Alert
 from .config import Config
 from .report import (
+    NOT_CHECKED_HOTEL,
+    NOT_FOUND_FARE,
     OUTLOOK_COLORS,
     TripReport,
     delta_phrase,
     display_notes,
     money,
+    total_label,
     trend_lines,
+    verdict_label,
 )
 from .suggest import Suggestion, as_trip_yaml
 
@@ -114,28 +118,30 @@ def trip_card(report: TripReport) -> str:
         )
 
     assessment = report.total
-    verdict_text = assessment.verdict if assessment else "—"
+    verdict_text = verdict_label(report)
     rows = []
     if latest.airfare_applies:
-        rows.append(_row("Flights (whole party)", money(latest.flight_total, sym)))
+        rows.append(_row(
+            "Flights (whole party)",
+            money(latest.flight_total, sym) if latest.flight_total else NOT_FOUND_FARE,
+        ))
     elif latest.travel_mode != "drive":
         rows.append(_row("Flights", "not priced yet"))
     rows += [
         _row(
             f"Lodging · {latest.nights} nights"
             + (f" · {latest.lodging_name[:34]}" if latest.lodging_name else ""),
-            money(latest.lodging_total, sym),
+            money(latest.lodging_total, sym)
+            if latest.lodging_total or not trip.lodging.enabled
+            else NOT_CHECKED_HOTEL,
         ),
     ]
     if latest.ground_total:
         rows.append(_row(trip.ground.notes or "Ground transport", money(latest.ground_total, sym)))
-    # A lodging-only trip's total is not a trip cost, and must not look like one.
-    total_label = (
-        "Total"
-        if latest.airfare_applies or latest.travel_mode == "drive"
-        else "Tracked so far (excludes airfare)"
+    # A partial total is not a trip cost, and must not look like one.
+    rows.append(
+        _row(total_label(report), money(latest.total, sym), bold=True, color=report.status_color)
     )
-    rows.append(_row(total_label, money(latest.total, sym), bold=True, color=report.status_color))
 
     extras = []
     if report.cheapest_ever and report.cheapest_ever.total < latest.total:

@@ -164,7 +164,7 @@ class TripPricer:
         if not candidates:
             fallback = self._insight_fare(trip, destination, depart, ret)
             if fallback is not None:
-                notes.append("airfare from this week's Google Flights check (scraper failed)")
+                notes.append("airfare from this week's Google Flights check (the free daily check found none for this route)")
                 return fallback, notes
             return None, notes
         best = min(candidates, key=lambda q: q.total_price)
