@@ -1,7 +1,8 @@
 # ============================================================================
-# Vacation deal tracker — Essner family
+# Vacation deal tracker
 # ============================================================================
-# Party is 6: two adults and four children.
+# Party is 6: two adults and four children. Only the children's ages are
+# recorded, because hotels and airlines price by age; no names are needed.
 # That drives two decisions everywhere below:
 #   * in the US, one room for all six — in practice a suite (Embassy Suites
 #     preferred). Google only returns rooms that fit six, so the price is
