@@ -11,9 +11,12 @@ from pathlib import Path
 
 from .config import Config
 from .report import (
+    NOT_CHECKED_HOTEL,
     OUTLOOK_COLORS,
     TripReport,
     display_notes,
+    total_label,
+    verdict_label,
     line_chart,
     money,
     trend_lines,
@@ -78,15 +81,17 @@ def _stat(label: str, value: str) -> str:
 
 
 def _history_table(report: TripReport, limit: int = 14) -> str:
-    rows = report.history[-limit:][::-1]
+    # Days where nothing was found (fuel alone) are not price history.
+    priced = [r for r in report.history if r.flight_total or r.lodging_total]
+    rows = priced[-limit:][::-1]
     if not rows:
         return ""
     sym = report.symbol
     body = "".join(
         f"<tr><td>{r.captured_on:%b %d}</td>"
         f"<td>{_esc(r.depart_date.strftime('%b %d'))}–{_esc(r.return_date.strftime('%b %d'))}</td>"
-        f'<td class="num">{money(r.flight_total, sym) if r.airfare_applies else "—"}</td>'
-        f'<td class="num">{money(r.lodging_total, sym)}</td>'
+        f'<td class="num">{money(r.flight_total, sym) if r.airfare_applies and r.flight_total else "—"}</td>'
+        f'<td class="num">{money(r.lodging_total, sym) if r.lodging_total else "—"}</td>'
         f'<td class="num"><b>{money(r.total, sym)}</b></td>'
         f"<td>{_esc(r.lodging_name[:30])}</td></tr>"
         for r in rows
@@ -115,7 +120,7 @@ def _trip_section(report: TripReport) -> str:
 
     sym = report.symbol
     assessment = report.total
-    verdict = assessment.verdict if assessment else "—"
+    verdict = verdict_label(report)
     header += f'<span class="pill" style="background:{report.status_color}">{_esc(verdict)}</span></div>'
 
     stats = []
@@ -123,7 +128,10 @@ def _trip_section(report: TripReport) -> str:
         stats.append(_stat("flights, whole party", money(latest.flight_total, sym)))
     elif latest.travel_mode != "drive":
         stats.append(_stat("flights", "not priced yet"))
-    stats.append(_stat(f"lodging, {latest.nights} nights", money(latest.lodging_total, sym)))
+    stats.append(_stat(
+        f"lodging, {latest.nights} nights",
+        money(latest.lodging_total, sym) if latest.lodging_total else NOT_CHECKED_HOTEL,
+    ))
     if latest.ground_total:
         stats.append(_stat(trip.ground.notes or "ground transport", money(latest.ground_total, sym)))
     if report.cheapest_ever:
@@ -168,6 +176,12 @@ def _trip_section(report: TripReport) -> str:
     return (
         f'<section class="card">{header}'
         f'<div class="big" style="color:{report.status_color}">{money(latest.total, sym)}</div>'
+        + (
+            f'<div class="note">{_esc(total_label(report))}</div>'
+            if total_label(report) != "Total"
+            else ""
+        )
+        + ''
         f'<div class="why">{_esc(latest.destination)} · '
         f"{latest.depart_date:%b %d} – {latest.return_date:%b %d, %Y}"
         + (f" · {_esc(latest.flight_carriers)}" if latest.flight_carriers else "")

@@ -72,7 +72,7 @@ class TripReport:
     @property
     def status_color(self) -> str:
         """Traffic light used consistently by the email and the dashboard."""
-        if self.total is None:
+        if self.total is None or self.total.verdict == "building baseline":
             return "#6b7280"
         if self.total.is_all_time_low or self.total.verdict == "excellent":
             return "#15803d"
@@ -320,3 +320,37 @@ def line_chart(
         + "".join(grid) + labels + "".join(lines)
         + f'</svg><div style="font-size:12px;margin-top:4px">{legend}</div>'
     )
+
+
+def missing_parts(report: TripReport) -> list[str]:
+    """What today's best option is still missing: 'hotel', 'airfare'."""
+    latest, trip = report.latest, report.trip
+    if latest is None:
+        return []
+    missing = []
+    if latest.airfare_applies and not latest.flight_total:
+        missing.append("airfare")
+    if trip.lodging.enabled and not latest.lodging_total:
+        missing.append("hotel")
+    return missing
+
+
+def total_label(report: TripReport) -> str:
+    """'Total', or say plainly what the number leaves out."""
+    latest = report.latest
+    missing = missing_parts(report)
+    if missing:
+        return f"Total so far — no {' or '.join(missing)} price yet"
+    if latest and not latest.airfare_applies and latest.travel_mode != "drive":
+        return "Tracked so far (excludes airfare)"
+    return "Total"
+
+
+def verdict_label(report: TripReport) -> str:
+    if report.total is not None:
+        return report.total.verdict
+    return "not fully priced yet" if report.latest else "no prices yet"
+
+
+NOT_CHECKED_HOTEL = "being checked — within a few days"
+NOT_FOUND_FARE = "not found today"
