@@ -11,6 +11,7 @@ on:
 
 permissions:
   contents: write
+  issues: write     # deal alerts arrive as issues GitHub emails to you
 
 concurrency:
   group: track-prices
@@ -39,12 +40,9 @@ jobs:
           SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
           TRAVELPAYOUTS_TOKEN: ${{ secrets.TRAVELPAYOUTS_TOKEN }}
           TRAVELPAYOUTS_MARKER: ${{ secrets.TRAVELPAYOUTS_MARKER }}
-          SMTP_HOST: ${{ vars.SMTP_HOST || 'smtp.gmail.com' }}
-          SMTP_PORT: ${{ vars.SMTP_PORT || '587' }}
-          SMTP_USER: ${{ secrets.SMTP_USER }}
-          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
-          EMAIL_TO: ${{ secrets.EMAIL_TO }}
-          EMAIL_FROM: ${{ secrets.SMTP_USER }}
+          # GitHub's own per-run token: deal alerts are opened as issues
+          # assigned to you, and GitHub emails you. No mail password exists.
+          GITHUB_TOKEN: ${{ github.token }}
         run: PYTHONPATH=src python -m vacation_finder track --verbose
 
       - name: Commit the day's prices

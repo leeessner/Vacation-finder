@@ -2,7 +2,7 @@
 
     python -m vacation_finder validate   # check config, estimate API usage
     python -m vacation_finder track      # price everything, record, alert
-    python -m vacation_finder digest     # send the scheduled summary email
+    python -m vacation_finder digest     # send the scheduled update
     python -m vacation_finder dashboard  # rebuild docs/index.html
     python -m vacation_finder demo       # fake history, to preview the output
 """
@@ -19,7 +19,7 @@ from pathlib import Path
 
 from . import alerts as alerts_mod
 from . import dashboard as dashboard_mod
-from . import email_report
+from . import notify
 from .config import Config, ConfigError, load_config
 from .dates import candidate_windows
 from .pricing import TripPricer
@@ -266,8 +266,8 @@ def cmd_track(args: argparse.Namespace) -> int:
     write_summary(config)
 
     if fired:
-        subject, html, text = email_report.render_alerts_only(fired, _dashboard_url())
-        _deliver(subject, html, text, args)
+        title, body = notify.alerts_markdown(fired, _dashboard_url(), _spreadsheet_url())
+        _deliver(title, body, notify.ALERT_LABEL, args)
     else:
         log.info("no new alerts")
     return 0
@@ -279,10 +279,10 @@ def cmd_digest(args: argparse.Namespace) -> int:
     if not any(r.has_data for r in reports):
         log.warning("no price history yet — run 'track' at least once first")
     suggestions = suggest(config, load_catalog())
-    subject, html, text = email_report.render_digest(
-        reports, [], suggestions, config, _dashboard_url()
+    title, body = notify.digest_markdown(
+        reports, date.today(), _dashboard_url(), _spreadsheet_url()
     )
-    _deliver(subject, html, text, args)
+    _deliver(title, body, notify.DIGEST_LABEL, args, close_previous=True)
     dashboard_mod.build(reports, config, suggestions, spreadsheet_url=_spreadsheet_url())
     write_summary(config)
     return 0
@@ -299,7 +299,7 @@ def cmd_dashboard(args: argparse.Namespace) -> int:
 
 
 def cmd_demo(args: argparse.Namespace) -> int:
-    """Synthesize plausible history so the email and dashboard can be reviewed.
+    """Synthesize plausible history so the update and dashboard can be reviewed.
 
     This goes through the same storage path as a real run rather than writing
     CSV by hand, so the demo can never drift from the real schema.
@@ -399,16 +399,16 @@ def cmd_demo(args: argparse.Namespace) -> int:
     reports = build_reports(config)
     suggestions = suggest(config, load_catalog())
     dashboard_mod.build(reports, config, suggestions, spreadsheet_url=_spreadsheet_url())
-    subject, html, text = email_report.render_digest(
-        reports, [], suggestions, config, _dashboard_url()
+    title, body = notify.digest_markdown(
+        reports, date.today(), _dashboard_url(), _spreadsheet_url()
     )
     preview = Path(args.out)
     preview.parent.mkdir(parents=True, exist_ok=True)
-    preview.write_text(html)
+    preview.write_text(f"# {title}\n\n{body}\n")
     sheet = write_summary(config)
     print(
-        f"dashboard: docs/index.html\nemail preview: {preview}\n"
-        f"spreadsheet: {sheet}\nsubject: {subject}"
+        f"dashboard: docs/index.html\nupdate preview: {preview}\n"
+        f"spreadsheet: {sheet}\ntitle: {title}"
     )
     return 0
 
@@ -614,27 +614,30 @@ def cmd_doctor(args: argparse.Namespace) -> int:
     return 0 if ok else 1
 
 
-def _deliver(subject: str, html: str, text: str, args: argparse.Namespace) -> None:
+def _deliver(
+    title: str, body: str, label: str, args: argparse.Namespace, close_previous: bool = False
+) -> None:
+    """Open the update as a GitHub issue assigned to you; GitHub emails it."""
     if args.dry_run:
         path = Path(args.out)
         path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(html)
-        print(f"[dry run] subject: {subject}\n[dry run] html written to {path}")
+        path.write_text(f"# {title}\n\n{body}\n")
+        print(f"[dry run] title: {title}\n[dry run] update written to {path}")
         return
     try:
-        email_report.send_email(subject, html, text)
-    except email_report.EmailNotConfigured as exc:
-        log.warning("email not sent: %s", exc)
-    except Exception as exc:  # noqa: BLE001 - a mail failure must not fail the run
-        log.error("email delivery failed: %s", exc)
+        notify.GitHubNotifier().post(title, body, label, close_previous=close_previous)
+    except notify.NotConfigured as exc:
+        log.warning("update not sent: %s", exc)
+    except Exception as exc:  # noqa: BLE001 - a failed update must not fail the run
+        log.error("update delivery failed: %s", exc)
 
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="vacation_finder", description=__doc__)
     parser.add_argument("--config", default=DEFAULT_CONFIG)
     parser.add_argument("-v", "--verbose", action="store_true")
-    parser.add_argument("--dry-run", action="store_true", help="write email to a file, don't send")
-    parser.add_argument("--out", default="build/email-preview.html")
+    parser.add_argument("--dry-run", action="store_true", help="write the update to a file, don't send")
+    parser.add_argument("--out", default="build/update-preview.md")
 
     # The same options, accepted after the subcommand too (`track --verbose`).
     # SUPPRESS keeps a subcommand from resetting a value given before it.
@@ -650,7 +653,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     add("validate", help="check config and estimate API usage").set_defaults(func=cmd_validate)
     add("track", help="price trips, record history, fire alerts").set_defaults(func=cmd_track)
-    add("digest", help="send the scheduled summary email").set_defaults(func=cmd_digest)
+    add("digest", help="send the scheduled update").set_defaults(func=cmd_digest)
     add("dashboard", help="rebuild docs/index.html").set_defaults(func=cmd_dashboard)
     add(
         "doctor", help="make one live call to each source and show what came back"

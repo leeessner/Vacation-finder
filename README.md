@@ -2,11 +2,12 @@
 
 Tracks the real, all-in cost of specific vacations you're considering — flights
 plus lodging plus ground transport — every day, builds a price history, and
-emails you when something is genuinely a good deal rather than merely cheap-
+tells you when something is genuinely a good deal rather than merely cheap-
 sounding.
 
-Runs entirely on free tiers: GitHub Actions for scheduling, Gmail SMTP for
-email. No subscriptions.
+Runs entirely on free tiers: GitHub Actions for scheduling and for the email
+updates (GitHub emails you the digest as an issue — no mail password exists
+anywhere). No subscriptions.
 
 **[Setup instructions →](SETUP.md)**
 
@@ -28,7 +29,8 @@ So the tracker:
    gives an **outlook** for each trip: *Good time to book*, *Book soon*,
    *Keep watching* or *Wait if you can*, with its reasons and how much
    evidence it rests on (see "The outlook" below).
-5. Emails you a digest on a schedule, and an alert the moment a threshold
+5. Emails you a short update on a schedule (via GitHub — no mail password),
+   and an alert the moment a threshold
    you set is crossed.
 6. Keeps one spreadsheet of every trip's prices over time,
    `data/prices-over-time.csv` — a row per day, flights / hotel / total per
@@ -65,7 +67,7 @@ Set per trip in `config/trips.yaml`:
 | Hotels & rentals | Google Hotels via SerpApi | Free key, 250 searches/month, no card |
 | Flights | Google Flights scraper | Free, no key |
 | Flight cross-check (optional) | Travelpayouts | Free affiliate token, if you have one |
-| Email | Gmail SMTP | Free |
+| Email updates | GitHub issue notifications | Free, no password |
 | Storage & dashboard | Git + GitHub Pages | Free |
 
 `python -m vacation_finder validate` prints your projected hotel-search volume
@@ -241,7 +243,7 @@ config/destinations.yaml                      │
               "is this good?"          docs/index.html      thresholds + cooldown
                         └─────────────────────┬──────────────────────┘
                                               ▼
-                                       email_report.py
+                                       notify.py
 ```
 
 ## Tests

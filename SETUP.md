@@ -40,34 +40,62 @@ The tracker can also read Travelpayouts' cached flight fares, but nothing
 needs it: airfare comes from the Google Flights scraper, which needs no
 account. Only add `TRAVELPAYOUTS_TOKEN` if you already have one.
 
-## 2. Gmail app password (free, ~3 min)
-
-Gmail will not accept your normal password over SMTP. You need an app password,
-which requires 2-Step Verification on the account.
-
-1. Turn on 2-Step Verification: <https://myaccount.google.com/signinoptions/two-step-verification>
-2. Create an app password: <https://myaccount.google.com/apppasswords>
-3. Name it "Vacation tracker". Google shows a 16-character password — copy it.
-   Spaces in it don't matter; they're ignored.
-
-An app password only grants mail sending. You can revoke it at any time from
-that same page without touching your account password.
-
-## 3. GitHub secrets (~5 min)
+## 2. GitHub secret (~2 min)
 
 In this repository: **Settings → Secrets and variables → Actions → New repository secret**.
 
 | Secret name | Value |
 |---|---|
 | `SERPAPI_KEY` | API key from step 1 |
-| `SMTP_USER` | Your Gmail address |
-| `SMTP_PASSWORD` | The 16-character app password from step 2 |
-| `EMAIL_TO` | Where the reports go (can be the same address) |
 
-Non-Gmail senders can additionally set the repository *variables* `SMTP_HOST`
-and `SMTP_PORT`; they default to `smtp.gmail.com` and `587`.
+That is the only secret. Updates need none (next step).
 
-## 4. Turn on the dashboard (optional, ~1 min)
+## 3. Updates by email (nothing to sign up for)
+
+Each digest (Tuesday and Friday evenings) and each deal alert is opened as an
+issue in this repository, assigned to the repository owner. GitHub emails you
+about issues assigned to you, so the update lands in your inbox with no mail
+account, password or API key anywhere — the workflow uses GitHub's own token,
+which expires when the run ends. The previous digest is closed when a new one
+opens.
+
+To make sure the emails arrive:
+
+1. Open <https://github.com/settings/notifications>.
+2. Under **Participating, @mentions and custom**, make sure **Email** is ticked
+   (it is by default).
+3. Under **Default notifications email**, check it's the address you want.
+
+The update is plain text: each trip's price today, which way it's moving,
+what to do, and links to the dashboard (charts) and spreadsheet (every price).
+It's in the repository's public Issues tab too — nothing in it that isn't
+already on the public dashboard.
+
+### Sending it to a second person
+
+GitHub only emails GitHub accounts, so the simplest way to include someone
+else is a Gmail rule that forwards these emails automatically. Nothing about
+them goes into this (public) repository.
+
+1. In Gmail: **Settings (gear) → See all settings → Forwarding and POP/IMAP →
+   Add a forwarding address**. Enter their address. Gmail emails them a
+   confirmation link; once they click it, come back and refresh.
+   Leave "Disable forwarding" selected — the rule below does the forwarding.
+2. In the Gmail search box, search:
+   `from:notifications@github.com subject:"Vacation watch"`
+   then click the **Show search options** icon at the right of the box, and
+   **Create filter**. (Digests and deal alerts both start "Vacation watch", so
+   this catches them and nothing else from GitHub.)
+3. Tick **Forward it to** and choose their address. Click **Create filter**.
+
+> **Why not a Gmail app password?** An earlier version of this guide sent mail
+> through Gmail with an app password, and said that password "only grants mail
+> sending". That was wrong: an app password can read the whole mailbox as well
+> as send. Since the tracker runs third-party scraping code in the same job,
+> that risk bought nothing, and the design was replaced. If you created one,
+> revoke it at <https://myaccount.google.com/apppasswords>.
+
+## 4. Turn on the dashboard (~2 min)
 
 **Settings → Pages → Source: Deploy from a branch**, branch
 `claude/vacation-deal-tracker-ha5wot` (or `main` once merged), folder `/docs`.
@@ -113,7 +141,7 @@ If Doctor says nothing meets the trip's lodging rules, loosen `min_stars` or
 Three places, all updated after every daily run:
 
 - **Email** — the digest (Tuesday and Friday evenings) and instant deal
-  alerts. Needs the Gmail secrets from step 2 and 3.
+  alerts. Needs nothing set up; see step 3.
 - **Dashboard** — a web page with a chart per trip (flights, hotel and total
   as separate lines), the outlook, and the last two weeks of checks. Needs
   step 4 (GitHub Pages).
@@ -131,14 +159,13 @@ python -m vacation_finder validate           # check config, show hotel-search c
 python -m vacation_finder doctor             # live-check every price source (1 search)
 python -m vacation_finder demo --days 60     # synthetic data, to preview output
 python -m vacation_finder track              # real prices (needs the env vars)
-python -m vacation_finder digest --dry-run   # write the email to build/ instead of sending
+python -m vacation_finder digest --dry-run   # write the update to build/ instead of sending
 ```
 
 Set credentials locally with a `.env`-style export before `track`:
 
 ```bash
 export SERPAPI_KEY=...
-export SMTP_USER=... SMTP_PASSWORD=... EMAIL_TO=...
 ```
 
 ---
