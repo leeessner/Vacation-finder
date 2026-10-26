@@ -444,6 +444,49 @@ trips:
       cooldown_days: 4
     tags: [mountains, nature, hiking, kid-friendly, europe, resort, culture]
 
+  - id: london-summer
+    name: "London"
+    why: "Added from the family-travel accounts you follow; plan to come"
+    active: true
+    destinations:
+      - code: LHR
+        label: "London, UK"
+        city_code: LON
+        # PROVISIONAL: central London until the London plan says where the
+        # days are spent. An apartment (kind: rental), as for the other
+        # European cities.
+        center: [51.5080, -0.1281]   # Trafalgar Square
+        within_miles: 3
+    party:
+      adults: 2
+      children: [8, 7, 5, 3]
+    dates:
+      mode: window
+      earliest: 2027-06-05
+      latest: 2027-07-17
+      nights: 7                   # provisional
+    flights:
+      enabled: true
+      max_stops: 1
+      cabin: economy
+      checked_bags: 3
+    lodging:
+      enabled: true
+      kind: rental
+      coverage: good
+      bedrooms: 2
+      min_rating: 4.0
+      max_per_night: 700
+    ground:
+      flat_cost: 450
+      notes: "Elizabeth line from Heathrow and a week of Tube fares for six (estimate)"
+    alerts:
+      drop_pct_vs_median: 10
+      percentile_below: 20
+      all_time_low: true
+      cooldown_days: 4
+    tags: [city, culture, europe, walkable, kid-friendly, english-speaking]
+
 # ============================================================================
 # PARKED — not tracked, kept so the reasoning isn't lost
 # ============================================================================
