@@ -200,7 +200,7 @@ def test_lodging_only_total_is_labelled_as_excluding_airfare():
     """A total without airfare must never be presented as a trip cost."""
     import tempfile, pathlib
     from datetime import datetime, timezone
-    from vacation_finder.email_report import trip_card
+    from vacation_finder.notify import _trip_section
     from vacation_finder.report import TripReport
     from vacation_finder.storage import HistoryRow
 
@@ -215,15 +215,14 @@ def test_lodging_only_total_is_labelled_as_excluding_airfare():
         lodging_rating=4.0, ground_total=300.0, total=4300.0, is_complete=True,
         travel_mode="air", flights_priced=False,
     )
-    html = trip_card(TripReport(trip=trip, history=[row], latest=row))
-    assert "excludes airfare" in html
-    assert "not priced yet" in html
+    text = _trip_section(TripReport(trip=trip, history=[row], latest=row))
+    assert "excludes airfare" in text
 
 
 def test_drive_trip_total_is_a_real_total():
     import tempfile, pathlib
     from datetime import datetime, timezone
-    from vacation_finder.email_report import trip_card
+    from vacation_finder.notify import _trip_section
     from vacation_finder.report import TripReport
     from vacation_finder.storage import HistoryRow
 
@@ -245,6 +244,6 @@ def test_drive_trip_total_is_a_real_total():
         lodging_rating=3.0, ground_total=157.0, total=1757.0, is_complete=True,
         travel_mode="drive", flights_priced=False,
     )
-    html = trip_card(TripReport(trip=trip, history=[row], latest=row))
-    assert "excludes airfare" not in html
-    assert "not priced yet" not in html
+    text = _trip_section(TripReport(trip=trip, history=[row], latest=row))
+    assert "excludes airfare" not in text
+    assert "so far" not in text

@@ -1,8 +1,9 @@
 name: Email digest
 
-# The scheduled summary: every trip's current price, where it sits against its
-# own history, and destinations worth adding. Alerts are separate — those are
-# sent by the tracking workflow the moment a threshold is crossed.
+# The scheduled update: every trip's current price, which way it's moving and
+# what to do, with links to the dashboard and spreadsheet. GitHub emails it to
+# you as an issue. Deal alerts are separate — the tracking workflow sends those
+# the moment a threshold is crossed.
 on:
   schedule:
     # 01:00 UTC Wednesday and Saturday == Tuesday and Friday 20:00 in
@@ -13,6 +14,7 @@ on:
 
 permissions:
   contents: read
+  issues: write     # the digest arrives as an issue GitHub emails to you
 
 jobs:
   digest:
@@ -31,10 +33,7 @@ jobs:
 
       - name: Send the digest
         env:
-          SMTP_HOST: ${{ vars.SMTP_HOST || 'smtp.gmail.com' }}
-          SMTP_PORT: ${{ vars.SMTP_PORT || '587' }}
-          SMTP_USER: ${{ secrets.SMTP_USER }}
-          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
-          EMAIL_TO: ${{ secrets.EMAIL_TO }}
-          EMAIL_FROM: ${{ secrets.SMTP_USER }}
+          # GitHub's own per-run token: the digest is opened as an issue
+          # assigned to you, and GitHub emails you. No mail password exists.
+          GITHUB_TOKEN: ${{ github.token }}
         run: PYTHONPATH=src python -m vacation_finder digest --verbose
