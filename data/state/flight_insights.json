@@ -19,6 +19,16 @@
     "typical_high": null,
     "typical_low": null
   },
+  "london-summer": {
+    "checked_on": "2026-10-26",
+    "depart": "2027-06-05",
+    "level": "low",
+    "lowest": 7834.0,
+    "return_": "2027-06-12",
+    "trip_id": "london-summer",
+    "typical_high": 11000.0,
+    "typical_low": 8500.0
+  },
   "nice-riviera": {
     "checked_on": "2026-10-25",
     "depart": "2027-06-05",

@@ -84,6 +84,90 @@
         "total_price": 1127.0
       }
     },
+    "nice-riviera|Nice, France|2027-06-05|2027-06-14": {
+      "checked_on": "2026-10-26",
+      "note": "",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-06-05",
+        "check_out": "2027-06-14",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=H%C3%B4tel%20de%20la%20Fontaine%20Nice%2C%20France&checkin=2027-06-05&checkout=2027-06-14",
+        "destination": "Nice, France",
+        "distance_miles": 0.5,
+        "nights": 9,
+        "property_id": "ChgIlqH07r_f1uDvARoLL2cvMXRmNHp6dnQQAQ",
+        "property_name": "H\u00f4tel de la Fontaine",
+        "rating": 4.5,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": 3.0,
+        "total_price": 5214.0
+      }
+    },
+    "paris-versailles|Paris, France|2027-06-05|2027-06-14": {
+      "checked_on": "2026-10-26",
+      "note": "",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-06-05",
+        "check_out": "2027-06-14",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=H%C3%B4tel%20Bridget%20Paris%2C%20France&checkin=2027-06-05&checkout=2027-06-14",
+        "destination": "Paris, France",
+        "distance_miles": 2.1,
+        "nights": 9,
+        "property_id": "ChoItuzptsGulfWeARoNL2cvMTFoMGN2MjMxNRAB",
+        "property_name": "H\u00f4tel Bridget",
+        "rating": 4.2,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": 3.0,
+        "total_price": 4044.0
+      }
+    },
+    "paris-versailles|Paris, France|2027-06-21|2027-06-30": {
+      "checked_on": "2026-10-26",
+      "note": "",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-06-21",
+        "check_out": "2027-06-30",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=H%C3%B4tel%20Bridget%20Paris%2C%20France&checkin=2027-06-21&checkout=2027-06-30",
+        "destination": "Paris, France",
+        "distance_miles": 2.1,
+        "nights": 9,
+        "property_id": "ChoItuzptsGulfWeARoNL2cvMTFoMGN2MjMxNRAB",
+        "property_name": "H\u00f4tel Bridget",
+        "rating": 4.2,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": 3.0,
+        "total_price": 4058.0
+      }
+    },
+    "paris-versailles|Paris, France|2027-07-08|2027-07-17": {
+      "checked_on": "2026-10-26",
+      "note": "",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-07-08",
+        "check_out": "2027-07-17",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=Simon%27s%20Boutique%20Hotel%20Paris%2C%20France&checkin=2027-07-08&checkout=2027-07-17",
+        "destination": "Paris, France",
+        "distance_miles": 2.3,
+        "nights": 9,
+        "property_id": "ChkIzIqS25H-7Z9ZGg0vZy8xMWhkdmRwOWZmEAE",
+        "property_name": "Simon's Boutique Hotel",
+        "rating": 4.2,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": 3.0,
+        "total_price": 3198.0
+      }
+    },
     "smokies-spring-break|Gatlinburg, TN|2027-03-12|2027-03-16": {
       "checked_on": "2026-10-25",
       "note": "",
@@ -171,6 +255,48 @@
         "source": "google_hotels",
         "stars": 3.0,
         "total_price": 3332.0
+      }
+    },
+    "spain-barcelona-madrid|Barcelona, Spain|2027-06-21|2027-07-01": {
+      "checked_on": "2026-10-26",
+      "note": "",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-06-21",
+        "check_out": "2027-07-01",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=Hotel%20Sagrada%20Fam%C3%ADlia%20Barcelona%2C%20Spain&checkin=2027-06-21&checkout=2027-07-01",
+        "destination": "Barcelona, Spain",
+        "distance_miles": 1.3,
+        "nights": 10,
+        "property_id": "ChgItaX5p_Cj1vynARoLL2cvMXRkOG15dDQQAQ",
+        "property_name": "Hotel Sagrada Fam\u00edlia",
+        "rating": 4.1,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": 3.0,
+        "total_price": 3564.0
+      }
+    },
+    "spain-barcelona-madrid|Barcelona, Spain|2027-07-07|2027-07-17": {
+      "checked_on": "2026-10-26",
+      "note": "",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-07-07",
+        "check_out": "2027-07-17",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=Hotel%20Sagrada%20Fam%C3%ADlia%20Barcelona%2C%20Spain&checkin=2027-07-07&checkout=2027-07-17",
+        "destination": "Barcelona, Spain",
+        "distance_miles": 1.3,
+        "nights": 10,
+        "property_id": "ChgItaX5p_Cj1vynARoLL2cvMXRkOG15dDQQAQ",
+        "property_name": "Hotel Sagrada Fam\u00edlia",
+        "rating": 4.1,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": 3.0,
+        "total_price": 3444.0
       }
     }
   }
