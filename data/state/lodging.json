@@ -1,5 +1,68 @@
 {
   "slots": {
+    "greece-summer|Athens, Greece|2027-06-05|2027-06-15": {
+      "checked_on": "2026-10-27",
+      "note": "",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-06-05",
+        "check_out": "2027-06-15",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=Safestay%20Athens%20Monastiraki%20Athens%2C%20Greece&checkin=2027-06-05&checkout=2027-06-15",
+        "destination": "Athens, Greece",
+        "distance_miles": 0.5,
+        "nights": 10,
+        "property_id": "ChgItNHM-sWujeWJARoLL2cvMXRmeF9oeWgQAQ",
+        "property_name": "Safestay Athens Monastiraki",
+        "rating": 4.2,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": 3.0,
+        "total_price": 1462.0
+      }
+    },
+    "greece-summer|Athens, Greece|2027-06-21|2027-07-01": {
+      "checked_on": "2026-10-27",
+      "note": "",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-06-21",
+        "check_out": "2027-07-01",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=Safestay%20Athens%20Monastiraki%20Athens%2C%20Greece&checkin=2027-06-21&checkout=2027-07-01",
+        "destination": "Athens, Greece",
+        "distance_miles": 0.5,
+        "nights": 10,
+        "property_id": "ChgItNHM-sWujeWJARoLL2cvMXRmeF9oeWgQAQ",
+        "property_name": "Safestay Athens Monastiraki",
+        "rating": 4.2,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": 3.0,
+        "total_price": 1458.0
+      }
+    },
+    "greece-summer|Athens, Greece|2027-07-07|2027-07-17": {
+      "checked_on": "2026-10-27",
+      "note": "",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-07-07",
+        "check_out": "2027-07-17",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=Safestay%20Athens%20Monastiraki%20Athens%2C%20Greece&checkin=2027-07-07&checkout=2027-07-17",
+        "destination": "Athens, Greece",
+        "distance_miles": 0.5,
+        "nights": 10,
+        "property_id": "ChgItNHM-sWujeWJARoLL2cvMXRmeF9oeWgQAQ",
+        "property_name": "Safestay Athens Monastiraki",
+        "rating": 4.2,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": 3.0,
+        "total_price": 1460.0
+      }
+    },
     "nashville-spring-break|Downtown Nashville, TN|2027-03-12|2027-03-16": {
       "checked_on": "2026-10-25",
       "note": "Embassy Suites: $176 less than the cheapest qualifying option, Kasa Capitol Hill Downtown Nashville ($1,350)",
@@ -105,6 +168,48 @@
         "total_price": 5214.0
       }
     },
+    "nice-riviera|Nice, France|2027-06-21|2027-06-30": {
+      "checked_on": "2026-10-27",
+      "note": "",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-06-21",
+        "check_out": "2027-06-30",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=Esatitude%20Hotel%203%20%C3%A9toiles%20Nice%2C%20France&checkin=2027-06-21&checkout=2027-06-30",
+        "destination": "Nice, France",
+        "distance_miles": 1.6,
+        "nights": 9,
+        "property_id": "ChcIxeCqz7zu3rsOGgsvZy8xdGY4amhuehAB",
+        "property_name": "Esatitude Hotel 3 \u00e9toiles",
+        "rating": 4.4,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": 3.0,
+        "total_price": 3118.0
+      }
+    },
+    "nice-riviera|Nice, France|2027-07-08|2027-07-17": {
+      "checked_on": "2026-10-27",
+      "note": "",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-07-08",
+        "check_out": "2027-07-17",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=Esatitude%20Hotel%203%20%C3%A9toiles%20Nice%2C%20France&checkin=2027-07-08&checkout=2027-07-17",
+        "destination": "Nice, France",
+        "distance_miles": 1.6,
+        "nights": 9,
+        "property_id": "ChcIxeCqz7zu3rsOGgsvZy8xdGY4amhuehAB",
+        "property_name": "Esatitude Hotel 3 \u00e9toiles",
+        "rating": 4.4,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": 3.0,
+        "total_price": 3118.0
+      }
+    },
     "paris-versailles|Paris, France|2027-06-05|2027-06-14": {
       "checked_on": "2026-10-26",
       "note": "",
@@ -166,6 +271,48 @@
         "source": "google_hotels",
         "stars": 3.0,
         "total_price": 3198.0
+      }
+    },
+    "portugal-azores-summer|Lisbon, Portugal|2027-06-05|2027-06-15": {
+      "checked_on": "2026-10-27",
+      "note": "",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-06-05",
+        "check_out": "2027-06-15",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=Casa%20Belmonte%20Guest%20House%20Lisbon%2C%20Portugal&checkin=2027-06-05&checkout=2027-06-15",
+        "destination": "Lisbon, Portugal",
+        "distance_miles": 0.9,
+        "nights": 10,
+        "property_id": "ChgI0pj2m8ukpebzARoLL2cvMXRma2d2YnQQAQ",
+        "property_name": "Casa Belmonte Guest House",
+        "rating": 4.5,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": 3.0,
+        "total_price": 2472.0
+      }
+    },
+    "portugal-azores-summer|Lisbon, Portugal|2027-06-21|2027-07-01": {
+      "checked_on": "2026-10-27",
+      "note": "",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-06-21",
+        "check_out": "2027-07-01",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=Casa%20Belmonte%20Guest%20House%20Lisbon%2C%20Portugal&checkin=2027-06-21&checkout=2027-07-01",
+        "destination": "Lisbon, Portugal",
+        "distance_miles": 0.9,
+        "nights": 10,
+        "property_id": "ChgI0pj2m8ukpebzARoLL2cvMXRma2d2YnQQAQ",
+        "property_name": "Casa Belmonte Guest House",
+        "rating": 4.5,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": 3.0,
+        "total_price": 2472.0
       }
     },
     "smokies-spring-break|Gatlinburg, TN|2027-03-12|2027-03-16": {

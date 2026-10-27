@@ -1,0 +1,114 @@
+{
+  "trip_id": "london-summer",
+  "captured_at": "2026-10-27T19:02:20.561052+00:00",
+  "queries_made": 3,
+  "errors": [],
+  "quotes": [
+    {
+      "trip_id": "london-summer",
+      "destination": "LHR",
+      "depart_date": "2027-06-05",
+      "return_date": "2027-06-12",
+      "nights": 7,
+      "currency": "USD",
+      "flight": {
+        "origin": "STL",
+        "destination": "LHR",
+        "depart_date": "2027-06-05",
+        "return_date": "2027-06-12",
+        "total_price": 8040.0,
+        "currency": "USD",
+        "carriers": [
+          "American",
+          "British Airways"
+        ],
+        "stops_out": null,
+        "stops_back": null,
+        "source": "google_flights_scaled",
+        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20LHR%20from%20STL%20on%202027-06-05%20through%202027-06-12"
+      },
+      "lodging": null,
+      "ground_cost": 450.0,
+      "ground_notes": "Elizabeth line from Heathrow and a week of Tube fares for six (estimate)",
+      "travel_mode": "air",
+      "flights_expected": true,
+      "flight_cost": 8040.0,
+      "lodging_cost": 0.0,
+      "total_cost": 8490.0,
+      "is_complete": false,
+      "notes": [
+        "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)"
+      ]
+    },
+    {
+      "trip_id": "london-summer",
+      "destination": "LHR",
+      "depart_date": "2027-06-23",
+      "return_date": "2027-06-30",
+      "nights": 7,
+      "currency": "USD",
+      "flight": {
+        "origin": "STL",
+        "destination": "LHR",
+        "depart_date": "2027-06-23",
+        "return_date": "2027-06-30",
+        "total_price": 8937.0,
+        "currency": "USD",
+        "carriers": [
+          "Delta"
+        ],
+        "stops_out": null,
+        "stops_back": null,
+        "source": "google_flights_scaled",
+        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20LHR%20from%20STL%20on%202027-06-23%20through%202027-06-30"
+      },
+      "lodging": null,
+      "ground_cost": 450.0,
+      "ground_notes": "Elizabeth line from Heathrow and a week of Tube fares for six (estimate)",
+      "travel_mode": "air",
+      "flights_expected": true,
+      "flight_cost": 8937.0,
+      "lodging_cost": 0.0,
+      "total_cost": 9387.0,
+      "is_complete": false,
+      "notes": [
+        "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)"
+      ]
+    },
+    {
+      "trip_id": "london-summer",
+      "destination": "LHR",
+      "depart_date": "2027-07-10",
+      "return_date": "2027-07-17",
+      "nights": 7,
+      "currency": "USD",
+      "flight": {
+        "origin": "STL",
+        "destination": "LHR",
+        "depart_date": "2027-07-10",
+        "return_date": "2027-07-17",
+        "total_price": 8538.0,
+        "currency": "USD",
+        "carriers": [
+          "Air Canada"
+        ],
+        "stops_out": null,
+        "stops_back": null,
+        "source": "google_flights_scaled",
+        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20LHR%20from%20STL%20on%202027-07-10%20through%202027-07-17"
+      },
+      "lodging": null,
+      "ground_cost": 450.0,
+      "ground_notes": "Elizabeth line from Heathrow and a week of Tube fares for six (estimate)",
+      "travel_mode": "air",
+      "flights_expected": true,
+      "flight_cost": 8538.0,
+      "lodging_cost": 0.0,
+      "total_cost": 8988.0,
+      "is_complete": false,
+      "notes": [
+        "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)"
+      ]
+    }
+  ]
+}
