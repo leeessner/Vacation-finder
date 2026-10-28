@@ -1,0 +1,163 @@
+{
+  "trip_id": "portugal-azores-summer",
+  "captured_at": "2026-10-28T19:10:29.451209+00:00",
+  "queries_made": 4,
+  "errors": [],
+  "quotes": [
+    {
+      "trip_id": "portugal-azores-summer",
+      "destination": "LIS",
+      "depart_date": "2027-06-05",
+      "return_date": "2027-06-15",
+      "nights": 10,
+      "currency": "USD",
+      "flight": {
+        "origin": "STL",
+        "destination": "LIS",
+        "depart_date": "2027-06-05",
+        "return_date": "2027-06-15",
+        "total_price": 8565.0,
+        "currency": "USD",
+        "carriers": [
+          "Air Canada"
+        ],
+        "stops_out": null,
+        "stops_back": null,
+        "source": "google_flights_scaled",
+        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20LIS%20from%20STL%20on%202027-06-05%20through%202027-06-15"
+      },
+      "lodging": {
+        "destination": "Lisbon, Portugal",
+        "check_in": "2027-06-05",
+        "check_out": "2027-06-15",
+        "property_name": "Casa Belmonte Guest House",
+        "total_price": 2472.0,
+        "currency": "USD",
+        "property_id": "ChgI0pj2m8ukpebzARoLL2cvMXRma2d2YnQQAQ",
+        "nights": 10,
+        "rating": 4.5,
+        "stars": 3.0,
+        "board_type": "",
+        "refundable": null,
+        "source": "google_hotels",
+        "deep_link": "https://www.google.com/travel/search?q=Casa%20Belmonte%20Guest%20House%20Lisbon%2C%20Portugal&checkin=2027-06-05&checkout=2027-06-15",
+        "distance_miles": 0.9
+      },
+      "ground_cost": 900.0,
+      "ground_notes": "Lisbon\u2013Ponta Delgada hop for six, plus a rental car on S\u00e3o Miguel",
+      "travel_mode": "air",
+      "flights_expected": true,
+      "flight_cost": 8565.0,
+      "lodging_cost": 2472.0,
+      "total_cost": 11937.0,
+      "is_complete": true,
+      "notes": [
+        "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)",
+        "hotel price checked 1 day(s) ago"
+      ]
+    },
+    {
+      "trip_id": "portugal-azores-summer",
+      "destination": "LIS",
+      "depart_date": "2027-06-21",
+      "return_date": "2027-07-01",
+      "nights": 10,
+      "currency": "USD",
+      "flight": {
+        "origin": "STL",
+        "destination": "LIS",
+        "depart_date": "2027-06-21",
+        "return_date": "2027-07-01",
+        "total_price": 7221.0,
+        "currency": "USD",
+        "carriers": [
+          "British Airways"
+        ],
+        "stops_out": null,
+        "stops_back": null,
+        "source": "google_flights_scaled",
+        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20LIS%20from%20STL%20on%202027-06-21%20through%202027-07-01"
+      },
+      "lodging": {
+        "destination": "Lisbon, Portugal",
+        "check_in": "2027-06-21",
+        "check_out": "2027-07-01",
+        "property_name": "Casa Belmonte Guest House",
+        "total_price": 2472.0,
+        "currency": "USD",
+        "property_id": "ChgI0pj2m8ukpebzARoLL2cvMXRma2d2YnQQAQ",
+        "nights": 10,
+        "rating": 4.5,
+        "stars": 3.0,
+        "board_type": "",
+        "refundable": null,
+        "source": "google_hotels",
+        "deep_link": "https://www.google.com/travel/search?q=Casa%20Belmonte%20Guest%20House%20Lisbon%2C%20Portugal&checkin=2027-06-21&checkout=2027-07-01",
+        "distance_miles": 0.9
+      },
+      "ground_cost": 900.0,
+      "ground_notes": "Lisbon\u2013Ponta Delgada hop for six, plus a rental car on S\u00e3o Miguel",
+      "travel_mode": "air",
+      "flights_expected": true,
+      "flight_cost": 7221.0,
+      "lodging_cost": 2472.0,
+      "total_cost": 10593.0,
+      "is_complete": true,
+      "notes": [
+        "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)",
+        "hotel price checked 1 day(s) ago"
+      ]
+    },
+    {
+      "trip_id": "portugal-azores-summer",
+      "destination": "LIS",
+      "depart_date": "2027-07-07",
+      "return_date": "2027-07-17",
+      "nights": 10,
+      "currency": "USD",
+      "flight": {
+        "origin": "STL",
+        "destination": "LIS",
+        "depart_date": "2027-07-07",
+        "return_date": "2027-07-17",
+        "total_price": 7836.0,
+        "currency": "USD",
+        "carriers": [
+          "Air Canada"
+        ],
+        "stops_out": null,
+        "stops_back": null,
+        "source": "google_flights_scaled",
+        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20LIS%20from%20STL%20on%202027-07-07%20through%202027-07-17"
+      },
+      "lodging": {
+        "destination": "Lisbon, Portugal",
+        "check_in": "2027-07-07",
+        "check_out": "2027-07-17",
+        "property_name": "Gloria Suites Hotel",
+        "total_price": 2596.0,
+        "currency": "USD",
+        "property_id": "ChoIqIvupdjppPPeARoNL2cvMTF5cjA0ZzhsZhAB",
+        "nights": 10,
+        "rating": 4.4,
+        "stars": 3.0,
+        "board_type": "",
+        "refundable": null,
+        "source": "google_hotels",
+        "deep_link": "https://www.google.com/travel/search?q=Gloria%20Suites%20Hotel%20Lisbon%2C%20Portugal&checkin=2027-07-07&checkout=2027-07-17",
+        "distance_miles": 0.2
+      },
+      "ground_cost": 900.0,
+      "ground_notes": "Lisbon\u2013Ponta Delgada hop for six, plus a rental car on S\u00e3o Miguel",
+      "travel_mode": "air",
+      "flights_expected": true,
+      "flight_cost": 7836.0,
+      "lodging_cost": 2596.0,
+      "total_cost": 11332.0,
+      "is_complete": true,
+      "notes": [
+        "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)"
+      ]
+    }
+  ]
+}

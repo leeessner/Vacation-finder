@@ -1,5 +1,68 @@
 {
   "slots": {
+    "austria-bavaria-summer|Munich, Germany|2027-06-05|2027-06-15": {
+      "checked_on": "2026-10-28",
+      "note": "",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-06-05",
+        "check_out": "2027-06-15",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=INNSiDE%20by%20Meli%C3%A1%20M%C3%BCnchen%20Parkstadt%20Schwabing%20Munich%2C%20Germany&checkin=2027-06-05&checkout=2027-06-15",
+        "destination": "Munich, Germany",
+        "distance_miles": 2.9,
+        "nights": 10,
+        "property_id": "ChcI8Lm32d2B5bNxGgsvZy8xdGhtal82dBAB",
+        "property_name": "INNSiDE by Meli\u00e1 M\u00fcnchen Parkstadt Schwabing",
+        "rating": 4.0,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": 4.0,
+        "total_price": 3962.0
+      }
+    },
+    "austria-bavaria-summer|Munich, Germany|2027-06-21|2027-07-01": {
+      "checked_on": "2026-10-28",
+      "note": "",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-06-21",
+        "check_out": "2027-07-01",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=Hotel%20M%C3%BCnchen%20City%20Center%2C%20Affiliated%20by%20Meli%C3%A1%20Munich%2C%20Germany&checkin=2027-06-21&checkout=2027-07-01",
+        "destination": "Munich, Germany",
+        "distance_miles": 0.9,
+        "nights": 10,
+        "property_id": "ChoIz5rxt-3uotmYARoNL2cvMTFzdHNfMmo5MhAB",
+        "property_name": "Hotel M\u00fcnchen City Center, Affiliated by Meli\u00e1",
+        "rating": 4.0,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": 4.0,
+        "total_price": 3406.0
+      }
+    },
+    "austria-bavaria-summer|Munich, Germany|2027-07-07|2027-07-17": {
+      "checked_on": "2026-10-28",
+      "note": "",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-07-07",
+        "check_out": "2027-07-17",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=AWA%20Hotel%20GmbH%20Munich%2C%20Germany&checkin=2027-07-07&checkout=2027-07-17",
+        "destination": "Munich, Germany",
+        "distance_miles": 0.7,
+        "nights": 10,
+        "property_id": "ChkItrG1-oLf5ulyGg0vZy8xMWdfemxmOHR4EAE",
+        "property_name": "AWA Hotel GmbH",
+        "rating": 4.1,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": 4.0,
+        "total_price": 3654.0
+      }
+    },
     "greece-summer|Athens, Greece|2027-06-05|2027-06-15": {
       "checked_on": "2026-10-27",
       "note": "",
@@ -62,6 +125,21 @@
         "stars": 3.0,
         "total_price": 1460.0
       }
+    },
+    "london-summer|London, UK|2027-06-05|2027-06-12": {
+      "checked_on": "2026-10-28",
+      "note": "",
+      "quote": null
+    },
+    "london-summer|London, UK|2027-06-23|2027-06-30": {
+      "checked_on": "2026-10-28",
+      "note": "",
+      "quote": null
+    },
+    "london-summer|London, UK|2027-07-10|2027-07-17": {
+      "checked_on": "2026-10-28",
+      "note": "",
+      "quote": null
     },
     "nashville-spring-break|Downtown Nashville, TN|2027-03-12|2027-03-16": {
       "checked_on": "2026-10-25",
@@ -313,6 +391,27 @@
         "source": "google_hotels",
         "stars": 3.0,
         "total_price": 2472.0
+      }
+    },
+    "portugal-azores-summer|Lisbon, Portugal|2027-07-07|2027-07-17": {
+      "checked_on": "2026-10-28",
+      "note": "",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-07-07",
+        "check_out": "2027-07-17",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=Gloria%20Suites%20Hotel%20Lisbon%2C%20Portugal&checkin=2027-07-07&checkout=2027-07-17",
+        "destination": "Lisbon, Portugal",
+        "distance_miles": 0.2,
+        "nights": 10,
+        "property_id": "ChoIqIvupdjppPPeARoNL2cvMTF5cjA0ZzhsZhAB",
+        "property_name": "Gloria Suites Hotel",
+        "rating": 4.4,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": 3.0,
+        "total_price": 2596.0
       }
     },
     "smokies-spring-break|Gatlinburg, TN|2027-03-12|2027-03-16": {
