@@ -1,0 +1,164 @@
+{
+  "trip_id": "greece-summer",
+  "captured_at": "2026-10-29T19:19:14.440371+00:00",
+  "queries_made": 3,
+  "errors": [],
+  "quotes": [
+    {
+      "trip_id": "greece-summer",
+      "destination": "ATH",
+      "depart_date": "2027-06-05",
+      "return_date": "2027-06-15",
+      "nights": 10,
+      "currency": "USD",
+      "flight": {
+        "origin": "STL",
+        "destination": "ATH",
+        "depart_date": "2027-06-05",
+        "return_date": "2027-06-15",
+        "total_price": 8814.0,
+        "currency": "USD",
+        "carriers": [
+          "American"
+        ],
+        "stops_out": null,
+        "stops_back": null,
+        "source": "google_flights_scaled",
+        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20ATH%20from%20STL%20on%202027-06-05%20through%202027-06-15"
+      },
+      "lodging": {
+        "destination": "Athens, Greece",
+        "check_in": "2027-06-05",
+        "check_out": "2027-06-15",
+        "property_name": "Safestay Athens Monastiraki",
+        "total_price": 1462.0,
+        "currency": "USD",
+        "property_id": "ChgItNHM-sWujeWJARoLL2cvMXRmeF9oeWgQAQ",
+        "nights": 10,
+        "rating": 4.2,
+        "stars": 3.0,
+        "board_type": "",
+        "refundable": null,
+        "source": "google_hotels",
+        "deep_link": "https://www.google.com/travel/search?q=Safestay%20Athens%20Monastiraki%20Athens%2C%20Greece&checkin=2027-06-05&checkout=2027-06-15",
+        "distance_miles": 0.5
+      },
+      "ground_cost": 700.0,
+      "ground_notes": "Ferries and transfers for six (estimate)",
+      "travel_mode": "air",
+      "flights_expected": true,
+      "flight_cost": 8814.0,
+      "lodging_cost": 1462.0,
+      "total_cost": 10976.0,
+      "is_complete": true,
+      "notes": [
+        "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)",
+        "hotel price checked 2 day(s) ago"
+      ]
+    },
+    {
+      "trip_id": "greece-summer",
+      "destination": "ATH",
+      "depart_date": "2027-06-21",
+      "return_date": "2027-07-01",
+      "nights": 10,
+      "currency": "USD",
+      "flight": {
+        "origin": "STL",
+        "destination": "ATH",
+        "depart_date": "2027-06-21",
+        "return_date": "2027-07-01",
+        "total_price": 7257.0,
+        "currency": "USD",
+        "carriers": [
+          "Air Canada"
+        ],
+        "stops_out": null,
+        "stops_back": null,
+        "source": "google_flights_scaled",
+        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20ATH%20from%20STL%20on%202027-06-21%20through%202027-07-01"
+      },
+      "lodging": {
+        "destination": "Athens, Greece",
+        "check_in": "2027-06-21",
+        "check_out": "2027-07-01",
+        "property_name": "Safestay Athens Monastiraki",
+        "total_price": 1458.0,
+        "currency": "USD",
+        "property_id": "ChgItNHM-sWujeWJARoLL2cvMXRmeF9oeWgQAQ",
+        "nights": 10,
+        "rating": 4.2,
+        "stars": 3.0,
+        "board_type": "",
+        "refundable": null,
+        "source": "google_hotels",
+        "deep_link": "https://www.google.com/travel/search?q=Safestay%20Athens%20Monastiraki%20Athens%2C%20Greece&checkin=2027-06-21&checkout=2027-07-01",
+        "distance_miles": 0.5
+      },
+      "ground_cost": 700.0,
+      "ground_notes": "Ferries and transfers for six (estimate)",
+      "travel_mode": "air",
+      "flights_expected": true,
+      "flight_cost": 7257.0,
+      "lodging_cost": 1458.0,
+      "total_cost": 9415.0,
+      "is_complete": true,
+      "notes": [
+        "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)",
+        "hotel price checked 2 day(s) ago"
+      ]
+    },
+    {
+      "trip_id": "greece-summer",
+      "destination": "ATH",
+      "depart_date": "2027-07-07",
+      "return_date": "2027-07-17",
+      "nights": 10,
+      "currency": "USD",
+      "flight": {
+        "origin": "STL",
+        "destination": "ATH",
+        "depart_date": "2027-07-07",
+        "return_date": "2027-07-17",
+        "total_price": 7578.0,
+        "currency": "USD",
+        "carriers": [
+          "United"
+        ],
+        "stops_out": null,
+        "stops_back": null,
+        "source": "google_flights_scaled",
+        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20ATH%20from%20STL%20on%202027-07-07%20through%202027-07-17"
+      },
+      "lodging": {
+        "destination": "Athens, Greece",
+        "check_in": "2027-07-07",
+        "check_out": "2027-07-17",
+        "property_name": "Safestay Athens Monastiraki",
+        "total_price": 1460.0,
+        "currency": "USD",
+        "property_id": "ChgItNHM-sWujeWJARoLL2cvMXRmeF9oeWgQAQ",
+        "nights": 10,
+        "rating": 4.2,
+        "stars": 3.0,
+        "board_type": "",
+        "refundable": null,
+        "source": "google_hotels",
+        "deep_link": "https://www.google.com/travel/search?q=Safestay%20Athens%20Monastiraki%20Athens%2C%20Greece&checkin=2027-07-07&checkout=2027-07-17",
+        "distance_miles": 0.5
+      },
+      "ground_cost": 700.0,
+      "ground_notes": "Ferries and transfers for six (estimate)",
+      "travel_mode": "air",
+      "flights_expected": true,
+      "flight_cost": 7578.0,
+      "lodging_cost": 1460.0,
+      "total_cost": 9738.0,
+      "is_complete": true,
+      "notes": [
+        "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)",
+        "hotel price checked 2 day(s) ago"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,167 @@
+{
+  "trip_id": "austria-bavaria-summer",
+  "captured_at": "2026-10-29T19:19:20.399213+00:00",
+  "queries_made": 3,
+  "errors": [],
+  "quotes": [
+    {
+      "trip_id": "austria-bavaria-summer",
+      "destination": "MUC",
+      "depart_date": "2027-06-05",
+      "return_date": "2027-06-15",
+      "nights": 10,
+      "currency": "USD",
+      "flight": {
+        "origin": "STL",
+        "destination": "MUC",
+        "depart_date": "2027-06-05",
+        "return_date": "2027-06-15",
+        "total_price": 7884.0,
+        "currency": "USD",
+        "carriers": [
+          "American",
+          "Condor"
+        ],
+        "stops_out": null,
+        "stops_back": null,
+        "source": "google_flights_extra_stop",
+        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20MUC%20from%20STL%20on%202027-06-05%20through%202027-06-15"
+      },
+      "lodging": {
+        "destination": "Munich, Germany",
+        "check_in": "2027-06-05",
+        "check_out": "2027-06-15",
+        "property_name": "INNSiDE by Meli\u00e1 M\u00fcnchen Parkstadt Schwabing",
+        "total_price": 3962.0,
+        "currency": "USD",
+        "property_id": "ChcI8Lm32d2B5bNxGgsvZy8xdGhtal82dBAB",
+        "nights": 10,
+        "rating": 4.0,
+        "stars": 4.0,
+        "board_type": "",
+        "refundable": null,
+        "source": "google_hotels",
+        "deep_link": "https://www.google.com/travel/search?q=INNSiDE%20by%20Meli%C3%A1%20M%C3%BCnchen%20Parkstadt%20Schwabing%20Munich%2C%20Germany&checkin=2027-06-05&checkout=2027-06-15",
+        "distance_miles": 2.9
+      },
+      "ground_cost": 950.0,
+      "ground_notes": "Van rental \u2014 the alpine resorts need a car",
+      "travel_mode": "air",
+      "flights_expected": true,
+      "flight_cost": 7884.0,
+      "lodging_cost": 3962.0,
+      "total_cost": 12796.0,
+      "is_complete": true,
+      "notes": [
+        "airfare allows one more stop than your limit \u2014 none was found within it",
+        "hotel price checked 1 day(s) ago"
+      ]
+    },
+    {
+      "trip_id": "austria-bavaria-summer",
+      "destination": "MUC",
+      "depart_date": "2027-06-21",
+      "return_date": "2027-07-01",
+      "nights": 10,
+      "currency": "USD",
+      "flight": {
+        "origin": "STL",
+        "destination": "MUC",
+        "depart_date": "2027-06-21",
+        "return_date": "2027-07-01",
+        "total_price": 8130.0,
+        "currency": "USD",
+        "carriers": [
+          "American",
+          "Condor"
+        ],
+        "stops_out": null,
+        "stops_back": null,
+        "source": "google_flights_extra_stop",
+        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20MUC%20from%20STL%20on%202027-06-21%20through%202027-07-01"
+      },
+      "lodging": {
+        "destination": "Munich, Germany",
+        "check_in": "2027-06-21",
+        "check_out": "2027-07-01",
+        "property_name": "Hotel M\u00fcnchen City Center, Affiliated by Meli\u00e1",
+        "total_price": 3406.0,
+        "currency": "USD",
+        "property_id": "ChoIz5rxt-3uotmYARoNL2cvMTFzdHNfMmo5MhAB",
+        "nights": 10,
+        "rating": 4.0,
+        "stars": 4.0,
+        "board_type": "",
+        "refundable": null,
+        "source": "google_hotels",
+        "deep_link": "https://www.google.com/travel/search?q=Hotel%20M%C3%BCnchen%20City%20Center%2C%20Affiliated%20by%20Meli%C3%A1%20Munich%2C%20Germany&checkin=2027-06-21&checkout=2027-07-01",
+        "distance_miles": 0.9
+      },
+      "ground_cost": 950.0,
+      "ground_notes": "Van rental \u2014 the alpine resorts need a car",
+      "travel_mode": "air",
+      "flights_expected": true,
+      "flight_cost": 8130.0,
+      "lodging_cost": 3406.0,
+      "total_cost": 12486.0,
+      "is_complete": true,
+      "notes": [
+        "airfare allows one more stop than your limit \u2014 none was found within it",
+        "hotel price checked 1 day(s) ago"
+      ]
+    },
+    {
+      "trip_id": "austria-bavaria-summer",
+      "destination": "MUC",
+      "depart_date": "2027-07-07",
+      "return_date": "2027-07-17",
+      "nights": 10,
+      "currency": "USD",
+      "flight": {
+        "origin": "STL",
+        "destination": "MUC",
+        "depart_date": "2027-07-07",
+        "return_date": "2027-07-17",
+        "total_price": 8214.0,
+        "currency": "USD",
+        "carriers": [
+          "Southwest",
+          "Condor"
+        ],
+        "stops_out": null,
+        "stops_back": null,
+        "source": "google_flights_extra_stop",
+        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20MUC%20from%20STL%20on%202027-07-07%20through%202027-07-17"
+      },
+      "lodging": {
+        "destination": "Munich, Germany",
+        "check_in": "2027-07-07",
+        "check_out": "2027-07-17",
+        "property_name": "AWA Hotel GmbH",
+        "total_price": 3654.0,
+        "currency": "USD",
+        "property_id": "ChkItrG1-oLf5ulyGg0vZy8xMWdfemxmOHR4EAE",
+        "nights": 10,
+        "rating": 4.1,
+        "stars": 4.0,
+        "board_type": "",
+        "refundable": null,
+        "source": "google_hotels",
+        "deep_link": "https://www.google.com/travel/search?q=AWA%20Hotel%20GmbH%20Munich%2C%20Germany&checkin=2027-07-07&checkout=2027-07-17",
+        "distance_miles": 0.7
+      },
+      "ground_cost": 950.0,
+      "ground_notes": "Van rental \u2014 the alpine resorts need a car",
+      "travel_mode": "air",
+      "flights_expected": true,
+      "flight_cost": 8214.0,
+      "lodging_cost": 3654.0,
+      "total_cost": 12818.0,
+      "is_complete": true,
+      "notes": [
+        "airfare allows one more stop than your limit \u2014 none was found within it",
+        "hotel price checked 1 day(s) ago"
+      ]
+    }
+  ]
+}

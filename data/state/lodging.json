@@ -142,8 +142,8 @@
       "quote": null
     },
     "nashville-spring-break|Downtown Nashville, TN|2027-03-12|2027-03-16": {
-      "checked_on": "2026-10-25",
-      "note": "Embassy Suites: $176 less than the cheapest qualifying option, Kasa Capitol Hill Downtown Nashville ($1,350)",
+      "checked_on": "2026-10-29",
+      "note": "Embassy Suites: $266 less than the cheapest qualifying option, Homewood Suites by Hilton Nashville Downtown The Gulch ($1,441)",
       "quote": {
         "board_type": "",
         "check_in": "2027-03-12",
@@ -159,12 +159,12 @@
         "refundable": null,
         "source": "google_hotels",
         "stars": 3.0,
-        "total_price": 1174.0
+        "total_price": 1175.0
       }
     },
     "nashville-spring-break|Downtown Nashville, TN|2027-03-13|2027-03-17": {
-      "checked_on": "2026-10-25",
-      "note": "Embassy Suites: $368 more than the cheapest qualifying option, Holiday Inn Express and Suites Nashville West End Univ Area, an IHG Hotel ($763)",
+      "checked_on": "2026-10-29",
+      "note": "Embassy Suites: $353 more than the cheapest qualifying option, Holiday Inn Express and Suites Nashville West End Univ Area, an IHG Hotel ($775)",
       "quote": {
         "board_type": "",
         "check_in": "2027-03-13",
@@ -180,12 +180,12 @@
         "refundable": null,
         "source": "google_hotels",
         "stars": 3.0,
-        "total_price": 1131.0
+        "total_price": 1128.0
       }
     },
     "nashville-spring-break|Downtown Nashville, TN|2027-03-14|2027-03-18": {
-      "checked_on": "2026-10-25",
-      "note": "Embassy Suites: $364 more than the cheapest qualifying option, Holiday Inn Express and Suites Nashville West End Univ Area, an IHG Hotel ($657)",
+      "checked_on": "2026-10-29",
+      "note": "Embassy Suites: $351 more than the cheapest qualifying option, Holiday Inn Express and Suites Nashville West End Univ Area, an IHG Hotel ($668)",
       "quote": {
         "board_type": "",
         "check_in": "2027-03-14",
@@ -201,7 +201,7 @@
         "refundable": null,
         "source": "google_hotels",
         "stars": 3.0,
-        "total_price": 1021.0
+        "total_price": 1019.0
       }
     },
     "nashville-spring-break|Downtown Nashville, TN|2027-03-15|2027-03-19": {
