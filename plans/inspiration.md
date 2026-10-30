@@ -66,7 +66,7 @@ London with Kids post. JollyGoodTravel also has Tuscany with Kids.
 
 ## Alpine family resorts
 
-Twelve candidates, from @little.voyageurs-style accounts and a resort
+Thirteen candidates, from the Instagram accounts the family follows and a resort
 round-up post, are in `config/stays.yaml` with location, airports, board
 and family features. Google Hotels shows no price for any of them; prices
 come from their own seasonal price lists.
