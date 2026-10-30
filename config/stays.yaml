@@ -19,6 +19,7 @@
 stays:
   # ---- Austria ----
   - name: "Dachsteinkönig Familux Resort"
+    why: "parent-child spa + childcare for babies 7 days and up"   # from the resort round-up post
     source: "@dachsteinkoenig.familux"
     country: Austria
     place: "Gosau, Salzkammergut (Upper Austria)"
@@ -30,6 +31,7 @@ stays:
     google_price: false
 
   - name: "Familienresort Buchau"
+    why: "think spa, beach bar, kids club"   # from the resort round-up post
     source: "@familienresort_buchau"
     country: Austria
     place: "Maurach, on Lake Achensee (Tyrol)"
@@ -41,6 +43,7 @@ stays:
     google_price: false
 
   - name: "Naturhotel Forsthofgut"
+    why: "mod design, mini farm, art studio"   # from the resort round-up post
     source: "@naturhotelforsthofgut"
     country: Austria
     place: "Leogang (Salzburger Land)"
@@ -64,6 +67,7 @@ stays:
 
   # ---- Italy (South Tyrol / Trentino) ----
   - name: "Feuerstein Nature Family Resort"
+    why: "woodworking, mudroom + climbing"   # from the resort round-up post
     source: "@feuerstein_naturefamily_resort"
     country: Italy
     place: "Pflersch valley near the Brenner Pass (South Tyrol)"
@@ -75,6 +79,7 @@ stays:
     google_price: false
 
   - name: "SAN SONNEA Family Dolomites (formerly Sonnwies)"
+    why: "upscale, organic"   # from the resort round-up post
     source: "@sansonnea.family"
     country: Italy
     place: "Lüsen/Luson near Brixen (South Tyrol)"
@@ -86,6 +91,7 @@ stays:
     google_price: false
 
   - name: "Das Mühlwald – Quality Time Family Resort"
+    why: "minimalist, spa + petting farm"   # from the resort round-up post
     source: "@dasmuehlwald_familyresort"
     country: Italy
     place: "Natz-Schabs near Brixen (South Tyrol)"
@@ -97,6 +103,7 @@ stays:
     google_price: false
 
   - name: "Gardea SoulFamily Resort"
+    why: "Montessori-centric mountain resort (NB: research puts Gardea on Lake Garda, and Montessori childcare at Feuerstein — confirm)"   # from the resort round-up post
     source: "@gardea_family_resort"
     country: Italy
     place: "Torbole, Lake Garda (Trentino)"
@@ -108,6 +115,7 @@ stays:
     google_price: false
 
   - name: "Garberhof Dolomit Family"
+    why: "all inclusive with robes for all"   # from the resort round-up post
     source: "@garberhof_dolomit_family"
     country: Italy
     place: "Rasen-Antholz, Pustertal (South Tyrol)"
@@ -119,6 +127,7 @@ stays:
     google_price: false
 
   - name: "Familienhotel Huber"
+    why: "thoughtful design, family suites"   # from the resort round-up post
     source: "@familienhotelhuber"
     country: Italy
     place: "Vals, Gitschberg Jochtal near Mühlbach (South Tyrol)"
@@ -131,6 +140,7 @@ stays:
 
   # ---- Switzerland ----
   - name: "Märchenhotel Braunwald"
+    why: "aptly dubbed the 'fairytale' hotel in a car-free mountain village"   # from the resort round-up post
     source: "@maerchenhotel_braunwald"
     country: Switzerland
     place: "Braunwald, Glarus — car-free village, reached by funicular from Linthal"
@@ -143,6 +153,7 @@ stays:
 
   # ---- Germany (Bavaria) ----
   - name: "Oberjoch Familux Resort"
+    why: "family suites with cozy kids nooks, loads of indoor adventure plus hiking and more"   # from the resort round-up post
     source: "@oberjoch.familux"
     country: Germany
     place: "Oberjoch, Bad Hindelang, Allgäu (Bavaria)"
@@ -164,3 +175,16 @@ stays:
     price_note: "~€713/night all-inclusive for 2 adults + 2 kids (7 and 3), July 2026 (kinderhotel.info)"
     google_rating: null
     google_price: null      # not yet checked
+
+  # ---- Italy (Tuscany) ----
+  - name: "Fattoria di Maiano"
+    source: "Tuscany with Kids post (JollyGoodTravel)"
+    country: Italy
+    place: "Fiesole, in the hills above Florence"
+    website: "https://agriturismo.it/en/farmhouse/tuscany/florence/LaFattoriadiMaiano-7201205/index.html"
+    airports: ["Florence FLR ~25m", "Pisa PSA ~1h15", "Bologna BLQ ~1h30"]
+    board: "Self-catering apartments; on-site restaurant"
+    family: "300-hectare organic farm; apartments in old farm buildings and a monastery; pools incl. a children's pool; playground; teaching farm with animals"
+    note: "Sold on Hotels.com/Expedia, so Google Hotels can likely price it daily (not yet checked)"
+    google_rating: null
+    google_price: null

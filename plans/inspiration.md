@@ -64,6 +64,26 @@ London with Kids post. JollyGoodTravel also has Tuscany with Kids.
   https://postcardnarrative.com/colmar-with-kids/ (and its Strasbourg
   companion). Pairs naturally with Paris: Strasbourg is about 1h50 by TGV.
 
+## Italy — Tuscany ("Tuscany with Kids", JollyGoodTravel-style carousel)
+
+- **Florence**: stay in Fiesole; Boboli Gardens; the interactive da Vinci
+  museum; a pasta cooking class.
+- **Fiesole**: stay at **Fattoria di Maiano** — agriturismo 20 min outside
+  the city, pool, animals, gardens; family-style apartments. Walk to
+  **Cucina Pietraforte** for dinner on a terrace under string lights.
+  (In `config/stays.yaml`.)
+- **San Gimignano**: skip the queues at the popular towers; climb **Torre
+  Salvucci Maggiore**, a private residence open to the public, for views
+  over Tuscany.
+- **Pienza**: home of pecorino cheese. **La Terrazza del Chiostro**
+  (requested).
+- **Greve in Chianti**: **Castello di Brolio**, birthplace of modern Chianti
+  wine — gardens, a "spooky crypt", lots of space to run. Horseback riding
+  through a vineyard nearby.
+- **Montecatini Terme**: funicular up to **Montecatini Alto** (requested).
+- A "designed for families" agriturismo about 25 min from Florence — name
+  still to come.
+
 ## Alpine family resorts
 
 Thirteen candidates, from the Instagram accounts the family follows and a resort
