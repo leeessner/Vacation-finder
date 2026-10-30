@@ -81,8 +81,8 @@ London with Kids post. JollyGoodTravel also has Tuscany with Kids.
   wine — gardens, a "spooky crypt", lots of space to run. Horseback riding
   through a vineyard nearby.
 - **Montecatini Terme**: funicular up to **Montecatini Alto** (requested).
-- A "designed for families" agriturismo about 25 min from Florence — name
-  still to come.
+- The "designed for families" agriturismo about 25 min from Florence is
+  **Fattoria di Maiano** (confirmed) — the same place as above.
 
 ## Alpine family resorts
 
