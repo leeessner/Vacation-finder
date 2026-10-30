@@ -52,7 +52,7 @@ stays:
     google_price: false
 
   - name: "Familien Natur Resort Moar Gut"
-    source: "moargut.com (via Instagram)"
+    source: "@familienresort_moargut"
     country: Austria
     place: "Grossarl, Hohe Tauern (Salzburger Land)"
     website: "https://moargut.com/en"
@@ -152,3 +152,15 @@ stays:
     family: "Childcare ages 0–16, 8:30–21:00 daily; 2,000 m² indoor + 5,000 m² outdoor play"
     google_rating: 4.8
     google_price: false
+
+  - name: "ULRICHSHOF Nature · Family · Design"
+    source: "Sent directly (Zettisch 42, 93485 Rimbach)"
+    country: Germany
+    place: "Rimbach, Bavarian Forest (Bavaria)"
+    website: "https://kinderhotel.info/kinderhotel/ulrichshof-nature-·-family-·-design"
+    airports: ["Munich MUC ~2h", "Nuremberg NUE ~2h", "Prague PRG ~2.5h"]
+    board: "All-inclusive with non-alcoholic drinks all day (one listing says full board plus)"
+    family: "Family spa and separate parents' spa; outdoor forest pool; pony camp; bowling"
+    price_note: "~€713/night all-inclusive for 2 adults + 2 kids (7 and 3), July 2026 (kinderhotel.info)"
+    google_rating: null
+    google_price: null      # not yet checked
