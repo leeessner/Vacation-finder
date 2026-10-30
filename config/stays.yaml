@@ -164,3 +164,16 @@ stays:
     price_note: "~€713/night all-inclusive for 2 adults + 2 kids (7 and 3), July 2026 (kinderhotel.info)"
     google_rating: null
     google_price: null      # not yet checked
+
+  # ---- Italy (Tuscany) ----
+  - name: "Fattoria di Maiano"
+    source: "Tuscany with Kids post (JollyGoodTravel)"
+    country: Italy
+    place: "Fiesole, in the hills above Florence"
+    website: "https://agriturismo.it/en/farmhouse/tuscany/florence/LaFattoriadiMaiano-7201205/index.html"
+    airports: ["Florence FLR ~25m", "Pisa PSA ~1h15", "Bologna BLQ ~1h30"]
+    board: "Self-catering apartments; on-site restaurant"
+    family: "300-hectare organic farm; apartments in old farm buildings and a monastery; pools incl. a children's pool; playground; teaching farm with animals"
+    note: "Sold on Hotels.com/Expedia, so Google Hotels can likely price it daily (not yet checked)"
+    google_rating: null
+    google_price: null
