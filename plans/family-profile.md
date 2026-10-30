@@ -20,6 +20,9 @@ this repository is public. Two parents, four children (8, 7, 5, 3).
 - A roastery tour (loved one in Kansas City); **Starbucks Reserve** in New
   York and Chicago was a highlight. Good coffee and a place that makes its
   own; nothing fussier than that.
+- **Only include it when it's a full experience** (a roastery, a Reserve
+  Roastery) and it fits the day. Never add a coffee stop just because we're
+  in a city.
 
 ## Beer
 - **Belgian Trappist** is the favourite; **Bavarian beer gardens**; the big
@@ -33,8 +36,10 @@ this repository is public. Two parents, four children (8, 7, 5, 3).
   Portugal, a cooking class *if in Italy*. The point is the local culture.
 
 ## The kids
-- **Castles** (huge), **animals**, **playgrounds**, **trains**, **beaches**
-  that are different from home (the French Riviera, not another Gulf Coast).
+- **Castles** (huge), **playgrounds**, **trains**, **beaches** that are
+  different from home (the French Riviera, not another Gulf Coast).
+- **Animals are a bonus, not a goal**: welcome at a resort or farm stay;
+  never route a day around them.
 - Science museums only if unique (an interactive Leonardo museum, yes; a
   generic one, no — St. Louis already has a great one).
 - Not big on boats. Pretty adventurous overall.
