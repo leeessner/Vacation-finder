@@ -1,0 +1,154 @@
+# Places to stay — candidates gathered from the family-travel accounts.
+#
+# These are alpine family resorts: family suites, meals included (all-
+# inclusive or close to it), childcare. Checked live on 2026-10-30: Google
+# Hotels finds every one of them but shows NO price — for six guests or four
+# — while ordinary hotels nearby do show prices. They sell direct, priced
+# per person per night by season and child age. So they are not tracked
+# daily like flights; their prices come from each resort's own price list,
+# which changes by season rather than by day.
+#
+# Fields
+#   source       the Instagram account it came from
+#   airports     nearest useful airports with approximate drive times
+#                (approximate — confirm when planning)
+#   board        what's included, as described by the resort or listings
+#                (listings disagree in places; confirm with the resort)
+#   google_price whether Google Hotels shows a price (checked 2026-10-30)
+
+stays:
+  # ---- Austria ----
+  - name: "Dachsteinkönig Familux Resort"
+    source: "@dachsteinkoenig.familux"
+    country: Austria
+    place: "Gosau, Salzkammergut (Upper Austria)"
+    website: "https://www.dachsteinkoenig.at/en/"
+    airports: ["Salzburg SZG ~1h", "Munich MUC ~2.5h"]
+    board: "All-inclusive: breakfast, lunch and afternoon buffets, themed dinner buffet, all non-alcoholic drinks"
+    family: "105 family suites + 12 chalets, every suite has a separate kids' room; childcare"
+    google_rating: 4.9
+    google_price: false
+
+  - name: "Familienresort Buchau"
+    source: "@familienresort_buchau"
+    country: Austria
+    place: "Maurach, on Lake Achensee (Tyrol)"
+    website: "https://www.tyrol.com/book-your-holiday/hotels/a-familienresort-buchau"
+    airports: ["Innsbruck INN ~45m", "Munich MUC ~1.5h"]
+    board: "All-inclusive (one listing says drinks incl. alcohol to 22:00 on the Superior package)"
+    family: "Directly on the lake; indoor + outdoor pools; childcare 6 days a week"
+    google_rating: 4.7
+    google_price: false
+
+  - name: "Naturhotel Forsthofgut"
+    source: "@naturhotelforsthofgut"
+    country: Austria
+    place: "Leogang (Salzburger Land)"
+    website: "https://www.forsthofgut.at/en/family/"
+    airports: ["Salzburg SZG ~1h", "Innsbruck INN ~1.5h", "Munich MUC ~2.5h"]
+    board: "Half board (breakfast, afternoon tea, dinner) per listings; confirm"
+    family: "Rocky's Kids Club; family suites and chalet suites; forest spa"
+    google_rating: null
+    google_price: false
+
+  - name: "Familien Natur Resort Moar Gut"
+    source: "moargut.com (via Instagram)"
+    country: Austria
+    place: "Grossarl, Hohe Tauern (Salzburger Land)"
+    website: "https://moargut.com/en"
+    airports: ["Salzburg SZG ~1h15"]
+    board: "Five-star family resort with its own organic farm; confirm board"
+    family: "46 family suites only"
+    google_rating: null
+    google_price: false
+
+  # ---- Italy (South Tyrol / Trentino) ----
+  - name: "Feuerstein Nature Family Resort"
+    source: "@feuerstein_naturefamily_resort"
+    country: Italy
+    place: "Pflersch valley near the Brenner Pass (South Tyrol)"
+    website: "https://www.suedtirol.info/de/unterkuenfte/alle-unterkuenfte/feuerstein-nature-family-resort_a_2619"
+    airports: ["Innsbruck INN ~45m", "Munich MUC ~2.5h", "Verona VRN ~3h"]
+    board: "All-inclusive offered (also half/full board)"
+    family: "70 hours/week Montessori-based nature childcare; 1,250 m altitude"
+    google_rating: 4.7
+    google_price: false
+
+  - name: "SAN SONNEA Family Dolomites (formerly Sonnwies)"
+    source: "@sansonnea.family"
+    country: Italy
+    place: "Lüsen/Luson near Brixen (South Tyrol)"
+    website: "https://www.suedtirol.info/nl/accommodaties/accommodatie-zoeken/family-hotel-sonnwies_a_2621"
+    airports: ["Innsbruck INN ~1.5h", "Verona VRN ~2.5h"]
+    board: "Described as all-inclusive by reviewers; confirm"
+    family: "Family-only; working farm with horses; pool and spa"
+    google_rating: null
+    google_price: false
+
+  - name: "Das Mühlwald – Quality Time Family Resort"
+    source: "@dasmuehlwald_familyresort"
+    country: Italy
+    place: "Natz-Schabs near Brixen (South Tyrol)"
+    website: "https://www.italyfamilyhotels.it/en/family-hotels/das-muhlwald-quality-time-family-resort"
+    airports: ["Innsbruck INN ~1h15", "Verona VRN ~2.5h"]
+    board: "Full board / all-inclusive package (listings differ)"
+    family: "All-day childcare; petting zoo; family spa; ~105 family suites"
+    google_rating: 4.5
+    google_price: false
+
+  - name: "Gardea SoulFamily Resort"
+    source: "@gardea_family_resort"
+    country: Italy
+    place: "Torbole, Lake Garda (Trentino)"
+    website: "https://italyfamilyhotels.it/en/family-hotels/gardea-soulfamily-resort"
+    airports: ["Verona VRN ~1h15", "Milan Bergamo BGY ~2h"]
+    board: "Not confirmed"
+    family: "Two pools with waterslide; on Lake Garda rather than in the mountains"
+    google_rating: 4.7
+    google_price: false
+
+  - name: "Garberhof Dolomit Family"
+    source: "@garberhof_dolomit_family"
+    country: Italy
+    place: "Rasen-Antholz, Pustertal (South Tyrol)"
+    website: "https://www.italyfamilyhotels.it/en/family-hotels/garberhof-dolomit-family-rasun-anterselva"
+    airports: ["Innsbruck INN ~2h", "Venice VCE ~2.5h"]
+    board: "Hotel says all-inclusive; one listing shows half board from €91 per adult per night"
+    family: "Kids' world, pools; sister property Dolomit Family Resort Alpenhof nearby"
+    google_rating: 4.8
+    google_price: false
+
+  - name: "Familienhotel Huber"
+    source: "@familienhotelhuber"
+    country: Italy
+    place: "Vals, Gitschberg Jochtal near Mühlbach (South Tyrol)"
+    website: "https://www.south-tirol.com/accommodation/42581/familienhotel-huber"
+    airports: ["Innsbruck INN ~1h15", "Verona VRN ~2.5h"]
+    board: "All-inclusive, alcohol-free"
+    family: "Indoor pool with waterslide; daily childcare; guided family hikes"
+    google_rating: null
+    google_price: false
+
+  # ---- Switzerland ----
+  - name: "Märchenhotel Braunwald"
+    source: "@maerchenhotel_braunwald"
+    country: Switzerland
+    place: "Braunwald, Glarus — car-free village, reached by funicular from Linthal"
+    website: "https://www.myswitzerland.com/en/accommodations/maerchenhotel-bellevue/"
+    airports: ["Zurich ZRH ~1.5h"]
+    board: "Half board; separate children's dining room in the evening"
+    family: "Supervised childcare 12 hours a day; 'fairy-tale' theme"
+    google_rating: null
+    google_price: false
+
+  # ---- Germany (Bavaria) ----
+  - name: "Oberjoch Familux Resort"
+    source: "@oberjoch.familux"
+    country: Germany
+    place: "Oberjoch, Bad Hindelang, Allgäu (Bavaria)"
+    website: "https://www.oberjochresort.de/en/"
+    airports: ["Memmingen FMM ~1h15", "Munich MUC ~2.5h"]
+    board: "All-inclusive: breakfast, lunch, afternoon and evening buffets, non-alcoholic drinks and specialty coffee 24h"
+    family: "Childcare ages 0–16, 8:30–21:00 daily; 2,000 m² indoor + 5,000 m² outdoor play"
+    google_rating: 4.8
+    google_price: false
