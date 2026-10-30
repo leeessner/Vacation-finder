@@ -205,8 +205,8 @@
       }
     },
     "nashville-spring-break|Downtown Nashville, TN|2027-03-15|2027-03-19": {
-      "checked_on": "2026-10-25",
-      "note": "Embassy Suites: $151 more than the cheapest qualifying option, Kasa Capitol Hill Downtown Nashville ($976)",
+      "checked_on": "2026-10-30",
+      "note": "Embassy Suites: $399 more than the cheapest qualifying option, Holiday Inn Express and Suites Nashville West End Univ Area, an IHG Hotel ($721)",
       "quote": {
         "board_type": "",
         "check_in": "2027-03-15",
@@ -222,7 +222,7 @@
         "refundable": null,
         "source": "google_hotels",
         "stars": 3.0,
-        "total_price": 1127.0
+        "total_price": 1120.0
       }
     },
     "nice-riviera|Nice, France|2027-06-05|2027-06-14": {
@@ -415,12 +415,28 @@
       }
     },
     "smokies-spring-break|Gatlinburg, TN|2027-03-12|2027-03-16": {
-      "checked_on": "2026-10-25",
+      "checked_on": "2026-10-30",
       "note": "",
-      "quote": null
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-03-12",
+        "check_out": "2027-03-16",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=Spacious%20Condo%20with%20beautiful%20Mountain%20Views.%202%20BR/2Bath%20sleeps%206%20guests.%20Gatlinburg%2C%20TN&checkin=2027-03-12&checkout=2027-03-16",
+        "destination": "Gatlinburg, TN",
+        "distance_miles": 3.1,
+        "nights": 4,
+        "property_id": "ChkQ8LTb6dzzjI4GGg0vZy8xMXhsbXpqZmsxEAI",
+        "property_name": "Spacious Condo with beautiful Mountain Views. 2 BR/2Bath sleeps 6 guests.",
+        "rating": 4.5,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": null,
+        "total_price": 721.0
+      }
     },
     "smokies-spring-break|Gatlinburg, TN|2027-03-13|2027-03-17": {
-      "checked_on": "2026-10-25",
+      "checked_on": "2026-10-30",
       "note": "",
       "quote": {
         "board_type": "",
@@ -437,11 +453,11 @@
         "refundable": null,
         "source": "google_hotels",
         "stars": null,
-        "total_price": 692.0
+        "total_price": 708.0
       }
     },
     "smokies-spring-break|Gatlinburg, TN|2027-03-14|2027-03-18": {
-      "checked_on": "2026-10-25",
+      "checked_on": "2026-10-30",
       "note": "",
       "quote": {
         "board_type": "",
@@ -462,7 +478,7 @@
       }
     },
     "smokies-spring-break|Gatlinburg, TN|2027-03-15|2027-03-19": {
-      "checked_on": "2026-10-25",
+      "checked_on": "2026-10-30",
       "note": "",
       "quote": {
         "board_type": "",
@@ -483,7 +499,7 @@
       }
     },
     "spain-barcelona-madrid|Barcelona, Spain|2027-06-05|2027-06-15": {
-      "checked_on": "2026-10-25",
+      "checked_on": "2026-10-30",
       "note": "",
       "quote": {
         "board_type": "",
@@ -500,7 +516,7 @@
         "refundable": null,
         "source": "google_hotels",
         "stars": 3.0,
-        "total_price": 3332.0
+        "total_price": 3318.0
       }
     },
     "spain-barcelona-madrid|Barcelona, Spain|2027-06-21|2027-07-01": {

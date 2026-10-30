@@ -1,0 +1,164 @@
+{
+  "trip_id": "paris-versailles",
+  "captured_at": "2026-10-30T18:54:58.828308+00:00",
+  "queries_made": 3,
+  "errors": [],
+  "quotes": [
+    {
+      "trip_id": "paris-versailles",
+      "destination": "CDG",
+      "depart_date": "2027-06-05",
+      "return_date": "2027-06-14",
+      "nights": 9,
+      "currency": "USD",
+      "flight": {
+        "origin": "STL",
+        "destination": "CDG",
+        "depart_date": "2027-06-05",
+        "return_date": "2027-06-14",
+        "total_price": 8619.0,
+        "currency": "USD",
+        "carriers": [
+          "United"
+        ],
+        "stops_out": null,
+        "stops_back": null,
+        "source": "google_flights_scaled",
+        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20CDG%20from%20STL%20on%202027-06-05%20through%202027-06-14"
+      },
+      "lodging": {
+        "destination": "Paris, France",
+        "check_in": "2027-06-05",
+        "check_out": "2027-06-14",
+        "property_name": "H\u00f4tel Bridget",
+        "total_price": 4044.0,
+        "currency": "USD",
+        "property_id": "ChoItuzptsGulfWeARoNL2cvMTFoMGN2MjMxNRAB",
+        "nights": 9,
+        "rating": 4.2,
+        "stars": 3.0,
+        "board_type": "",
+        "refundable": null,
+        "source": "google_hotels",
+        "deep_link": "https://www.google.com/travel/search?q=H%C3%B4tel%20Bridget%20Paris%2C%20France&checkin=2027-06-05&checkout=2027-06-14",
+        "distance_miles": 2.1
+      },
+      "ground_cost": 340.0,
+      "ground_notes": "Paris transit passes for six, plus RER to Versailles and CDG",
+      "travel_mode": "air",
+      "flights_expected": true,
+      "flight_cost": 8619.0,
+      "lodging_cost": 4044.0,
+      "total_cost": 13003.0,
+      "is_complete": true,
+      "notes": [
+        "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)",
+        "hotel price checked 4 day(s) ago"
+      ]
+    },
+    {
+      "trip_id": "paris-versailles",
+      "destination": "CDG",
+      "depart_date": "2027-06-21",
+      "return_date": "2027-06-30",
+      "nights": 9,
+      "currency": "USD",
+      "flight": {
+        "origin": "STL",
+        "destination": "CDG",
+        "depart_date": "2027-06-21",
+        "return_date": "2027-06-30",
+        "total_price": 7641.0,
+        "currency": "USD",
+        "carriers": [
+          "Delta"
+        ],
+        "stops_out": null,
+        "stops_back": null,
+        "source": "google_flights_scaled",
+        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20CDG%20from%20STL%20on%202027-06-21%20through%202027-06-30"
+      },
+      "lodging": {
+        "destination": "Paris, France",
+        "check_in": "2027-06-21",
+        "check_out": "2027-06-30",
+        "property_name": "H\u00f4tel Bridget",
+        "total_price": 4058.0,
+        "currency": "USD",
+        "property_id": "ChoItuzptsGulfWeARoNL2cvMTFoMGN2MjMxNRAB",
+        "nights": 9,
+        "rating": 4.2,
+        "stars": 3.0,
+        "board_type": "",
+        "refundable": null,
+        "source": "google_hotels",
+        "deep_link": "https://www.google.com/travel/search?q=H%C3%B4tel%20Bridget%20Paris%2C%20France&checkin=2027-06-21&checkout=2027-06-30",
+        "distance_miles": 2.1
+      },
+      "ground_cost": 340.0,
+      "ground_notes": "Paris transit passes for six, plus RER to Versailles and CDG",
+      "travel_mode": "air",
+      "flights_expected": true,
+      "flight_cost": 7641.0,
+      "lodging_cost": 4058.0,
+      "total_cost": 12039.0,
+      "is_complete": true,
+      "notes": [
+        "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)",
+        "hotel price checked 4 day(s) ago"
+      ]
+    },
+    {
+      "trip_id": "paris-versailles",
+      "destination": "CDG",
+      "depart_date": "2027-07-08",
+      "return_date": "2027-07-17",
+      "nights": 9,
+      "currency": "USD",
+      "flight": {
+        "origin": "STL",
+        "destination": "CDG",
+        "depart_date": "2027-07-08",
+        "return_date": "2027-07-17",
+        "total_price": 8613.0,
+        "currency": "USD",
+        "carriers": [
+          "Air Canada"
+        ],
+        "stops_out": null,
+        "stops_back": null,
+        "source": "google_flights_scaled",
+        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20CDG%20from%20STL%20on%202027-07-08%20through%202027-07-17"
+      },
+      "lodging": {
+        "destination": "Paris, France",
+        "check_in": "2027-07-08",
+        "check_out": "2027-07-17",
+        "property_name": "Simon's Boutique Hotel",
+        "total_price": 3198.0,
+        "currency": "USD",
+        "property_id": "ChkIzIqS25H-7Z9ZGg0vZy8xMWhkdmRwOWZmEAE",
+        "nights": 9,
+        "rating": 4.2,
+        "stars": 3.0,
+        "board_type": "",
+        "refundable": null,
+        "source": "google_hotels",
+        "deep_link": "https://www.google.com/travel/search?q=Simon%27s%20Boutique%20Hotel%20Paris%2C%20France&checkin=2027-07-08&checkout=2027-07-17",
+        "distance_miles": 2.3
+      },
+      "ground_cost": 340.0,
+      "ground_notes": "Paris transit passes for six, plus RER to Versailles and CDG",
+      "travel_mode": "air",
+      "flights_expected": true,
+      "flight_cost": 8613.0,
+      "lodging_cost": 3198.0,
+      "total_cost": 12151.0,
+      "is_complete": true,
+      "notes": [
+        "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)",
+        "hotel price checked 4 day(s) ago"
+      ]
+    }
+  ]
+}
