@@ -5,25 +5,12 @@ import sys
 sys.path.insert(0, "src")
 from vacation_finder.sources.google_hotels import SerpApiClient, stay_price  # noqa: E402
 
-RESORTS = [
-    "Dachsteinkönig Familux Resort Gosau",
-    "Familienresort Buchau Maurach",
-    "Naturhotel Forsthofgut Leogang",
-    "Familien Natur Resort Moar Gut Grossarl",
-    "Feuerstein Nature Family Resort Pflersch",
-    "San Sonnea Family Dolomites Lüsen",
-    "Das Mühlwald Quality Time Family Resort Natz",
-    "Gardea SoulFamily Resort Torbole",
-    "Garberhof Dolomit Family Rasen",
-    "Familienhotel Huber Vals",
-    "Märchenhotel Braunwald",
-    "Oberjoch Familux Resort Bad Hindelang",
-]
+RESORTS = ["Dachsteinkönig Familux Resort Gosau", "Oberjoch Familux Resort Bad Hindelang"]
 client = SerpApiClient()
 print("searches left:", client.searches_left())
 for q in RESORTS:
     params = {"q": q, "check_in_date": "2027-06-19", "check_out_date": "2027-06-26",
-              "adults": 2, "children": 4, "children_ages": "8,7,5,3",
+              "adults": 2, "children": 2, "children_ages": "8,7",
               "currency": "USD", "gl": "us", "hl": "en"}
     print(f"\n=== {q}")
     try:
