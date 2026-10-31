@@ -22,7 +22,7 @@ from __future__ import annotations
 
 import logging
 from dataclasses import dataclass, field
-from datetime import date
+from datetime import date, timedelta
 from typing import Any, Iterable
 
 from .config import Config, Destination, Trip
@@ -43,6 +43,8 @@ def lodging_slots(config: Config, today: date) -> list[tuple[Trip, Destination, 
     slots = []
     for trip in config.active_trips:
         windows = candidate_windows(trip, today, config.settings)
+        if config.settings.hotel_windows_per_trip is not None:
+            windows = windows[: max(0, config.settings.hotel_windows_per_trip)]
         if trip.has_stops:
             # Each stop is its own stay, with its own dates and rules; a stop
             # Google can't price (lodging disabled) costs nothing.
@@ -94,8 +96,13 @@ class LodgingBook:
             if e.get("checked_on") == today.isoformat() and e.get("quote")
         }
         first = [k for k in dict.fromkeys(priority) if k in costs and k not in done_today]
+        # A price newer than hotel_recheck_days waits its turn (a weekly
+        # cadence); a first look always goes ahead.
+        recheck = config.settings.hotel_recheck_days
+        cutoff = (today - timedelta(days=recheck)).isoformat() if recheck else ""
         ordered = first + sorted(
-            (k for k in costs if k not in set(first)),
+            (k for k in costs if k not in set(first)
+             and not (cutoff and entries.get(k, {}).get("checked_on", "") > cutoff)),
             key=lambda k: entries.get(k, {}).get("checked_on", ""),
         )
         refresh: set[str] = set()

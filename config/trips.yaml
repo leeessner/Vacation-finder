@@ -71,6 +71,12 @@ settings:
   # slowly, and the dashboard says how old each one is.
   hotel_price_max_age_days: 14
   flight_insight_days: 7
+  # Weekly hotel prices: only each trip's first date window, and a stay is
+  # searched again once its price is a week old. About 31 hotel searches plus
+  # 11 flight checks a week (~180 a month of the free 250). Daily flight
+  # prices for every window are free and keep running.
+  hotel_windows_per_trip: 1
+  hotel_recheck_days: 7
 
   # Within this many hours' drive, drive — don't fly.
   max_drive_hours: 6

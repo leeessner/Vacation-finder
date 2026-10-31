@@ -252,6 +252,11 @@ class Settings:
     hotel_search_reserve: int = 10
     hotel_price_max_age_days: int = 10
     flight_insight_days: int = 7
+    # Hotels: price only each trip's first N date windows (None = all of
+    # them) and search a stay again only once its price is this many days
+    # old (0 = whenever the budget allows). Flights stay daily and free.
+    hotel_windows_per_trip: int | None = None
+    hotel_recheck_days: int = 0
     # Within this many hours' drive, a trip should be driven, not flown.
     max_drive_hours: float = 6.0
     # When fares for long-haul trips are usually lowest, in months before
@@ -570,6 +575,8 @@ def _parse_settings(raw: Any) -> Settings:
         hotel_search_reserve=int(raw.get("hotel_search_reserve", 10)),
         hotel_price_max_age_days=int(raw.get("hotel_price_max_age_days", 10)),
         flight_insight_days=int(raw.get("flight_insight_days", 7)),
+        hotel_windows_per_trip=_opt_int(raw.get("hotel_windows_per_trip")),
+        hotel_recheck_days=int(raw.get("hotel_recheck_days", 0)),
         max_drive_hours=float(raw.get("max_drive_hours", 6.0)),
         booking_window_months=_parse_window(raw.get("booking_window_months")),
         google_flights_enabled=bool(raw.get("google_flights_enabled", True)),

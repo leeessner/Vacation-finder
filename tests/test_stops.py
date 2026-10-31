@@ -205,3 +205,22 @@ def test_first_look_skips_a_slot_already_priced_today(tmp_path):
     entries = {look[0]: {"checked_on": TODAY.isoformat(), "quote": {"property_name": "x"}}}
     book = LodgingBook.plan(config, TODAY, allowance=1, entries=entries, priority=look)
     assert look[0] not in book.refresh
+
+
+def test_weekly_hotels_price_the_first_window_and_wait_a_week(tmp_path):
+    from dataclasses import replace
+    from datetime import timedelta
+
+    from vacation_finder.lodging import LodgingBook, slot_key
+
+    trips = load(tmp_path).trips
+    settings = replace(SETTINGS, hotel_windows_per_trip=1, hotel_recheck_days=7)
+    config = Config(settings=settings, trips=trips)
+    slots = lodging_slots(config, TODAY)
+    assert len([s for s in slots if s[0].id == "spain"]) == 2     # Barcelona + Madrid, once
+
+    keys = [slot_key(t.id, d.lodging_query, a, b) for t, d, a, b in slots]
+    six_days = {k: {"checked_on": (TODAY - timedelta(days=6)).isoformat(), "quote": None} for k in keys}
+    assert LodgingBook.plan(config, TODAY, allowance=20, entries=six_days).refresh == set()
+    week = {k: {"checked_on": (TODAY - timedelta(days=7)).isoformat(), "quote": None} for k in keys}
+    assert LodgingBook.plan(config, TODAY, allowance=20, entries=week).refresh == set(keys)
