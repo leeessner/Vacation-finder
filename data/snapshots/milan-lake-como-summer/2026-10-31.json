@@ -1,6 +1,6 @@
 {
   "trip_id": "milan-lake-como-summer",
-  "captured_at": "2026-10-31T13:17:42.290822+00:00",
+  "captured_at": "2026-10-31T13:22:36.316000+00:00",
   "queries_made": 3,
   "errors": [],
   "quotes": [
@@ -99,33 +99,17 @@
       "return_date": "2027-07-17",
       "nights": 9,
       "currency": "USD",
-      "flight": {
-        "origin": "STL",
-        "destination": "MXP",
-        "depart_date": "2027-07-08",
-        "return_date": "2027-07-17",
-        "total_price": 7446.0,
-        "currency": "USD",
-        "carriers": [
-          "American",
-          "Condor"
-        ],
-        "stops_out": null,
-        "stops_back": null,
-        "source": "google_flights_extra_stop",
-        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20MXP%20from%20STL%20on%202027-07-08%20through%202027-07-17"
-      },
+      "flight": null,
       "lodging": null,
       "ground_cost": 2600.0,
       "ground_notes": "Plan's fixed costs: Last Supper, museums, trains, ferries, food",
       "travel_mode": "air",
       "flights_expected": true,
-      "flight_cost": 7446.0,
+      "flight_cost": 0.0,
       "lodging_cost": 0.0,
-      "total_cost": 10046.0,
+      "total_cost": 2600.0,
       "is_complete": false,
       "notes": [
-        "airfare allows one more stop than your limit \u2014 none was found within it",
         "no lodging price yet for Milan, Italy, Varenna, Italy"
       ]
     }

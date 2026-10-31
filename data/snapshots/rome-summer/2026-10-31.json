@@ -1,6 +1,6 @@
 {
   "trip_id": "rome-summer",
-  "captured_at": "2026-10-31T13:17:39.889232+00:00",
+  "captured_at": "2026-10-31T13:22:33.802762+00:00",
   "queries_made": 3,
   "errors": [],
   "quotes": [
@@ -67,7 +67,7 @@
         "destination": "FCO",
         "depart_date": "2027-06-23",
         "return_date": "2027-06-30",
-        "total_price": 7749.0,
+        "total_price": 7752.0,
         "currency": "USD",
         "carriers": [
           "American"
@@ -82,9 +82,9 @@
       "ground_notes": "Plan's fixed costs: Vatican, Borghese, Colosseum, Ostia, taxis, food",
       "travel_mode": "air",
       "flights_expected": true,
-      "flight_cost": 7749.0,
+      "flight_cost": 7752.0,
       "lodging_cost": 0.0,
-      "total_cost": 9999.0,
+      "total_cost": 10002.0,
       "is_complete": false,
       "notes": [
         "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)"

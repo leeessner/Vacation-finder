@@ -42,7 +42,7 @@
         "total_price": 1814.0
       }
     },
-    "florence-tuscany-summer|Fiesole, Florence, Italy|2027-06-05|2027-06-10": {
+    "florence-tuscany-summer|Fiesole, Tuscany, Italy|2027-06-05|2027-06-10": {
       "checked_on": "2026-10-31",
       "note": "no Fattoria di Maiano within 3 mi met the rules for these dates",
       "quote": {
@@ -50,20 +50,20 @@
         "check_in": "2027-06-05",
         "check_out": "2027-06-10",
         "currency": "USD",
-        "deep_link": "https://www.google.com/travel/search?q=a%26o%20Hostel%20Firenze%20Campo%20Di%20Marte%20Fiesole%2C%20Florence%2C%20Italy&checkin=2027-06-05&checkout=2027-06-10",
-        "destination": "Fiesole, Florence, Italy",
-        "distance_miles": 2.2,
+        "deep_link": "https://www.google.com/travel/search?q=Chez%20Moi%20B%26B%20Fiesole%2C%20Tuscany%2C%20Italy&checkin=2027-06-05&checkout=2027-06-10",
+        "destination": "Fiesole, Tuscany, Italy",
+        "distance_miles": 1.8,
         "nights": 5,
-        "property_id": "ChkI14v66N_u9c9NGg0vZy8xMXZ5cDRrNTN6EAE",
-        "property_name": "a&o Hostel Firenze Campo Di Marte",
-        "rating": 4.2,
+        "property_id": "ChgIpdbw3-Kfx-rPARoLL2cvMXRkbXhyZ24QAQ",
+        "property_name": "Chez Moi B&B",
+        "rating": 4.3,
         "refundable": null,
         "source": "google_hotels",
         "stars": 3.0,
-        "total_price": 1010.0
+        "total_price": 1882.0
       }
     },
-    "florence-tuscany-summer|Fiesole, Florence, Italy|2027-06-22|2027-06-27": {
+    "florence-tuscany-summer|Fiesole, Tuscany, Italy|2027-06-22|2027-06-27": {
       "checked_on": "2026-10-31",
       "note": "no Fattoria di Maiano within 3 mi met the rules for these dates",
       "quote": {
@@ -71,20 +71,20 @@
         "check_in": "2027-06-22",
         "check_out": "2027-06-27",
         "currency": "USD",
-        "deep_link": "https://www.google.com/travel/search?q=a%26o%20Hostel%20Firenze%20Campo%20Di%20Marte%20Fiesole%2C%20Florence%2C%20Italy&checkin=2027-06-22&checkout=2027-06-27",
-        "destination": "Fiesole, Florence, Italy",
-        "distance_miles": 2.2,
+        "deep_link": "https://www.google.com/travel/search?q=Villa%20la%20Stella%20-%20Casa%20per%20Ferie%20Fiesole%2C%20Tuscany%2C%20Italy&checkin=2027-06-22&checkout=2027-06-27",
+        "destination": "Fiesole, Tuscany, Italy",
+        "distance_miles": 1.0,
         "nights": 5,
-        "property_id": "ChkI14v66N_u9c9NGg0vZy8xMXZ5cDRrNTN6EAE",
-        "property_name": "a&o Hostel Firenze Campo Di Marte",
-        "rating": 4.2,
+        "property_id": "ChcIz6bhjM_1recUGgsvZy8xdjM4N2c4bBAB",
+        "property_name": "Villa la Stella - Casa per Ferie",
+        "rating": 4.1,
         "refundable": null,
         "source": "google_hotels",
         "stars": 3.0,
-        "total_price": 1180.0
+        "total_price": 1578.0
       }
     },
-    "florence-tuscany-summer|Fiesole, Florence, Italy|2027-07-09|2027-07-14": {
+    "florence-tuscany-summer|Fiesole, Tuscany, Italy|2027-07-09|2027-07-14": {
       "checked_on": "2026-10-31",
       "note": "no Fattoria di Maiano within 3 mi met the rules for these dates",
       "quote": {
@@ -92,17 +92,17 @@
         "check_in": "2027-07-09",
         "check_out": "2027-07-14",
         "currency": "USD",
-        "deep_link": "https://www.google.com/travel/search?q=Hostel%207%20Santi%20Fiesole%2C%20Florence%2C%20Italy&checkin=2027-07-09&checkout=2027-07-14",
-        "destination": "Fiesole, Florence, Italy",
-        "distance_miles": 1.9,
+        "deep_link": "https://www.google.com/travel/search?q=Villa%20la%20Stella%20-%20Casa%20per%20Ferie%20Fiesole%2C%20Tuscany%2C%20Italy&checkin=2027-07-09&checkout=2027-07-14",
+        "destination": "Fiesole, Tuscany, Italy",
+        "distance_miles": 1.0,
         "nights": 5,
-        "property_id": "ChcIz8zP9Pfik_wIGgsvZy8xdG1taGxoZxAB",
-        "property_name": "Hostel 7 Santi",
-        "rating": 4.0,
+        "property_id": "ChcIz6bhjM_1recUGgsvZy8xdjM4N2c4bBAB",
+        "property_name": "Villa la Stella - Casa per Ferie",
+        "rating": 4.1,
         "refundable": null,
         "source": "google_hotels",
         "stars": 3.0,
-        "total_price": 1048.0
+        "total_price": 1410.0
       }
     },
     "florence-tuscany-summer|Siena, Italy|2027-06-10|2027-06-13": {
@@ -672,6 +672,27 @@
         "total_price": 462.0
       }
     },
+    "portugal-azores-summer|Lagos, Portugal|2027-06-28|2027-07-01": {
+      "checked_on": "2026-10-31",
+      "note": "",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-06-28",
+        "check_out": "2027-07-01",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=Cosy%20Refurbished%203%20Bedroom%20Vila%20in%20a%20Quiet%20Area%202km%20From%20Town%20Center%20Lagos%2C%20Portugal&checkin=2027-06-28&checkout=2027-07-01",
+        "destination": "Lagos, Portugal",
+        "distance_miles": 2.0,
+        "nights": 3,
+        "property_id": "ChoQoPTFpJnjq9jEARoNL2cvMTF3cF8xcnoyehAC",
+        "property_name": "Cosy Refurbished 3 Bedroom Vila in a Quiet Area 2km From Town Center",
+        "rating": 4.5099998,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": null,
+        "total_price": 515.0
+      }
+    },
     "portugal-azores-summer|Lisbon, Portugal|2027-06-08|2027-06-12": {
       "checked_on": "2026-10-31",
       "note": "",
@@ -693,6 +714,27 @@
         "total_price": 502.0
       }
     },
+    "portugal-azores-summer|Lisbon, Portugal|2027-06-24|2027-06-28": {
+      "checked_on": "2026-10-31",
+      "note": "",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-06-24",
+        "check_out": "2027-06-28",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=Apartment%20/%20flat%20-%20Lisbon%20-%20Lisbon%2C%20Portugal&checkin=2027-06-24&checkout=2027-06-28",
+        "destination": "Lisbon, Portugal",
+        "distance_miles": 0.5,
+        "nights": 4,
+        "property_id": "ChoQiNqi_Or328uWARoNL2cvMTFzc2djbDV0NBAC",
+        "property_name": "Apartment / flat - Lisbon -",
+        "rating": 4.902991,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": null,
+        "total_price": 568.0
+      }
+    },
     "portugal-azores-summer|Porto, Portugal|2027-06-05|2027-06-08": {
       "checked_on": "2026-10-31",
       "note": "",
@@ -712,6 +754,48 @@
         "source": "google_hotels",
         "stars": null,
         "total_price": 404.0
+      }
+    },
+    "portugal-azores-summer|Porto, Portugal|2027-06-21|2027-06-24": {
+      "checked_on": "2026-10-31",
+      "note": "",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-06-21",
+        "check_out": "2027-06-24",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=OPO-APT%20110-1%20Deco%20apartment%20in%20city%20center.%20Peacefull%2C%20pratiical%2C%20near%20all%21%20Porto%2C%20Portugal&checkin=2027-06-21&checkout=2027-06-24",
+        "destination": "Porto, Portugal",
+        "distance_miles": 1.3,
+        "nights": 3,
+        "property_id": "ChkQ1Jmmp5Kr1aBTGg0vZy8xMXZ5dnM4bnB2EAI",
+        "property_name": "OPO-APT 110-1 Deco apartment in city center. Peacefull, pratiical, near all!",
+        "rating": 4.6097503,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": null,
+        "total_price": 468.0
+      }
+    },
+    "portugal-azores-summer|Porto, Portugal|2027-07-07|2027-07-10": {
+      "checked_on": "2026-10-31",
+      "note": "",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-07-07",
+        "check_out": "2027-07-10",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=OPO-APT%20110-1%20Deco%20apartment%20in%20city%20center.%20Peacefull%2C%20pratiical%2C%20near%20all%21%20Porto%2C%20Portugal&checkin=2027-07-07&checkout=2027-07-10",
+        "destination": "Porto, Portugal",
+        "distance_miles": 1.3,
+        "nights": 3,
+        "property_id": "ChkQ1Jmmp5Kr1aBTGg0vZy8xMXZ5dnM4bnB2EAI",
+        "property_name": "OPO-APT 110-1 Deco apartment in city center. Peacefull, pratiical, near all!",
+        "rating": 4.6097503,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": null,
+        "total_price": 469.0
       }
     },
     "rome-summer|Rome, Italy|2027-06-05|2027-06-12": {

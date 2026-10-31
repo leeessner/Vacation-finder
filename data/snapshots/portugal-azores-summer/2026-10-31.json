@@ -1,7 +1,7 @@
 {
   "trip_id": "portugal-azores-summer",
-  "captured_at": "2026-10-31T13:17:20.586319+00:00",
-  "queries_made": 6,
+  "captured_at": "2026-10-31T13:22:11.160596+00:00",
+  "queries_made": 7,
   "errors": [],
   "quotes": [
     {
@@ -61,18 +61,32 @@
       "nights": 10,
       "currency": "USD",
       "flight": null,
-      "lodging": null,
+      "lodging": {
+        "destination": "OPO \u2192 LIS \u2192 FAO",
+        "check_in": "2027-06-21",
+        "check_out": "2027-07-01",
+        "property_name": "OPO-APT 110-1 Deco apartment in city center. Peacefull, pratiical, near all! (3n) + Apartment / flat - Lisbon - (4n) + Cosy Refurbished 3 Bedroom Vila in a Quiet Area 2km From Town Center (3n)",
+        "total_price": 1551.0,
+        "currency": "USD",
+        "property_id": "",
+        "nights": 10,
+        "rating": 4.5099998,
+        "stars": null,
+        "board_type": "",
+        "refundable": null,
+        "source": "google_hotels",
+        "deep_link": "",
+        "distance_miles": null
+      },
       "ground_cost": 3150.0,
       "ground_notes": "Plan's fixed costs: port cellar, trains, Sintra, Algarve car, food",
       "travel_mode": "air",
       "flights_expected": true,
       "flight_cost": 0.0,
-      "lodging_cost": 0.0,
-      "total_cost": 3150.0,
+      "lodging_cost": 1551.0,
+      "total_cost": 4701.0,
       "is_complete": false,
-      "notes": [
-        "no lodging price yet for Porto, Portugal, Lisbon, Portugal, Lagos, Portugal"
-      ]
+      "notes": []
     },
     {
       "trip_id": "portugal-azores-summer",
@@ -92,7 +106,7 @@
       "total_cost": 3150.0,
       "is_complete": false,
       "notes": [
-        "no lodging price yet for Porto, Portugal, Lisbon, Portugal, Lagos, Portugal"
+        "no lodging price yet for Lisbon, Portugal, Lagos, Portugal"
       ]
     }
   ]
