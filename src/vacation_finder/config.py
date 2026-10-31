@@ -142,6 +142,9 @@ class LodgingPrefs:
     # Each costs one extra search per check; when one qualifies, it is the
     # tracked price and the cheapest alternative is noted beside it.
     prefer: tuple[str, ...] = ()
+    # Words a property's name must not contain ("hostel"): Google rates
+    # some hostels 3-star, so the star floor alone lets them through.
+    avoid: tuple[str, ...] = ()
 
 
 @dataclass(frozen=True)
@@ -383,6 +386,7 @@ def _parse_lodging(lodging_raw: dict, where: str) -> LodgingPrefs:
         board=str(lodging_raw.get("board", "")),
         property_names=tuple(str(p) for p in lodging_raw.get("properties", []) or []),
         prefer=tuple(str(p).strip() for p in lodging_raw.get("prefer", []) or [] if str(p).strip()),
+        avoid=tuple(str(p).strip() for p in lodging_raw.get("avoid", ["hostel"]) or [] if str(p).strip()),
     )
 
 

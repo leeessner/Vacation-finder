@@ -135,6 +135,29 @@ def test_hotel_search_ignores_rentals_mixed_into_results():
     assert quote.property_name == "Inn"
 
 
+def test_avoided_words_rule_out_a_property_whatever_its_stars():
+    quote = price(
+        [prop("a&o Hostel Firenze", stay=1000, stars=3), prop("Villa Fiesole", stay=1800, stars=3)],
+        rooms=1, min_stars=3, avoid=("hostel",),
+    )
+    assert quote.property_name == "Villa Fiesole"
+
+
+def test_hostels_are_avoided_unless_a_trip_says_otherwise(tmp_path):
+    from vacation_finder.config import load_config
+
+    path = tmp_path / "trips.yaml"
+    path.write_text(
+        "settings:\n  home_airports: [STL]\n"
+        "trips:\n  - id: a\n    name: A\n    destinations: [FLR]\n"
+        "    dates: {mode: window, earliest: 2027-06-05, latest: 2027-06-30, nights: 5}\n"
+        "  - id: b\n    name: B\n    destinations: [FLR]\n    lodging: {avoid: []}\n"
+        "    dates: {mode: window, earliest: 2027-06-05, latest: 2027-06-30, nights: 5}\n"
+    )
+    a, b = load_config(path).trips
+    assert a.lodging.avoid == ("hostel",) and b.lodging.avoid == ()
+
+
 def test_no_properties_returns_none():
     assert price([]) is None
 

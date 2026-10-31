@@ -316,7 +316,7 @@ trips:
         # cheapest alternative noted beside it.
         # Second run: without a star floor the cheapest was a hostel, and the
         # farm itself didn't appear. 3-star minimum; the farm stays preferred.
-        hotel_query: "Fiesole, Florence, Italy"
+        hotel_query: "Fiesole, Tuscany, Italy"   # changed again so the rerun searches afresh
         center: [43.8066, 11.2936]   # Fiesole; 3 mi reaches Maiano and the edge of Florence
         within_miles: 3
         lodging: {prefer: ["Fattoria di Maiano"], min_stars: 3}
