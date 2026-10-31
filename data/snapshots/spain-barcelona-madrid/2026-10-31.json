@@ -1,6 +1,6 @@
 {
   "trip_id": "spain-barcelona-madrid",
-  "captured_at": "2026-10-31T13:21:42.429246+00:00",
+  "captured_at": "2026-10-31T13:47:24.534194+00:00",
   "queries_made": 3,
   "errors": [],
   "quotes": [
@@ -14,15 +14,41 @@
       "flight": {
         "origin": "STL",
         "destination": "BCN",
-        "depart_date": "2027-06-05",
+        "depart_date": "2027-06-04",
         "return_date": "2027-06-15",
-        "total_price": 7615.0,
+        "total_price": 7728.0,
         "currency": "USD",
         "carriers": [],
         "stops_out": null,
         "stops_back": null,
         "source": "google_flights_weekly",
-        "deep_link": ""
+        "deep_link": "",
+        "outbound": [
+          {
+            "from": "STL",
+            "from_name": "St. Louis Lambert International Airport",
+            "to": "LGA",
+            "to_name": "LaGuardia Airport",
+            "depart": "2027-06-04T09:23",
+            "arrive": "2027-06-04T12:55",
+            "minutes": 152,
+            "airline": "American",
+            "flight": "AA 4508",
+            "plane": "Embraer 175"
+          },
+          {
+            "from": "JFK",
+            "from_name": "John F. Kennedy International Airport",
+            "to": "BCN",
+            "to_name": "Josep Tarradellas Barcelona-El Prat Airport",
+            "depart": "2027-06-04T17:55",
+            "arrive": "2027-06-05T07:35",
+            "minutes": 460,
+            "airline": "American",
+            "flight": "AA 66",
+            "plane": "Boeing 777"
+          }
+        ]
       },
       "lodging": {
         "destination": "BCN \u2192 MAD",
@@ -45,9 +71,9 @@
       "ground_notes": "Plan's fixed costs: tickets, AVE and Segovia trains, transit, food",
       "travel_mode": "air",
       "flights_expected": true,
-      "flight_cost": 7615.0,
+      "flight_cost": 7728.0,
       "lodging_cost": 2947.0,
-      "total_cost": 13712.0,
+      "total_cost": 13825.0,
       "is_complete": true,
       "notes": [
         "airfare from this week's Google Flights check (the free daily check found none for this route)"

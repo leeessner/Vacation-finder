@@ -1,6 +1,6 @@
 {
   "trip_id": "paris-versailles",
-  "captured_at": "2026-10-31T13:21:48.272742+00:00",
+  "captured_at": "2026-10-31T13:47:30.960507+00:00",
   "queries_made": 3,
   "errors": [],
   "quotes": [
@@ -14,17 +14,43 @@
       "flight": {
         "origin": "STL",
         "destination": "CDG",
-        "depart_date": "2027-06-05",
+        "depart_date": "2027-06-04",
         "return_date": "2027-06-14",
-        "total_price": 8619.0,
+        "total_price": 8640.0,
         "currency": "USD",
         "carriers": [
-          "United"
+          "Air Canada"
         ],
-        "stops_out": null,
+        "stops_out": 1,
         "stops_back": null,
         "source": "google_flights_scaled",
-        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20CDG%20from%20STL%20on%202027-06-05%20through%202027-06-14"
+        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20CDG%20from%20STL%20on%202027-06-04%20through%202027-06-14",
+        "outbound": [
+          {
+            "from": "STL",
+            "from_name": "St. Louis Lambert International Airport",
+            "to": "YYZ",
+            "to_name": "Toronto Pearson International Airport",
+            "depart": "2027-06-04T08:15",
+            "arrive": "2027-06-04T11:13",
+            "minutes": 118,
+            "airline": "",
+            "flight": "",
+            "plane": "Canadair RJ 900"
+          },
+          {
+            "from": "YYZ",
+            "from_name": "Toronto Pearson International Airport",
+            "to": "CDG",
+            "to_name": "A\u00e9roport de Paris-Charles de Gaulle",
+            "depart": "2027-06-04T20:30",
+            "arrive": "2027-06-05T10:00",
+            "minutes": 450,
+            "airline": "",
+            "flight": "",
+            "plane": "Boeing 777"
+          }
+        ]
       },
       "lodging": {
         "destination": "CDG \u2192 SXB",
@@ -47,9 +73,9 @@
       "ground_notes": "Plan's fixed costs: tickets, Disneyland day, TGV, transit, food",
       "travel_mode": "air",
       "flights_expected": true,
-      "flight_cost": 8619.0,
+      "flight_cost": 8640.0,
       "lodging_cost": 2488.0,
-      "total_cost": 15357.0,
+      "total_cost": 15378.0,
       "is_complete": true,
       "notes": [
         "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)"
@@ -65,17 +91,43 @@
       "flight": {
         "origin": "STL",
         "destination": "CDG",
-        "depart_date": "2027-06-21",
+        "depart_date": "2027-06-20",
         "return_date": "2027-06-30",
         "total_price": 7641.0,
         "currency": "USD",
         "carriers": [
           "Delta"
         ],
-        "stops_out": null,
+        "stops_out": 1,
         "stops_back": null,
         "source": "google_flights_scaled",
-        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20CDG%20from%20STL%20on%202027-06-21%20through%202027-06-30"
+        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20CDG%20from%20STL%20on%202027-06-20%20through%202027-06-30",
+        "outbound": [
+          {
+            "from": "STL",
+            "from_name": "St. Louis Lambert International Airport",
+            "to": "DTW",
+            "to_name": "Detroit Metropolitan Wayne County Airport",
+            "depart": "2027-06-20T10:45",
+            "arrive": "2027-06-20T13:15",
+            "minutes": 90,
+            "airline": "",
+            "flight": "",
+            "plane": "Boeing 717"
+          },
+          {
+            "from": "DTW",
+            "from_name": "Detroit Metropolitan Wayne County Airport",
+            "to": "CDG",
+            "to_name": "A\u00e9roport de Paris-Charles de Gaulle",
+            "depart": "2027-06-20T17:10",
+            "arrive": "2027-06-21T06:45",
+            "minutes": 455,
+            "airline": "",
+            "flight": "",
+            "plane": "Airbus A330"
+          }
+        ]
       },
       "lodging": {
         "destination": "CDG \u2192 SXB",
@@ -116,17 +168,43 @@
       "flight": {
         "origin": "STL",
         "destination": "CDG",
-        "depart_date": "2027-07-08",
+        "depart_date": "2027-07-07",
         "return_date": "2027-07-17",
-        "total_price": 8613.0,
+        "total_price": 7473.0,
         "currency": "USD",
         "carriers": [
-          "Air Canada"
+          "Icelandair"
         ],
-        "stops_out": null,
+        "stops_out": 1,
         "stops_back": null,
         "source": "google_flights_scaled",
-        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20CDG%20from%20STL%20on%202027-07-08%20through%202027-07-17"
+        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20CDG%20from%20STL%20on%202027-07-07%20through%202027-07-17",
+        "outbound": [
+          {
+            "from": "STL",
+            "from_name": "St. Louis Lambert International Airport",
+            "to": "KEF",
+            "to_name": "Keflav\u00edk International Airport",
+            "depart": "2027-07-07T20:45",
+            "arrive": "2027-07-08T08:20",
+            "minutes": 395,
+            "airline": "",
+            "flight": "",
+            "plane": "Boeing 737MAX 8 Passenger"
+          },
+          {
+            "from": "KEF",
+            "from_name": "Keflav\u00edk International Airport",
+            "to": "CDG",
+            "to_name": "A\u00e9roport de Paris-Charles de Gaulle",
+            "depart": "2027-07-08T10:50",
+            "arrive": "2027-07-08T16:15",
+            "minutes": 205,
+            "airline": "",
+            "flight": "",
+            "plane": "Airbus A320neo"
+          }
+        ]
       },
       "lodging": {
         "destination": "CDG \u2192 SXB",
@@ -149,9 +227,9 @@
       "ground_notes": "Plan's fixed costs: tickets, Disneyland day, TGV, transit, food",
       "travel_mode": "air",
       "flights_expected": true,
-      "flight_cost": 8613.0,
+      "flight_cost": 7473.0,
       "lodging_cost": 2493.0,
-      "total_cost": 15356.0,
+      "total_cost": 14216.0,
       "is_complete": true,
       "notes": [
         "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)"

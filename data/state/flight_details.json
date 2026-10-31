@@ -1,0 +1,646 @@
+{
+  "austria-bavaria-summer": {
+    "arrive_at": "MUC",
+    "basis": "The cheapest fare for all 6 travellers on Oct 31 once one more stop than your limit was allowed; none was found within it.",
+    "carriers": [
+      "Southwest",
+      "Condor"
+    ],
+    "check_in": "2027-06-05",
+    "check_out": "2027-06-15",
+    "checked_on": "2026-10-31",
+    "currency": "USD",
+    "depart_date": "2027-06-04",
+    "home_from": "MUC",
+    "inbound": [],
+    "inbound_airlines": [],
+    "origin": "STL",
+    "outbound": [
+      {
+        "airline": "",
+        "arrive": "2027-06-04T13:35",
+        "depart": "2027-06-04T10:00",
+        "flight": "",
+        "from": "STL",
+        "from_name": "St. Louis Lambert International Airport",
+        "minutes": 155,
+        "plane": "Boeing 737MAX 8 Passenger",
+        "to": "BOS",
+        "to_name": "Boston Logan International Airport"
+      },
+      {
+        "airline": "",
+        "arrive": "2027-06-05T05:45",
+        "depart": "2027-06-04T16:30",
+        "flight": "",
+        "from": "BOS",
+        "from_name": "Boston Logan International Airport",
+        "minutes": 435,
+        "plane": "Airbus A330-900neo",
+        "to": "FRA",
+        "to_name": "Frankfurt Airport"
+      },
+      {
+        "airline": "",
+        "arrive": "2027-06-05T08:10",
+        "depart": "2027-06-05T07:10",
+        "flight": "",
+        "from": "FRA",
+        "from_name": "Frankfurt Airport",
+        "minutes": 60,
+        "plane": "Airbus A320",
+        "to": "MUC",
+        "to_name": "Munich International Airport"
+      }
+    ],
+    "price": 7344.0,
+    "return_date": "2027-06-15",
+    "source": "google_flights_extra_stop"
+  },
+  "belgium-summer": {
+    "arrive_at": "BRU",
+    "basis": "Google Flights' lowest price for all 6 travellers for these dates, from the weekly check (one paid search a week) on Oct 31, because the free daily check found no fares for this route. Google rated it low against a typical range of $7,400\u2013$16,500.",
+    "carriers": [],
+    "check_in": "2027-06-05",
+    "check_out": "2027-06-14",
+    "checked_on": "2026-10-31",
+    "currency": "USD",
+    "depart_date": "2027-06-04",
+    "home_from": "BRU",
+    "inbound": [],
+    "inbound_airlines": [],
+    "origin": "STL",
+    "outbound": [
+      {
+        "airline": "Icelandair",
+        "arrive": "2027-06-05T08:20",
+        "depart": "2027-06-04T20:45",
+        "flight": "FI 834",
+        "from": "STL",
+        "from_name": "St. Louis Lambert International Airport",
+        "minutes": 395,
+        "plane": "Boeing 737MAX 8 Passenger",
+        "to": "KEF",
+        "to_name": "Keflav\u00edk International Airport"
+      },
+      {
+        "airline": "Icelandair",
+        "arrive": "2027-06-06T12:55",
+        "depart": "2027-06-06T07:35",
+        "flight": "FI 554",
+        "from": "KEF",
+        "from_name": "Keflav\u00edk International Airport",
+        "minutes": 200,
+        "plane": "Airbus A320",
+        "to": "BRU",
+        "to_name": "Brussels Airport"
+      }
+    ],
+    "price": 6167.0,
+    "return_date": "2027-06-14",
+    "source": "google_flights_weekly"
+  },
+  "florence-tuscany-summer": {
+    "arrive_at": "FLR",
+    "basis": "Google Flights' lowest price for all 6 travellers for these dates, from the weekly check (one paid search a week) on Oct 31, because the free daily check found no fares for this route.",
+    "carriers": [],
+    "check_in": "2027-06-05",
+    "check_out": "2027-06-13",
+    "checked_on": "2026-10-31",
+    "currency": "USD",
+    "depart_date": "2027-06-04",
+    "home_from": "FCO",
+    "inbound": [
+      {
+        "airline": "",
+        "arrive": "2027-06-13T22:35",
+        "depart": "2027-06-13T21:00",
+        "flight": "",
+        "from": "FCO",
+        "from_name": "Leonardo da Vinci International Airport",
+        "minutes": 155,
+        "plane": "Airbus A320",
+        "to": "LHR",
+        "to_name": "Heathrow Airport"
+      },
+      {
+        "airline": "",
+        "arrive": "2027-06-14T17:00",
+        "depart": "2027-06-14T14:00",
+        "flight": "",
+        "from": "LHR",
+        "from_name": "Heathrow Airport",
+        "minutes": 540,
+        "plane": "Boeing 787",
+        "to": "STL",
+        "to_name": "St. Louis Lambert International Airport"
+      }
+    ],
+    "inbound_airlines": [
+      "British Airways"
+    ],
+    "origin": "STL",
+    "outbound": [
+      {
+        "airline": "British Airways",
+        "arrive": "2027-06-05T11:35",
+        "depart": "2027-06-04T21:35",
+        "flight": "BA 220",
+        "from": "STL",
+        "from_name": "St. Louis Lambert International Airport",
+        "minutes": 480,
+        "plane": "Boeing 787",
+        "to": "LHR",
+        "to_name": "Heathrow Airport"
+      },
+      {
+        "airline": "British Airways",
+        "arrive": "2027-06-05T22:20",
+        "depart": "2027-06-05T19:05",
+        "flight": "BA 522",
+        "from": "LHR",
+        "from_name": "Heathrow Airport",
+        "minutes": 135,
+        "plane": "Airbus A320neo",
+        "to": "FLR",
+        "to_name": "Amerigo Vespucci Airport"
+      }
+    ],
+    "price": 8140.0,
+    "return_date": "2027-06-13",
+    "source": "google_flights_weekly"
+  },
+  "greece-summer": {
+    "arrive_at": "ATH",
+    "basis": "An estimate. Google Flights' first page on Oct 31 showed no fares for 6 travellers, which is common for big parties on long-haul routes. So the tracker priced a smaller party (at most 1 stop(s) each way) and multiplied that per-person fare by 6. Children's economy fares to Europe are usually close to adult fares, so this is a fair guide, but it doesn't include checked bags.",
+    "carriers": [
+      "Air Canada"
+    ],
+    "check_in": "2027-06-21",
+    "check_out": "2027-07-01",
+    "checked_on": "2026-10-31",
+    "currency": "USD",
+    "depart_date": "2027-06-20",
+    "home_from": "ATH",
+    "inbound": [
+      {
+        "airline": "",
+        "arrive": "2027-07-01T21:55",
+        "depart": "2027-07-01T20:00",
+        "flight": "",
+        "from": "ATH",
+        "from_name": "Athens International Airport \"Eleftherios Venizelos\"",
+        "minutes": 235,
+        "plane": "Airbus A320neo",
+        "to": "LHR",
+        "to_name": "Heathrow Airport"
+      },
+      {
+        "airline": "",
+        "arrive": "2027-07-02T19:30",
+        "depart": "2027-07-02T16:25",
+        "flight": "",
+        "from": "LHR",
+        "from_name": "Heathrow Airport",
+        "minutes": 545,
+        "plane": "Boeing 787",
+        "to": "STL",
+        "to_name": "St. Louis Lambert International Airport"
+      }
+    ],
+    "inbound_airlines": [
+      "British Airways"
+    ],
+    "origin": "STL",
+    "outbound": [
+      {
+        "airline": "",
+        "arrive": "2027-06-20T11:12",
+        "depart": "2027-06-20T08:15",
+        "flight": "",
+        "from": "STL",
+        "from_name": "St. Louis Lambert International Airport",
+        "minutes": 117,
+        "plane": "Canadair RJ 900",
+        "to": "YYZ",
+        "to_name": "Toronto Pearson International Airport"
+      },
+      {
+        "airline": "",
+        "arrive": "2027-06-21T11:10",
+        "depart": "2027-06-20T18:35",
+        "flight": "",
+        "from": "YYZ",
+        "from_name": "Toronto Pearson International Airport",
+        "minutes": 575,
+        "plane": "Boeing 777",
+        "to": "ATH",
+        "to_name": "Athens International Airport \"Eleftherios Venizelos\""
+      }
+    ],
+    "price": 7257.0,
+    "return_date": "2027-07-01",
+    "source": "google_flights_scaled"
+  },
+  "london-summer": {
+    "arrive_at": "LHR",
+    "basis": "Google Flights' lowest price for all 6 travellers for these dates, from the weekly check (one paid search a week) on Oct 31, because the free daily check found no fares for this route.",
+    "carriers": [],
+    "check_in": "2027-06-05",
+    "check_out": "2027-06-14",
+    "checked_on": "2026-10-31",
+    "currency": "USD",
+    "depart_date": "2027-06-04",
+    "home_from": "MAN",
+    "inbound": [],
+    "inbound_airlines": [],
+    "origin": "STL",
+    "outbound": [
+      {
+        "airline": "Icelandair",
+        "arrive": "2027-06-05T08:20",
+        "depart": "2027-06-04T20:45",
+        "flight": "FI 834",
+        "from": "STL",
+        "from_name": "St. Louis Lambert International Airport",
+        "minutes": 395,
+        "plane": "Boeing 737MAX 8 Passenger",
+        "to": "KEF",
+        "to_name": "Keflav\u00edk International Airport"
+      },
+      {
+        "airline": "Icelandair",
+        "arrive": "2027-06-05T20:20",
+        "depart": "2027-06-05T16:10",
+        "flight": "FI 454",
+        "from": "KEF",
+        "from_name": "Keflav\u00edk International Airport",
+        "minutes": 190,
+        "plane": "Airbus A320",
+        "to": "LHR",
+        "to_name": "Heathrow Airport"
+      }
+    ],
+    "price": 7234.0,
+    "return_date": "2027-06-14",
+    "source": "google_flights_weekly"
+  },
+  "milan-lake-como-summer": {
+    "arrive_at": "MXP",
+    "basis": "The cheapest fare for all 6 travellers on Oct 31 once one more stop than your limit was allowed; none was found within it.",
+    "carriers": [
+      "American",
+      "Condor"
+    ],
+    "check_in": "2027-06-05",
+    "check_out": "2027-06-14",
+    "checked_on": "2026-10-31",
+    "currency": "USD",
+    "depart_date": "2027-06-04",
+    "home_from": "MXP",
+    "inbound": [],
+    "inbound_airlines": [],
+    "origin": "STL",
+    "outbound": [
+      {
+        "airline": "",
+        "arrive": "2027-06-04T13:30",
+        "depart": "2027-06-04T09:45",
+        "flight": "",
+        "from": "STL",
+        "from_name": "St. Louis Lambert International Airport",
+        "minutes": 165,
+        "plane": "Embraer 175",
+        "to": "BOS",
+        "to_name": "Boston Logan International Airport"
+      },
+      {
+        "airline": "",
+        "arrive": "2027-06-05T05:45",
+        "depart": "2027-06-04T16:30",
+        "flight": "",
+        "from": "BOS",
+        "from_name": "Boston Logan International Airport",
+        "minutes": 435,
+        "plane": "Airbus A330-900neo",
+        "to": "FRA",
+        "to_name": "Frankfurt Airport"
+      },
+      {
+        "airline": "",
+        "arrive": "2027-06-05T11:00",
+        "depart": "2027-06-05T09:40",
+        "flight": "",
+        "from": "FRA",
+        "from_name": "Frankfurt Airport",
+        "minutes": 80,
+        "plane": "Embraer 190",
+        "to": "MXP",
+        "to_name": "Milano Malpensa Airport"
+      }
+    ],
+    "price": 6780.0,
+    "return_date": "2027-06-14",
+    "source": "google_flights_extra_stop"
+  },
+  "nice-riviera": {
+    "arrive_at": "NCE",
+    "basis": "Google Flights' lowest price for all 6 travellers for these dates, from the weekly check (one paid search a week) on Oct 31, because the free daily check found no fares for this route. Google rated it typical against a typical range of $8,000\u2013$11,500.",
+    "carriers": [],
+    "check_in": "2027-06-05",
+    "check_out": "2027-06-14",
+    "checked_on": "2026-10-31",
+    "currency": "USD",
+    "depart_date": "2027-06-04",
+    "home_from": "NCE",
+    "inbound": [],
+    "inbound_airlines": [],
+    "origin": "STL",
+    "outbound": [
+      {
+        "airline": "American",
+        "arrive": "2027-06-04T09:39",
+        "depart": "2027-06-04T06:16",
+        "flight": "AA 1308",
+        "from": "STL",
+        "from_name": "St. Louis Lambert International Airport",
+        "minutes": 143,
+        "plane": "Airbus A319",
+        "to": "PHL",
+        "to_name": "Philadelphia International Airport"
+      },
+      {
+        "airline": "American",
+        "arrive": "2027-06-05T08:10",
+        "depart": "2027-06-04T18:15",
+        "flight": "AA 746",
+        "from": "PHL",
+        "from_name": "Philadelphia International Airport",
+        "minutes": 475,
+        "plane": "Boeing 787",
+        "to": "NCE",
+        "to_name": "Nice C\u00f4te d'Azur Airport"
+      }
+    ],
+    "price": 8504.0,
+    "return_date": "2027-06-14",
+    "source": "google_flights_weekly"
+  },
+  "paris-versailles": {
+    "arrive_at": "CDG",
+    "basis": "An estimate. Google Flights' first page on Oct 31 showed no fares for 6 travellers, which is common for big parties on long-haul routes. So the tracker priced a smaller party (at most 1 stop(s) each way) and multiplied that per-person fare by 6. Children's economy fares to Europe are usually close to adult fares, so this is a fair guide, but it doesn't include checked bags.",
+    "carriers": [
+      "Icelandair"
+    ],
+    "check_in": "2027-07-08",
+    "check_out": "2027-07-17",
+    "checked_on": "2026-10-31",
+    "currency": "USD",
+    "depart_date": "2027-07-07",
+    "home_from": "CDG",
+    "inbound": [
+      {
+        "airline": "",
+        "arrive": "2027-07-17T13:20",
+        "depart": "2027-07-17T11:00",
+        "flight": "",
+        "from": "CDG",
+        "from_name": "A\u00e9roport de Paris-Charles de Gaulle",
+        "minutes": 500,
+        "plane": "Boeing 777",
+        "to": "JFK",
+        "to_name": "John F. Kennedy International Airport"
+      },
+      {
+        "airline": "",
+        "arrive": "2027-07-17T20:55",
+        "depart": "2027-07-17T18:59",
+        "flight": "",
+        "from": "LGA",
+        "from_name": "LaGuardia Airport",
+        "minutes": 176,
+        "plane": "Embraer 175",
+        "to": "STL",
+        "to_name": "St. Louis Lambert International Airport"
+      }
+    ],
+    "inbound_airlines": [
+      "American"
+    ],
+    "origin": "STL",
+    "outbound": [
+      {
+        "airline": "",
+        "arrive": "2027-07-08T08:20",
+        "depart": "2027-07-07T20:45",
+        "flight": "",
+        "from": "STL",
+        "from_name": "St. Louis Lambert International Airport",
+        "minutes": 395,
+        "plane": "Boeing 737MAX 8 Passenger",
+        "to": "KEF",
+        "to_name": "Keflav\u00edk International Airport"
+      },
+      {
+        "airline": "",
+        "arrive": "2027-07-08T16:15",
+        "depart": "2027-07-08T10:50",
+        "flight": "",
+        "from": "KEF",
+        "from_name": "Keflav\u00edk International Airport",
+        "minutes": 205,
+        "plane": "Airbus A320neo",
+        "to": "CDG",
+        "to_name": "A\u00e9roport de Paris-Charles de Gaulle"
+      }
+    ],
+    "price": 7473.0,
+    "return_date": "2027-07-17",
+    "source": "google_flights_scaled"
+  },
+  "portugal-azores-summer": {
+    "arrive_at": "OPO",
+    "basis": "Google Flights' lowest price for all 6 travellers for these dates, from the weekly check (one paid search a week) on Oct 31, because the free daily check found no fares for this route.",
+    "carriers": [],
+    "check_in": "2027-06-05",
+    "check_out": "2027-06-15",
+    "checked_on": "2026-10-31",
+    "currency": "USD",
+    "depart_date": "2027-06-04",
+    "home_from": "LIS",
+    "inbound": [
+      {
+        "airline": "",
+        "arrive": "2027-06-15T13:55",
+        "depart": "2027-06-15T11:05",
+        "flight": "",
+        "from": "LIS",
+        "from_name": "Humberto Delgado Airport",
+        "minutes": 470,
+        "plane": "Boeing 787",
+        "to": "PHL",
+        "to_name": "Philadelphia International Airport"
+      },
+      {
+        "airline": "",
+        "arrive": "2027-06-15T23:34",
+        "depart": "2027-06-15T21:59",
+        "flight": "",
+        "from": "PHL",
+        "from_name": "Philadelphia International Airport",
+        "minutes": 155,
+        "plane": "Airbus A319",
+        "to": "STL",
+        "to_name": "St. Louis Lambert International Airport"
+      }
+    ],
+    "inbound_airlines": [
+      "American"
+    ],
+    "origin": "STL",
+    "outbound": [
+      {
+        "airline": "United",
+        "arrive": "2027-06-04T15:15",
+        "depart": "2027-06-04T11:45",
+        "flight": "UA 3478",
+        "from": "STL",
+        "from_name": "St. Louis Lambert International Airport",
+        "minutes": 150,
+        "plane": "Embraer 175",
+        "to": "EWR",
+        "to_name": "Newark Liberty International Airport"
+      },
+      {
+        "airline": "United",
+        "arrive": "2027-06-05T06:55",
+        "depart": "2027-06-04T18:50",
+        "flight": "UA 238",
+        "from": "EWR",
+        "from_name": "Newark Liberty International Airport",
+        "minutes": 425,
+        "plane": "Boeing 757",
+        "to": "OPO",
+        "to_name": "Francisco S\u00e1 Carneiro Airport"
+      }
+    ],
+    "price": 7421.0,
+    "return_date": "2027-06-15",
+    "source": "google_flights_weekly"
+  },
+  "rome-summer": {
+    "arrive_at": "FCO",
+    "basis": "An estimate. Google Flights' first page on Oct 31 showed no fares for 6 travellers, which is common for big parties on long-haul routes. So the tracker priced a smaller party (at most 1 stop(s) each way) and multiplied that per-person fare by 6. Children's economy fares to Europe are usually close to adult fares, so this is a fair guide, but it doesn't include checked bags.",
+    "carriers": [
+      "Air Canada"
+    ],
+    "check_in": "2027-07-10",
+    "check_out": "2027-07-17",
+    "checked_on": "2026-10-31",
+    "currency": "USD",
+    "depart_date": "2027-07-09",
+    "home_from": "FCO",
+    "inbound": [
+      {
+        "airline": "",
+        "arrive": "2027-07-17T13:35",
+        "depart": "2027-07-17T09:00",
+        "flight": "",
+        "from": "FCO",
+        "from_name": "Leonardo da Vinci International Airport",
+        "minutes": 635,
+        "plane": "Airbus A330",
+        "to": "DTW",
+        "to_name": "Detroit Metropolitan Wayne County Airport"
+      },
+      {
+        "airline": "",
+        "arrive": "2027-07-17T20:37",
+        "depart": "2027-07-17T19:55",
+        "flight": "",
+        "from": "DTW",
+        "from_name": "Detroit Metropolitan Wayne County Airport",
+        "minutes": 102,
+        "plane": "Boeing 717",
+        "to": "STL",
+        "to_name": "St. Louis Lambert International Airport"
+      }
+    ],
+    "inbound_airlines": [
+      "Delta"
+    ],
+    "origin": "STL",
+    "outbound": [
+      {
+        "airline": "",
+        "arrive": "2027-07-09T11:12",
+        "depart": "2027-07-09T08:15",
+        "flight": "",
+        "from": "STL",
+        "from_name": "St. Louis Lambert International Airport",
+        "minutes": 117,
+        "plane": "Canadair RJ 900",
+        "to": "YYZ",
+        "to_name": "Toronto Pearson International Airport"
+      },
+      {
+        "airline": "",
+        "arrive": "2027-07-10T10:20",
+        "depart": "2027-07-09T20:00",
+        "flight": "",
+        "from": "YYZ",
+        "from_name": "Toronto Pearson International Airport",
+        "minutes": 500,
+        "plane": "Boeing 777",
+        "to": "FCO",
+        "to_name": "Leonardo da Vinci International Airport"
+      }
+    ],
+    "price": 7311.0,
+    "return_date": "2027-07-17",
+    "source": "google_flights_scaled"
+  },
+  "spain-barcelona-madrid": {
+    "arrive_at": "BCN",
+    "basis": "Google Flights' lowest price for all 6 travellers for these dates, from the weekly check (one paid search a week) on Oct 31, because the free daily check found no fares for this route.",
+    "carriers": [],
+    "check_in": "2027-06-05",
+    "check_out": "2027-06-15",
+    "checked_on": "2026-10-31",
+    "currency": "USD",
+    "depart_date": "2027-06-04",
+    "home_from": "MAD",
+    "inbound": [],
+    "inbound_airlines": [],
+    "origin": "STL",
+    "outbound": [
+      {
+        "airline": "American",
+        "arrive": "2027-06-04T12:55",
+        "depart": "2027-06-04T09:23",
+        "flight": "AA 4508",
+        "from": "STL",
+        "from_name": "St. Louis Lambert International Airport",
+        "minutes": 152,
+        "plane": "Embraer 175",
+        "to": "LGA",
+        "to_name": "LaGuardia Airport"
+      },
+      {
+        "airline": "American",
+        "arrive": "2027-06-05T07:35",
+        "depart": "2027-06-04T17:55",
+        "flight": "AA 66",
+        "from": "JFK",
+        "from_name": "John F. Kennedy International Airport",
+        "minutes": 460,
+        "plane": "Boeing 777",
+        "to": "BCN",
+        "to_name": "Josep Tarradellas Barcelona-El Prat Airport"
+      }
+    ],
+    "price": 7728.0,
+    "return_date": "2027-06-15",
+    "source": "google_flights_weekly"
+  }
+}

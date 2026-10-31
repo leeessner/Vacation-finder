@@ -1,7 +1,7 @@
 {
   "trip_id": "nice-riviera",
-  "captured_at": "2026-10-31T13:22:02.930968+00:00",
-  "queries_made": 3,
+  "captured_at": "2026-10-31T13:47:41.507111+00:00",
+  "queries_made": 6,
   "errors": [],
   "quotes": [
     {
@@ -14,44 +14,69 @@
       "flight": {
         "origin": "STL",
         "destination": "NCE",
-        "depart_date": "2027-06-05",
+        "depart_date": "2027-06-04",
         "return_date": "2027-06-14",
-        "total_price": 8154.0,
+        "total_price": 8504.0,
         "currency": "USD",
         "carriers": [],
         "stops_out": null,
         "stops_back": null,
         "source": "google_flights_weekly",
-        "deep_link": ""
+        "deep_link": "",
+        "outbound": [
+          {
+            "from": "STL",
+            "from_name": "St. Louis Lambert International Airport",
+            "to": "PHL",
+            "to_name": "Philadelphia International Airport",
+            "depart": "2027-06-04T06:16",
+            "arrive": "2027-06-04T09:39",
+            "minutes": 143,
+            "airline": "American",
+            "flight": "AA 1308",
+            "plane": "Airbus A319"
+          },
+          {
+            "from": "PHL",
+            "from_name": "Philadelphia International Airport",
+            "to": "NCE",
+            "to_name": "Nice C\u00f4te d'Azur Airport",
+            "depart": "2027-06-04T18:15",
+            "arrive": "2027-06-05T08:10",
+            "minutes": 475,
+            "airline": "American",
+            "flight": "AA 746",
+            "plane": "Boeing 787"
+          }
+        ]
       },
       "lodging": {
         "destination": "Nice, France",
         "check_in": "2027-06-05",
         "check_out": "2027-06-14",
-        "property_name": "H\u00f4tel de la Fontaine",
-        "total_price": 5214.0,
+        "property_name": "Chez Courbou",
+        "total_price": 1234.0,
         "currency": "USD",
-        "property_id": "ChgIlqH07r_f1uDvARoLL2cvMXRmNHp6dnQQAQ",
+        "property_id": "ChkQ74ugiZeWz6pmGg0vZy8xMXpmbWtjMG52EAI",
         "nights": 9,
-        "rating": 4.5,
-        "stars": 3.0,
+        "rating": 5.0,
+        "stars": null,
         "board_type": "",
         "refundable": null,
         "source": "google_hotels",
-        "deep_link": "https://www.google.com/travel/search?q=H%C3%B4tel%20de%20la%20Fontaine%20Nice%2C%20France&checkin=2027-06-05&checkout=2027-06-14",
-        "distance_miles": 0.5
+        "deep_link": "https://www.google.com/travel/search?q=Chez%20Courbou%20Nice%2C%20France&checkin=2027-06-05&checkout=2027-06-14",
+        "distance_miles": 1.4
       },
       "ground_cost": 2550.0,
       "ground_notes": "Plan's fixed costs: coastal trains, Train des Pignes, forts, food",
       "travel_mode": "air",
       "flights_expected": true,
-      "flight_cost": 8154.0,
-      "lodging_cost": 5214.0,
-      "total_cost": 15918.0,
+      "flight_cost": 8504.0,
+      "lodging_cost": 1234.0,
+      "total_cost": 12288.0,
       "is_complete": true,
       "notes": [
-        "airfare from this week's Google Flights check (the free daily check found none for this route)",
-        "hotel price checked 5 day(s) ago"
+        "airfare from this week's Google Flights check (the free daily check found none for this route)"
       ]
     },
     {
@@ -66,30 +91,28 @@
         "destination": "Nice, France",
         "check_in": "2027-06-21",
         "check_out": "2027-06-30",
-        "property_name": "Esatitude Hotel 3 \u00e9toiles",
-        "total_price": 3118.0,
+        "property_name": "Chez Courbou",
+        "total_price": 1234.0,
         "currency": "USD",
-        "property_id": "ChcIxeCqz7zu3rsOGgsvZy8xdGY4amhuehAB",
+        "property_id": "ChkQ74ugiZeWz6pmGg0vZy8xMXpmbWtjMG52EAI",
         "nights": 9,
-        "rating": 4.4,
-        "stars": 3.0,
+        "rating": 5.0,
+        "stars": null,
         "board_type": "",
         "refundable": null,
         "source": "google_hotels",
-        "deep_link": "https://www.google.com/travel/search?q=Esatitude%20Hotel%203%20%C3%A9toiles%20Nice%2C%20France&checkin=2027-06-21&checkout=2027-06-30",
-        "distance_miles": 1.6
+        "deep_link": "https://www.google.com/travel/search?q=Chez%20Courbou%20Nice%2C%20France&checkin=2027-06-21&checkout=2027-06-30",
+        "distance_miles": 1.4
       },
       "ground_cost": 2550.0,
       "ground_notes": "Plan's fixed costs: coastal trains, Train des Pignes, forts, food",
       "travel_mode": "air",
       "flights_expected": true,
       "flight_cost": 0.0,
-      "lodging_cost": 3118.0,
-      "total_cost": 5668.0,
+      "lodging_cost": 1234.0,
+      "total_cost": 3784.0,
       "is_complete": false,
-      "notes": [
-        "hotel price checked 4 day(s) ago"
-      ]
+      "notes": []
     },
     {
       "trip_id": "nice-riviera",
@@ -99,34 +122,16 @@
       "nights": 9,
       "currency": "USD",
       "flight": null,
-      "lodging": {
-        "destination": "Nice, France",
-        "check_in": "2027-07-08",
-        "check_out": "2027-07-17",
-        "property_name": "Esatitude Hotel 3 \u00e9toiles",
-        "total_price": 3118.0,
-        "currency": "USD",
-        "property_id": "ChcIxeCqz7zu3rsOGgsvZy8xdGY4amhuehAB",
-        "nights": 9,
-        "rating": 4.4,
-        "stars": 3.0,
-        "board_type": "",
-        "refundable": null,
-        "source": "google_hotels",
-        "deep_link": "https://www.google.com/travel/search?q=Esatitude%20Hotel%203%20%C3%A9toiles%20Nice%2C%20France&checkin=2027-07-08&checkout=2027-07-17",
-        "distance_miles": 1.6
-      },
+      "lodging": null,
       "ground_cost": 2550.0,
       "ground_notes": "Plan's fixed costs: coastal trains, Train des Pignes, forts, food",
       "travel_mode": "air",
       "flights_expected": true,
       "flight_cost": 0.0,
-      "lodging_cost": 3118.0,
-      "total_cost": 5668.0,
+      "lodging_cost": 0.0,
+      "total_cost": 2550.0,
       "is_complete": false,
-      "notes": [
-        "hotel price checked 4 day(s) ago"
-      ]
+      "notes": []
     }
   ]
 }

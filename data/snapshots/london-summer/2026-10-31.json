@@ -1,7 +1,7 @@
 {
   "trip_id": "london-summer",
-  "captured_at": "2026-10-31T13:22:28.876372+00:00",
-  "queries_made": 3,
+  "captured_at": "2026-10-31T13:48:19.898434+00:00",
+  "queries_made": 7,
   "errors": [],
   "quotes": [
     {
@@ -14,15 +14,41 @@
       "flight": {
         "origin": "STL",
         "destination": "LHR",
-        "depart_date": "2027-06-05",
+        "depart_date": "2027-06-04",
         "return_date": "2027-06-14",
-        "total_price": 7501.0,
+        "total_price": 7234.0,
         "currency": "USD",
         "carriers": [],
         "stops_out": null,
         "stops_back": null,
         "source": "google_flights_weekly",
-        "deep_link": ""
+        "deep_link": "",
+        "outbound": [
+          {
+            "from": "STL",
+            "from_name": "St. Louis Lambert International Airport",
+            "to": "KEF",
+            "to_name": "Keflav\u00edk International Airport",
+            "depart": "2027-06-04T20:45",
+            "arrive": "2027-06-05T08:20",
+            "minutes": 395,
+            "airline": "Icelandair",
+            "flight": "FI 834",
+            "plane": "Boeing 737MAX 8 Passenger"
+          },
+          {
+            "from": "KEF",
+            "from_name": "Keflav\u00edk International Airport",
+            "to": "LHR",
+            "to_name": "Heathrow Airport",
+            "depart": "2027-06-05T16:10",
+            "arrive": "2027-06-05T20:20",
+            "minutes": 190,
+            "airline": "Icelandair",
+            "flight": "FI 454",
+            "plane": "Airbus A320"
+          }
+        ]
       },
       "lodging": {
         "destination": "LHR \u2192 YRK",
@@ -45,9 +71,9 @@
       "ground_notes": "Plan's fixed costs: Tower, palaces, trains to York and Manchester, food",
       "travel_mode": "air",
       "flights_expected": true,
-      "flight_cost": 7501.0,
+      "flight_cost": 7234.0,
       "lodging_cost": 2279.0,
-      "total_cost": 13580.0,
+      "total_cost": 13313.0,
       "is_complete": true,
       "notes": [
         "airfare from this week's Google Flights check (the free daily check found none for this route)"
@@ -71,7 +97,7 @@
       "total_cost": 3800.0,
       "is_complete": false,
       "notes": [
-        "no lodging price yet for London, UK, York, UK"
+        "no lodging price yet for London, UK"
       ]
     },
     {
@@ -82,18 +108,32 @@
       "nights": 9,
       "currency": "USD",
       "flight": null,
-      "lodging": null,
+      "lodging": {
+        "destination": "LHR \u2192 YRK",
+        "check_in": "2027-07-08",
+        "check_out": "2027-07-17",
+        "property_name": "2 Bedroom flat in Putney by the river - Apartment, 2 Bedrooms (6n) + Apartment 11 Bluebridge with Free Parking (3n)",
+        "total_price": 2816.0,
+        "currency": "USD",
+        "property_id": "",
+        "nights": 9,
+        "rating": 4.0,
+        "stars": null,
+        "board_type": "",
+        "refundable": null,
+        "source": "google_hotels",
+        "deep_link": "",
+        "distance_miles": null
+      },
       "ground_cost": 3800.0,
       "ground_notes": "Plan's fixed costs: Tower, palaces, trains to York and Manchester, food",
       "travel_mode": "air",
       "flights_expected": true,
       "flight_cost": 0.0,
-      "lodging_cost": 0.0,
-      "total_cost": 3800.0,
+      "lodging_cost": 2816.0,
+      "total_cost": 6616.0,
       "is_complete": false,
-      "notes": [
-        "no lodging price yet for London, UK, York, UK"
-      ]
+      "notes": []
     }
   ]
 }

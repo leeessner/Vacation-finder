@@ -1,9 +1,35 @@
 {
   "austria-bavaria-summer": {
-    "checked_on": "2026-10-25",
-    "depart": "2027-06-05",
-    "level": "typical",
-    "lowest": 7861.0,
+    "checked_on": "2026-10-31",
+    "depart": "2027-06-04",
+    "level": "low",
+    "lowest": 7191.0,
+    "outbound": [
+      {
+        "airline": "Icelandair",
+        "arrive": "2027-06-05T08:20",
+        "depart": "2027-06-04T20:45",
+        "flight": "FI 834",
+        "from": "STL",
+        "from_name": "St. Louis Lambert International Airport",
+        "minutes": 395,
+        "plane": "Boeing 737MAX 8 Passenger",
+        "to": "KEF",
+        "to_name": "Keflav\u00edk International Airport"
+      },
+      {
+        "airline": "Icelandair",
+        "arrive": "2027-06-06T06:25",
+        "depart": "2027-06-06T00:35",
+        "flight": "FI 534",
+        "from": "KEF",
+        "from_name": "Keflav\u00edk International Airport",
+        "minutes": 230,
+        "plane": "Airbus A320neo",
+        "to": "MUC",
+        "to_name": "Munich International Airport"
+      }
+    ],
     "return_": "2027-06-15",
     "trip_id": "austria-bavaria-summer",
     "typical_high": 12000.0,
@@ -11,39 +37,143 @@
   },
   "belgium-summer": {
     "checked_on": "2026-10-31",
-    "depart": "2027-06-05",
-    "level": "typical",
-    "lowest": 8012.0,
+    "depart": "2027-06-04",
+    "level": "low",
+    "lowest": 6167.0,
+    "outbound": [
+      {
+        "airline": "Icelandair",
+        "arrive": "2027-06-05T08:20",
+        "depart": "2027-06-04T20:45",
+        "flight": "FI 834",
+        "from": "STL",
+        "from_name": "St. Louis Lambert International Airport",
+        "minutes": 395,
+        "plane": "Boeing 737MAX 8 Passenger",
+        "to": "KEF",
+        "to_name": "Keflav\u00edk International Airport"
+      },
+      {
+        "airline": "Icelandair",
+        "arrive": "2027-06-06T12:55",
+        "depart": "2027-06-06T07:35",
+        "flight": "FI 554",
+        "from": "KEF",
+        "from_name": "Keflav\u00edk International Airport",
+        "minutes": 200,
+        "plane": "Airbus A320",
+        "to": "BRU",
+        "to_name": "Brussels Airport"
+      }
+    ],
     "return_": "2027-06-14",
     "trip_id": "belgium-summer",
-    "typical_high": 10500.0,
-    "typical_low": 7300.0
+    "typical_high": 16500.0,
+    "typical_low": 7400.0
   },
   "florence-tuscany-summer": {
     "checked_on": "2026-10-31",
-    "depart": "2027-06-05",
+    "depart": "2027-06-04",
     "level": "",
-    "lowest": 7633.0,
+    "lowest": 8140.0,
+    "outbound": [
+      {
+        "airline": "British Airways",
+        "arrive": "2027-06-05T11:35",
+        "depart": "2027-06-04T21:35",
+        "flight": "BA 220",
+        "from": "STL",
+        "from_name": "St. Louis Lambert International Airport",
+        "minutes": 480,
+        "plane": "Boeing 787",
+        "to": "LHR",
+        "to_name": "Heathrow Airport"
+      },
+      {
+        "airline": "British Airways",
+        "arrive": "2027-06-05T22:20",
+        "depart": "2027-06-05T19:05",
+        "flight": "BA 522",
+        "from": "LHR",
+        "from_name": "Heathrow Airport",
+        "minutes": 135,
+        "plane": "Airbus A320neo",
+        "to": "FLR",
+        "to_name": "Amerigo Vespucci Airport"
+      }
+    ],
     "return_": "2027-06-13",
     "trip_id": "florence-tuscany-summer",
     "typical_high": null,
     "typical_low": null
   },
   "greece-summer": {
-    "checked_on": "2026-10-25",
-    "depart": "2027-06-05",
-    "level": "",
-    "lowest": 7742.0,
+    "checked_on": "2026-10-31",
+    "depart": "2027-06-04",
+    "level": "typical",
+    "lowest": 8156.0,
+    "outbound": [
+      {
+        "airline": "Air Canada",
+        "arrive": "2027-06-04T11:13",
+        "depart": "2027-06-04T08:15",
+        "flight": "AC 8886",
+        "from": "STL",
+        "from_name": "St. Louis Lambert International Airport",
+        "minutes": 118,
+        "plane": "Canadair RJ 900",
+        "to": "YYZ",
+        "to_name": "Toronto Pearson International Airport"
+      },
+      {
+        "airline": "Air Canada",
+        "arrive": "2027-06-05T11:10",
+        "depart": "2027-06-04T18:35",
+        "flight": "AC 896",
+        "from": "YYZ",
+        "from_name": "Toronto Pearson International Airport",
+        "minutes": 575,
+        "plane": "Boeing 777",
+        "to": "ATH",
+        "to_name": "Athens International Airport \"Eleftherios Venizelos\""
+      }
+    ],
     "return_": "2027-06-15",
     "trip_id": "greece-summer",
-    "typical_high": null,
-    "typical_low": null
+    "typical_high": 10500.0,
+    "typical_low": 7400.0
   },
   "london-summer": {
     "checked_on": "2026-10-31",
-    "depart": "2027-06-05",
+    "depart": "2027-06-04",
     "level": "",
-    "lowest": 7501.0,
+    "lowest": 7234.0,
+    "outbound": [
+      {
+        "airline": "Icelandair",
+        "arrive": "2027-06-05T08:20",
+        "depart": "2027-06-04T20:45",
+        "flight": "FI 834",
+        "from": "STL",
+        "from_name": "St. Louis Lambert International Airport",
+        "minutes": 395,
+        "plane": "Boeing 737MAX 8 Passenger",
+        "to": "KEF",
+        "to_name": "Keflav\u00edk International Airport"
+      },
+      {
+        "airline": "Icelandair",
+        "arrive": "2027-06-05T20:20",
+        "depart": "2027-06-05T16:10",
+        "flight": "FI 454",
+        "from": "KEF",
+        "from_name": "Keflav\u00edk International Airport",
+        "minutes": 190,
+        "plane": "Airbus A320",
+        "to": "LHR",
+        "to_name": "Heathrow Airport"
+      }
+    ],
     "return_": "2027-06-14",
     "trip_id": "london-summer",
     "typical_high": null,
@@ -51,62 +181,218 @@
   },
   "milan-lake-como-summer": {
     "checked_on": "2026-10-31",
-    "depart": "2027-06-05",
+    "depart": "2027-06-04",
     "level": "typical",
-    "lowest": 7709.0,
+    "lowest": 8220.0,
+    "outbound": [
+      {
+        "airline": "Lufthansa",
+        "arrive": "2027-06-05T07:25",
+        "depart": "2027-06-04T15:30",
+        "flight": "LH 449",
+        "from": "STL",
+        "from_name": "St. Louis Lambert International Airport",
+        "minutes": 535,
+        "plane": "Airbus A330",
+        "to": "FRA",
+        "to_name": "Frankfurt Airport"
+      },
+      {
+        "airline": "Lufthansa",
+        "arrive": "2027-06-05T10:15",
+        "depart": "2027-06-05T08:55",
+        "flight": "LH 248",
+        "from": "FRA",
+        "from_name": "Frankfurt Airport",
+        "minutes": 80,
+        "plane": "Airbus A320neo",
+        "to": "MXP",
+        "to_name": "Milano Malpensa Airport"
+      }
+    ],
     "return_": "2027-06-14",
     "trip_id": "milan-lake-como-summer",
-    "typical_high": 9300.0,
-    "typical_low": 7600.0
+    "typical_high": 11500.0,
+    "typical_low": 7800.0
   },
   "nice-riviera": {
-    "checked_on": "2026-10-25",
-    "depart": "2027-06-05",
+    "checked_on": "2026-10-31",
+    "depart": "2027-06-04",
     "level": "typical",
-    "lowest": 8154.0,
+    "lowest": 8504.0,
+    "outbound": [
+      {
+        "airline": "American",
+        "arrive": "2027-06-04T09:39",
+        "depart": "2027-06-04T06:16",
+        "flight": "AA 1308",
+        "from": "STL",
+        "from_name": "St. Louis Lambert International Airport",
+        "minutes": 143,
+        "plane": "Airbus A319",
+        "to": "PHL",
+        "to_name": "Philadelphia International Airport"
+      },
+      {
+        "airline": "American",
+        "arrive": "2027-06-05T08:10",
+        "depart": "2027-06-04T18:15",
+        "flight": "AA 746",
+        "from": "PHL",
+        "from_name": "Philadelphia International Airport",
+        "minutes": 475,
+        "plane": "Boeing 787",
+        "to": "NCE",
+        "to_name": "Nice C\u00f4te d'Azur Airport"
+      }
+    ],
     "return_": "2027-06-14",
     "trip_id": "nice-riviera",
     "typical_high": 11500.0,
     "typical_low": 8000.0
   },
   "paris-versailles": {
-    "checked_on": "2026-10-25",
-    "depart": "2027-06-05",
-    "level": "typical",
-    "lowest": 8481.0,
+    "checked_on": "2026-10-31",
+    "depart": "2027-06-04",
+    "level": "low",
+    "lowest": 7334.0,
+    "outbound": [
+      {
+        "airline": "Icelandair",
+        "arrive": "2027-06-05T08:20",
+        "depart": "2027-06-04T20:45",
+        "flight": "FI 834",
+        "from": "STL",
+        "from_name": "St. Louis Lambert International Airport",
+        "minutes": 395,
+        "plane": "Boeing 737MAX 8 Passenger",
+        "to": "KEF",
+        "to_name": "Keflav\u00edk International Airport"
+      },
+      {
+        "airline": "Icelandair",
+        "arrive": "2027-06-05T16:15",
+        "depart": "2027-06-05T10:50",
+        "flight": "FI 546",
+        "from": "KEF",
+        "from_name": "Keflav\u00edk International Airport",
+        "minutes": 205,
+        "plane": "Airbus A320neo",
+        "to": "CDG",
+        "to_name": "A\u00e9roport de Paris-Charles de Gaulle"
+      }
+    ],
     "return_": "2027-06-14",
     "trip_id": "paris-versailles",
-    "typical_high": 9500.0,
-    "typical_low": 7900.0
+    "typical_high": 10000.0,
+    "typical_low": 7800.0
   },
   "portugal-azores-summer": {
-    "checked_on": "2026-10-25",
-    "depart": "2027-06-05",
-    "level": "low",
-    "lowest": 7642.0,
+    "checked_on": "2026-10-31",
+    "depart": "2027-06-04",
+    "level": "",
+    "lowest": 7421.0,
+    "outbound": [
+      {
+        "airline": "United",
+        "arrive": "2027-06-04T15:15",
+        "depart": "2027-06-04T11:45",
+        "flight": "UA 3478",
+        "from": "STL",
+        "from_name": "St. Louis Lambert International Airport",
+        "minutes": 150,
+        "plane": "Embraer 175",
+        "to": "EWR",
+        "to_name": "Newark Liberty International Airport"
+      },
+      {
+        "airline": "United",
+        "arrive": "2027-06-05T06:55",
+        "depart": "2027-06-04T18:50",
+        "flight": "UA 238",
+        "from": "EWR",
+        "from_name": "Newark Liberty International Airport",
+        "minutes": 425,
+        "plane": "Boeing 757",
+        "to": "OPO",
+        "to_name": "Francisco S\u00e1 Carneiro Airport"
+      }
+    ],
     "return_": "2027-06-15",
     "trip_id": "portugal-azores-summer",
-    "typical_high": 11500.0,
-    "typical_low": 8300.0
+    "typical_high": null,
+    "typical_low": null
   },
   "rome-summer": {
     "checked_on": "2026-10-31",
-    "depart": "2027-06-05",
+    "depart": "2027-06-04",
     "level": "typical",
-    "lowest": 8149.0,
+    "lowest": 8204.0,
+    "outbound": [
+      {
+        "airline": "Air Canada",
+        "arrive": "2027-06-04T11:13",
+        "depart": "2027-06-04T08:15",
+        "flight": "AC 8886",
+        "from": "STL",
+        "from_name": "St. Louis Lambert International Airport",
+        "minutes": 118,
+        "plane": "Canadair RJ 900",
+        "to": "YYZ",
+        "to_name": "Toronto Pearson International Airport"
+      },
+      {
+        "airline": "Air Canada",
+        "arrive": "2027-06-05T10:20",
+        "depart": "2027-06-04T19:45",
+        "flight": "AC 890",
+        "from": "YYZ",
+        "from_name": "Toronto Pearson International Airport",
+        "minutes": 515,
+        "plane": "Boeing 777",
+        "to": "FCO",
+        "to_name": "Leonardo da Vinci International Airport"
+      }
+    ],
     "return_": "2027-06-12",
     "trip_id": "rome-summer",
     "typical_high": 9100.0,
     "typical_low": 7500.0
   },
   "spain-barcelona-madrid": {
-    "checked_on": "2026-10-25",
-    "depart": "2027-06-05",
-    "level": "low",
-    "lowest": 7615.0,
+    "checked_on": "2026-10-31",
+    "depart": "2027-06-04",
+    "level": "",
+    "lowest": 7728.0,
+    "outbound": [
+      {
+        "airline": "American",
+        "arrive": "2027-06-04T12:55",
+        "depart": "2027-06-04T09:23",
+        "flight": "AA 4508",
+        "from": "STL",
+        "from_name": "St. Louis Lambert International Airport",
+        "minutes": 152,
+        "plane": "Embraer 175",
+        "to": "LGA",
+        "to_name": "LaGuardia Airport"
+      },
+      {
+        "airline": "American",
+        "arrive": "2027-06-05T07:35",
+        "depart": "2027-06-04T17:55",
+        "flight": "AA 66",
+        "from": "JFK",
+        "from_name": "John F. Kennedy International Airport",
+        "minutes": 460,
+        "plane": "Boeing 777",
+        "to": "BCN",
+        "to_name": "Josep Tarradellas Barcelona-El Prat Airport"
+      }
+    ],
     "return_": "2027-06-15",
     "trip_id": "spain-barcelona-madrid",
-    "typical_high": 11500.0,
-    "typical_low": 8200.0
+    "typical_high": null,
+    "typical_low": null
   }
 }

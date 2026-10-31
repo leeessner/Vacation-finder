@@ -1,6 +1,6 @@
 {
   "trip_id": "greece-summer",
-  "captured_at": "2026-10-31T13:22:08.924757+00:00",
+  "captured_at": "2026-10-31T13:47:56.420066+00:00",
   "queries_made": 3,
   "errors": [],
   "quotes": [
@@ -14,17 +14,43 @@
       "flight": {
         "origin": "STL",
         "destination": "ATH",
-        "depart_date": "2027-06-05",
+        "depart_date": "2027-06-04",
         "return_date": "2027-06-15",
-        "total_price": 8991.0,
+        "total_price": 8154.0,
         "currency": "USD",
         "carriers": [
-          "American"
+          "Air Canada"
         ],
-        "stops_out": null,
+        "stops_out": 1,
         "stops_back": null,
         "source": "google_flights_scaled",
-        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20ATH%20from%20STL%20on%202027-06-05%20through%202027-06-15"
+        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20ATH%20from%20STL%20on%202027-06-04%20through%202027-06-15",
+        "outbound": [
+          {
+            "from": "STL",
+            "from_name": "St. Louis Lambert International Airport",
+            "to": "YYZ",
+            "to_name": "Toronto Pearson International Airport",
+            "depart": "2027-06-04T08:15",
+            "arrive": "2027-06-04T11:13",
+            "minutes": 118,
+            "airline": "",
+            "flight": "",
+            "plane": "Canadair RJ 900"
+          },
+          {
+            "from": "YYZ",
+            "from_name": "Toronto Pearson International Airport",
+            "to": "ATH",
+            "to_name": "Athens International Airport \"Eleftherios Venizelos\"",
+            "depart": "2027-06-04T18:35",
+            "arrive": "2027-06-05T11:10",
+            "minutes": 575,
+            "airline": "",
+            "flight": "",
+            "plane": "Boeing 777"
+          }
+        ]
       },
       "lodging": {
         "destination": "ATH \u2192 JNX",
@@ -47,9 +73,9 @@
       "ground_notes": "Plan's fixed costs: sites, ferries or flights to Naxos, island car, food",
       "travel_mode": "air",
       "flights_expected": true,
-      "flight_cost": 8991.0,
+      "flight_cost": 8154.0,
       "lodging_cost": 1232.0,
-      "total_cost": 13173.0,
+      "total_cost": 12336.0,
       "is_complete": true,
       "notes": [
         "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)"
@@ -65,17 +91,43 @@
       "flight": {
         "origin": "STL",
         "destination": "ATH",
-        "depart_date": "2027-06-21",
+        "depart_date": "2027-06-20",
         "return_date": "2027-07-01",
-        "total_price": 7377.0,
+        "total_price": 7257.0,
         "currency": "USD",
         "carriers": [
-          "Delta"
+          "Air Canada"
         ],
-        "stops_out": null,
+        "stops_out": 1,
         "stops_back": null,
         "source": "google_flights_scaled",
-        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20ATH%20from%20STL%20on%202027-06-21%20through%202027-07-01"
+        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20ATH%20from%20STL%20on%202027-06-20%20through%202027-07-01",
+        "outbound": [
+          {
+            "from": "STL",
+            "from_name": "St. Louis Lambert International Airport",
+            "to": "YYZ",
+            "to_name": "Toronto Pearson International Airport",
+            "depart": "2027-06-20T08:15",
+            "arrive": "2027-06-20T11:12",
+            "minutes": 117,
+            "airline": "",
+            "flight": "",
+            "plane": "Canadair RJ 900"
+          },
+          {
+            "from": "YYZ",
+            "from_name": "Toronto Pearson International Airport",
+            "to": "ATH",
+            "to_name": "Athens International Airport \"Eleftherios Venizelos\"",
+            "depart": "2027-06-20T18:35",
+            "arrive": "2027-06-21T11:10",
+            "minutes": 575,
+            "airline": "",
+            "flight": "",
+            "plane": "Boeing 777"
+          }
+        ]
       },
       "lodging": {
         "destination": "ATH \u2192 JNX",
@@ -98,9 +150,9 @@
       "ground_notes": "Plan's fixed costs: sites, ferries or flights to Naxos, island car, food",
       "travel_mode": "air",
       "flights_expected": true,
-      "flight_cost": 7377.0,
+      "flight_cost": 7257.0,
       "lodging_cost": 1465.0,
-      "total_cost": 11792.0,
+      "total_cost": 11672.0,
       "is_complete": true,
       "notes": [
         "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)"
@@ -116,17 +168,43 @@
       "flight": {
         "origin": "STL",
         "destination": "ATH",
-        "depart_date": "2027-07-07",
+        "depart_date": "2027-07-06",
         "return_date": "2027-07-17",
         "total_price": 7578.0,
         "currency": "USD",
         "carriers": [
           "United"
         ],
-        "stops_out": null,
+        "stops_out": 1,
         "stops_back": null,
         "source": "google_flights_scaled",
-        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20ATH%20from%20STL%20on%202027-07-07%20through%202027-07-17"
+        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20ATH%20from%20STL%20on%202027-07-06%20through%202027-07-17",
+        "outbound": [
+          {
+            "from": "STL",
+            "from_name": "St. Louis Lambert International Airport",
+            "to": "EWR",
+            "to_name": "Newark Liberty International Airport",
+            "depart": "2027-07-06T07:30",
+            "arrive": "2027-07-06T11:02",
+            "minutes": 152,
+            "airline": "",
+            "flight": "",
+            "plane": "Embraer 175"
+          },
+          {
+            "from": "EWR",
+            "from_name": "Newark Liberty International Airport",
+            "to": "ATH",
+            "to_name": "Athens International Airport \"Eleftherios Venizelos\"",
+            "depart": "2027-07-06T15:50",
+            "arrive": "2027-07-07T08:10",
+            "minutes": 560,
+            "airline": "",
+            "flight": "",
+            "plane": "Boeing 777"
+          }
+        ]
       },
       "lodging": {
         "destination": "ATH \u2192 JNX",

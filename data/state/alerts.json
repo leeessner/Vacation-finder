@@ -7,13 +7,21 @@
     "last_fired": "2026-10-22",
     "last_price": 700.0
   },
+  "milan-lake-como-summer:all_time_low": {
+    "last_fired": "2026-10-31",
+    "last_price": 12554.0
+  },
+  "milan-lake-como-summer:price_drop": {
+    "last_fired": "2026-10-31",
+    "last_price": 12554.0
+  },
   "nashville-spring-break:all_time_low": {
     "last_fired": "2026-10-28",
     "last_price": 1178.36
   },
   "nice-riviera:all_time_low": {
-    "last_fired": "2026-10-30",
-    "last_price": 13628.0
+    "last_fired": "2026-10-31",
+    "last_price": 12288.0
   },
   "paris-versailles:all_time_low": {
     "last_fired": "2026-10-22",

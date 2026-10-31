@@ -1,7 +1,7 @@
 {
   "trip_id": "rome-summer",
-  "captured_at": "2026-10-31T13:22:33.802762+00:00",
-  "queries_made": 3,
+  "captured_at": "2026-10-31T13:48:32.442563+00:00",
+  "queries_made": 5,
   "errors": [],
   "quotes": [
     {
@@ -14,17 +14,43 @@
       "flight": {
         "origin": "STL",
         "destination": "FCO",
-        "depart_date": "2027-06-05",
+        "depart_date": "2027-06-04",
         "return_date": "2027-06-12",
-        "total_price": 8535.0,
+        "total_price": 9018.0,
         "currency": "USD",
         "carriers": [
-          "Air Canada"
+          "Lufthansa"
         ],
-        "stops_out": null,
+        "stops_out": 1,
         "stops_back": null,
         "source": "google_flights_scaled",
-        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20FCO%20from%20STL%20on%202027-06-05%20through%202027-06-12"
+        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20FCO%20from%20STL%20on%202027-06-04%20through%202027-06-12",
+        "outbound": [
+          {
+            "from": "STL",
+            "from_name": "St. Louis Lambert International Airport",
+            "to": "FRA",
+            "to_name": "Frankfurt Airport",
+            "depart": "2027-06-04T15:30",
+            "arrive": "2027-06-05T07:25",
+            "minutes": 535,
+            "airline": "",
+            "flight": "",
+            "plane": "Airbus A330"
+          },
+          {
+            "from": "FRA",
+            "from_name": "Frankfurt Airport",
+            "to": "FCO",
+            "to_name": "Leonardo da Vinci International Airport",
+            "depart": "2027-06-05T10:40",
+            "arrive": "2027-06-05T12:30",
+            "minutes": 110,
+            "airline": "",
+            "flight": "",
+            "plane": "Airbus A321"
+          }
+        ]
       },
       "lodging": {
         "destination": "Rome, Italy",
@@ -47,9 +73,9 @@
       "ground_notes": "Plan's fixed costs: Vatican, Borghese, Colosseum, Ostia, taxis, food",
       "travel_mode": "air",
       "flights_expected": true,
-      "flight_cost": 8535.0,
+      "flight_cost": 9018.0,
       "lodging_cost": 1313.0,
-      "total_cost": 12098.0,
+      "total_cost": 12581.0,
       "is_complete": true,
       "notes": [
         "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)"
@@ -65,27 +91,69 @@
       "flight": {
         "origin": "STL",
         "destination": "FCO",
-        "depart_date": "2027-06-23",
+        "depart_date": "2027-06-22",
         "return_date": "2027-06-30",
-        "total_price": 7752.0,
+        "total_price": 7575.0,
         "currency": "USD",
         "carriers": [
-          "American"
+          "Air Canada"
         ],
-        "stops_out": null,
+        "stops_out": 1,
         "stops_back": null,
         "source": "google_flights_scaled",
-        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20FCO%20from%20STL%20on%202027-06-23%20through%202027-06-30"
+        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20FCO%20from%20STL%20on%202027-06-22%20through%202027-06-30",
+        "outbound": [
+          {
+            "from": "STL",
+            "from_name": "St. Louis Lambert International Airport",
+            "to": "YUL",
+            "to_name": "Montr\u00e9al-Pierre Elliott Trudeau International Airport",
+            "depart": "2027-06-22T13:25",
+            "arrive": "2027-06-22T16:57",
+            "minutes": 152,
+            "airline": "",
+            "flight": "",
+            "plane": "Canadair RJ 900"
+          },
+          {
+            "from": "YUL",
+            "from_name": "Montr\u00e9al-Pierre Elliott Trudeau International Airport",
+            "to": "FCO",
+            "to_name": "Leonardo da Vinci International Airport",
+            "depart": "2027-06-22T22:30",
+            "arrive": "2027-06-23T12:30",
+            "minutes": 480,
+            "airline": "",
+            "flight": "",
+            "plane": "Boeing 787"
+          }
+        ]
       },
-      "lodging": null,
+      "lodging": {
+        "destination": "Rome, Italy",
+        "check_in": "2027-06-23",
+        "check_out": "2027-06-30",
+        "property_name": "Elegant house in the center of Rome-Parioli a stone's throw from Via Veneto",
+        "total_price": 1350.0,
+        "currency": "USD",
+        "property_id": "ChoQo-mWtdHTj-vVARoNL2cvMTF0eHFueXBkbhAC",
+        "nights": 7,
+        "rating": 4.762427,
+        "stars": null,
+        "board_type": "",
+        "refundable": null,
+        "source": "google_hotels",
+        "deep_link": "https://www.google.com/travel/search?q=Elegant%20house%20in%20the%20center%20of%20Rome-Parioli%20a%20stone%27s%20throw%20from%20Via%20Veneto%20Rome%2C%20Italy&checkin=2027-06-23&checkout=2027-06-30",
+        "distance_miles": 1.9
+      },
       "ground_cost": 2250.0,
       "ground_notes": "Plan's fixed costs: Vatican, Borghese, Colosseum, Ostia, taxis, food",
       "travel_mode": "air",
       "flights_expected": true,
-      "flight_cost": 7752.0,
-      "lodging_cost": 0.0,
-      "total_cost": 10002.0,
-      "is_complete": false,
+      "flight_cost": 7575.0,
+      "lodging_cost": 1350.0,
+      "total_cost": 11175.0,
+      "is_complete": true,
       "notes": [
         "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)"
       ]
@@ -100,27 +168,69 @@
       "flight": {
         "origin": "STL",
         "destination": "FCO",
-        "depart_date": "2027-07-10",
+        "depart_date": "2027-07-09",
         "return_date": "2027-07-17",
-        "total_price": 7284.0,
+        "total_price": 7311.0,
         "currency": "USD",
         "carriers": [
           "Air Canada"
         ],
-        "stops_out": null,
+        "stops_out": 1,
         "stops_back": null,
         "source": "google_flights_scaled",
-        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20FCO%20from%20STL%20on%202027-07-10%20through%202027-07-17"
+        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20FCO%20from%20STL%20on%202027-07-09%20through%202027-07-17",
+        "outbound": [
+          {
+            "from": "STL",
+            "from_name": "St. Louis Lambert International Airport",
+            "to": "YYZ",
+            "to_name": "Toronto Pearson International Airport",
+            "depart": "2027-07-09T08:15",
+            "arrive": "2027-07-09T11:12",
+            "minutes": 117,
+            "airline": "",
+            "flight": "",
+            "plane": "Canadair RJ 900"
+          },
+          {
+            "from": "YYZ",
+            "from_name": "Toronto Pearson International Airport",
+            "to": "FCO",
+            "to_name": "Leonardo da Vinci International Airport",
+            "depart": "2027-07-09T20:00",
+            "arrive": "2027-07-10T10:20",
+            "minutes": 500,
+            "airline": "",
+            "flight": "",
+            "plane": "Boeing 777"
+          }
+        ]
       },
-      "lodging": null,
+      "lodging": {
+        "destination": "Rome, Italy",
+        "check_in": "2027-07-10",
+        "check_out": "2027-07-17",
+        "property_name": "Simi Roma - Carpegna",
+        "total_price": 1238.0,
+        "currency": "USD",
+        "property_id": "ChkQ5fyp5Zrxpt1hGg0vZy8xMXo2YmQyX2pzEAI",
+        "nights": 7,
+        "rating": 4.9,
+        "stars": null,
+        "board_type": "",
+        "refundable": null,
+        "source": "google_hotels",
+        "deep_link": "https://www.google.com/travel/search?q=Simi%20Roma%20-%20Carpegna%20Rome%2C%20Italy&checkin=2027-07-10&checkout=2027-07-17",
+        "distance_miles": 2.2
+      },
       "ground_cost": 2250.0,
       "ground_notes": "Plan's fixed costs: Vatican, Borghese, Colosseum, Ostia, taxis, food",
       "travel_mode": "air",
       "flights_expected": true,
-      "flight_cost": 7284.0,
-      "lodging_cost": 0.0,
-      "total_cost": 9534.0,
-      "is_complete": false,
+      "flight_cost": 7311.0,
+      "lodging_cost": 1238.0,
+      "total_cost": 10799.0,
+      "is_complete": true,
       "notes": [
         "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)"
       ]

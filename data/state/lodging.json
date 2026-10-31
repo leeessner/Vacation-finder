@@ -1,5 +1,68 @@
 {
   "slots": {
+    "austria-bavaria-summer|Munich, Germany|2027-06-05|2027-06-10": {
+      "checked_on": "2026-10-31",
+      "note": "",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-06-05",
+        "check_out": "2027-06-10",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=INNSiDE%20by%20Meli%C3%A1%20M%C3%BCnchen%20Parkstadt%20Schwabing%20Munich%2C%20Germany&checkin=2027-06-05&checkout=2027-06-10",
+        "destination": "Munich, Germany",
+        "distance_miles": 2.9,
+        "nights": 5,
+        "property_id": "ChcI8Lm32d2B5bNxGgsvZy8xdGhtal82dBAB",
+        "property_name": "INNSiDE by Meli\u00e1 M\u00fcnchen Parkstadt Schwabing",
+        "rating": 4.0,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": 4.0,
+        "total_price": 2668.0
+      }
+    },
+    "austria-bavaria-summer|Munich, Germany|2027-06-21|2027-06-26": {
+      "checked_on": "2026-10-31",
+      "note": "",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-06-21",
+        "check_out": "2027-06-26",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=Hotel%20M%C3%BCnchen%20City%20Center%2C%20Affiliated%20by%20Meli%C3%A1%20Munich%2C%20Germany&checkin=2027-06-21&checkout=2027-06-26",
+        "destination": "Munich, Germany",
+        "distance_miles": 0.9,
+        "nights": 5,
+        "property_id": "ChoIz5rxt-3uotmYARoNL2cvMTFzdHNfMmo5MhAB",
+        "property_name": "Hotel M\u00fcnchen City Center, Affiliated by Meli\u00e1",
+        "rating": 4.0,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": 4.0,
+        "total_price": 2134.0
+      }
+    },
+    "austria-bavaria-summer|Munich, Germany|2027-07-07|2027-07-12": {
+      "checked_on": "2026-10-31",
+      "note": "",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-07-07",
+        "check_out": "2027-07-12",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=AWA%20Hotel%20GmbH%20Munich%2C%20Germany&checkin=2027-07-07&checkout=2027-07-12",
+        "destination": "Munich, Germany",
+        "distance_miles": 0.7,
+        "nights": 5,
+        "property_id": "ChkItrG1-oLf5ulyGg0vZy8xMWdfemxmOHR4EAE",
+        "property_name": "AWA Hotel GmbH",
+        "rating": 4.1,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": 4.0,
+        "total_price": 1898.0
+      }
+    },
     "belgium-summer|Bruges, Belgium|2027-06-05|2027-06-09": {
       "checked_on": "2026-10-31",
       "note": "",
@@ -9,6 +72,48 @@
         "check_out": "2027-06-09",
         "currency": "USD",
         "deep_link": "https://www.google.com/travel/search?q=Holiday%20Home%20Family%20%40%20home%2097%20Bruges%2C%20Belgium&checkin=2027-06-05&checkout=2027-06-09",
+        "destination": "Bruges, Belgium",
+        "distance_miles": 1.0,
+        "nights": 4,
+        "property_id": "ChkQx7jH_tfs6YV4Gg0vZy8xMXNzZ2RjZjhwEAI",
+        "property_name": "Holiday Home Family @ home 97",
+        "rating": 4.59,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": null,
+        "total_price": 1121.0
+      }
+    },
+    "belgium-summer|Bruges, Belgium|2027-06-21|2027-06-25": {
+      "checked_on": "2026-10-31",
+      "note": "",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-06-21",
+        "check_out": "2027-06-25",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=Holiday%20Home%20Family%20%40%20home%2097%20Bruges%2C%20Belgium&checkin=2027-06-21&checkout=2027-06-25",
+        "destination": "Bruges, Belgium",
+        "distance_miles": 1.0,
+        "nights": 4,
+        "property_id": "ChkQx7jH_tfs6YV4Gg0vZy8xMXNzZ2RjZjhwEAI",
+        "property_name": "Holiday Home Family @ home 97",
+        "rating": 4.59,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": null,
+        "total_price": 1121.0
+      }
+    },
+    "belgium-summer|Bruges, Belgium|2027-07-08|2027-07-12": {
+      "checked_on": "2026-10-31",
+      "note": "",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-07-08",
+        "check_out": "2027-07-12",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=Holiday%20Home%20Family%20%40%20home%2097%20Bruges%2C%20Belgium&checkin=2027-07-08&checkout=2027-07-12",
         "destination": "Bruges, Belgium",
         "distance_miles": 1.0,
         "nights": 4,
@@ -40,6 +145,48 @@
         "source": "google_hotels",
         "stars": 4.0,
         "total_price": 1814.0
+      }
+    },
+    "belgium-summer|Brussels, Belgium|2027-06-25|2027-06-30": {
+      "checked_on": "2026-10-31",
+      "note": "",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-06-25",
+        "check_out": "2027-06-30",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=ibis%20Brussels%20off%20Grand%20Place%20Brussels%2C%20Belgium&checkin=2027-06-25&checkout=2027-06-30",
+        "destination": "Brussels, Belgium",
+        "distance_miles": 0.1,
+        "nights": 5,
+        "property_id": "ChcI8pWWiaqDsshSGgsvZy8xdGx2bnBsNxAB",
+        "property_name": "ibis Brussels off Grand Place",
+        "rating": 4.3,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": 3.0,
+        "total_price": 1920.0
+      }
+    },
+    "belgium-summer|Brussels, Belgium|2027-07-12|2027-07-17": {
+      "checked_on": "2026-10-31",
+      "note": "",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-07-12",
+        "check_out": "2027-07-17",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=ibis%20Brussels%20Centre%20Gare%20Midi%20Brussels%2C%20Belgium&checkin=2027-07-12&checkout=2027-07-17",
+        "destination": "Brussels, Belgium",
+        "distance_miles": 0.9,
+        "nights": 5,
+        "property_id": "ChgInPDJ99W6_q_bARoLL2cvMXR2ZGh6MTIQAQ",
+        "property_name": "ibis Brussels Centre Gare Midi",
+        "rating": 4.1,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": 3.0,
+        "total_price": 1830.0
       }
     },
     "florence-tuscany-summer|Fiesole, Tuscany, Italy|2027-06-05|2027-06-10": {
@@ -315,6 +462,32 @@
         "total_price": 1628.0
       }
     },
+    "london-summer|London, UK|2027-06-21|2027-06-27": {
+      "checked_on": "2026-10-31",
+      "note": "",
+      "quote": null
+    },
+    "london-summer|London, UK|2027-07-08|2027-07-14": {
+      "checked_on": "2026-10-31",
+      "note": "",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-07-08",
+        "check_out": "2027-07-14",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=2%20Bedroom%20flat%20in%20Putney%20by%20the%20river%20-%20Apartment%2C%202%20Bedrooms%20London%2C%20UK&checkin=2027-07-08&checkout=2027-07-14",
+        "destination": "London, UK",
+        "distance_miles": 2.9,
+        "nights": 6,
+        "property_id": "ChoQobGjg8HisPijARoNL2cvMTF5bjI0OWt0ehAC",
+        "property_name": "2 Bedroom flat in Putney by the river - Apartment, 2 Bedrooms",
+        "rating": 4.0,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": null,
+        "total_price": 2083.0
+      }
+    },
     "london-summer|York, UK|2027-06-11|2027-06-14": {
       "checked_on": "2026-10-31",
       "note": "",
@@ -334,6 +507,48 @@
         "source": "google_hotels",
         "stars": null,
         "total_price": 651.0
+      }
+    },
+    "london-summer|York, UK|2027-06-27|2027-06-30": {
+      "checked_on": "2026-10-31",
+      "note": "",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-06-27",
+        "check_out": "2027-06-30",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=Superb%20citycentre%20new%20built%20flat%20and%20gym%20York%2C%20UK&checkin=2027-06-27&checkout=2027-06-30",
+        "destination": "York, UK",
+        "distance_miles": 0.5,
+        "nights": 3,
+        "property_id": "ChkQkaH6tpW6xqshGg0vZy8xMXo0c2N3ZHM5EAI",
+        "property_name": "Superb citycentre new built flat and gym",
+        "rating": 4.32375,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": null,
+        "total_price": 621.0
+      }
+    },
+    "london-summer|York, UK|2027-07-14|2027-07-17": {
+      "checked_on": "2026-10-31",
+      "note": "",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-07-14",
+        "check_out": "2027-07-17",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=Apartment%2011%20Bluebridge%20with%20Free%20Parking%20York%2C%20UK&checkin=2027-07-14&checkout=2027-07-17",
+        "destination": "York, UK",
+        "distance_miles": 0.8,
+        "nights": 3,
+        "property_id": "ChoQ45DR9uHx5o_lARoNL2cvMTFsXzV0dzludBAC",
+        "property_name": "Apartment 11 Bluebridge with Free Parking",
+        "rating": 4.45,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": null,
+        "total_price": 733.0
       }
     },
     "milan-lake-como-summer|Milan, Italy|2027-06-05|2027-06-09": {
@@ -357,6 +572,32 @@
         "total_price": 1693.0
       }
     },
+    "milan-lake-como-summer|Milan, Italy|2027-06-21|2027-06-25": {
+      "checked_on": "2026-10-31",
+      "note": "",
+      "quote": null
+    },
+    "milan-lake-como-summer|Milan, Italy|2027-07-08|2027-07-12": {
+      "checked_on": "2026-10-31",
+      "note": "",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-07-08",
+        "check_out": "2027-07-12",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=Splendido%20quadrilocale%20in%20elegante%20stabile%20nel%20centro%20di%20Milano%20Milan%2C%20Italy&checkin=2027-07-08&checkout=2027-07-12",
+        "destination": "Milan, Italy",
+        "distance_miles": 1.2,
+        "nights": 4,
+        "property_id": "ChoQo_XFy9DIpO7JARoNL2cvMTF2bTEwZGR2cRAC",
+        "property_name": "Splendido quadrilocale in elegante stabile nel centro di Milano",
+        "rating": 4.35,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": null,
+        "total_price": 1662.0
+      }
+    },
     "milan-lake-como-summer|Varenna, Italy|2027-06-09|2027-06-14": {
       "checked_on": "2026-10-31",
       "note": "",
@@ -378,9 +619,51 @@
         "total_price": 1481.0
       }
     },
+    "milan-lake-como-summer|Varenna, Italy|2027-06-25|2027-06-30": {
+      "checked_on": "2026-10-31",
+      "note": "",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-06-25",
+        "check_out": "2027-06-30",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=Varenna%20Beach%20Perledo%20Varenna%2C%20Italy&checkin=2027-06-25&checkout=2027-06-30",
+        "destination": "Varenna, Italy",
+        "distance_miles": 0.3,
+        "nights": 5,
+        "property_id": "ChkQofzK3r3Gx4x9Gg0vZy8xMXp5eXp3Z2NmEAI",
+        "property_name": "Varenna Beach Perledo",
+        "rating": 4.575,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": null,
+        "total_price": 1660.0
+      }
+    },
+    "milan-lake-como-summer|Varenna, Italy|2027-07-12|2027-07-17": {
+      "checked_on": "2026-10-31",
+      "note": "",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-07-12",
+        "check_out": "2027-07-17",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=Varenna%20Beach%20Perledo%20Varenna%2C%20Italy&checkin=2027-07-12&checkout=2027-07-17",
+        "destination": "Varenna, Italy",
+        "distance_miles": 0.3,
+        "nights": 5,
+        "property_id": "ChkQofzK3r3Gx4x9Gg0vZy8xMXp5eXp3Z2NmEAI",
+        "property_name": "Varenna Beach Perledo",
+        "rating": 4.575,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": null,
+        "total_price": 1684.0
+      }
+    },
     "nashville-spring-break|Downtown Nashville, TN|2027-03-12|2027-03-16": {
-      "checked_on": "2026-10-29",
-      "note": "Embassy Suites: $266 less than the cheapest qualifying option, Homewood Suites by Hilton Nashville Downtown The Gulch ($1,441)",
+      "checked_on": "2026-10-31",
+      "note": "Embassy Suites: $281 less than the cheapest qualifying option, Homewood Suites by Hilton Nashville Downtown The Gulch ($1,456)",
       "quote": {
         "board_type": "",
         "check_in": "2027-03-12",
@@ -400,8 +683,8 @@
       }
     },
     "nashville-spring-break|Downtown Nashville, TN|2027-03-13|2027-03-17": {
-      "checked_on": "2026-10-29",
-      "note": "Embassy Suites: $353 more than the cheapest qualifying option, Holiday Inn Express and Suites Nashville West End Univ Area, an IHG Hotel ($775)",
+      "checked_on": "2026-10-31",
+      "note": "Embassy Suites: $350 more than the cheapest qualifying option, Holiday Inn Express and Suites Nashville West End Univ Area, an IHG Hotel ($775)",
       "quote": {
         "board_type": "",
         "check_in": "2027-03-13",
@@ -417,12 +700,12 @@
         "refundable": null,
         "source": "google_hotels",
         "stars": 3.0,
-        "total_price": 1128.0
+        "total_price": 1125.0
       }
     },
     "nashville-spring-break|Downtown Nashville, TN|2027-03-14|2027-03-18": {
-      "checked_on": "2026-10-29",
-      "note": "Embassy Suites: $351 more than the cheapest qualifying option, Holiday Inn Express and Suites Nashville West End Univ Area, an IHG Hotel ($668)",
+      "checked_on": "2026-10-31",
+      "note": "Embassy Suites: $346 more than the cheapest qualifying option, Holiday Inn Express and Suites Nashville West End Univ Area, an IHG Hotel ($668)",
       "quote": {
         "board_type": "",
         "check_in": "2027-03-14",
@@ -438,12 +721,12 @@
         "refundable": null,
         "source": "google_hotels",
         "stars": 3.0,
-        "total_price": 1019.0
+        "total_price": 1014.0
       }
     },
     "nashville-spring-break|Downtown Nashville, TN|2027-03-15|2027-03-19": {
-      "checked_on": "2026-10-30",
-      "note": "Embassy Suites: $399 more than the cheapest qualifying option, Holiday Inn Express and Suites Nashville West End Univ Area, an IHG Hotel ($721)",
+      "checked_on": "2026-10-31",
+      "note": "Embassy Suites: $392 more than the cheapest qualifying option, Holiday Inn Express and Suites Nashville West End Univ Area, an IHG Hotel ($721)",
       "quote": {
         "board_type": "",
         "check_in": "2027-03-15",
@@ -459,71 +742,55 @@
         "refundable": null,
         "source": "google_hotels",
         "stars": 3.0,
-        "total_price": 1120.0
+        "total_price": 1113.0
       }
     },
     "nice-riviera|Nice, France|2027-06-05|2027-06-14": {
-      "checked_on": "2026-10-26",
+      "checked_on": "2026-10-31",
       "note": "",
       "quote": {
         "board_type": "",
         "check_in": "2027-06-05",
         "check_out": "2027-06-14",
         "currency": "USD",
-        "deep_link": "https://www.google.com/travel/search?q=H%C3%B4tel%20de%20la%20Fontaine%20Nice%2C%20France&checkin=2027-06-05&checkout=2027-06-14",
+        "deep_link": "https://www.google.com/travel/search?q=Chez%20Courbou%20Nice%2C%20France&checkin=2027-06-05&checkout=2027-06-14",
         "destination": "Nice, France",
-        "distance_miles": 0.5,
+        "distance_miles": 1.4,
         "nights": 9,
-        "property_id": "ChgIlqH07r_f1uDvARoLL2cvMXRmNHp6dnQQAQ",
-        "property_name": "H\u00f4tel de la Fontaine",
-        "rating": 4.5,
+        "property_id": "ChkQ74ugiZeWz6pmGg0vZy8xMXpmbWtjMG52EAI",
+        "property_name": "Chez Courbou",
+        "rating": 5.0,
         "refundable": null,
         "source": "google_hotels",
-        "stars": 3.0,
-        "total_price": 5214.0
+        "stars": null,
+        "total_price": 1234.0
       }
     },
     "nice-riviera|Nice, France|2027-06-21|2027-06-30": {
-      "checked_on": "2026-10-27",
+      "checked_on": "2026-10-31",
       "note": "",
       "quote": {
         "board_type": "",
         "check_in": "2027-06-21",
         "check_out": "2027-06-30",
         "currency": "USD",
-        "deep_link": "https://www.google.com/travel/search?q=Esatitude%20Hotel%203%20%C3%A9toiles%20Nice%2C%20France&checkin=2027-06-21&checkout=2027-06-30",
+        "deep_link": "https://www.google.com/travel/search?q=Chez%20Courbou%20Nice%2C%20France&checkin=2027-06-21&checkout=2027-06-30",
         "destination": "Nice, France",
-        "distance_miles": 1.6,
+        "distance_miles": 1.4,
         "nights": 9,
-        "property_id": "ChcIxeCqz7zu3rsOGgsvZy8xdGY4amhuehAB",
-        "property_name": "Esatitude Hotel 3 \u00e9toiles",
-        "rating": 4.4,
+        "property_id": "ChkQ74ugiZeWz6pmGg0vZy8xMXpmbWtjMG52EAI",
+        "property_name": "Chez Courbou",
+        "rating": 5.0,
         "refundable": null,
         "source": "google_hotels",
-        "stars": 3.0,
-        "total_price": 3118.0
+        "stars": null,
+        "total_price": 1234.0
       }
     },
     "nice-riviera|Nice, France|2027-07-08|2027-07-17": {
-      "checked_on": "2026-10-27",
+      "checked_on": "2026-10-31",
       "note": "",
-      "quote": {
-        "board_type": "",
-        "check_in": "2027-07-08",
-        "check_out": "2027-07-17",
-        "currency": "USD",
-        "deep_link": "https://www.google.com/travel/search?q=Esatitude%20Hotel%203%20%C3%A9toiles%20Nice%2C%20France&checkin=2027-07-08&checkout=2027-07-17",
-        "destination": "Nice, France",
-        "distance_miles": 1.6,
-        "nights": 9,
-        "property_id": "ChcIxeCqz7zu3rsOGgsvZy8xdGY4amhuehAB",
-        "property_name": "Esatitude Hotel 3 \u00e9toiles",
-        "rating": 4.4,
-        "refundable": null,
-        "source": "google_hotels",
-        "stars": 3.0,
-        "total_price": 3118.0
-      }
+      "quote": null
     },
     "paris-versailles|Paris, France|2027-06-05|2027-06-11": {
       "checked_on": "2026-10-31",
@@ -693,6 +960,27 @@
         "total_price": 515.0
       }
     },
+    "portugal-azores-summer|Lagos, Portugal|2027-07-14|2027-07-17": {
+      "checked_on": "2026-10-31",
+      "note": "",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-07-14",
+        "check_out": "2027-07-17",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=dinas%20view%20Lagos%2C%20Portugal&checkin=2027-07-14&checkout=2027-07-17",
+        "destination": "Lagos, Portugal",
+        "distance_miles": 1.9,
+        "nights": 3,
+        "property_id": "ChkQvvaW-7DB7vkoGg0vZy8xMW5odzgydHZjEAI",
+        "property_name": "dinas view",
+        "rating": 4.15,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": null,
+        "total_price": 484.0
+      }
+    },
     "portugal-azores-summer|Lisbon, Portugal|2027-06-08|2027-06-12": {
       "checked_on": "2026-10-31",
       "note": "",
@@ -734,6 +1022,11 @@
         "stars": null,
         "total_price": 568.0
       }
+    },
+    "portugal-azores-summer|Lisbon, Portugal|2027-07-10|2027-07-14": {
+      "checked_on": "2026-10-31",
+      "note": "",
+      "quote": null
     },
     "portugal-azores-summer|Porto, Portugal|2027-06-05|2027-06-08": {
       "checked_on": "2026-10-31",
@@ -819,26 +1112,52 @@
         "total_price": 1313.0
       }
     },
-    "smokies-spring-break|Gatlinburg, TN|2027-03-12|2027-03-16": {
-      "checked_on": "2026-10-30",
+    "rome-summer|Rome, Italy|2027-06-23|2027-06-30": {
+      "checked_on": "2026-10-31",
       "note": "",
       "quote": {
         "board_type": "",
-        "check_in": "2027-03-12",
-        "check_out": "2027-03-16",
+        "check_in": "2027-06-23",
+        "check_out": "2027-06-30",
         "currency": "USD",
-        "deep_link": "https://www.google.com/travel/search?q=Spacious%20Condo%20with%20beautiful%20Mountain%20Views.%202%20BR/2Bath%20sleeps%206%20guests.%20Gatlinburg%2C%20TN&checkin=2027-03-12&checkout=2027-03-16",
-        "destination": "Gatlinburg, TN",
-        "distance_miles": 3.1,
-        "nights": 4,
-        "property_id": "ChkQ8LTb6dzzjI4GGg0vZy8xMXhsbXpqZmsxEAI",
-        "property_name": "Spacious Condo with beautiful Mountain Views. 2 BR/2Bath sleeps 6 guests.",
-        "rating": 4.5,
+        "deep_link": "https://www.google.com/travel/search?q=Elegant%20house%20in%20the%20center%20of%20Rome-Parioli%20a%20stone%27s%20throw%20from%20Via%20Veneto%20Rome%2C%20Italy&checkin=2027-06-23&checkout=2027-06-30",
+        "destination": "Rome, Italy",
+        "distance_miles": 1.9,
+        "nights": 7,
+        "property_id": "ChoQo-mWtdHTj-vVARoNL2cvMTF0eHFueXBkbhAC",
+        "property_name": "Elegant house in the center of Rome-Parioli a stone's throw from Via Veneto",
+        "rating": 4.762427,
         "refundable": null,
         "source": "google_hotels",
         "stars": null,
-        "total_price": 721.0
+        "total_price": 1350.0
       }
+    },
+    "rome-summer|Rome, Italy|2027-07-10|2027-07-17": {
+      "checked_on": "2026-10-31",
+      "note": "",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-07-10",
+        "check_out": "2027-07-17",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=Simi%20Roma%20-%20Carpegna%20Rome%2C%20Italy&checkin=2027-07-10&checkout=2027-07-17",
+        "destination": "Rome, Italy",
+        "distance_miles": 2.2,
+        "nights": 7,
+        "property_id": "ChkQ5fyp5Zrxpt1hGg0vZy8xMXo2YmQyX2pzEAI",
+        "property_name": "Simi Roma - Carpegna",
+        "rating": 4.9,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": null,
+        "total_price": 1238.0
+      }
+    },
+    "smokies-spring-break|Gatlinburg, TN|2027-03-12|2027-03-16": {
+      "checked_on": "2026-10-31",
+      "note": "",
+      "quote": null
     },
     "smokies-spring-break|Gatlinburg, TN|2027-03-13|2027-03-17": {
       "checked_on": "2026-10-30",

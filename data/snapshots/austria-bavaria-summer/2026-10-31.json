@@ -1,7 +1,7 @@
 {
   "trip_id": "austria-bavaria-summer",
-  "captured_at": "2026-10-31T13:22:24.269846+00:00",
-  "queries_made": 3,
+  "captured_at": "2026-10-31T13:48:09.306824+00:00",
+  "queries_made": 6,
   "errors": [],
   "quotes": [
     {
@@ -14,32 +14,85 @@
       "flight": {
         "origin": "STL",
         "destination": "MUC",
-        "depart_date": "2027-06-05",
+        "depart_date": "2027-06-04",
         "return_date": "2027-06-15",
-        "total_price": 7746.0,
+        "total_price": 7344.0,
         "currency": "USD",
         "carriers": [
-          "American",
+          "Southwest",
           "Condor"
         ],
-        "stops_out": null,
+        "stops_out": 2,
         "stops_back": null,
         "source": "google_flights_extra_stop",
-        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20MUC%20from%20STL%20on%202027-06-05%20through%202027-06-15"
+        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20MUC%20from%20STL%20on%202027-06-04%20through%202027-06-15",
+        "outbound": [
+          {
+            "from": "STL",
+            "from_name": "St. Louis Lambert International Airport",
+            "to": "BOS",
+            "to_name": "Boston Logan International Airport",
+            "depart": "2027-06-04T10:00",
+            "arrive": "2027-06-04T13:35",
+            "minutes": 155,
+            "airline": "",
+            "flight": "",
+            "plane": "Boeing 737MAX 8 Passenger"
+          },
+          {
+            "from": "BOS",
+            "from_name": "Boston Logan International Airport",
+            "to": "FRA",
+            "to_name": "Frankfurt Airport",
+            "depart": "2027-06-04T16:30",
+            "arrive": "2027-06-05T05:45",
+            "minutes": 435,
+            "airline": "",
+            "flight": "",
+            "plane": "Airbus A330-900neo"
+          },
+          {
+            "from": "FRA",
+            "from_name": "Frankfurt Airport",
+            "to": "MUC",
+            "to_name": "Munich International Airport",
+            "depart": "2027-06-05T07:10",
+            "arrive": "2027-06-05T08:10",
+            "minutes": 60,
+            "airline": "",
+            "flight": "",
+            "plane": "Airbus A320"
+          }
+        ]
       },
-      "lodging": null,
+      "lodging": {
+        "destination": "MUC \u2192 SZG",
+        "check_in": "2027-06-05",
+        "check_out": "2027-06-15",
+        "property_name": "INNSiDE by Meli\u00e1 M\u00fcnchen Parkstadt Schwabing (5n) + Dachsteink\u00f6nig, Gosau (estimate) (5n)",
+        "total_price": 9268.0,
+        "currency": "USD",
+        "property_id": "",
+        "nights": 10,
+        "rating": 4.0,
+        "stars": null,
+        "board_type": "",
+        "refundable": null,
+        "source": "estimate+google_hotels",
+        "deep_link": "",
+        "distance_miles": null
+      },
       "ground_cost": 2750.0,
       "ground_notes": "Plan's fixed costs: tickets, trains, 5-day car, food in Munich (resort meals are included)",
       "travel_mode": "air",
       "flights_expected": true,
-      "flight_cost": 7746.0,
-      "lodging_cost": 0.0,
-      "total_cost": 10496.0,
-      "is_complete": false,
+      "flight_cost": 7344.0,
+      "lodging_cost": 9268.0,
+      "total_cost": 19362.0,
+      "is_complete": true,
       "notes": [
         "airfare allows one more stop than your limit \u2014 none was found within it",
-        "Dachsteink\u00f6nig: an estimate (\u2248\u20ac5,750 all-inclusive), not a tracked price \u2014 replace with the resort's quote",
-        "no lodging price yet for Munich, Germany"
+        "Dachsteink\u00f6nig: an estimate (\u2248\u20ac5,750 all-inclusive), not a tracked price \u2014 replace with the resort's quote"
       ]
     },
     {
@@ -49,19 +102,88 @@
       "return_date": "2027-07-01",
       "nights": 10,
       "currency": "USD",
-      "flight": null,
-      "lodging": null,
+      "flight": {
+        "origin": "STL",
+        "destination": "MUC",
+        "depart_date": "2027-06-20",
+        "return_date": "2027-07-01",
+        "total_price": 8400.0,
+        "currency": "USD",
+        "carriers": [
+          "American",
+          "Condor"
+        ],
+        "stops_out": 2,
+        "stops_back": null,
+        "source": "google_flights_extra_stop",
+        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20MUC%20from%20STL%20on%202027-06-20%20through%202027-07-01",
+        "outbound": [
+          {
+            "from": "STL",
+            "from_name": "St. Louis Lambert International Airport",
+            "to": "ORD",
+            "to_name": "Chicago O'Hare International Airport",
+            "depart": "2027-06-20T14:32",
+            "arrive": "2027-06-20T15:59",
+            "minutes": 87,
+            "airline": "",
+            "flight": "",
+            "plane": "Embraer 170"
+          },
+          {
+            "from": "ORD",
+            "from_name": "Chicago O'Hare International Airport",
+            "to": "FRA",
+            "to_name": "Frankfurt Airport",
+            "depart": "2027-06-20T20:20",
+            "arrive": "2027-06-21T11:50",
+            "minutes": 510,
+            "airline": "",
+            "flight": "",
+            "plane": "Airbus A330-900neo"
+          },
+          {
+            "from": "FRA",
+            "from_name": "Frankfurt Airport",
+            "to": "MUC",
+            "to_name": "Munich International Airport",
+            "depart": "2027-06-21T14:25",
+            "arrive": "2027-06-21T15:25",
+            "minutes": 60,
+            "airline": "",
+            "flight": "",
+            "plane": "Airbus A320"
+          }
+        ]
+      },
+      "lodging": {
+        "destination": "MUC \u2192 SZG",
+        "check_in": "2027-06-21",
+        "check_out": "2027-07-01",
+        "property_name": "Hotel M\u00fcnchen City Center, Affiliated by Meli\u00e1 (5n) + Dachsteink\u00f6nig, Gosau (estimate) (5n)",
+        "total_price": 8734.0,
+        "currency": "USD",
+        "property_id": "",
+        "nights": 10,
+        "rating": 4.0,
+        "stars": null,
+        "board_type": "",
+        "refundable": null,
+        "source": "estimate+google_hotels",
+        "deep_link": "",
+        "distance_miles": null
+      },
       "ground_cost": 2750.0,
       "ground_notes": "Plan's fixed costs: tickets, trains, 5-day car, food in Munich (resort meals are included)",
       "travel_mode": "air",
       "flights_expected": true,
-      "flight_cost": 0.0,
-      "lodging_cost": 0.0,
-      "total_cost": 2750.0,
-      "is_complete": false,
+      "flight_cost": 8400.0,
+      "lodging_cost": 8734.0,
+      "total_cost": 19884.0,
+      "is_complete": true,
       "notes": [
-        "Dachsteink\u00f6nig: an estimate (\u2248\u20ac5,750 all-inclusive), not a tracked price \u2014 replace with the resort's quote",
-        "no lodging price yet for Munich, Germany"
+        "airfare allows one more stop than your limit \u2014 none was found within it",
+        "Dachsteink\u00f6nig: an estimate (\u2248\u20ac5,750 all-inclusive), not a tracked price \u2014 replace with the resort's quote"
       ]
     },
     {
@@ -74,32 +196,72 @@
       "flight": {
         "origin": "STL",
         "destination": "MUC",
-        "depart_date": "2027-07-07",
+        "depart_date": "2027-07-06",
         "return_date": "2027-07-17",
-        "total_price": 6936.0,
+        "total_price": 9480.0,
         "currency": "USD",
         "carriers": [
-          "Southwest",
-          "Condor"
+          "United"
         ],
-        "stops_out": null,
+        "stops_out": 1,
         "stops_back": null,
-        "source": "google_flights_extra_stop",
-        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20MUC%20from%20STL%20on%202027-07-07%20through%202027-07-17"
+        "source": "google_flights_scaled",
+        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20MUC%20from%20STL%20on%202027-07-06%20through%202027-07-17",
+        "outbound": [
+          {
+            "from": "STL",
+            "from_name": "St. Louis Lambert International Airport",
+            "to": "ORD",
+            "to_name": "Chicago O'Hare International Airport",
+            "depart": "2027-07-06T13:27",
+            "arrive": "2027-07-06T14:55",
+            "minutes": 88,
+            "airline": "",
+            "flight": "",
+            "plane": "Embraer 175"
+          },
+          {
+            "from": "ORD",
+            "from_name": "Chicago O'Hare International Airport",
+            "to": "MUC",
+            "to_name": "Munich International Airport",
+            "depart": "2027-07-06T18:00",
+            "arrive": "2027-07-07T09:40",
+            "minutes": 520,
+            "airline": "",
+            "flight": "",
+            "plane": "Boeing 787"
+          }
+        ]
       },
-      "lodging": null,
+      "lodging": {
+        "destination": "MUC \u2192 SZG",
+        "check_in": "2027-07-07",
+        "check_out": "2027-07-17",
+        "property_name": "AWA Hotel GmbH (5n) + Dachsteink\u00f6nig, Gosau (estimate) (5n)",
+        "total_price": 8498.0,
+        "currency": "USD",
+        "property_id": "",
+        "nights": 10,
+        "rating": 4.1,
+        "stars": null,
+        "board_type": "",
+        "refundable": null,
+        "source": "estimate+google_hotels",
+        "deep_link": "",
+        "distance_miles": null
+      },
       "ground_cost": 2750.0,
       "ground_notes": "Plan's fixed costs: tickets, trains, 5-day car, food in Munich (resort meals are included)",
       "travel_mode": "air",
       "flights_expected": true,
-      "flight_cost": 6936.0,
-      "lodging_cost": 0.0,
-      "total_cost": 9686.0,
-      "is_complete": false,
+      "flight_cost": 9480.0,
+      "lodging_cost": 8498.0,
+      "total_cost": 20728.0,
+      "is_complete": true,
       "notes": [
-        "airfare allows one more stop than your limit \u2014 none was found within it",
-        "Dachsteink\u00f6nig: an estimate (\u2248\u20ac5,750 all-inclusive), not a tracked price \u2014 replace with the resort's quote",
-        "no lodging price yet for Munich, Germany"
+        "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)",
+        "Dachsteink\u00f6nig: an estimate (\u2248\u20ac5,750 all-inclusive), not a tracked price \u2014 replace with the resort's quote"
       ]
     }
   ]

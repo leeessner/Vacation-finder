@@ -1,7 +1,7 @@
 {
   "trip_id": "nashville-spring-break",
-  "captured_at": "2026-10-31T13:21:42.427342+00:00",
-  "queries_made": 0,
+  "captured_at": "2026-10-31T13:47:07.370554+00:00",
+  "queries_made": 8,
   "errors": [],
   "quotes": [
     {
@@ -38,8 +38,7 @@
       "total_cost": 1972.36,
       "is_complete": true,
       "notes": [
-        "hotel price checked 2 day(s) ago",
-        "Embassy Suites: $266 less than the cheapest qualifying option, Homewood Suites by Hilton Nashville Downtown The Gulch ($1,441)"
+        "Embassy Suites: $281 less than the cheapest qualifying option, Homewood Suites by Hilton Nashville Downtown The Gulch ($1,456)"
       ]
     },
     {
@@ -55,7 +54,7 @@
         "check_in": "2027-03-13",
         "check_out": "2027-03-17",
         "property_name": "Embassy Suites by Hilton Nashville at Vanderbilt",
-        "total_price": 1128.0,
+        "total_price": 1125.0,
         "currency": "USD",
         "property_id": "ChgIldb85OXt5pCOARoLL2cvMXRocDhxbDcQAQ",
         "nights": 4,
@@ -72,12 +71,11 @@
       "travel_mode": "drive",
       "flights_expected": false,
       "flight_cost": 0.0,
-      "lodging_cost": 1128.0,
-      "total_cost": 1925.36,
+      "lodging_cost": 1125.0,
+      "total_cost": 1922.36,
       "is_complete": true,
       "notes": [
-        "hotel price checked 2 day(s) ago",
-        "Embassy Suites: $353 more than the cheapest qualifying option, Holiday Inn Express and Suites Nashville West End Univ Area, an IHG Hotel ($775)"
+        "Embassy Suites: $350 more than the cheapest qualifying option, Holiday Inn Express and Suites Nashville West End Univ Area, an IHG Hotel ($775)"
       ]
     },
     {
@@ -93,7 +91,7 @@
         "check_in": "2027-03-14",
         "check_out": "2027-03-18",
         "property_name": "Embassy Suites by Hilton Nashville at Vanderbilt",
-        "total_price": 1019.0,
+        "total_price": 1014.0,
         "currency": "USD",
         "property_id": "ChgIldb85OXt5pCOARoLL2cvMXRocDhxbDcQAQ",
         "nights": 4,
@@ -110,12 +108,11 @@
       "travel_mode": "drive",
       "flights_expected": false,
       "flight_cost": 0.0,
-      "lodging_cost": 1019.0,
-      "total_cost": 1816.36,
+      "lodging_cost": 1014.0,
+      "total_cost": 1811.36,
       "is_complete": true,
       "notes": [
-        "hotel price checked 2 day(s) ago",
-        "Embassy Suites: $351 more than the cheapest qualifying option, Holiday Inn Express and Suites Nashville West End Univ Area, an IHG Hotel ($668)"
+        "Embassy Suites: $346 more than the cheapest qualifying option, Holiday Inn Express and Suites Nashville West End Univ Area, an IHG Hotel ($668)"
       ]
     },
     {
@@ -131,7 +128,7 @@
         "check_in": "2027-03-15",
         "check_out": "2027-03-19",
         "property_name": "Embassy Suites by Hilton Nashville at Vanderbilt",
-        "total_price": 1120.0,
+        "total_price": 1113.0,
         "currency": "USD",
         "property_id": "ChgIldb85OXt5pCOARoLL2cvMXRocDhxbDcQAQ",
         "nights": 4,
@@ -148,12 +145,11 @@
       "travel_mode": "drive",
       "flights_expected": false,
       "flight_cost": 0.0,
-      "lodging_cost": 1120.0,
-      "total_cost": 1917.36,
+      "lodging_cost": 1113.0,
+      "total_cost": 1910.36,
       "is_complete": true,
       "notes": [
-        "hotel price checked 1 day(s) ago",
-        "Embassy Suites: $399 more than the cheapest qualifying option, Holiday Inn Express and Suites Nashville West End Univ Area, an IHG Hotel ($721)"
+        "Embassy Suites: $392 more than the cheapest qualifying option, Holiday Inn Express and Suites Nashville West End Univ Area, an IHG Hotel ($721)"
       ]
     }
   ]

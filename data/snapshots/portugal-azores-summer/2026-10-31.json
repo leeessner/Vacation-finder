@@ -1,7 +1,7 @@
 {
   "trip_id": "portugal-azores-summer",
-  "captured_at": "2026-10-31T13:22:11.160596+00:00",
-  "queries_made": 7,
+  "captured_at": "2026-10-31T13:47:59.911254+00:00",
+  "queries_made": 5,
   "errors": [],
   "quotes": [
     {
@@ -14,15 +14,41 @@
       "flight": {
         "origin": "STL",
         "destination": "OPO",
-        "depart_date": "2027-06-05",
+        "depart_date": "2027-06-04",
         "return_date": "2027-06-15",
-        "total_price": 7642.0,
+        "total_price": 7421.0,
         "currency": "USD",
         "carriers": [],
         "stops_out": null,
         "stops_back": null,
         "source": "google_flights_weekly",
-        "deep_link": ""
+        "deep_link": "",
+        "outbound": [
+          {
+            "from": "STL",
+            "from_name": "St. Louis Lambert International Airport",
+            "to": "EWR",
+            "to_name": "Newark Liberty International Airport",
+            "depart": "2027-06-04T11:45",
+            "arrive": "2027-06-04T15:15",
+            "minutes": 150,
+            "airline": "United",
+            "flight": "UA 3478",
+            "plane": "Embraer 175"
+          },
+          {
+            "from": "EWR",
+            "from_name": "Newark Liberty International Airport",
+            "to": "OPO",
+            "to_name": "Francisco S\u00e1 Carneiro Airport",
+            "depart": "2027-06-04T18:50",
+            "arrive": "2027-06-05T06:55",
+            "minutes": 425,
+            "airline": "United",
+            "flight": "UA 238",
+            "plane": "Boeing 757"
+          }
+        ]
       },
       "lodging": {
         "destination": "OPO \u2192 LIS \u2192 FAO",
@@ -45,9 +71,9 @@
       "ground_notes": "Plan's fixed costs: port cellar, trains, Sintra, Algarve car, food",
       "travel_mode": "air",
       "flights_expected": true,
-      "flight_cost": 7642.0,
+      "flight_cost": 7421.0,
       "lodging_cost": 1368.0,
-      "total_cost": 12160.0,
+      "total_cost": 11939.0,
       "is_complete": true,
       "notes": [
         "airfare from this week's Google Flights check (the free daily check found none for this route)"
@@ -106,7 +132,7 @@
       "total_cost": 3150.0,
       "is_complete": false,
       "notes": [
-        "no lodging price yet for Lisbon, Portugal, Lagos, Portugal"
+        "no lodging price yet for Lisbon, Portugal"
       ]
     }
   ]

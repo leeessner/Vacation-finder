@@ -1,7 +1,7 @@
 {
   "trip_id": "milan-lake-como-summer",
-  "captured_at": "2026-10-31T13:22:36.316000+00:00",
-  "queries_made": 3,
+  "captured_at": "2026-10-31T13:48:39.516680+00:00",
+  "queries_made": 7,
   "errors": [],
   "quotes": [
     {
@@ -14,17 +14,56 @@
       "flight": {
         "origin": "STL",
         "destination": "MXP",
-        "depart_date": "2027-06-05",
+        "depart_date": "2027-06-04",
         "return_date": "2027-06-14",
-        "total_price": 8274.0,
+        "total_price": 6780.0,
         "currency": "USD",
         "carriers": [
-          "Lufthansa"
+          "American",
+          "Condor"
         ],
-        "stops_out": null,
+        "stops_out": 2,
         "stops_back": null,
-        "source": "google_flights_scaled",
-        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20MXP%20from%20STL%20on%202027-06-05%20through%202027-06-14"
+        "source": "google_flights_extra_stop",
+        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20MXP%20from%20STL%20on%202027-06-04%20through%202027-06-14",
+        "outbound": [
+          {
+            "from": "STL",
+            "from_name": "St. Louis Lambert International Airport",
+            "to": "BOS",
+            "to_name": "Boston Logan International Airport",
+            "depart": "2027-06-04T09:45",
+            "arrive": "2027-06-04T13:30",
+            "minutes": 165,
+            "airline": "",
+            "flight": "",
+            "plane": "Embraer 175"
+          },
+          {
+            "from": "BOS",
+            "from_name": "Boston Logan International Airport",
+            "to": "FRA",
+            "to_name": "Frankfurt Airport",
+            "depart": "2027-06-04T16:30",
+            "arrive": "2027-06-05T05:45",
+            "minutes": 435,
+            "airline": "",
+            "flight": "",
+            "plane": "Airbus A330-900neo"
+          },
+          {
+            "from": "FRA",
+            "from_name": "Frankfurt Airport",
+            "to": "MXP",
+            "to_name": "Milano Malpensa Airport",
+            "depart": "2027-06-05T09:40",
+            "arrive": "2027-06-05T11:00",
+            "minutes": 80,
+            "airline": "",
+            "flight": "",
+            "plane": "Embraer 190"
+          }
+        ]
       },
       "lodging": {
         "destination": "MXP \u2192 VAR",
@@ -47,12 +86,12 @@
       "ground_notes": "Plan's fixed costs: Last Supper, museums, trains, ferries, food",
       "travel_mode": "air",
       "flights_expected": true,
-      "flight_cost": 8274.0,
+      "flight_cost": 6780.0,
       "lodging_cost": 3174.0,
-      "total_cost": 14048.0,
+      "total_cost": 12554.0,
       "is_complete": true,
       "notes": [
-        "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)"
+        "airfare allows one more stop than your limit \u2014 none was found within it"
       ]
     },
     {
@@ -65,31 +104,69 @@
       "flight": {
         "origin": "STL",
         "destination": "MXP",
-        "depart_date": "2027-06-21",
+        "depart_date": "2027-06-20",
         "return_date": "2027-06-30",
-        "total_price": 6648.0,
+        "total_price": 6774.0,
         "currency": "USD",
         "carriers": [
           "American",
           "Condor"
         ],
-        "stops_out": null,
+        "stops_out": 2,
         "stops_back": null,
         "source": "google_flights_extra_stop",
-        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20MXP%20from%20STL%20on%202027-06-21%20through%202027-06-30"
+        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20MXP%20from%20STL%20on%202027-06-20%20through%202027-06-30",
+        "outbound": [
+          {
+            "from": "STL",
+            "from_name": "St. Louis Lambert International Airport",
+            "to": "BOS",
+            "to_name": "Boston Logan International Airport",
+            "depart": "2027-06-20T09:45",
+            "arrive": "2027-06-20T13:30",
+            "minutes": 165,
+            "airline": "",
+            "flight": "",
+            "plane": "Embraer 175"
+          },
+          {
+            "from": "BOS",
+            "from_name": "Boston Logan International Airport",
+            "to": "FRA",
+            "to_name": "Frankfurt Airport",
+            "depart": "2027-06-20T16:30",
+            "arrive": "2027-06-21T05:45",
+            "minutes": 435,
+            "airline": "",
+            "flight": "",
+            "plane": "Airbus A330-900neo"
+          },
+          {
+            "from": "FRA",
+            "from_name": "Frankfurt Airport",
+            "to": "MXP",
+            "to_name": "Milano Malpensa Airport",
+            "depart": "2027-06-21T09:40",
+            "arrive": "2027-06-21T11:00",
+            "minutes": 80,
+            "airline": "",
+            "flight": "",
+            "plane": "Embraer 190"
+          }
+        ]
       },
       "lodging": null,
       "ground_cost": 2600.0,
       "ground_notes": "Plan's fixed costs: Last Supper, museums, trains, ferries, food",
       "travel_mode": "air",
       "flights_expected": true,
-      "flight_cost": 6648.0,
+      "flight_cost": 6774.0,
       "lodging_cost": 0.0,
-      "total_cost": 9248.0,
+      "total_cost": 9374.0,
       "is_complete": false,
       "notes": [
         "airfare allows one more stop than your limit \u2014 none was found within it",
-        "no lodging price yet for Milan, Italy, Varenna, Italy"
+        "no lodging price yet for Milan, Italy"
       ]
     },
     {
@@ -99,18 +176,87 @@
       "return_date": "2027-07-17",
       "nights": 9,
       "currency": "USD",
-      "flight": null,
-      "lodging": null,
+      "flight": {
+        "origin": "STL",
+        "destination": "MXP",
+        "depart_date": "2027-07-07",
+        "return_date": "2027-07-17",
+        "total_price": 6960.0,
+        "currency": "USD",
+        "carriers": [
+          "Southwest",
+          "Condor"
+        ],
+        "stops_out": 2,
+        "stops_back": null,
+        "source": "google_flights_extra_stop",
+        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20MXP%20from%20STL%20on%202027-07-07%20through%202027-07-17",
+        "outbound": [
+          {
+            "from": "STL",
+            "from_name": "St. Louis Lambert International Airport",
+            "to": "BOS",
+            "to_name": "Boston Logan International Airport",
+            "depart": "2027-07-07T06:45",
+            "arrive": "2027-07-07T10:20",
+            "minutes": 155,
+            "airline": "",
+            "flight": "",
+            "plane": "Boeing 737MAX 8 Passenger"
+          },
+          {
+            "from": "BOS",
+            "from_name": "Boston Logan International Airport",
+            "to": "FRA",
+            "to_name": "Frankfurt Airport",
+            "depart": "2027-07-07T16:30",
+            "arrive": "2027-07-08T05:45",
+            "minutes": 435,
+            "airline": "",
+            "flight": "",
+            "plane": "Airbus A330-900neo"
+          },
+          {
+            "from": "FRA",
+            "from_name": "Frankfurt Airport",
+            "to": "MXP",
+            "to_name": "Milano Malpensa Airport",
+            "depart": "2027-07-08T09:40",
+            "arrive": "2027-07-08T11:00",
+            "minutes": 80,
+            "airline": "",
+            "flight": "",
+            "plane": "Embraer 190"
+          }
+        ]
+      },
+      "lodging": {
+        "destination": "MXP \u2192 VAR",
+        "check_in": "2027-07-08",
+        "check_out": "2027-07-17",
+        "property_name": "Splendido quadrilocale in elegante stabile nel centro di Milano (4n) + Varenna Beach Perledo (5n)",
+        "total_price": 3346.0,
+        "currency": "USD",
+        "property_id": "",
+        "nights": 9,
+        "rating": 4.35,
+        "stars": null,
+        "board_type": "",
+        "refundable": null,
+        "source": "google_hotels",
+        "deep_link": "",
+        "distance_miles": null
+      },
       "ground_cost": 2600.0,
       "ground_notes": "Plan's fixed costs: Last Supper, museums, trains, ferries, food",
       "travel_mode": "air",
       "flights_expected": true,
-      "flight_cost": 0.0,
-      "lodging_cost": 0.0,
-      "total_cost": 2600.0,
-      "is_complete": false,
+      "flight_cost": 6960.0,
+      "lodging_cost": 3346.0,
+      "total_cost": 12906.0,
+      "is_complete": true,
       "notes": [
-        "no lodging price yet for Milan, Italy, Varenna, Italy"
+        "airfare allows one more stop than your limit \u2014 none was found within it"
       ]
     }
   ]

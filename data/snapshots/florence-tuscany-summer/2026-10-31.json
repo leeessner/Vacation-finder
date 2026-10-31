@@ -1,7 +1,7 @@
 {
   "trip_id": "florence-tuscany-summer",
-  "captured_at": "2026-10-31T13:21:50.925530+00:00",
-  "queries_made": 9,
+  "captured_at": "2026-10-31T13:47:34.933022+00:00",
+  "queries_made": 3,
   "errors": [],
   "quotes": [
     {
@@ -14,15 +14,41 @@
       "flight": {
         "origin": "STL",
         "destination": "FLR",
-        "depart_date": "2027-06-05",
+        "depart_date": "2027-06-04",
         "return_date": "2027-06-13",
-        "total_price": 7633.0,
+        "total_price": 8140.0,
         "currency": "USD",
         "carriers": [],
         "stops_out": null,
         "stops_back": null,
         "source": "google_flights_weekly",
-        "deep_link": ""
+        "deep_link": "",
+        "outbound": [
+          {
+            "from": "STL",
+            "from_name": "St. Louis Lambert International Airport",
+            "to": "LHR",
+            "to_name": "Heathrow Airport",
+            "depart": "2027-06-04T21:35",
+            "arrive": "2027-06-05T11:35",
+            "minutes": 480,
+            "airline": "British Airways",
+            "flight": "BA 220",
+            "plane": "Boeing 787"
+          },
+          {
+            "from": "LHR",
+            "from_name": "Heathrow Airport",
+            "to": "FLR",
+            "to_name": "Amerigo Vespucci Airport",
+            "depart": "2027-06-05T19:05",
+            "arrive": "2027-06-05T22:20",
+            "minutes": 135,
+            "airline": "British Airways",
+            "flight": "BA 522",
+            "plane": "Airbus A320neo"
+          }
+        ]
       },
       "lodging": {
         "destination": "FLR \u2192 SAY",
@@ -45,9 +71,9 @@
       "ground_notes": "Plan's fixed costs: museums, pasta class, Bologna day, 4-day car, food",
       "travel_mode": "air",
       "flights_expected": true,
-      "flight_cost": 7633.0,
+      "flight_cost": 8140.0,
       "lodging_cost": 2481.0,
-      "total_cost": 14564.0,
+      "total_cost": 15071.0,
       "is_complete": true,
       "notes": [
         "airfare from this week's Google Flights check (the free daily check found none for this route)",
