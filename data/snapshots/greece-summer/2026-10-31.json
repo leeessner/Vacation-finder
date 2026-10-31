@@ -1,6 +1,6 @@
 {
   "trip_id": "greece-summer",
-  "captured_at": "2026-10-31T13:47:56.420066+00:00",
+  "captured_at": "2026-10-31T18:00:34.883954+00:00",
   "queries_made": 3,
   "errors": [],
   "quotes": [
@@ -16,10 +16,10 @@
         "destination": "ATH",
         "depart_date": "2027-06-04",
         "return_date": "2027-06-15",
-        "total_price": 8154.0,
+        "total_price": 9141.0,
         "currency": "USD",
         "carriers": [
-          "Air Canada"
+          "American"
         ],
         "stops_out": 1,
         "stops_back": null,
@@ -29,23 +29,23 @@
           {
             "from": "STL",
             "from_name": "St. Louis Lambert International Airport",
-            "to": "YYZ",
-            "to_name": "Toronto Pearson International Airport",
-            "depart": "2027-06-04T08:15",
-            "arrive": "2027-06-04T11:13",
-            "minutes": 118,
+            "to": "LGA",
+            "to_name": "LaGuardia Airport",
+            "depart": "2027-06-04T09:23",
+            "arrive": "2027-06-04T12:55",
+            "minutes": 152,
             "airline": "",
             "flight": "",
-            "plane": "Canadair RJ 900"
+            "plane": "Embraer 175"
           },
           {
-            "from": "YYZ",
-            "from_name": "Toronto Pearson International Airport",
+            "from": "JFK",
+            "from_name": "John F. Kennedy International Airport",
             "to": "ATH",
             "to_name": "Athens International Airport \"Eleftherios Venizelos\"",
-            "depart": "2027-06-04T18:35",
-            "arrive": "2027-06-05T11:10",
-            "minutes": 575,
+            "depart": "2027-06-04T17:20",
+            "arrive": "2027-06-05T10:00",
+            "minutes": 580,
             "airline": "",
             "flight": "",
             "plane": "Boeing 777"
@@ -73,9 +73,9 @@
       "ground_notes": "Plan's fixed costs: sites, ferries or flights to Naxos, island car, food",
       "travel_mode": "air",
       "flights_expected": true,
-      "flight_cost": 8154.0,
+      "flight_cost": 9141.0,
       "lodging_cost": 1232.0,
-      "total_cost": 12336.0,
+      "total_cost": 13323.0,
       "is_complete": true,
       "notes": [
         "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)"
@@ -93,10 +93,10 @@
         "destination": "ATH",
         "depart_date": "2027-06-20",
         "return_date": "2027-07-01",
-        "total_price": 7257.0,
+        "total_price": 7350.0,
         "currency": "USD",
         "carriers": [
-          "Air Canada"
+          "American"
         ],
         "stops_out": 1,
         "stops_back": null,
@@ -106,23 +106,23 @@
           {
             "from": "STL",
             "from_name": "St. Louis Lambert International Airport",
-            "to": "YYZ",
-            "to_name": "Toronto Pearson International Airport",
-            "depart": "2027-06-20T08:15",
-            "arrive": "2027-06-20T11:12",
-            "minutes": 117,
+            "to": "LGA",
+            "to_name": "LaGuardia Airport",
+            "depart": "2027-06-20T09:23",
+            "arrive": "2027-06-20T12:55",
+            "minutes": 152,
             "airline": "",
             "flight": "",
-            "plane": "Canadair RJ 900"
+            "plane": "Embraer 175"
           },
           {
-            "from": "YYZ",
-            "from_name": "Toronto Pearson International Airport",
+            "from": "JFK",
+            "from_name": "John F. Kennedy International Airport",
             "to": "ATH",
             "to_name": "Athens International Airport \"Eleftherios Venizelos\"",
-            "depart": "2027-06-20T18:35",
-            "arrive": "2027-06-21T11:10",
-            "minutes": 575,
+            "depart": "2027-06-20T17:20",
+            "arrive": "2027-06-21T10:00",
+            "minutes": 580,
             "airline": "",
             "flight": "",
             "plane": "Boeing 777"
@@ -150,9 +150,9 @@
       "ground_notes": "Plan's fixed costs: sites, ferries or flights to Naxos, island car, food",
       "travel_mode": "air",
       "flights_expected": true,
-      "flight_cost": 7257.0,
+      "flight_cost": 7350.0,
       "lodging_cost": 1465.0,
-      "total_cost": 11672.0,
+      "total_cost": 11765.0,
       "is_complete": true,
       "notes": [
         "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)"

@@ -1,12 +1,12 @@
 {
   "trip_id": "paris-versailles",
-  "captured_at": "2026-10-31T13:47:30.960507+00:00",
-  "queries_made": 3,
+  "captured_at": "2026-10-31T18:00:09.050565+00:00",
+  "queries_made": 8,
   "errors": [],
   "quotes": [
     {
       "trip_id": "paris-versailles",
-      "destination": "CDG \u2192 SXB",
+      "destination": "CDG \u2192 SXB \u2192 RSY",
       "depart_date": "2027-06-05",
       "return_date": "2027-06-14",
       "nights": 9,
@@ -16,10 +16,10 @@
         "destination": "CDG",
         "depart_date": "2027-06-04",
         "return_date": "2027-06-14",
-        "total_price": 8640.0,
+        "total_price": 8658.0,
         "currency": "USD",
         "carriers": [
-          "Air Canada"
+          "American"
         ],
         "stops_out": 1,
         "stops_back": null,
@@ -29,22 +29,22 @@
           {
             "from": "STL",
             "from_name": "St. Louis Lambert International Airport",
-            "to": "YYZ",
-            "to_name": "Toronto Pearson International Airport",
-            "depart": "2027-06-04T08:15",
-            "arrive": "2027-06-04T11:13",
-            "minutes": 118,
+            "to": "LGA",
+            "to_name": "LaGuardia Airport",
+            "depart": "2027-06-04T09:23",
+            "arrive": "2027-06-04T12:55",
+            "minutes": 152,
             "airline": "",
             "flight": "",
-            "plane": "Canadair RJ 900"
+            "plane": "Embraer 175"
           },
           {
-            "from": "YYZ",
-            "from_name": "Toronto Pearson International Airport",
+            "from": "JFK",
+            "from_name": "John F. Kennedy International Airport",
             "to": "CDG",
             "to_name": "A\u00e9roport de Paris-Charles de Gaulle",
-            "depart": "2027-06-04T20:30",
-            "arrive": "2027-06-05T10:00",
+            "depart": "2027-06-04T17:50",
+            "arrive": "2027-06-05T07:20",
             "minutes": 450,
             "airline": "",
             "flight": "",
@@ -53,11 +53,11 @@
         ]
       },
       "lodging": {
-        "destination": "CDG \u2192 SXB",
+        "destination": "CDG \u2192 SXB \u2192 RSY",
         "check_in": "2027-06-05",
         "check_out": "2027-06-14",
-        "property_name": "Tr\u00e8s beau T3 proche RER Port Royal 6 pers - Two-Bedroom Apartment (6n) + Downtown Apartment, Quiet and Spacious (3n)",
-        "total_price": 2488.0,
+        "property_name": "Tr\u00e8s beau T3 proche RER Port Royal 6 pers - Two-Bedroom Apartment (6n) + Downtown Apartment, Quiet and Spacious (2n) + Hampton by Hilton Paris Charles de Gaulle Airport (1n)",
+        "total_price": 2701.0,
         "currency": "USD",
         "property_id": "",
         "nights": 9,
@@ -73,9 +73,9 @@
       "ground_notes": "Plan's fixed costs: tickets, Disneyland day, TGV, transit, food",
       "travel_mode": "air",
       "flights_expected": true,
-      "flight_cost": 8640.0,
-      "lodging_cost": 2488.0,
-      "total_cost": 15378.0,
+      "flight_cost": 8658.0,
+      "lodging_cost": 2701.0,
+      "total_cost": 15609.0,
       "is_complete": true,
       "notes": [
         "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)"
@@ -83,7 +83,7 @@
     },
     {
       "trip_id": "paris-versailles",
-      "destination": "CDG \u2192 SXB",
+      "destination": "CDG \u2192 SXB \u2192 RSY",
       "depart_date": "2027-06-21",
       "return_date": "2027-06-30",
       "nights": 9,
@@ -130,15 +130,15 @@
         ]
       },
       "lodging": {
-        "destination": "CDG \u2192 SXB",
+        "destination": "CDG \u2192 SXB \u2192 RSY",
         "check_in": "2027-06-21",
         "check_out": "2027-06-30",
-        "property_name": "Luxury Parisian Flat (6n) + ENA 3 pi\u00e8ces neuf entre centre et gare (3n)",
-        "total_price": 2543.0,
+        "property_name": "Luxury Parisian Flat (6n) + Downtown Apartment, Quiet and Spacious (2n) + Holiday Inn Paris - Cdg Airport by IHG (1n)",
+        "total_price": 2761.0,
         "currency": "USD",
         "property_id": "",
         "nights": 9,
-        "rating": 4.346667,
+        "rating": 4.1,
         "stars": null,
         "board_type": "",
         "refundable": null,
@@ -151,8 +151,8 @@
       "travel_mode": "air",
       "flights_expected": true,
       "flight_cost": 7641.0,
-      "lodging_cost": 2543.0,
-      "total_cost": 14434.0,
+      "lodging_cost": 2761.0,
+      "total_cost": 14652.0,
       "is_complete": true,
       "notes": [
         "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)"
@@ -160,7 +160,7 @@
     },
     {
       "trip_id": "paris-versailles",
-      "destination": "CDG \u2192 SXB",
+      "destination": "CDG \u2192 SXB \u2192 RSY",
       "depart_date": "2027-07-08",
       "return_date": "2027-07-17",
       "nights": 9,
@@ -206,33 +206,18 @@
           }
         ]
       },
-      "lodging": {
-        "destination": "CDG \u2192 SXB",
-        "check_in": "2027-07-08",
-        "check_out": "2027-07-17",
-        "property_name": "Tr\u00e8s beau T3 proche RER Port Royal 6 pers - Two-Bedroom Apartment (6n) + Le Molsheim - Duplex proche Mus\u00e9e d'Art Moderne - Two-Bedroom Apartment (3n)",
-        "total_price": 2493.0,
-        "currency": "USD",
-        "property_id": "",
-        "nights": 9,
-        "rating": 4.0443926,
-        "stars": null,
-        "board_type": "",
-        "refundable": null,
-        "source": "google_hotels",
-        "deep_link": "",
-        "distance_miles": null
-      },
+      "lodging": null,
       "ground_cost": 4250.0,
       "ground_notes": "Plan's fixed costs: tickets, Disneyland day, TGV, transit, food",
       "travel_mode": "air",
       "flights_expected": true,
       "flight_cost": 7473.0,
-      "lodging_cost": 2493.0,
-      "total_cost": 14216.0,
-      "is_complete": true,
+      "lodging_cost": 0.0,
+      "total_cost": 11723.0,
+      "is_complete": false,
       "notes": [
-        "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)"
+        "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)",
+        "no lodging price yet for Paris-CDG airport hotel"
       ]
     }
   ]

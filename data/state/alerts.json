@@ -7,6 +7,10 @@
     "last_fired": "2026-10-22",
     "last_price": 700.0
   },
+  "london-summer:all_time_low": {
+    "last_fired": "2026-10-31",
+    "last_price": 13313.0
+  },
   "milan-lake-como-summer:all_time_low": {
     "last_fired": "2026-10-31",
     "last_price": 12554.0
@@ -30,6 +34,10 @@
   "portugal-azores-summer:all_time_low": {
     "last_fired": "2026-10-22",
     "last_price": 900.0
+  },
+  "rome-summer:price_drop": {
+    "last_fired": "2026-10-31",
+    "last_price": 10832.0
   },
   "smokies-spring-break:all_time_low": {
     "last_fired": "2026-10-29",
