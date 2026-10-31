@@ -1,0 +1,84 @@
+{
+  "trip_id": "portugal-azores-summer",
+  "captured_at": "2026-10-31T12:16:41.739017+00:00",
+  "queries_made": 3,
+  "errors": [],
+  "quotes": [
+    {
+      "trip_id": "portugal-azores-summer",
+      "destination": "OPO \u2192 LIS \u2192 FAO",
+      "depart_date": "2027-06-05",
+      "return_date": "2027-06-15",
+      "nights": 10,
+      "currency": "USD",
+      "flight": {
+        "origin": "STL",
+        "destination": "OPO",
+        "depart_date": "2027-06-05",
+        "return_date": "2027-06-15",
+        "total_price": 7642.0,
+        "currency": "USD",
+        "carriers": [],
+        "stops_out": null,
+        "stops_back": null,
+        "source": "google_flights_weekly",
+        "deep_link": ""
+      },
+      "lodging": null,
+      "ground_cost": 3150.0,
+      "ground_notes": "Plan's fixed costs: port cellar, trains, Sintra, Algarve car, food",
+      "travel_mode": "air",
+      "flights_expected": true,
+      "flight_cost": 7642.0,
+      "lodging_cost": 0.0,
+      "total_cost": 10792.0,
+      "is_complete": false,
+      "notes": [
+        "airfare from this week's Google Flights check (the free daily check found none for this route)",
+        "no lodging price yet for Porto, Portugal, Lisbon, Portugal, Lagos, Portugal"
+      ]
+    },
+    {
+      "trip_id": "portugal-azores-summer",
+      "destination": "OPO \u2192 LIS \u2192 FAO",
+      "depart_date": "2027-06-21",
+      "return_date": "2027-07-01",
+      "nights": 10,
+      "currency": "USD",
+      "flight": null,
+      "lodging": null,
+      "ground_cost": 3150.0,
+      "ground_notes": "Plan's fixed costs: port cellar, trains, Sintra, Algarve car, food",
+      "travel_mode": "air",
+      "flights_expected": true,
+      "flight_cost": 0.0,
+      "lodging_cost": 0.0,
+      "total_cost": 3150.0,
+      "is_complete": false,
+      "notes": [
+        "no lodging price yet for Porto, Portugal, Lisbon, Portugal, Lagos, Portugal"
+      ]
+    },
+    {
+      "trip_id": "portugal-azores-summer",
+      "destination": "OPO \u2192 LIS \u2192 FAO",
+      "depart_date": "2027-07-07",
+      "return_date": "2027-07-17",
+      "nights": 10,
+      "currency": "USD",
+      "flight": null,
+      "lodging": null,
+      "ground_cost": 3150.0,
+      "ground_notes": "Plan's fixed costs: port cellar, trains, Sintra, Algarve car, food",
+      "travel_mode": "air",
+      "flights_expected": true,
+      "flight_cost": 0.0,
+      "lodging_cost": 0.0,
+      "total_cost": 3150.0,
+      "is_complete": false,
+      "notes": [
+        "no lodging price yet for Porto, Portugal, Lisbon, Portugal, Lagos, Portugal"
+      ]
+    }
+  ]
+}

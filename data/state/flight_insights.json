@@ -9,6 +9,16 @@
     "typical_high": 12000.0,
     "typical_low": 7600.0
   },
+  "florence-tuscany-summer": {
+    "checked_on": "2026-10-31",
+    "depart": "2027-06-05",
+    "level": "",
+    "lowest": 7633.0,
+    "return_": "2027-06-13",
+    "trip_id": "florence-tuscany-summer",
+    "typical_high": null,
+    "typical_low": null
+  },
   "greece-summer": {
     "checked_on": "2026-10-25",
     "depart": "2027-06-05",

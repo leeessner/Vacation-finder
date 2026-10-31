@@ -1,146 +1,5 @@
 {
   "slots": {
-    "austria-bavaria-summer|Munich, Germany|2027-06-05|2027-06-15": {
-      "checked_on": "2026-10-28",
-      "note": "",
-      "quote": {
-        "board_type": "",
-        "check_in": "2027-06-05",
-        "check_out": "2027-06-15",
-        "currency": "USD",
-        "deep_link": "https://www.google.com/travel/search?q=INNSiDE%20by%20Meli%C3%A1%20M%C3%BCnchen%20Parkstadt%20Schwabing%20Munich%2C%20Germany&checkin=2027-06-05&checkout=2027-06-15",
-        "destination": "Munich, Germany",
-        "distance_miles": 2.9,
-        "nights": 10,
-        "property_id": "ChcI8Lm32d2B5bNxGgsvZy8xdGhtal82dBAB",
-        "property_name": "INNSiDE by Meli\u00e1 M\u00fcnchen Parkstadt Schwabing",
-        "rating": 4.0,
-        "refundable": null,
-        "source": "google_hotels",
-        "stars": 4.0,
-        "total_price": 3962.0
-      }
-    },
-    "austria-bavaria-summer|Munich, Germany|2027-06-21|2027-07-01": {
-      "checked_on": "2026-10-28",
-      "note": "",
-      "quote": {
-        "board_type": "",
-        "check_in": "2027-06-21",
-        "check_out": "2027-07-01",
-        "currency": "USD",
-        "deep_link": "https://www.google.com/travel/search?q=Hotel%20M%C3%BCnchen%20City%20Center%2C%20Affiliated%20by%20Meli%C3%A1%20Munich%2C%20Germany&checkin=2027-06-21&checkout=2027-07-01",
-        "destination": "Munich, Germany",
-        "distance_miles": 0.9,
-        "nights": 10,
-        "property_id": "ChoIz5rxt-3uotmYARoNL2cvMTFzdHNfMmo5MhAB",
-        "property_name": "Hotel M\u00fcnchen City Center, Affiliated by Meli\u00e1",
-        "rating": 4.0,
-        "refundable": null,
-        "source": "google_hotels",
-        "stars": 4.0,
-        "total_price": 3406.0
-      }
-    },
-    "austria-bavaria-summer|Munich, Germany|2027-07-07|2027-07-17": {
-      "checked_on": "2026-10-28",
-      "note": "",
-      "quote": {
-        "board_type": "",
-        "check_in": "2027-07-07",
-        "check_out": "2027-07-17",
-        "currency": "USD",
-        "deep_link": "https://www.google.com/travel/search?q=AWA%20Hotel%20GmbH%20Munich%2C%20Germany&checkin=2027-07-07&checkout=2027-07-17",
-        "destination": "Munich, Germany",
-        "distance_miles": 0.7,
-        "nights": 10,
-        "property_id": "ChkItrG1-oLf5ulyGg0vZy8xMWdfemxmOHR4EAE",
-        "property_name": "AWA Hotel GmbH",
-        "rating": 4.1,
-        "refundable": null,
-        "source": "google_hotels",
-        "stars": 4.0,
-        "total_price": 3654.0
-      }
-    },
-    "greece-summer|Athens, Greece|2027-06-05|2027-06-15": {
-      "checked_on": "2026-10-27",
-      "note": "",
-      "quote": {
-        "board_type": "",
-        "check_in": "2027-06-05",
-        "check_out": "2027-06-15",
-        "currency": "USD",
-        "deep_link": "https://www.google.com/travel/search?q=Safestay%20Athens%20Monastiraki%20Athens%2C%20Greece&checkin=2027-06-05&checkout=2027-06-15",
-        "destination": "Athens, Greece",
-        "distance_miles": 0.5,
-        "nights": 10,
-        "property_id": "ChgItNHM-sWujeWJARoLL2cvMXRmeF9oeWgQAQ",
-        "property_name": "Safestay Athens Monastiraki",
-        "rating": 4.2,
-        "refundable": null,
-        "source": "google_hotels",
-        "stars": 3.0,
-        "total_price": 1462.0
-      }
-    },
-    "greece-summer|Athens, Greece|2027-06-21|2027-07-01": {
-      "checked_on": "2026-10-27",
-      "note": "",
-      "quote": {
-        "board_type": "",
-        "check_in": "2027-06-21",
-        "check_out": "2027-07-01",
-        "currency": "USD",
-        "deep_link": "https://www.google.com/travel/search?q=Safestay%20Athens%20Monastiraki%20Athens%2C%20Greece&checkin=2027-06-21&checkout=2027-07-01",
-        "destination": "Athens, Greece",
-        "distance_miles": 0.5,
-        "nights": 10,
-        "property_id": "ChgItNHM-sWujeWJARoLL2cvMXRmeF9oeWgQAQ",
-        "property_name": "Safestay Athens Monastiraki",
-        "rating": 4.2,
-        "refundable": null,
-        "source": "google_hotels",
-        "stars": 3.0,
-        "total_price": 1458.0
-      }
-    },
-    "greece-summer|Athens, Greece|2027-07-07|2027-07-17": {
-      "checked_on": "2026-10-27",
-      "note": "",
-      "quote": {
-        "board_type": "",
-        "check_in": "2027-07-07",
-        "check_out": "2027-07-17",
-        "currency": "USD",
-        "deep_link": "https://www.google.com/travel/search?q=Safestay%20Athens%20Monastiraki%20Athens%2C%20Greece&checkin=2027-07-07&checkout=2027-07-17",
-        "destination": "Athens, Greece",
-        "distance_miles": 0.5,
-        "nights": 10,
-        "property_id": "ChgItNHM-sWujeWJARoLL2cvMXRmeF9oeWgQAQ",
-        "property_name": "Safestay Athens Monastiraki",
-        "rating": 4.2,
-        "refundable": null,
-        "source": "google_hotels",
-        "stars": 3.0,
-        "total_price": 1460.0
-      }
-    },
-    "london-summer|London, UK|2027-06-05|2027-06-12": {
-      "checked_on": "2026-10-28",
-      "note": "",
-      "quote": null
-    },
-    "london-summer|London, UK|2027-06-23|2027-06-30": {
-      "checked_on": "2026-10-28",
-      "note": "",
-      "quote": null
-    },
-    "london-summer|London, UK|2027-07-10|2027-07-17": {
-      "checked_on": "2026-10-28",
-      "note": "",
-      "quote": null
-    },
     "nashville-spring-break|Downtown Nashville, TN|2027-03-12|2027-03-16": {
       "checked_on": "2026-10-29",
       "note": "Embassy Suites: $266 less than the cheapest qualifying option, Homewood Suites by Hilton Nashville Downtown The Gulch ($1,441)",
@@ -288,132 +147,6 @@
         "total_price": 3118.0
       }
     },
-    "paris-versailles|Paris, France|2027-06-05|2027-06-14": {
-      "checked_on": "2026-10-26",
-      "note": "",
-      "quote": {
-        "board_type": "",
-        "check_in": "2027-06-05",
-        "check_out": "2027-06-14",
-        "currency": "USD",
-        "deep_link": "https://www.google.com/travel/search?q=H%C3%B4tel%20Bridget%20Paris%2C%20France&checkin=2027-06-05&checkout=2027-06-14",
-        "destination": "Paris, France",
-        "distance_miles": 2.1,
-        "nights": 9,
-        "property_id": "ChoItuzptsGulfWeARoNL2cvMTFoMGN2MjMxNRAB",
-        "property_name": "H\u00f4tel Bridget",
-        "rating": 4.2,
-        "refundable": null,
-        "source": "google_hotels",
-        "stars": 3.0,
-        "total_price": 4044.0
-      }
-    },
-    "paris-versailles|Paris, France|2027-06-21|2027-06-30": {
-      "checked_on": "2026-10-26",
-      "note": "",
-      "quote": {
-        "board_type": "",
-        "check_in": "2027-06-21",
-        "check_out": "2027-06-30",
-        "currency": "USD",
-        "deep_link": "https://www.google.com/travel/search?q=H%C3%B4tel%20Bridget%20Paris%2C%20France&checkin=2027-06-21&checkout=2027-06-30",
-        "destination": "Paris, France",
-        "distance_miles": 2.1,
-        "nights": 9,
-        "property_id": "ChoItuzptsGulfWeARoNL2cvMTFoMGN2MjMxNRAB",
-        "property_name": "H\u00f4tel Bridget",
-        "rating": 4.2,
-        "refundable": null,
-        "source": "google_hotels",
-        "stars": 3.0,
-        "total_price": 4058.0
-      }
-    },
-    "paris-versailles|Paris, France|2027-07-08|2027-07-17": {
-      "checked_on": "2026-10-26",
-      "note": "",
-      "quote": {
-        "board_type": "",
-        "check_in": "2027-07-08",
-        "check_out": "2027-07-17",
-        "currency": "USD",
-        "deep_link": "https://www.google.com/travel/search?q=Simon%27s%20Boutique%20Hotel%20Paris%2C%20France&checkin=2027-07-08&checkout=2027-07-17",
-        "destination": "Paris, France",
-        "distance_miles": 2.3,
-        "nights": 9,
-        "property_id": "ChkIzIqS25H-7Z9ZGg0vZy8xMWhkdmRwOWZmEAE",
-        "property_name": "Simon's Boutique Hotel",
-        "rating": 4.2,
-        "refundable": null,
-        "source": "google_hotels",
-        "stars": 3.0,
-        "total_price": 3198.0
-      }
-    },
-    "portugal-azores-summer|Lisbon, Portugal|2027-06-05|2027-06-15": {
-      "checked_on": "2026-10-27",
-      "note": "",
-      "quote": {
-        "board_type": "",
-        "check_in": "2027-06-05",
-        "check_out": "2027-06-15",
-        "currency": "USD",
-        "deep_link": "https://www.google.com/travel/search?q=Casa%20Belmonte%20Guest%20House%20Lisbon%2C%20Portugal&checkin=2027-06-05&checkout=2027-06-15",
-        "destination": "Lisbon, Portugal",
-        "distance_miles": 0.9,
-        "nights": 10,
-        "property_id": "ChgI0pj2m8ukpebzARoLL2cvMXRma2d2YnQQAQ",
-        "property_name": "Casa Belmonte Guest House",
-        "rating": 4.5,
-        "refundable": null,
-        "source": "google_hotels",
-        "stars": 3.0,
-        "total_price": 2472.0
-      }
-    },
-    "portugal-azores-summer|Lisbon, Portugal|2027-06-21|2027-07-01": {
-      "checked_on": "2026-10-27",
-      "note": "",
-      "quote": {
-        "board_type": "",
-        "check_in": "2027-06-21",
-        "check_out": "2027-07-01",
-        "currency": "USD",
-        "deep_link": "https://www.google.com/travel/search?q=Casa%20Belmonte%20Guest%20House%20Lisbon%2C%20Portugal&checkin=2027-06-21&checkout=2027-07-01",
-        "destination": "Lisbon, Portugal",
-        "distance_miles": 0.9,
-        "nights": 10,
-        "property_id": "ChgI0pj2m8ukpebzARoLL2cvMXRma2d2YnQQAQ",
-        "property_name": "Casa Belmonte Guest House",
-        "rating": 4.5,
-        "refundable": null,
-        "source": "google_hotels",
-        "stars": 3.0,
-        "total_price": 2472.0
-      }
-    },
-    "portugal-azores-summer|Lisbon, Portugal|2027-07-07|2027-07-17": {
-      "checked_on": "2026-10-28",
-      "note": "",
-      "quote": {
-        "board_type": "",
-        "check_in": "2027-07-07",
-        "check_out": "2027-07-17",
-        "currency": "USD",
-        "deep_link": "https://www.google.com/travel/search?q=Gloria%20Suites%20Hotel%20Lisbon%2C%20Portugal&checkin=2027-07-07&checkout=2027-07-17",
-        "destination": "Lisbon, Portugal",
-        "distance_miles": 0.2,
-        "nights": 10,
-        "property_id": "ChoIqIvupdjppPPeARoNL2cvMTF5cjA0ZzhsZhAB",
-        "property_name": "Gloria Suites Hotel",
-        "rating": 4.4,
-        "refundable": null,
-        "source": "google_hotels",
-        "stars": 3.0,
-        "total_price": 2596.0
-      }
-    },
     "smokies-spring-break|Gatlinburg, TN|2027-03-12|2027-03-16": {
       "checked_on": "2026-10-30",
       "note": "",
@@ -498,67 +231,130 @@
         "total_price": 703.0
       }
     },
-    "spain-barcelona-madrid|Barcelona, Spain|2027-06-05|2027-06-15": {
-      "checked_on": "2026-10-30",
+    "spain-barcelona-madrid|Barcelona, Spain|2027-06-05|2027-06-10": {
+      "checked_on": "2026-10-31",
       "note": "",
       "quote": {
         "board_type": "",
         "check_in": "2027-06-05",
-        "check_out": "2027-06-15",
+        "check_out": "2027-06-10",
         "currency": "USD",
-        "deep_link": "https://www.google.com/travel/search?q=Room018BCN%20Barcelona%2C%20Spain&checkin=2027-06-05&checkout=2027-06-15",
+        "deep_link": "https://www.google.com/travel/search?q=Barcelona%20-%20Art%20-%20Two-Bedroom%20Apartment%20Barcelona%2C%20Spain&checkin=2027-06-05&checkout=2027-06-10",
         "destination": "Barcelona, Spain",
-        "distance_miles": 2.1,
-        "nights": 10,
-        "property_id": "ChgI2deaofCA6aJ6GgwvZy8xcTYybTZ3ZnEQAQ",
-        "property_name": "Room018BCN",
-        "rating": 4.1,
+        "distance_miles": 1.9,
+        "nights": 5,
+        "property_id": "ChkQx_nJg6ni-dggGg0vZy8xMXo1eHpkamowEAI",
+        "property_name": "Barcelona - Art - Two-Bedroom Apartment",
+        "rating": 4.1613636,
         "refundable": null,
         "source": "google_hotels",
-        "stars": 3.0,
-        "total_price": 3318.0
+        "stars": null,
+        "total_price": 1662.0
       }
     },
-    "spain-barcelona-madrid|Barcelona, Spain|2027-06-21|2027-07-01": {
-      "checked_on": "2026-10-26",
+    "spain-barcelona-madrid|Barcelona, Spain|2027-06-21|2027-06-26": {
+      "checked_on": "2026-10-31",
       "note": "",
       "quote": {
         "board_type": "",
         "check_in": "2027-06-21",
-        "check_out": "2027-07-01",
+        "check_out": "2027-06-26",
         "currency": "USD",
-        "deep_link": "https://www.google.com/travel/search?q=Hotel%20Sagrada%20Fam%C3%ADlia%20Barcelona%2C%20Spain&checkin=2027-06-21&checkout=2027-07-01",
+        "deep_link": "https://www.google.com/travel/search?q=PARK%20G%C3%9CELL%3A%20A%20SPACIOUS%20AND%20ELEGANT%20TRIPLEX%20WITH%20A%20PATIO%20Barcelona%2C%20Spain&checkin=2027-06-21&checkout=2027-06-26",
         "destination": "Barcelona, Spain",
-        "distance_miles": 1.3,
-        "nights": 10,
-        "property_id": "ChgItaX5p_Cj1vynARoLL2cvMXRkOG15dDQQAQ",
-        "property_name": "Hotel Sagrada Fam\u00edlia",
-        "rating": 4.1,
+        "distance_miles": 1.8,
+        "nights": 5,
+        "property_id": "ChkQpejU19ze2ZEWGg0vZy8xMXN0eHE0dHQxEAI",
+        "property_name": "PARK G\u00dcELL: A SPACIOUS AND ELEGANT TRIPLEX WITH A PATIO",
+        "rating": 4.9,
         "refundable": null,
         "source": "google_hotels",
-        "stars": 3.0,
-        "total_price": 3564.0
+        "stars": null,
+        "total_price": 1319.0
       }
     },
-    "spain-barcelona-madrid|Barcelona, Spain|2027-07-07|2027-07-17": {
-      "checked_on": "2026-10-26",
+    "spain-barcelona-madrid|Barcelona, Spain|2027-07-07|2027-07-12": {
+      "checked_on": "2026-10-31",
       "note": "",
       "quote": {
         "board_type": "",
         "check_in": "2027-07-07",
-        "check_out": "2027-07-17",
+        "check_out": "2027-07-12",
         "currency": "USD",
-        "deep_link": "https://www.google.com/travel/search?q=Hotel%20Sagrada%20Fam%C3%ADlia%20Barcelona%2C%20Spain&checkin=2027-07-07&checkout=2027-07-17",
+        "deep_link": "https://www.google.com/travel/search?q=PARK%20G%C3%9CELL%3A%20A%20SPACIOUS%20AND%20ELEGANT%20TRIPLEX%20WITH%20A%20PATIO%20Barcelona%2C%20Spain&checkin=2027-07-07&checkout=2027-07-12",
         "destination": "Barcelona, Spain",
-        "distance_miles": 1.3,
-        "nights": 10,
-        "property_id": "ChgItaX5p_Cj1vynARoLL2cvMXRkOG15dDQQAQ",
-        "property_name": "Hotel Sagrada Fam\u00edlia",
-        "rating": 4.1,
+        "distance_miles": 1.8,
+        "nights": 5,
+        "property_id": "ChkQpejU19ze2ZEWGg0vZy8xMXN0eHE0dHQxEAI",
+        "property_name": "PARK G\u00dcELL: A SPACIOUS AND ELEGANT TRIPLEX WITH A PATIO",
+        "rating": 4.9,
         "refundable": null,
         "source": "google_hotels",
-        "stars": 3.0,
-        "total_price": 3444.0
+        "stars": null,
+        "total_price": 1519.0
+      }
+    },
+    "spain-barcelona-madrid|Madrid, Spain|2027-06-10|2027-06-15": {
+      "checked_on": "2026-10-31",
+      "note": "",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-06-10",
+        "check_out": "2027-06-15",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=Apartamento%20Mar%C3%ADa%20Madrid%2C%20Spain&checkin=2027-06-10&checkout=2027-06-15",
+        "destination": "Madrid, Spain",
+        "distance_miles": 0.3,
+        "nights": 5,
+        "property_id": "ChkQtpaV0Lz03cIyGg0vZy8xMW50aGg4bV9fEAI",
+        "property_name": "Apartamento Mar\u00eda",
+        "rating": 4.0,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": null,
+        "total_price": 1285.0
+      }
+    },
+    "spain-barcelona-madrid|Madrid, Spain|2027-06-26|2027-07-01": {
+      "checked_on": "2026-10-31",
+      "note": "",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-06-26",
+        "check_out": "2027-07-01",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=Apartamento%20Mar%C3%ADa%20Madrid%2C%20Spain&checkin=2027-06-26&checkout=2027-07-01",
+        "destination": "Madrid, Spain",
+        "distance_miles": 0.3,
+        "nights": 5,
+        "property_id": "ChkQtpaV0Lz03cIyGg0vZy8xMW50aGg4bV9fEAI",
+        "property_name": "Apartamento Mar\u00eda",
+        "rating": 4.0,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": null,
+        "total_price": 1222.0
+      }
+    },
+    "spain-barcelona-madrid|Madrid, Spain|2027-07-12|2027-07-17": {
+      "checked_on": "2026-10-31",
+      "note": "",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-07-12",
+        "check_out": "2027-07-17",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=Malasa%C3%B1a%20Escapada%20para%206%20%2C%20descubre%20San%20Bernardo%2020%20E3%20Madrid%2C%20Spain&checkin=2027-07-12&checkout=2027-07-17",
+        "destination": "Madrid, Spain",
+        "distance_miles": 0.4,
+        "nights": 5,
+        "property_id": "ChkQpbff6qjV3J9pGg0vZy8xMXpkcTY2dzdwEAI",
+        "property_name": "Malasa\u00f1a Escapada para 6 , descubre San Bernardo 20 E3",
+        "rating": 4.05,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": null,
+        "total_price": 1025.0
       }
     }
   }

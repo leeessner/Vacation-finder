@@ -1,0 +1,123 @@
+{
+  "trip_id": "austria-bavaria-summer",
+  "captured_at": "2026-10-31T12:16:52.495562+00:00",
+  "queries_made": 3,
+  "errors": [],
+  "quotes": [
+    {
+      "trip_id": "austria-bavaria-summer",
+      "destination": "MUC \u2192 SZG",
+      "depart_date": "2027-06-05",
+      "return_date": "2027-06-15",
+      "nights": 10,
+      "currency": "USD",
+      "flight": {
+        "origin": "STL",
+        "destination": "MUC",
+        "depart_date": "2027-06-05",
+        "return_date": "2027-06-15",
+        "total_price": 7746.0,
+        "currency": "USD",
+        "carriers": [
+          "American",
+          "Condor"
+        ],
+        "stops_out": null,
+        "stops_back": null,
+        "source": "google_flights_extra_stop",
+        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20MUC%20from%20STL%20on%202027-06-05%20through%202027-06-15"
+      },
+      "lodging": null,
+      "ground_cost": 2750.0,
+      "ground_notes": "Plan's fixed costs: tickets, trains, 5-day car, food in Munich (resort meals are included)",
+      "travel_mode": "air",
+      "flights_expected": true,
+      "flight_cost": 7746.0,
+      "lodging_cost": 0.0,
+      "total_cost": 10496.0,
+      "is_complete": false,
+      "notes": [
+        "airfare allows one more stop than your limit \u2014 none was found within it",
+        "Dachsteink\u00f6nig: an estimate (\u2248\u20ac5,750 all-inclusive), not a tracked price \u2014 replace with the resort's quote",
+        "no lodging price yet for Munich, Germany"
+      ]
+    },
+    {
+      "trip_id": "austria-bavaria-summer",
+      "destination": "MUC \u2192 SZG",
+      "depart_date": "2027-06-21",
+      "return_date": "2027-07-01",
+      "nights": 10,
+      "currency": "USD",
+      "flight": {
+        "origin": "STL",
+        "destination": "MUC",
+        "depart_date": "2027-06-21",
+        "return_date": "2027-07-01",
+        "total_price": 7818.0,
+        "currency": "USD",
+        "carriers": [
+          "American",
+          "Condor",
+          "Lufthansa"
+        ],
+        "stops_out": null,
+        "stops_back": null,
+        "source": "google_flights_extra_stop",
+        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20MUC%20from%20STL%20on%202027-06-21%20through%202027-07-01"
+      },
+      "lodging": null,
+      "ground_cost": 2750.0,
+      "ground_notes": "Plan's fixed costs: tickets, trains, 5-day car, food in Munich (resort meals are included)",
+      "travel_mode": "air",
+      "flights_expected": true,
+      "flight_cost": 7818.0,
+      "lodging_cost": 0.0,
+      "total_cost": 10568.0,
+      "is_complete": false,
+      "notes": [
+        "airfare allows one more stop than your limit \u2014 none was found within it",
+        "Dachsteink\u00f6nig: an estimate (\u2248\u20ac5,750 all-inclusive), not a tracked price \u2014 replace with the resort's quote",
+        "no lodging price yet for Munich, Germany"
+      ]
+    },
+    {
+      "trip_id": "austria-bavaria-summer",
+      "destination": "MUC \u2192 SZG",
+      "depart_date": "2027-07-07",
+      "return_date": "2027-07-17",
+      "nights": 10,
+      "currency": "USD",
+      "flight": {
+        "origin": "STL",
+        "destination": "MUC",
+        "depart_date": "2027-07-07",
+        "return_date": "2027-07-17",
+        "total_price": 6936.0,
+        "currency": "USD",
+        "carriers": [
+          "Southwest",
+          "Condor"
+        ],
+        "stops_out": null,
+        "stops_back": null,
+        "source": "google_flights_extra_stop",
+        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20MUC%20from%20STL%20on%202027-07-07%20through%202027-07-17"
+      },
+      "lodging": null,
+      "ground_cost": 2750.0,
+      "ground_notes": "Plan's fixed costs: tickets, trains, 5-day car, food in Munich (resort meals are included)",
+      "travel_mode": "air",
+      "flights_expected": true,
+      "flight_cost": 6936.0,
+      "lodging_cost": 0.0,
+      "total_cost": 9686.0,
+      "is_complete": false,
+      "notes": [
+        "airfare allows one more stop than your limit \u2014 none was found within it",
+        "Dachsteink\u00f6nig: an estimate (\u2248\u20ac5,750 all-inclusive), not a tracked price \u2014 replace with the resort's quote",
+        "no lodging price yet for Munich, Germany"
+      ]
+    }
+  ]
+}
