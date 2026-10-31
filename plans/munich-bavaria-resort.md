@@ -1,11 +1,11 @@
 # Munich, Bavaria & an alpine family resort — draft plan (summer 2027)
 
-**Shape:** 10 nights. Five in Munich on foot and by train, then five at the
+**Shape:** 10 nights. Five in Munich on foot and by train, then four at the
 **Dachsteinkönig** family resort in Gosau, Austria, with a car. The city has
 Raphael, Rembrandt, beer gardens, a monastery brewery and Neuschwanstein. The
 resort days are spent at the resort: pool, guided hikes, kids' club and an
 all-inclusive table nobody has to plan. The salt mine, the lakes and a
-falconry castle are there as options.
+falconry castle are there as options. The last night is at a hotel by the airport, so the trip home doesn't start before dawn.
 
 This matches the tracked trip **"Austria & Bavaria"** (MUC, 10 nights). It's
 written against `plans/family-profile.md`. Prices were checked in October 2026
@@ -25,7 +25,8 @@ about **$1.15 per €1**.
 | | Where | Nights | Getting around |
 |---|---|---|---|
 | Base 1 | An apartment or 2-room hotel near **Marienplatz**, Munich (the tracker's current center) | 5 | On foot, U-Bahn and trams; regional train for Neuschwanstein |
-| Base 2 | **Dachsteinkönig Familux Resort**, Gosau (in `config/stays.yaml`) | 5 | A rental car (7-seat), picked up on day 6 |
+| Base 2 | **Dachsteinkönig Familux Resort**, Gosau (in `config/stays.yaml`) | 4 | A rental car (7-seat), picked up on day 6 |
+| Base 3 | A hotel by **Munich airport**, 2 rooms | 1 | The hotel shuttle to the terminal |
 
 Fly in and out of **Munich (MUC)**. It's about 2½–3 hours by car from Gosau.
 
@@ -84,9 +85,9 @@ something from *Optional outings* below.
   that week.
 - **Day 9:** kids' club for the children, and a spa morning for the parents.
   In the afternoon, everyone's back at the pool.
-- **Day 10:** a slow day before the flight.
+- **Day 10:** a slow morning, then after lunch drive to a hotel by **Munich airport** (about 2¾ h) and return the car, so the flight home is a short shuttle ride.
 
-**Day 11 — Drive to MUC** (2½–3 h), fly home. It's a full travel day home: westbound flights usually leave late morning or midday and land in St. Louis that evening, about 12–16 hours gate to gate. You gain back the 7 hours.
+**Day 11 — Fly home from Munich.** The hotel shuttle to the terminal takes about 15 minutes; be there 3 hours before the flight. It's a full travel day home: westbound flights usually leave late morning or midday and land in St. Louis that evening, about 12–16 hours gate to gate. You gain back the 7 hours.
 
 ## Optional outings from the resort
 
@@ -179,6 +180,8 @@ They advertise a "5 nights for 4" offer; ask whether it applies in summer.
 - Add the resort as a **fixed cost** from its quote, since Google can't price
   it.
 - Keep flights MUC, ±1 stop, 3 checked bags.
+
+- **Last night by the airport** (added Oct 31): the last base drops to 4 nights, plus 1 night at a hotel by Munich airport (2 rooms, 3-star or better, within 4 mi), reached the afternoon or evening before.
 
 ## Sources (checked October 2026)
 

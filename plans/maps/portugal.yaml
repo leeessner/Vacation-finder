@@ -20,3 +20,4 @@ places:
   - {name: Praia do Camilo, days: [9], at: [37.0886, -8.6687], area: Algarve}
   - {name: Fortress of Sagres, days: [10], at: [37.0027, -8.9480], area: Algarve}
   - {name: "Lisbon airport (LIS)", kind: airport, days: [11], at: [38.7742, -9.1342], area: Lisbon}
+  - {name: "Hotel by Lisbon airport (stay)", kind: stay, days: [10], at: [38.779, -9.129], area: Lisbon}

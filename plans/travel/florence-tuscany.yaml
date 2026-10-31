@@ -2,7 +2,8 @@ legs:
   - {day: 1, kind: from_airport, mode: taxi, from: "Florence airport (FLR)", to: "Fattoria di Maiano, Fiesole", minutes: 30, note: "a van taxi for six"}
   - {day: 6, mode: car, from: "Florence airport (car pickup)", to: "Castello di Brolio", depart: "09:00", minutes: 75, note: "taxi from the farm to the airport first, ~25 min; leave by 8:30a"}
   - {day: 6, mode: car, from: "Castello di Brolio", to: "Farm stay near Siena", depart: "14:30", minutes: 25}
-  - {day: 9, kind: to_airport, mode: car, from: "Farm stay near Siena", to: "Rome Fiumicino (FCO), car return", minutes: 165}
+  - {day: 8, mode: car, from: "Pienza", to: "Hotel by Rome Fiumicino (car return)", depart: "15:30", minutes: 120}
+  - {day: 9, kind: to_airport, mode: bus, from: "Airport hotel", to: "Rome Fiumicino terminal", minutes: 15, note: "hotel shuttle"}
 timed:
   - {day: 2, what: "Bargello opens 8:15", leave: "07:35", arrive: "08:05", how: "bus 7 or a taxi into town, then a short walk"}
   - {day: 2, what: "Sunset at Piazzale Michelangelo (about 8:50p in June)", leave: "19:45", arrive: "20:15", how: "taxi from the farm"}

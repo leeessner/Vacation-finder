@@ -336,10 +336,17 @@ trips:
         lodging: {prefer: ["Fattoria di Maiano"], min_stars: 3}
       - code: SAY
         label: "Siena, Italy"
-        nights: 3
+        nights: 2
         center: [43.3188, 11.3308]   # 15 mi takes in the farm stays around Siena
         within_miles: 15
         lodging: {kind: rental, bedrooms: 2}
+      - code: FAH                   # an id only: the last night by the airport
+        label: "Rome Fiumicino airport hotel"
+        nights: 1
+        hotel_query: "Fiumicino, Italy"
+        center: [41.8003, 12.2389]
+        within_miles: 4
+        lodging: {kind: hotel, rooms: 2, min_stars: 3}
     party:
       adults: 2
       children: [8, 7, 5, 3]
@@ -425,9 +432,16 @@ trips:
         within_miles: 2
       - code: JNX
         label: "Naxos, Greece"
-        nights: 6
+        nights: 5
         center: [37.1050, 25.3770]   # Chora; 5 mi covers Agios Georgios and Agios Prokopios
         within_miles: 5
+      - code: AAH                   # an id only: the last night by the airport
+        label: "Athens airport hotel"
+        nights: 1
+        hotel_query: "Spata, Greece"
+        center: [37.9364, 23.9445]
+        within_miles: 4
+        lodging: {kind: hotel, rooms: 2, min_stars: 3}
     party:
       adults: 2
       children: [8, 7, 5, 3]
@@ -475,9 +489,16 @@ trips:
         within_miles: 2.5
       - code: FAO
         label: "Lagos, Portugal"
-        nights: 3
+        nights: 2
         center: [37.1028, -8.6730]   # Lagos old town
         within_miles: 3
+      - code: LAH                   # an id only: the last night by the airport
+        label: "Lisbon airport hotel"
+        nights: 1
+        hotel_query: "Lisbon Airport, Portugal"
+        center: [38.7742, -9.1342]
+        within_miles: 3
+        lodging: {kind: hotel, rooms: 2, min_stars: 3}
     party:
       adults: 2
       children: [8, 7, 5, 3]
@@ -521,13 +542,20 @@ trips:
         within_miles: 3
       - code: SZG
         label: "Dachsteinkönig, Gosau"
-        nights: 5
+        nights: 4
         # Sells direct; Google Hotels shows no price (checked 2026-10-30).
         # About €1,000–1,300 a night all-inclusive for six, from the plan;
         # replace with the resort's quote when it comes back.
         lodging: {enabled: false}
-        lodging_estimate: 6600
-        lodging_note: "Dachsteinkönig: an estimate (≈€5,750 all-inclusive), not a tracked price — replace with the resort's quote"
+        lodging_estimate: 5280           # 4 nights now (was 5 at $6,600)
+        lodging_note: "Dachsteinkönig: an estimate (≈€4,600 for 4 nights all-inclusive), not a tracked price — replace with the resort's quote"
+      - code: MAH                   # an id only: the last night by the airport
+        label: "Munich airport hotel"
+        nights: 1
+        hotel_query: "Hallbergmoos, Germany"
+        center: [48.3538, 11.7861]
+        within_miles: 4
+        lodging: {kind: hotel, rooms: 2, min_stars: 3}
     party:
       adults: 2
       children: [8, 7, 5, 3]
@@ -575,9 +603,16 @@ trips:
         lodging: {max_per_night: 1000}
       - code: YRK
         label: "York, UK"
-        nights: 3
+        nights: 2
         center: [53.9620, -1.0819]   # York Minster
         within_miles: 1
+      - code: MNH                   # an id only: the last night by the airport
+        label: "Manchester airport hotel"
+        nights: 1
+        hotel_query: "Manchester Airport, UK"
+        center: [53.3588, -2.2727]
+        within_miles: 3
+        lodging: {kind: hotel, rooms: 2, min_stars: 3}
     party:
       adults: 2
       children: [8, 7, 5, 3]
@@ -666,9 +701,16 @@ trips:
         within_miles: 1.5
       - code: VAR                    # an id only: Varenna has no airport
         label: "Varenna, Italy"
-        nights: 5
+        nights: 4
         center: [46.0105, 9.2836]
         within_miles: 2
+      - code: MPH                   # an id only: the last night by the airport
+        label: "Milan Malpensa airport hotel"
+        nights: 1
+        hotel_query: "Ferno, Italy"
+        center: [45.6306, 8.7281]
+        within_miles: 4
+        lodging: {kind: hotel, rooms: 2, min_stars: 3}
     party:
       adults: 2
       children: [8, 7, 5, 3]

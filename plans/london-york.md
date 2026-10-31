@@ -1,9 +1,9 @@
 # London & York — draft plan (summer 2027)
 
 **Shape:** 9 nights. Six in London, with the two Tudor and royal palaces as
-day trips. Then three in **York**, two hours north by train, for the
+day trips. Then two in **York**, two hours north by train, for the
 National Railway Museum, Vikings and medieval walls. Everything is by foot,
-Tube and train. No car.
+Tube and train. No car. The last night is at a hotel by the airport, so the trip home doesn't start before dawn.
 
 This builds on the "England with Kids" post (London 4 → Bath 3 → York 3),
 adds Hampton Court as requested, and gives London more room because so much
@@ -20,7 +20,8 @@ Pounds are converted at about **$1.30 per £1**.
 | | Where | Nights | Getting around |
 |---|---|---|---|
 | Base 1 | An apartment (2+ bedrooms) in **South Kensington** | 6 | Tube and train. **Under-11s ride the Tube free** with a paying adult (*check* the current TfL rule) |
-| Base 2 | An apartment or 2-room hotel inside **York's walls** | 3 | On foot. Everything in York is walkable |
+| Base 2 | An apartment or 2-room hotel inside **York's walls** | 2 | On foot. Everything in York is walkable |
+| Base 3 | A hotel by **Manchester airport**, 2 rooms | 1 | A walk or shuttle to the terminal |
 
 Why South Kensington, rather than the tracker's provisional Trafalgar
 Square: the V&A, with its Raphael Cartoons, is around the corner. So is
@@ -79,10 +80,9 @@ train**, the royal carriages and a miniature railway (ticketed). Then the
 **Day 9 — York Minster and the Vikings.** **York Minster** is one of Europe's
 great Gothic cathedrals. **JORVIK Viking Centre** has a ride through a
 rebuilt Viking street, with sights, sounds and smells. Book a time slot. Climb
-**Clifford's Tower**, the castle keep, for the view.
+**Clifford's Tower**, the castle keep, for the view. In the early evening, take the direct train to **Manchester airport** (about 2 h) and stay at an airport hotel, so the flight home is a short walk or shuttle away.
 
-**Day 10 — Home.** Take a morning train to London and the Elizabeth line to
-Heathrow, for an afternoon flight. Or fly from Manchester. It's a full travel day home: westbound flights usually leave late morning or midday and land in St. Louis that evening, about 12–16 hours gate to gate. You gain back the 6 hours.
+**Day 10 — Fly home from Manchester.** The airport hotel is a short walk or shuttle from the terminal; be there 3 hours before the flight. It's a full travel day home: westbound flights usually leave late morning or midday and land in St. Louis that evening, about 12–16 hours gate to gate. You gain back the 6 hours.
 
 ## York or Bath?
 
@@ -159,6 +159,8 @@ For Belgian Trappists, a Belgium trip would beat England.
 - Flights: LHR round trip, and also price **LHR in / MAN out**.
 - Fixed costs: the table above, as `flat_cost` (replacing the current £450
   placeholder).
+
+- **Last night by the airport** (added Oct 31): the last base drops to 2 nights, plus 1 night at a hotel by Manchester airport (2 rooms, 3-star or better, within 3 mi), reached the afternoon or evening before.
 
 ## Sources (checked October 2026)
 

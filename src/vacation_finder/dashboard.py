@@ -145,6 +145,9 @@ padding:2px 8px;border-radius:99px;background:var(--accent-soft);color:var(--acc
 .journey .route{font-weight:700}
 .journey .dur{margin-left:8px;color:var(--muted);font-variant-numeric:tabular-nums}
 .journey .when{grid-column:2;font-size:13.5px;color:var(--muted)}
+.journey .warn{grid-column:2;font-size:13px;font-weight:600;color:var(--check-fg);background:var(--check-bg);
+padding:2px 8px;border-radius:4px;margin-top:4px}
+.plan .timing.travel{border-left-color:var(--ink)}
 .plan .timing{display:block;margin:4px 0 2px;padding:4px 10px;border-left:3px solid var(--accent);
 background:var(--accent-soft);font-size:13.5px;border-radius:0 6px 6px 0}
 .plan .timing.clash{border-left-color:#b45309;background:var(--check-bg);color:var(--check-fg);font-weight:600}
@@ -375,21 +378,36 @@ def _history_table(report: TripReport, limit: int = 14) -> str:
     )
 
 
-def _journey_block(report: TripReport, plan: Plan | None, info: dict | None) -> str:
-    """The stay's dates, then every journey in order: the flight out, the
-    transfers and moves between bases, and the flight home."""
+@dataclass
+class JourneyRow:
+    day: int                 # itinerary day: 0 is the flight out, Day 1 is check-in
+    mode: str
+    route: str
+    duration: str
+    when: str
+    warning: str = ""
+
+
+EARLY_START_HOUR = 7         # a start before this, with four kids, gets flagged
+LATE_ARRIVAL_HOUR = 18       # reaching the first base after this loses Day 1
+
+
+def _journey_rows(report: TripReport, plan: Plan | None, info: dict | None) -> list[JourneyRow]:
+    """Every journey of the trip in order, with times and anything to watch."""
     latest = report.latest
     check_in, check_out = latest.depart_date, latest.return_date
-    rows: list[tuple[str, str, str, str]] = []   # (mode, route, duration, when)
+    last_day = (check_out - check_in).days + 1
+    rows: list[JourneyRow] = []
+    flying = bool(info) and report.trip.travel_mode == "air"
 
     out = (info or {}).get("outbound") or []
     back = (info or {}).get("inbound") or []
     landed = flight_details._parse(out[-1].get("arrive")) if out else None
     home_flight = flight_details._parse(back[0].get("depart")) if back else None
 
-    def flight_row(segments: list, label: str, fallback_day: str) -> tuple[str, str, str, str]:
+    def flight_row(day: int, segments: list, label: str, fallback: str) -> JourneyRow:
         if not segments:
-            return ("Fly", label, "", fallback_day + " · times appear after the next flight check")
+            return JourneyRow(day, "Fly", label, "", fallback + " · times appear after the next flight check")
         route = " → ".join([s.get("from", "") for s in segments] + [segments[-1].get("to", "")])
         start = flight_details._parse(segments[0].get("depart"))
         end = flight_details._parse(segments[-1].get("arrive"))
@@ -398,28 +416,49 @@ def _journey_block(report: TripReport, plan: Plan | None, info: dict | None) -> 
         if longest and longest[1] > 5 * 60:
             when += (f" · long connection: {flight_details.hours(longest[1])} at {longest[0]} "
                      "(no fare with shorter ones was found)")
-        return ("Fly", route, journey.hours(flight_details.total_minutes(segments)), when)
+        return JourneyRow(day, "Fly", route, journey.hours(flight_details.total_minutes(segments)), when)
+
+    if flying:
+        row = flight_row(0, out, f"{info.get('origin', '')} → {info.get('arrive_at', '')}",
+                         _day(info.get("depart_date", "")))
+        if landed and landed.date() > check_in:
+            row.warning = (f"This fare lands {landed:%a %b} {landed.day}, after Day 1 "
+                           f"({check_in:%a %b} {check_in.day}): look for an earlier flight.")
+        rows.append(row)
 
     legs = sorted(plan.legs if plan else (), key=lambda leg: (leg.day, leg.kind != "from_airport"))
-    if info and report.trip.travel_mode == "air":
-        depart_day = info.get("depart_date", "")
-        rows.append(flight_row(out, f"{info.get('origin', '')} → {info.get('arrive_at', '')}",
-                               _day(depart_day)))
     for leg in legs:
         start, end, how = journey.leg_times(leg, check_in, landed, home_flight)
         day = journey.day_date(check_in, leg.day)
         when = journey.span(start, end) if start and end else f"{day:%a %b} {day.day}"
         if how:
             when += f" ({how})"
-        rows.append((leg.mode.title(), f"{leg.origin} → {leg.dest}", journey.hours(leg.minutes),
-                     when + (f" · {leg.note}" if leg.note else "")))
-    if info and report.trip.travel_mode == "air":
-        label = f"{info.get('home_from', '')} → {info.get('origin', '')}"
-        row = flight_row(back, label, _day(info.get("return_date", "")))
+        warning = ""
+        if start is not None and start.hour < EARLY_START_HOUR:
+            warning = (f"A {journey.short(start)} start. Look for a later flight, or spend "
+                       "the night before near the airport." if leg.kind == "to_airport"
+                       else f"A {journey.short(start)} start: worth a later departure if one exists.")
+        elif leg.kind == "from_airport" and end is not None and end.hour >= LATE_ARRIVAL_HOUR:
+            warning = (f"You reach {leg.dest.split(',')[0]} at {journey.short(end)}: Day 1's "
+                       "plans become Day 2's, or look for an earlier flight.")
+        rows.append(JourneyRow(leg.day, leg.mode.title(), f"{leg.origin} → {leg.dest}",
+                               journey.hours(leg.minutes),
+                               when + (f" · {leg.note}" if leg.note else ""), warning))
+    if flying:
+        row = flight_row(last_day, back, f"{info.get('home_from', '')} → {info.get('origin', '')}",
+                         _day(info.get("return_date", "")))
         if back:
-            row = (row[0], row[1], row[2], row[3] + " · a typical flight home")
+            row.when += " · a typical flight home"
         rows.append(row)
+    return rows
 
+
+def _journey_block(report: TripReport, plan: Plan | None, info: dict | None) -> str:
+    """The stay's dates, then every journey in order: the flight out, the
+    transfers and moves between bases, and the flight home."""
+    latest = report.latest
+    check_in, check_out = latest.depart_date, latest.return_date
+    rows = _journey_rows(report, plan, info)
     nights = (check_out - check_in).days
     dates = (
         f"<div class='stay'>{check_in:%a %b} {check_in.day} – {check_out:%a %b} {check_out.day}, "
@@ -428,34 +467,40 @@ def _journey_block(report: TripReport, plan: Plan | None, info: dict | None) -> 
     if not rows:
         return dates
     items = "".join(
-        f"<li><span class='mode mode-{_esc(mode.lower())}'>{_esc(mode)}</span>"
-        f"<span><span class='route'>{_esc(route)}</span>"
-        + (f"<span class='dur'>{_esc(dur)}</span>" if dur else "")
-        + f"</span><span class='when'>{_esc(when)}</span></li>"
-        for mode, route, dur, when in rows
+        f"<li><span class='mode mode-{_esc(r.mode.lower())}'>{_esc(r.mode)}</span>"
+        f"<span><span class='route'>{_esc(r.route)}</span>"
+        + (f"<span class='dur'>{_esc(r.duration)}</span>" if r.duration else "")
+        + f"</span><span class='when'>{_esc(r.when)}</span>"
+        + (f"<span class='warn'>{_esc(r.warning)}</span>" if r.warning else "")
+        + "</li>"
+        for r in rows
     )
     return dates + f"<ul class='journey'>{items}</ul>"
 
 
-def _with_timings(plan_html: str, timed: tuple, check_in) -> str:
-    """Each day's 'leave at / arrive by' lines, just under that day's heading."""
-    if not timed:
+def _with_timings(
+    plan_html: str, timed: tuple, check_in, travel: list[JourneyRow] | None = None
+) -> str:
+    """Each day's travel and 'leave at / arrive by' lines, under that day's heading."""
+    if not timed and not travel:
         return plan_html
-    by_day: dict[int, list] = {}
+    by_day: dict[int, list[str]] = {}
+    for row in travel or []:
+        line = (f"<span class='timing travel'><b>{_esc(row.mode)}</b> {_esc(row.route)}"
+                + (f" · {_esc(row.duration)}" if row.duration else "")
+                + f" · {_esc(row.when)}</span>")
+        if row.warning:
+            line += f"<span class='timing clash'>{_esc(row.warning)}</span>"
+        by_day.setdefault(row.day, []).append(line)
     for item in timed:
-        by_day.setdefault(item.day, []).append(item)
+        line = f"<span class='timing'>{_esc(journey.timed_line(item, check_in))}</span>"
+        if journey.clash(item, check_in):
+            line += f"<span class='timing clash'>{_esc(journey.clash(item, check_in))}</span>"
+        by_day.setdefault(item.day, []).append(line)
 
     def add(match: re.Match) -> str:
-        items = by_day.get(int(match.group(2)))
-        if not items:
-            return match.group(0)
-        lines = "".join(
-            f"<span class='timing'>{_esc(journey.timed_line(t, check_in))}</span>"
-            + (f"<span class='timing clash'>{_esc(journey.clash(t, check_in))}</span>"
-               if journey.clash(t, check_in) else "")
-            for t in items
-        )
-        return match.group(0) + lines
+        lines = by_day.get(int(match.group(2)))
+        return match.group(0) + "".join(lines) if lines else match.group(0)
 
     return re.sub(r'<p class="day"><strong>(Days? (\d+)[^<]*)</strong>', add, plan_html)
 
@@ -659,8 +704,12 @@ def _trip_page(page: Page, pages: list[Page], stamp: str, footer: str,
         # A plan-only page already carries the plan's title in its header.
         heading = "" if page.report is None else f"<h1>{_esc(page.plan.title)}</h1>"
         plan_html = itinerary_map.with_map(page.plan.html, list(page.plan.places))
+        travel = (
+            _journey_rows(page.report, page.plan, flight_info)
+            if page.report is not None and page.report.latest else None
+        )
         plan_html = _with_timings(
-            plan_html, page.plan.timed, check_in if page.report is not None else None
+            plan_html, page.plan.timed, check_in if page.report is not None else None, travel
         )
         body += f'<section class="plan">{heading}{plan_html}</section>'
     elif page.report is not None:

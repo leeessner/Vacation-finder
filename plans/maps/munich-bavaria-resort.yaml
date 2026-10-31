@@ -17,3 +17,4 @@ places:
   - {name: "Hallstatt salt mine (option)", kind: option, days: [], at: [47.5622, 13.6400], area: Alps}
   - {name: "Vorderer Gosausee (option)", kind: option, days: [], at: [47.5390, 13.5040], area: Alps}
   - {name: "Hohenwerfen castle (option)", kind: option, days: [], at: [47.4836, 13.1903], area: Alps}
+  - {name: "Hotel by Munich airport (stay)", kind: stay, days: [10], at: [48.329, 11.768], area: Munich}

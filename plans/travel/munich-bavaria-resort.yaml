@@ -2,7 +2,8 @@ legs:
   - {day: 1, kind: from_airport, mode: train, from: "Munich airport (MUC)", to: "Marienplatz", minutes: 45, note: "S-Bahn S8"}
   - {day: 6, mode: car, from: "Munich (car pickup)", to: "Salzburg, Hohensalzburg", depart: "09:00", minutes: 105}
   - {day: 6, mode: car, from: "Salzburg", to: "Dachsteinkönig, Gosau", depart: "14:30", minutes: 75}
-  - {day: 11, kind: to_airport, mode: car, from: "Dachsteinkönig, Gosau", to: "Munich airport (MUC), car return", minutes: 180}
+  - {day: 10, mode: car, from: "Dachsteinkönig, Gosau", to: "Hotel by Munich airport (car return)", depart: "13:30", minutes: 165}
+  - {day: 11, kind: to_airport, mode: bus, from: "Airport hotel", to: "Munich airport terminal", minutes: 15, note: "hotel shuttle"}
 timed:
   - {day: 2, what: "Alte Pinakothek opens 10:00", leave: "09:35", arrive: "09:55", how: "tram or a 20-minute walk"}
   - {day: 2, what: "Glockenspiel at 11:00 on Marienplatz", arrive: "10:50"}

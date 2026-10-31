@@ -68,3 +68,59 @@ def test_a_closed_day_is_flagged():
     orsay = journey.Timed(5, "Orsay opens 9:30", "09:00", "09:20", closed=("Mon",))
     assert "Monday, Jul 12" in journey.clash(orsay, CHECK_IN)        # Day 5 of a Jul 8 stay
     assert journey.clash(orsay, date(2027, 7, 9)) == ""              # a day later: Tuesday
+
+
+def _report(check_in, check_out):
+    from datetime import timezone
+
+    from vacation_finder.report import TripReport
+    from vacation_finder.storage import HistoryRow
+
+    from test_pricing import make_trip
+
+    row = HistoryRow(
+        captured_at=datetime(2026, 10, 31, tzinfo=timezone.utc), trip_id="t", destination="X",
+        depart_date=check_in, return_date=check_out, nights=(check_out - check_in).days,
+        currency="USD", flight_total=7000, flight_source="google_flights_weekly",
+        flight_carriers="", lodging_name="", lodging_total=0, lodging_per_night=0,
+        lodging_rating=None, ground_total=0, total=7000, is_complete=False,
+    )
+    return TripReport(trip=make_trip(), latest=row)
+
+
+def _seg(frm, to, dep, arr, minutes):
+    return {"from": frm, "to": to, "depart": dep, "arrive": arr, "minutes": minutes}
+
+
+def test_travel_lands_in_the_agenda_with_warnings():
+    report = _report(date(2027, 6, 5), date(2027, 6, 15))           # Day 11 = Jun 15
+    info = {
+        "origin": "STL", "arrive_at": "LHR", "home_from": "LIS",
+        "depart_date": "2027-06-04", "return_date": "2027-06-15",
+        "outbound": [_seg("STL", "LHR", "2027-06-05T08:00", "2027-06-05T20:20", 500)],
+        "inbound": [_seg("LIS", "STL", "2027-06-15T11:05", "2027-06-15T18:00", 600)],
+    }
+    plan = dashboard.Plan(Path("p.md"), "P", "", "", legs=(
+        journey.Leg(1, "train", "Heathrow", "South Kensington", 50, kind="from_airport"),
+        journey.Leg(11, "car", "Lagos", "Lisbon airport", 180, kind="to_airport"),
+    ))
+    rows = dashboard._journey_rows(report, plan, info)
+    assert [r.day for r in rows] == [0, 1, 11, 11]                  # out, in, to the airport, home
+    late, early = rows[1].warning, rows[2].warning
+    assert "10:10p" in late and "Day 2" in late                      # 8:20p landing + 1 h + 50 min
+    assert "5:05a" in early and "near the airport" in early          # 3 h drive, 3 h before 11:05a
+
+    html = ('<p class="day"><strong>Day 0 — Travel day.</strong></p>'
+            '<p class="day"><strong>Day 11 — Home.</strong></p>')
+    out = dashboard._with_timings(html, (), date(2027, 6, 5), rows)
+    assert "<b>Fly</b> STL → LHR" in out and "<b>Car</b> Lagos → Lisbon airport" in out
+    assert out.count("timing clash") == 1                           # the early start; no Day 1 here
+
+
+def test_a_fare_that_lands_after_day_1_is_flagged():
+    report = _report(date(2027, 6, 5), date(2027, 6, 14))
+    info = {"origin": "STL", "arrive_at": "BRU", "home_from": "BRU",
+            "outbound": [_seg("STL", "BRU", "2027-06-04T07:00", "2027-06-06T12:55", 900)],
+            "inbound": []}
+    rows = dashboard._journey_rows(report, None, info)
+    assert "lands Sun Jun 6, after Day 1" in rows[0].warning
