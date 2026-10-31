@@ -88,7 +88,12 @@ class LodgingBook:
         }
         # Never-searched slots first, then the stalest. Python's sort is
         # stable, so ties keep trip order and the choice is deterministic.
-        first = [k for k in dict.fromkeys(priority) if k in costs]
+        # A first-look slot already priced today isn't searched twice.
+        done_today = {
+            k for k, e in entries.items()
+            if e.get("checked_on") == today.isoformat() and e.get("quote")
+        }
+        first = [k for k in dict.fromkeys(priority) if k in costs and k not in done_today]
         ordered = first + sorted(
             (k for k in costs if k not in set(first)),
             key=lambda k: entries.get(k, {}).get("checked_on", ""),

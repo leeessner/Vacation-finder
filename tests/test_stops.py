@@ -175,3 +175,32 @@ def test_first_look_rejects_an_unknown_trip(tmp_path, monkeypatch):
     path.write_text(YAML)
     monkeypatch.delenv("SERPAPI_KEY", raising=False)
     assert cli.main(["track", "--config", str(path), "--first-look", "nowhere"]) == 2
+
+
+def test_a_flight_check_for_other_dates_is_redone(tmp_path):
+    from datetime import timedelta
+
+    from vacation_finder.dates import candidate_windows
+    from vacation_finder.insights import FlightInsight, due
+
+    spain = load(tmp_path).trip("spain")
+    config = Config(settings=SETTINGS, trips=(spain,))
+    depart, ret = candidate_windows(spain, TODAY, SETTINGS)[0]
+
+    def check(ret_on):
+        return {"spain": FlightInsight(trip_id="spain", checked_on=TODAY, depart=depart,
+                                       return_=ret_on, lowest=9000.0, level="",
+                                       typical_low=None, typical_high=None)}
+
+    assert due(config, check(ret), TODAY) == []                       # same dates, fresh
+    assert due(config, check(ret - timedelta(days=2)), TODAY) == [spain]   # trip got longer
+
+
+def test_first_look_skips_a_slot_already_priced_today(tmp_path):
+    from vacation_finder.lodging import LodgingBook, first_look_slots
+
+    config = Config(settings=SETTINGS, trips=load(tmp_path).trips)
+    look = list(first_look_slots(config, TODAY, ["spain"]))
+    entries = {look[0]: {"checked_on": TODAY.isoformat(), "quote": {"property_name": "x"}}}
+    book = LodgingBook.plan(config, TODAY, allowance=1, entries=entries, priority=look)
+    assert look[0] not in book.refresh

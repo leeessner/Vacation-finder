@@ -307,14 +307,17 @@ trips:
     active: true
     stops:
       - code: FLR
-        label: "Fattoria di Maiano, Fiesole"
+        label: "Fiesole, Italy"
         nights: 5
-        # The farm stay itself (in config/stays.yaml). It sells through the
-        # big booking sites, so Google should price it; 1 mi keeps it to
-        # the farm and its neighbours. Coordinates approximate.
-        hotel_query: "Fattoria di Maiano, Fiesole"
-        center: [43.7955, 11.3040]
-        within_miles: 1
+        # First run (Oct 31): searching for the farm by name within 1 mi of
+        # an approximate pin found nothing. Now: anything in Fiesole and the
+        # hills above Florence, with Fattoria di Maiano as the preferred
+        # property — tracked whenever Google shows a price for it, with the
+        # cheapest alternative noted beside it.
+        hotel_query: "Fiesole, Italy"
+        center: [43.8066, 11.2936]   # Fiesole; 3 mi reaches Maiano and the edge of Florence
+        within_miles: 3
+        lodging: {prefer: ["Fattoria di Maiano"]}
       - code: SAY
         label: "Siena, Italy"
         nights: 3
@@ -544,7 +547,11 @@ trips:
         label: "London, UK"
         nights: 6
         center: [51.4941, -0.1740]   # South Kensington
-        within_miles: 2
+        # First run (Oct 31): no 2-bedroom flat within 2 mi under $700 a
+        # night. 3 mi still covers Kensington, Chelsea, Westminster and the
+        # West End; London flats for six run higher.
+        within_miles: 3
+        lodging: {max_per_night: 1000}
       - code: YRK
         label: "York, UK"
         nights: 3
@@ -591,7 +598,9 @@ trips:
       - code: FCO
         label: "Rome, Italy"
         center: [41.8992, 12.4731]   # Piazza Navona
-        within_miles: 1.5
+        # First run (Oct 31): nothing within 1.5 mi under $600 a night.
+        # 2.5 mi covers the centro storico, Trastevere, Prati and Monti.
+        within_miles: 2.5
     party:
       adults: 2
       children: [8, 7, 5, 3]
@@ -610,7 +619,7 @@ trips:
       kind: rental
       bedrooms: 2
       min_rating: 4.0
-      max_per_night: 600
+      max_per_night: 800
     ground:
       flat_cost: 2250
       notes: "Plan's fixed costs: Vatican, Borghese, Colosseum, Ostia, taxis, food"
@@ -680,7 +689,9 @@ trips:
         label: "Brussels, Belgium"
         nights: 5
         center: [50.8467, 4.3525]    # Grand Place
-        within_miles: 1.5
+        # First run (Oct 31): nothing within 1.5 mi under $500 a night.
+        within_miles: 2.5
+        lodging: {max_per_night: 650}
     party:
       adults: 2
       children: [8, 7, 5, 3]
