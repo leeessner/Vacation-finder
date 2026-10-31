@@ -77,7 +77,10 @@ class LodgingBook:
         allowance: int,
         entries: dict[str, dict[str, Any]] | None = None,
         unavailable_reason: str = "",
+        priority: Iterable[str] = (),
     ) -> "LodgingBook":
+        """`priority` slots (a first look at a new trip) go to the front of the
+        queue; everything else keeps its stalest-first order behind them."""
         entries = dict(entries or {})
         costs = {
             slot_key(trip.id, dest.lodging_query, check_in, check_out): slot_cost(trip, dest)
@@ -85,7 +88,11 @@ class LodgingBook:
         }
         # Never-searched slots first, then the stalest. Python's sort is
         # stable, so ties keep trip order and the choice is deterministic.
-        ordered = sorted(costs, key=lambda k: entries.get(k, {}).get("checked_on", ""))
+        first = [k for k in dict.fromkeys(priority) if k in costs]
+        ordered = first + sorted(
+            (k for k in costs if k not in set(first)),
+            key=lambda k: entries.get(k, {}).get("checked_on", ""),
+        )
         refresh: set[str] = set()
         budget = max(0, allowance)
         for key in ordered:
@@ -108,13 +115,14 @@ class LodgingBook:
 
     @classmethod
     def load(
-        cls, config: Config, today: date, allowance: int, unavailable_reason: str = ""
+        cls, config: Config, today: date, allowance: int, unavailable_reason: str = "",
+        priority: Iterable[str] = (),
     ) -> "LodgingBook":
         from .storage import load_state  # storage imports pricing, which imports this
 
         state = load_state(STATE_NAME)
         return cls.plan(
-            config, today, allowance, state.get("slots", {}), unavailable_reason
+            config, today, allowance, state.get("slots", {}), unavailable_reason, priority
         )
 
     def save(self) -> None:
@@ -196,3 +204,24 @@ def run_allowance(searches_left: int | None, per_run: int, reserve: int) -> int:
     if searches_left is None:
         return max(0, per_run)
     return max(0, min(per_run, searches_left - reserve))
+
+
+def first_look_slots(config: Config, today: date, trip_ids: Iterable[str]) -> dict[str, int]:
+    """The hotel slots for each listed trip's first date window, with their
+    cost: one full set of prices per trip, the cheapest way to see it once."""
+    wanted = set(trip_ids)
+    out: dict[str, int] = {}
+    for trip in config.active_trips:
+        if trip.id not in wanted:
+            continue
+        windows = candidate_windows(trip, today, config.settings)
+        if not windows:
+            continue
+        depart, ret = windows[0]
+        stays = trip.legs(depart) if trip.has_stops else [
+            (d, depart, ret) for d in trip.destinations
+        ]
+        for stop, check_in, check_out in stays:
+            if trip.lodging_for(stop).enabled:
+                out[slot_key(trip.id, stop.lodging_query, check_in, check_out)] = slot_cost(trip, stop)
+    return out

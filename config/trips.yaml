@@ -580,6 +580,135 @@ trips:
       cooldown_days: 4
     tags: [city, culture, europe, walkable, kid-friendly, english-speaking]
 
+  # ---- Added for a first look (Oct 31, 2026); keep or pause after one run ----
+
+  - id: rome-summer
+    name: "Rome"
+    plan: plans/rome.md
+    why: "Raphael Rooms, the Borghese, a papal castle and Ostia Antica; gelato twice a day"
+    active: true
+    destinations:
+      - code: FCO
+        label: "Rome, Italy"
+        center: [41.8992, 12.4731]   # Piazza Navona
+        within_miles: 1.5
+    party:
+      adults: 2
+      children: [8, 7, 5, 3]
+    dates:
+      mode: window
+      earliest: 2027-06-05
+      latest: 2027-07-17
+      nights: 7
+    flights:
+      enabled: true
+      max_stops: 1
+      checked_bags: 3
+    lodging:
+      enabled: true
+      coverage: good
+      kind: rental
+      bedrooms: 2
+      min_rating: 4.0
+      max_per_night: 600
+    ground:
+      flat_cost: 2250
+      notes: "Plan's fixed costs: Vatican, Borghese, Colosseum, Ostia, taxis, food"
+    alerts:
+      drop_pct_vs_median: 10
+      percentile_below: 20
+      all_time_low: true
+      cooldown_days: 4
+    tags: [city, culture, food, europe, walkable, kid-friendly]
+
+  - id: milan-lake-como-summer
+    name: "Milan & Lake Como"
+    plan: plans/milan-lake-como.md
+    why: "The Last Supper and Raphael's School of Athens cartoon, then castles and villas on the lake"
+    active: true
+    stops:
+      - code: MXP
+        label: "Milan, Italy"
+        nights: 4
+        center: [45.4642, 9.1900]    # the Duomo
+        within_miles: 1.5
+      - code: VAR                    # an id only: Varenna has no airport
+        label: "Varenna, Italy"
+        nights: 5
+        center: [46.0105, 9.2836]
+        within_miles: 2
+    party:
+      adults: 2
+      children: [8, 7, 5, 3]
+    dates:
+      mode: window
+      earliest: 2027-06-05
+      latest: 2027-07-17
+    flights:
+      enabled: true
+      max_stops: 1
+      checked_bags: 3
+    lodging:
+      enabled: true
+      coverage: good
+      kind: rental
+      bedrooms: 2
+      min_rating: 4.0
+      max_per_night: 600
+    ground:
+      flat_cost: 2600
+      notes: "Plan's fixed costs: Last Supper, museums, trains, ferries, food"
+    alerts:
+      drop_pct_vs_median: 10
+      percentile_below: 20
+      all_time_low: true
+      cooldown_days: 4
+    tags: [city, culture, food, europe, lakes, kid-friendly]
+
+  - id: belgium-summer
+    name: "Belgium & the Trappist abbeys"
+    plan: plans/belgium.md
+    why: "Trappist beer at the source, two castles and the Ghent Altarpiece; kids under 12 ride trains free"
+    active: true
+    stops:
+      - code: BRU                    # flights use the first stop's code: Brussels airport
+        label: "Bruges, Belgium"
+        nights: 4
+        center: [51.2089, 3.2242]    # the Markt
+        within_miles: 1
+      - code: BXL                    # an id only
+        label: "Brussels, Belgium"
+        nights: 5
+        center: [50.8467, 4.3525]    # Grand Place
+        within_miles: 1.5
+    party:
+      adults: 2
+      children: [8, 7, 5, 3]
+    dates:
+      mode: window
+      earliest: 2027-06-05
+      latest: 2027-07-17
+    flights:
+      enabled: true
+      max_stops: 1
+      checked_bags: 3
+    lodging:
+      enabled: true
+      coverage: good
+      kind: rental
+      bedrooms: 2
+      min_rating: 4.0
+      max_per_night: 500
+    ground:
+      flat_cost: 3050
+      notes: "Plan's fixed costs: trains (adults only), museums, chocolate workshop, one car day, food"
+    alerts:
+      drop_pct_vs_median: 10
+      percentile_below: 20
+      all_time_low: true
+      cooldown_days: 4
+    tags: [city, culture, food, beer, europe, walkable, kid-friendly]
+
 # ============================================================================
 # PARKED — not tracked, kept so the reasoning isn't lost
 # ============================================================================

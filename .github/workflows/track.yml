@@ -8,6 +8,11 @@ on:
   schedule:
     - cron: "0 14 * * *"      # 09:00 America/Chicago (CDT) / 08:00 (CST)
   workflow_dispatch:           # lets you run it by hand from the Actions tab
+    inputs:
+      first_look:
+        description: "Trip ids to price once now, ahead of the queue (comma-separated; blank for a normal run)"
+        required: false
+        default: ""
 
 permissions:
   contents: write
@@ -43,7 +48,8 @@ jobs:
           # GitHub's own per-run token: deal alerts are opened as issues
           # assigned to you, and GitHub emails you. No mail password exists.
           GITHUB_TOKEN: ${{ github.token }}
-        run: PYTHONPATH=src python -m vacation_finder track --verbose
+          FIRST_LOOK: ${{ inputs.first_look }}
+        run: PYTHONPATH=src python -m vacation_finder track --verbose --first-look "$FIRST_LOOK"
 
       - name: Commit the day's prices
         run: |
