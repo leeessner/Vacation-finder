@@ -1,0 +1,309 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>The family resorts — a plan for each · Vacation deal watch</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;700&family=Public+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap"><style>
+:root{--paper:#f7f8fb;--card:#fff;--ink:#1b2233;--muted:#5a6478;--line:#dfe3ec;
+--accent:#2b4c9b;--accent-soft:#e7ecf8;--check-bg:#fff3d6;--check-fg:#7a5200;
+--display:"Libre Caslon Text",Georgia,"Times New Roman",serif;
+--body:"Public Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){
+--paper:#12161f;--card:#1a2030;--ink:#e6e9f0;--muted:#9aa3b6;--line:#2c3446;
+--accent:#8fa9ec;--accent-soft:#222c46;--check-bg:#3a2e12;--check-fg:#f3d27a;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:15.5px/1.6 var(--body)}
+.wrap{max-width:1000px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));
+padding-right:max(16px,env(safe-area-inset-right,0px))}
+header.top{padding-block:26px 16px}
+.eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);
+font-weight:600;margin:0 0 4px}
+header.top h1{font:700 clamp(26px,4.6vw,36px)/1.15 var(--display);margin:0}
+.sub{color:var(--muted);font-size:14px;margin:6px 0 0}
+nav.tabs{position:sticky;top:0;z-index:5;background:var(--card);border-block:1px solid var(--line)}
+nav.tabs .wrap{display:flex;gap:4px;overflow-x:auto;padding-block:6px}
+.tab{flex:0 0 auto;display:flex;flex-direction:column;padding:7px 13px;border-radius:6px 6px 0 0;
+text-decoration:none;color:var(--muted);border-bottom:3px solid transparent}
+.tab:hover{background:var(--accent-soft);color:var(--ink)}
+.tab:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.tab[aria-current=page]{color:var(--ink);border-bottom-color:var(--accent)}
+.tab b{font-size:14.5px}
+.tab span{font-size:12px;font-variant-numeric:tabular-nums}
+main{padding-block:24px 56px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.tcard{display:flex;flex-direction:column;gap:8px;background:var(--card);border:1px solid var(--line);
+border-radius:10px;padding:16px 18px;color:inherit;text-decoration:none;min-width:0}
+.tcard:hover{border-color:var(--accent)}
+.tcard:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.tcard h2{font:700 19px/1.25 var(--display);margin:0}
+.price{font-size:28px;font-weight:700;letter-spacing:-.01em;font-variant-numeric:tabular-nums;line-height:1.1}
+.price small{display:block;font-size:12.5px;font-weight:400;color:var(--muted);letter-spacing:0;margin-top:3px}
+.pill{align-self:flex-start;display:inline-block;padding:3px 11px;border-radius:99px;color:#fff;
+font-size:12.5px;font-weight:600;white-space:nowrap}
+.status{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.conf{font-size:12.5px;color:var(--muted)}
+.chart{margin-top:4px;color:var(--ink)}
+.more{margin-top:auto;font-size:13px;color:var(--accent);font-weight:600}
+.muted{color:var(--muted)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px;margin-bottom:18px}
+.head{display:flex;flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.name{font:700 22px/1.25 var(--display);margin:0}
+.why{color:var(--muted);font-size:13.5px;margin:4px 0 0;max-width:65ch}
+.big{font-size:30px;font-weight:700;margin:14px 0 2px;font-variant-numeric:tabular-nums}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-top:16px}
+.stat{border-top:1px solid var(--line);padding-top:9px}
+.stat b{display:block;font-size:17px;font-weight:650;font-variant-numeric:tabular-nums}
+.stat span{color:var(--muted);font-size:12px}
+.outlook{margin:14px 0 0;padding:10px 12px;border-radius:8px;background:var(--paper)}
+.outlook b{font-size:15px}
+.moves{margin-top:10px;font-size:14px}
+.note{color:var(--muted);font-size:13px;margin-top:4px}
+.caveat{margin:14px 0 0;padding:8px 11px;border-left:3px solid #d97706;
+background:rgba(217,119,6,.09);font-size:13px;border-radius:0 6px 6px 0}
+.scroll{overflow-x:auto;margin:14px 0;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{text-align:left;padding:8px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--muted);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.05em;
+background:var(--accent-soft)}
+tr:last-child td{border-bottom:0}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+a{color:var(--accent);text-underline-offset:2px}
+.plan h1{font:700 clamp(24px,4.2vw,32px)/1.2 var(--display);margin:34px 0 12px;text-wrap:balance}
+.plan h2{font:700 21px/1.3 var(--display);margin:36px 0 10px;padding-top:18px;border-top:1px solid var(--line)}
+.plan h3{font:700 17px/1.35 var(--display);margin:24px 0 8px;color:var(--accent)}
+.plan p,.plan li{max-width:70ch}
+.plan hr{display:none}
+.plan blockquote{margin:18px 0;padding:12px 16px;background:var(--check-bg);border-radius:6px}
+.plan blockquote p{margin:0}
+.plan p.day{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:13px 16px;margin:12px 0}
+.plan p.day strong:first-child{display:block;font:700 16.5px/1.35 var(--display);color:var(--accent);margin-bottom:3px}
+.check{display:inline-block;font-size:11.5px;font-weight:600;letter-spacing:.04em;padding:0 6px;
+border-radius:4px;background:var(--check-bg);color:var(--check-fg);text-transform:uppercase;line-height:1.6}
+.section-label{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);
+font-weight:600;margin:0 0 10px}
+pre{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:10px;
+font-size:12px;overflow-x:auto;white-space:pre-wrap}
+footer{color:var(--muted);font-size:12.5px;margin-top:30px;border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><header class='top'><div class='wrap'><p class="eyebrow"><a href="../index.html">Vacation deal watch</a></p><h1>The family resorts — a plan for each</h1></div></header><nav class="tabs" aria-label="Trips"><div class="wrap"><a class="tab" href="../index.html"><b>All trips</b><span>highlights</span></a><a class="tab" href="../trips/nashville-spring-break.html"><b>Nashville</b><span>4 nights · $1,176</span></a><a class="tab" href="../trips/smokies-spring-break.html"><b>Great Smoky Mountains</b><span>4 nights · $884</span></a><a class="tab" href="../trips/spain-barcelona-madrid.html"><b>Spain — Barcelona &amp; Madrid</b><span>10 nights · $11,221</span></a><a class="tab" href="../trips/paris-versailles.html"><b>Paris &amp; Versailles</b><span>9 nights · $12,039</span></a><a class="tab" href="../trips/nice-riviera.html"><b>Nice &amp; the French Riviera</b><span>9 nights · $13,628</span></a><a class="tab" href="../trips/greece-summer.html"><b>Greece — Athens &amp; the islands</b><span>10 nights · $9,415</span></a><a class="tab" href="../trips/portugal-azores-summer.html"><b>Portugal &amp; the Azores</b><span>10 nights · $10,593</span></a><a class="tab" href="../trips/austria-bavaria-summer.html"><b>Austria &amp; Bavaria</b><span>10 nights · $12,168</span></a><a class="tab" href="../trips/london-summer.html"><b>London</b><span>7 nights · $8,514 so far</span></a><a class="tab" href="../trips/plan-florence-tuscany.html"><b>Florence &amp; Tuscany</b><span>8 nights · not tracked yet</span></a><a class="tab" href="../trips/plan-resorts.html" aria-current="page"><b>The family resorts — a plan for each</b><span>plan</span></a></div></nav><main><div class='wrap'><p class="muted">This plan isn't tracked yet: no daily flight or hotel prices.</p><section class="plan"><h1>The family resorts — a plan for each</h1><p>Every resort in <code>config/stays.yaml</code> is here. For each one: what a stay
+there looks like day by day, the outings worth leaving the resort for, which
+city it pairs with, and whether it fits the profile. The profile's test is
+"a whole nature experience, pool plus guided outdoors, never just a pool."</p>
+<p><strong>How to use a resort.</strong> Five nights is the sweet spot. Spend two days
+<em>at</em> the resort (pool, kids' club, the resort's own guided hike), two outings
+(castle, mine, train, gorge), and one slow day. The resort plans meals and
+childcare, which is the point. Pair it with a city of 4–5 nights, before or
+after.</p>
+<p><strong>Prices.</strong> None of these can be tracked on Google; they sell direct by
+season and child age. The one real figure so far is ULRICHSHOF, at about
+<strong>€713 a night all-inclusive for two adults and two children</strong> (July 2026).
+For six, budget roughly <strong>€1,000–1,300 a night</strong> until a quote says
+otherwise, and ask every resort with all four ages. Outings below are from
+tourism sites and family-travel posts. Anything marked <span class="check">check</span> hasn't been
+confirmed for summer 2027.</p>
+<hr />
+<h2>The short list (recommended first)</h2>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th>Resort</th>
+<th>Pairs with</th>
+<th>Why it's on top</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Dachsteinkönig</strong>, Gosau (AT)</td>
+<td>Munich or Salzburg</td>
+<td>All-inclusive, childcare from babies up; the Hallstatt salt mine with slides, lakes, Hohensalzburg. <strong>Fully planned in <code>munich-bavaria-resort.md</code></strong></td>
+</tr>
+<tr>
+<td><strong>Moar Gut</strong>, Grossarl (AT)</td>
+<td>Munich or Salzburg</td>
+<td>Hohenwerfen Castle with its falconry show and the Liechtenstein gorge are both close; a real farm</td>
+</tr>
+<tr>
+<td><strong>Das Mühlwald</strong> or <strong>SAN SONNEA</strong>, near Brixen (IT)</td>
+<td>Venice or Verona, or Munich over the Brenner</td>
+<td>Dolomites meadows by gondola, Brixen old town, the Ötzi iceman, castles, and Italian food</td>
+</tr>
+<tr>
+<td><strong>Fattoria di Maiano</strong>, Fiesole (IT)</td>
+<td>Florence</td>
+<td>It's a farm stay, not a resort, but it does the same job. <strong>Fully planned in <code>florence-tuscany.md</code></strong></td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>Austria</h2>
+<h3>Dachsteinkönig Familux Resort — Gosau, Salzkammergut</h3>
+<p><strong>All-inclusive. Childcare from 7 days old. Outdoor play area, petting
+zoo.</strong> The plan is in <code>munich-bavaria-resort.md</code>. It covers the <strong>Hallstatt
+salt mine</strong> (miners' slides, underground lake; ages 4+), the <strong>Gosausee</strong>
+lakes loop, the <strong>Gosaukamm</strong> cable car, <strong>Hohensalzburg</strong> fortress on the
+way in, and optionally <strong>Hohenwerfen</strong>'s falconry show.
+- <strong>Pairs with:</strong> Munich (2½–3 h) or Salzburg (1 h).
+- <strong>Fit:</strong> ★★★ It meets the profile's test: mountains, lakes, a castle and
+  a mine that's unique, not generic.</p>
+<h3>Familien Natur Resort Moar Gut — Grossarl, Salzburger Land</h3>
+<p><strong>Five-star family resort on its own organic farm. Family suites only.</strong>
+- <strong>Day at the resort:</strong> the farm (a bonus, not the point), pools, guided
+  family hike on the Grossarl valley's alpine pastures. Ask what the resort
+  runs each week.
+- <strong>Outing 1, castle:</strong> <strong>Hohenwerfen</strong> (about 40 min). A cliff-top fortress
+  with an armoury and a <strong>falconry show</strong> (€23.90 adult, €9.10 child 6–14,
+  including the lift).
+- <strong>Outing 2, gorge:</strong> the <strong>Liechtensteinklamm</strong> (about 25 min). Walkways
+  and a spiral stair through a deep rock gorge; stroller-free. <em>Check</em> it's
+  open, since it has closed for repairs in the past.
+- <strong>Option, ice cave:</strong> <strong>Eisriesenwelt</strong> in Werfen, the world's largest ice
+  cave (€41 adult online, €22 child 5–14). It's 700 steps and cold, and the
+  cave itself says it's often too much for 3–4-year-olds. Older kids and one
+  parent only.
+- <strong>Option, city:</strong> Salzburg (1 h): Hohensalzburg by funicular, then the
+  Hellbrunn trick fountains (<span class="check">check</span>).
+- <strong>Pairs with:</strong> Munich (2½ h) or Salzburg.
+- <strong>Fit:</strong> ★★★</p>
+<h3>Naturhotel Forsthofgut — Leogang, Salzburger Land</h3>
+<p><strong>Half board (per listings). Rocky's Kids Club. Forest spa. Chalet suites.</strong>
+- <strong>Day at the resort:</strong> forest spa, the kids' club, a guided forest walk.
+- <strong>Outing 1, mountain:</strong> the Leogang cable car to the <strong>Asitz</strong> summit
+  playgrounds and themed kids' trails (<span class="check">check</span> summer operation).
+- <strong>Outing 2, waterfall:</strong> the <strong>Krimml Waterfalls</strong>, the highest in Austria
+  (about 1¼ h). Paths are steep in places but doable in short sections.
+- <strong>Outing 3, city and castle:</strong> Salzburg (1 h), Hohensalzburg.
+- <strong>Pairs with:</strong> Munich (2½ h) or Salzburg.
+- <strong>Fit:</strong> ★★ It's lovely, but half board means planning lunches; it's the
+  "design" pick of the round-up.</p>
+<h3>Familienresort Buchau — Maurach, Lake Achensee, Tyrol</h3>
+<p><strong>All-inclusive. Directly on the lake. Childcare 6 days a week.</strong>
+- <strong>Day at the resort:</strong> lake beach, pools, kids' club.
+- <strong>Outing 1, train:</strong> the <strong>Achensee steam cog railway</strong>, from 1889 and one
+  of Europe's oldest, from Jenbach up to the lake (<span class="check">check</span> the 2027 season).
+- <strong>Outing 2, castle:</strong> <strong>Ambras Castle</strong>, Innsbruck (about 45 min). A
+  Renaissance Habsburg castle with a Chamber of Art and Curiosities and an
+  armoury. Combine it with Innsbruck's old town and Golden Roof.
+- <strong>Outing 3, the unusual:</strong> <strong>Rattenberg</strong>, a tiny medieval glass-blowing
+  town (about 30 min). Watch glass being made, the profile's "making-of"
+  kind of stop.
+- <strong>Pairs with:</strong> Munich (1½ h, the closest resort to Munich).
+- <strong>Fit:</strong> ★★ Good, but the lake beach and boats are the centre of it, and
+  the family isn't big on boats.</p>
+<hr />
+<h2>Italy — South Tyrol and Trentino</h2>
+<p>South Tyrol is half Austrian and half Italian. The food is Italian pasta
+<em>and</em> Austrian dumplings, which suits the kids and the vegetarian parent
+(cheese dumplings, <em>Schlutzkrapfen</em> spinach ravioli).</p>
+<h3>Das Mühlwald — Quality Time Family Resort — Natz-Schabs, near Brixen</h3>
+<p><strong>Full board or all-inclusive package (listings differ). All-day childcare.
+Petting zoo. Family spa.</strong>
+- <strong>Day at the resort:</strong> spa, childcare, the plateau's walking paths.
+- <strong>Outing 1, old town:</strong> <strong>Brixen/Bressanone</strong> (15 min): the cathedral
+  cloister frescoes and the prince-bishops' Hofburg. Walk next door to
+  <strong>Neustift Abbey</strong>, an Augustinian monastery with its own winery.
+- <strong>Outing 2, the iceman:</strong> the <strong>South Tyrol Museum of Archaeology</strong> in
+  Bolzano (45 min), home of <strong>Ötzi</strong>, the 5,300-year-old glacier mummy. It's
+  unique in the world, so it passes the profile's "only if unique" test.
+- <strong>Outing 3, Dolomites:</strong> the <strong>Seiser Alm</strong> gondola (€30 adult return; kids
+  born 2018 or later ride free). It goes up to Europe's largest high alpine
+  meadow, with flat walks, huts for lunch and the Dolomites all around.
+- <strong>Outing 4, castle:</strong> <strong>Rodenegg Castle</strong> (20 min), with the oldest secular
+  frescoes in the German-speaking world (<span class="check">check</span> tour times).
+- <strong>Pairs with:</strong> Venice or Verona (2½ h), or Munich over the Brenner (3 h).
+- <strong>Fit:</strong> ★★★</p>
+<h3>SAN SONNEA Family Dolomites (formerly Sonnwies) — Lüsen, near Brixen</h3>
+<p><strong>Family-only. Working farm with horses. Pool and spa. Reviewers call it
+all-inclusive (<span class="check">check</span>).</strong>
+- The same outings as Das Mühlwald (Brixen, Ötzi, Seiser Alm, Rodenegg),
+  since it's 20 minutes away.
+- At the resort: <strong>pony and horse time</strong>, a bonus, and the farm.
+- <strong>Fit:</strong> ★★★ Choose between this and Das Mühlwald on the quote and the
+  suite layout for six.</p>
+<h3>Familienhotel Huber — Vals, Gitschberg Jochtal</h3>
+<p><strong>All-inclusive, alcohol-free. Indoor pool with waterslide. Daily
+childcare. Guided family hikes.</strong>
+- <strong>At the resort:</strong> the hotel's own <strong>guided family hikes</strong> are exactly
+  what the profile asks for. The Jochtal gondola goes to kids' adventure
+  trails (<span class="check">check</span>).
+- <strong>Outings:</strong> Brixen and Neustift Abbey (25 min), Ötzi (1 h), Rodenegg.
+- <strong>Fit:</strong> ★★ It's good. Alcohol-free all-inclusive means parents pay for
+  wine and beer, so Austria's beer-garden culture is a drive away.</p>
+<h3>Feuerstein Nature Family Resort — Pflersch valley, near the Brenner Pass</h3>
+<p><strong>All-inclusive offered. 70 hours a week of Montessori-based nature
+childcare. 1,250 m altitude. Woodworking, mud room, climbing.</strong>
+- <strong>At the resort:</strong> the nature childcare programme <em>is</em> the guided outdoor
+  experience, with woodworking and climbing for the older two.
+- <strong>Outing 1, old town:</strong> <strong>Sterzing/Vipiteno</strong> (20 min), a pastel
+  medieval main street with a clock tower.
+- <strong>Outing 2, city and castle:</strong> <strong>Innsbruck</strong> (45 min) and Ambras Castle.
+- <strong>Outing 3:</strong> Ötzi in Bolzano (1 h).
+- <strong>Pairs with:</strong> Munich (2½ h) or Verona (2½ h).
+- <strong>Fit:</strong> ★★★ It's the most "outdoors" of the list.</p>
+<h3>Garberhof Dolomit Family — Rasen-Antholz, Pustertal</h3>
+<p><strong>The hotel says all-inclusive (one listing shows half board). Kids'
+world, pools.</strong>
+- <strong>Outing 1, lake:</strong> <strong>Lago di Braies/Pragser Wildsee</strong> (40 min). A
+  turquoise lake with a flat 1-hour loop. Go early, and in summer you must
+  book access by car (<span class="check">check</span> the rules).
+- <strong>Outing 2, castle:</strong> <strong>Bruneck Castle</strong> (25 min), now one of Messner's
+  Mountain Museums (<span class="check">check</span> the price).
+- <strong>Outing 3:</strong> the <strong>Antholz lake</strong> and biathlon centre (15 min).
+- <strong>Pairs with:</strong> Venice (2½ h).
+- <strong>Fit:</strong> ★★</p>
+<h3>Gardea SoulFamily Resort — Torbole, Lake Garda</h3>
+<p><strong>Board not confirmed. Two pools with waterslide. On the lake, not in the
+mountains.</strong> The round-up called it a Montessori mountain resort, but research
+places it on <strong>Lake Garda</strong> and the Montessori childcare at <strong>Feuerstein</strong>.
+Worth confirming with the account.
+- <strong>Outing 1, water castle:</strong> <strong>Sirmione</strong>'s Scaliger Castle, a moated
+  castle on the lake (1 h).
+- <strong>Outing 2, mountain:</strong> the <strong>Malcesine–Monte Baldo</strong> cable car, with
+  rotating cabins (40 min).
+- <strong>Outing 3, city:</strong> <strong>Verona</strong> (1¼ h): the Roman Arena and the old town.
+- <strong>Pairs with:</strong> Venice, Verona or Milan.
+- <strong>Fit:</strong> ★ It's a lake-and-pool resort. Against the profile's "never just a
+  pool" test, it's the weakest.</p>
+<hr />
+<h2>Switzerland</h2>
+<h3>Märchenhotel Braunwald — Glarus</h3>
+<p><strong>Half board, with a separate children's dining room in the evening.
+Supervised childcare 12 hours a day. A fairy-tale theme. In a car-free
+village reached by funicular.</strong>
+- <strong>At the resort:</strong> the <strong>funicular</strong> <em>is</em> the arrival, which is trains
+  points before you've checked in. Walk the car-free village's trails; there
+  are mountain paths straight from the door.
+- <strong>Outing 1, lake:</strong> the <strong>Klöntalersee</strong> (45 min), a flat lakeshore walk.
+- <strong>Outing 2, unique museum:</strong> the <strong>Swiss Museum of Transport</strong> in Lucerne
+  (1½ h). Trains, cable cars and planes; one of the profile's "unique"
+  science-type exceptions. Combine it with Lucerne's covered <strong>Chapel
+  Bridge</strong>.
+- <strong>Pairs with:</strong> Zurich or Lucerne. Switzerland is expensive, so the food
+  line roughly doubles.
+- <strong>Fit:</strong> ★★ It's charming. The cost is the question.</p>
+<hr />
+<h2>Germany (Bavaria)</h2>
+<h3>ULRICHSHOF Nature · Family · Design — Rimbach, Bavarian Forest</h3>
+<p><strong>All-inclusive with non-alcoholic drinks all day. Family spa and a separate
+parents' spa. Outdoor forest pool. Pony camp. About €713 a night for two
+adults and two children (July 2026).</strong>
+- <strong>At the resort:</strong> forest pool, pony camp (a bonus), spa.
+- <strong>Outing 1, treetops:</strong> the <strong>Bavarian Forest National Park treetop walk</strong>
+  at Neuschönau (about 1 h). An egg-shaped tower above the trees,
+  stroller-friendly ramps.
+- <strong>Outing 2, city:</strong> <strong>Regensburg</strong> (1 h): a medieval old town, the stone
+  bridge, the cathedral, and the 500-year-old <strong>Historic Sausage Kitchen</strong>
+  for the meat-eaters.
+- <strong>Outing 3, beer:</strong> Bavarian Forest breweries. Ask the resort which ones
+  welcome families.
+- <strong>Pairs with:</strong> Munich (2 h) or <strong>Prague</strong> (2½ h), which would be a new
+  city for the list.
+- <strong>Fit:</strong> ★★ It's the one resort with a real price, and it's good value.
+  The outings are gentler than the Alps.</p>
+<h3>Oberjoch Familux Resort — Bad Hindelang, Allgäu</h3>
+<p><strong>Out for summer 2027. It's being rebuilt and reopens in December 2027.</strong>
+It would otherwise have paired perfectly with Neuschwanstein (30 min away).
+Revisit for 2028.</p>
+<hr />
+<h2>Next steps for the resorts</h2>
+<ol>
+<li><strong>Pick two or three</strong> from the short list. Then I'll draft an email you
+   can send each one for a quote, with the dates, all four ages, one family
+   suite, the vegetarian diet and the board you want.</li>
+<li>Their quotes go into <code>config/stays.yaml</code> as prices, and into the matching
+   trip as a fixed cost. The tracker can't watch them daily, but resort
+   prices change by season rather than by day.</li>
+</ol></section><footer>Prices are the cheapest option found across the configured dates, airports and hotels, not a quote. Availability changes faster than this page. last checked Oct 31, 2026 at 03:40 UTC.</footer></div></main></body></html>

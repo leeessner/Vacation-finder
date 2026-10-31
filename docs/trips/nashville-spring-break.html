@@ -1,0 +1,82 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Nashville · Vacation deal watch</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;700&family=Public+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap"><style>
+:root{--paper:#f7f8fb;--card:#fff;--ink:#1b2233;--muted:#5a6478;--line:#dfe3ec;
+--accent:#2b4c9b;--accent-soft:#e7ecf8;--check-bg:#fff3d6;--check-fg:#7a5200;
+--display:"Libre Caslon Text",Georgia,"Times New Roman",serif;
+--body:"Public Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){
+--paper:#12161f;--card:#1a2030;--ink:#e6e9f0;--muted:#9aa3b6;--line:#2c3446;
+--accent:#8fa9ec;--accent-soft:#222c46;--check-bg:#3a2e12;--check-fg:#f3d27a;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:15.5px/1.6 var(--body)}
+.wrap{max-width:1000px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));
+padding-right:max(16px,env(safe-area-inset-right,0px))}
+header.top{padding-block:26px 16px}
+.eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);
+font-weight:600;margin:0 0 4px}
+header.top h1{font:700 clamp(26px,4.6vw,36px)/1.15 var(--display);margin:0}
+.sub{color:var(--muted);font-size:14px;margin:6px 0 0}
+nav.tabs{position:sticky;top:0;z-index:5;background:var(--card);border-block:1px solid var(--line)}
+nav.tabs .wrap{display:flex;gap:4px;overflow-x:auto;padding-block:6px}
+.tab{flex:0 0 auto;display:flex;flex-direction:column;padding:7px 13px;border-radius:6px 6px 0 0;
+text-decoration:none;color:var(--muted);border-bottom:3px solid transparent}
+.tab:hover{background:var(--accent-soft);color:var(--ink)}
+.tab:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.tab[aria-current=page]{color:var(--ink);border-bottom-color:var(--accent)}
+.tab b{font-size:14.5px}
+.tab span{font-size:12px;font-variant-numeric:tabular-nums}
+main{padding-block:24px 56px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.tcard{display:flex;flex-direction:column;gap:8px;background:var(--card);border:1px solid var(--line);
+border-radius:10px;padding:16px 18px;color:inherit;text-decoration:none;min-width:0}
+.tcard:hover{border-color:var(--accent)}
+.tcard:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.tcard h2{font:700 19px/1.25 var(--display);margin:0}
+.price{font-size:28px;font-weight:700;letter-spacing:-.01em;font-variant-numeric:tabular-nums;line-height:1.1}
+.price small{display:block;font-size:12.5px;font-weight:400;color:var(--muted);letter-spacing:0;margin-top:3px}
+.pill{align-self:flex-start;display:inline-block;padding:3px 11px;border-radius:99px;color:#fff;
+font-size:12.5px;font-weight:600;white-space:nowrap}
+.status{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.conf{font-size:12.5px;color:var(--muted)}
+.chart{margin-top:4px;color:var(--ink)}
+.more{margin-top:auto;font-size:13px;color:var(--accent);font-weight:600}
+.muted{color:var(--muted)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px;margin-bottom:18px}
+.head{display:flex;flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.name{font:700 22px/1.25 var(--display);margin:0}
+.why{color:var(--muted);font-size:13.5px;margin:4px 0 0;max-width:65ch}
+.big{font-size:30px;font-weight:700;margin:14px 0 2px;font-variant-numeric:tabular-nums}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-top:16px}
+.stat{border-top:1px solid var(--line);padding-top:9px}
+.stat b{display:block;font-size:17px;font-weight:650;font-variant-numeric:tabular-nums}
+.stat span{color:var(--muted);font-size:12px}
+.outlook{margin:14px 0 0;padding:10px 12px;border-radius:8px;background:var(--paper)}
+.outlook b{font-size:15px}
+.moves{margin-top:10px;font-size:14px}
+.note{color:var(--muted);font-size:13px;margin-top:4px}
+.caveat{margin:14px 0 0;padding:8px 11px;border-left:3px solid #d97706;
+background:rgba(217,119,6,.09);font-size:13px;border-radius:0 6px 6px 0}
+.scroll{overflow-x:auto;margin:14px 0;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{text-align:left;padding:8px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--muted);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.05em;
+background:var(--accent-soft)}
+tr:last-child td{border-bottom:0}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+a{color:var(--accent);text-underline-offset:2px}
+.plan h1{font:700 clamp(24px,4.2vw,32px)/1.2 var(--display);margin:34px 0 12px;text-wrap:balance}
+.plan h2{font:700 21px/1.3 var(--display);margin:36px 0 10px;padding-top:18px;border-top:1px solid var(--line)}
+.plan h3{font:700 17px/1.35 var(--display);margin:24px 0 8px;color:var(--accent)}
+.plan p,.plan li{max-width:70ch}
+.plan hr{display:none}
+.plan blockquote{margin:18px 0;padding:12px 16px;background:var(--check-bg);border-radius:6px}
+.plan blockquote p{margin:0}
+.plan p.day{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:13px 16px;margin:12px 0}
+.plan p.day strong:first-child{display:block;font:700 16.5px/1.35 var(--display);color:var(--accent);margin-bottom:3px}
+.check{display:inline-block;font-size:11.5px;font-weight:600;letter-spacing:.04em;padding:0 6px;
+border-radius:4px;background:var(--check-bg);color:var(--check-fg);text-transform:uppercase;line-height:1.6}
+.section-label{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);
+font-weight:600;margin:0 0 10px}
+pre{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:10px;
+font-size:12px;overflow-x:auto;white-space:pre-wrap}
+footer{color:var(--muted);font-size:12.5px;margin-top:30px;border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><header class='top'><div class='wrap'><p class="eyebrow"><a href="../index.html">Vacation deal watch</a></p><h1>Nashville</h1></div></header><nav class="tabs" aria-label="Trips"><div class="wrap"><a class="tab" href="../index.html"><b>All trips</b><span>highlights</span></a><a class="tab" href="../trips/nashville-spring-break.html" aria-current="page"><b>Nashville</b><span>4 nights · $1,176</span></a><a class="tab" href="../trips/smokies-spring-break.html"><b>Great Smoky Mountains</b><span>4 nights · $884</span></a><a class="tab" href="../trips/spain-barcelona-madrid.html"><b>Spain — Barcelona &amp; Madrid</b><span>10 nights · $11,221</span></a><a class="tab" href="../trips/paris-versailles.html"><b>Paris &amp; Versailles</b><span>9 nights · $12,039</span></a><a class="tab" href="../trips/nice-riviera.html"><b>Nice &amp; the French Riviera</b><span>9 nights · $13,628</span></a><a class="tab" href="../trips/greece-summer.html"><b>Greece — Athens &amp; the islands</b><span>10 nights · $9,415</span></a><a class="tab" href="../trips/portugal-azores-summer.html"><b>Portugal &amp; the Azores</b><span>10 nights · $10,593</span></a><a class="tab" href="../trips/austria-bavaria-summer.html"><b>Austria &amp; Bavaria</b><span>10 nights · $12,168</span></a><a class="tab" href="../trips/london-summer.html"><b>London</b><span>7 nights · $8,514 so far</span></a><a class="tab" href="../trips/plan-florence-tuscany.html"><b>Florence &amp; Tuscany</b><span>8 nights · not tracked yet</span></a><a class="tab" href="../trips/plan-resorts.html"><b>The family resorts — a plan for each</b><span>plan</span></a></div></nav><main><div class='wrap'><section class="card"><div class="head"><div><h2 class="name">Price tracker</h2><p class="why">Four and a half hours by car — no airfare for six, and a real city at the end of it</p></div><span class="pill" style="background:#15803d">all-time low</span></div><div class="big">$1,176</div><div class="why">BNA · Mar 14 – Mar 18, 2027</div><div class="note">hotel price checked 1 day(s) ago</div><div class="note">Embassy Suites: $351 more than the cheapest qualifying option, Holiday Inn Express and Suites Nashville West End Univ Area, an IHG Hotel ($668)</div><div class="outlook" style="border-left:4px solid #2563eb"><b style="color:#2563eb">Keep watching</b><span class="note"> · low confidence</span><div style="font-size:14px;margin-top:3px">not enough hotel history for a trend yet; only 6 day(s) of tracking so far</div></div><div class="moves"><div>Hotel $1,019</div></div><div class="chart"><svg viewBox="0 0 640 170" width="100%" role="img" aria-label="Price history 2026-10-25 to 2026-10-30" style="max-width:640px;display:block"><line x1="58" x2="630" y1="146.0" y2="146.0" stroke="currentColor" stroke-opacity="0.12"/><text x="52" y="150.0" text-anchor="end" font-size="11" fill="currentColor" fill-opacity="0.6">$1,006</text><line x1="58" x2="630" y1="100.7" y2="100.7" stroke="currentColor" stroke-opacity="0.12"/><text x="52" y="104.7" text-anchor="end" font-size="11" fill="currentColor" fill-opacity="0.6">$1,068</text><line x1="58" x2="630" y1="55.3" y2="55.3" stroke="currentColor" stroke-opacity="0.12"/><text x="52" y="59.3" text-anchor="end" font-size="11" fill="currentColor" fill-opacity="0.6">$1,129</text><line x1="58" x2="630" y1="10.0" y2="10.0" stroke="currentColor" stroke-opacity="0.12"/><text x="52" y="14.0" text-anchor="end" font-size="11" fill="currentColor" fill-opacity="0.6">$1,191</text><text x="58" y="164" font-size="11" fill="currentColor" fill-opacity="0.6">Oct 25</text><text x="630" y="164" text-anchor="end" font-size="11" fill="currentColor" fill-opacity="0.6">Oct 30</text><path d="M58.0,135.1 L172.4,135.1 L286.8,135.1 L401.2,135.1 L515.6,136.6 L630.0,136.6" fill="none" stroke="#d97706" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/><circle cx="630.0" cy="136.6" r="3.5" fill="#d97706"/><path d="M58.0,19.4 L172.4,19.4 L286.8,19.4 L401.2,19.4 L515.6,20.9 L630.0,20.9" fill="none" stroke="#6d28d9" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/><circle cx="630.0" cy="20.9" r="3.5" fill="#6d28d9"/></svg><div style="font-size:12px;margin-top:4px"><span style="display:inline-flex;align-items:center;gap:5px;margin-right:14px"><span style="width:12px;height:3px;border-radius:2px;background:#d97706"></span>Hotel</span><span style="display:inline-flex;align-items:center;gap:5px;margin-right:14px"><span style="width:12px;height:3px;border-radius:2px;background:#6d28d9"></span>Total</span></div></div><div class="grid"><div class="stat"><b>$1,019</b><span>lodging, 4 nights</span></div><div class="stat"><b>$157</b><span>Driving from STL — fuel and parking</span></div><div class="stat"><b>$1,176</b><span>cheapest ever (Oct 29)</span></div><div class="stat"><b>$1,178</b><span>median of 7 checks</span></div></div><div class="scroll"><table><thead><tr><th>Checked</th><th>Travel dates</th><th class="num">Flights</th><th class="num">Lodging</th><th class="num">Tracked total</th><th>Property</th></tr></thead><tbody><tr><td>Oct 30</td><td>Mar 14–Mar 18</td><td class="num">—</td><td class="num">$1,019</td><td class="num"><b>$1,176</b></td><td>Embassy Suites by Hilton Nashv</td></tr><tr><td>Oct 29</td><td>Mar 14–Mar 18</td><td class="num">—</td><td class="num">$1,019</td><td class="num"><b>$1,176</b></td><td>Embassy Suites by Hilton Nashv</td></tr><tr><td>Oct 28</td><td>Mar 14–Mar 18</td><td class="num">—</td><td class="num">$1,021</td><td class="num"><b>$1,178</b></td><td>Embassy Suites by Hilton Nashv</td></tr><tr><td>Oct 27</td><td>Mar 14–Mar 18</td><td class="num">—</td><td class="num">$1,021</td><td class="num"><b>$1,178</b></td><td>Embassy Suites by Hilton Nashv</td></tr><tr><td>Oct 26</td><td>Mar 14–Mar 18</td><td class="num">—</td><td class="num">$1,021</td><td class="num"><b>$1,178</b></td><td>Embassy Suites by Hilton Nashv</td></tr><tr><td>Oct 25</td><td>Mar 14–Mar 18</td><td class="num">—</td><td class="num">$1,021</td><td class="num"><b>$1,178</b></td><td>Embassy Suites by Hilton Nashv</td></tr><tr><td>Oct 25</td><td>Mar 14–Mar 18</td><td class="num">—</td><td class="num">$1,021</td><td class="num"><b>$1,178</b></td><td>Embassy Suites by Hilton Nashv</td></tr></tbody></table></div></section><p class="muted">No plan written for this trip yet.</p><footer>Prices are the cheapest option found across the configured dates, airports and hotels, not a quote. Availability changes faster than this page. last checked Oct 31, 2026 at 03:40 UTC.</footer></div></main></body></html>

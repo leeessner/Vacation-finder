@@ -2,9 +2,10 @@
 
 **Shape:** 10 nights. Five in Munich on foot and by train, then five at the
 **Dachsteinkönig** family resort in Gosau, Austria, with a car. The city has
-Raphael, Rembrandt, beer gardens, palaces and Neuschwanstein. The resort has a
-lake, mountains, a salt mine with slides, and an all-inclusive table nobody
-has to plan.
+Raphael, Rembrandt, beer gardens, a monastery brewery and Neuschwanstein. The
+resort days are spent at the resort: pool, guided hikes, kids' club and an
+all-inclusive table nobody has to plan. The salt mine, the lakes and a
+falconry castle are there as options.
 
 This matches the tracked trip **"Austria & Bavaria"** (MUC, 10 nights). It's
 written against `plans/family-profile.md`. Prices were checked in October 2026
@@ -44,12 +45,12 @@ for the **Glockenspiel**: the 11:00 show of jousting knights is a big hit
 with kids. Wander the **Viktualienmarkt** and have lunch at the
 **Hofbräuhaus**. It's loud, famous, and fine with kids at lunchtime.
 
-**Day 3 — The Residenz.** The Wittelsbach palace has the **Treasury**, with
-crowns, swords and jewels, which is the castle-lover's room. There's also
-the vast Renaissance **Antiquarium**. Under-18s are free but still need a
-reservation. In the afternoon, go to **Hirschgarten**, the biggest beer
-garden. It has a big climbing playground, a carousel, and a deer enclosure
-(a bonus, not the point).
+**Day 3 — The Residenz, then Hirschgarten.** The Wittelsbach palace has the
+**Treasury**, with crowns, swords and jewels, which is the castle-lover's
+room. There's also the vast Renaissance **Antiquarium**. Under-18s are free
+but still need a reservation. In the afternoon, go to **Hirschgarten**, the
+biggest beer garden. It has a big climbing playground, a carousel, and a
+deer enclosure (a bonus, not the point).
 
 **Day 4 — Neuschwanstein by train.** Take the regional train to Füssen
 (about 2 h), then the bus to Hohenschwangau. One **Bayern-Ticket** covers
@@ -58,41 +59,51 @@ bahn.de). Walk or take the shuttle up to the **Marienbrücke** for the
 classic view, then tour **Neuschwanstein** in your timed slot. It's the
 longest day of the trip. The train time is the rest.
 
-**Day 5 — Nymphenburg Palace.** The summer palace and its park are free to
-walk. The **Marstall museum** of golden royal coaches is the kids' part.
-Spend the afternoon in the park. End with dinner at the **Augustiner-Keller**,
-Munich's oldest beer garden, which has a playground.
-*Alternative:* **Andechs**, a Benedictine monastery brewery on a hill. Take
-the S-Bahn to Herrsching and walk up through the woods, or catch the bus.
-There's a playground beside the beer garden for kids up to about 12.
+**Day 5 — Andechs, the monastery brewery on the hill, then the
+Augustiner-Keller.** Take the S8 to Herrsching (about 50 min) and walk up
+through the woods to **Andechs**, a Benedictine monastery that has brewed
+beer for centuries (about 45 min uphill; there's also a bus). Lunch in the
+beer garden under the chestnut trees. The playground sits right below the
+terrace, so parents can watch from their table. Walk back down to the
+**Ammersee** lakeshore at Herrsching before the train. Back in Munich, have
+dinner at the **Augustiner-Keller**, the city's oldest beer garden, which
+also has a playground.
 
 **Day 6 — Pick up the car. Salzburg's fortress on the way.** Stop in
 **Salzburg** (1½ h) to ride the **funicular** up to **Hohensalzburg**, one of
 the largest intact medieval castles in Europe. Then drive on to Gosau (1 h).
 
-**Day 7 — The resort.** Pool, the outdoor area (climbing tower, trampolines,
-adventure playground), and the resort's own guided family hike. Childcare is
-available if the parents want a spa hour.
-
-**Day 8 — Hallstatt salt mine.** Ride the new funicular up, then go
-underground in miners' clothes. The mine has **wooden miners' slides**, an
-underground salt lake, and a 7,000-year mining story. It reopens in August
-2026 after a rebuild. **Ages 4+ only**, so if the youngest isn't 4 by then,
-one parent takes them to the lakeside instead. Afterwards, walk Hallstatt's
-old town, the profile's "Capri morning".
-
-**Day 9 — Gosau lakes.** The flat loop around **Vorderer Gosausee** (about an
-hour, stroller-friendly) has the Dachstein glacier reflected in the water. If
-everyone's still going, take the **Gosaukamm cable car** up to the alpine
-pastures and the summit playground. Ask the resort which lifts the guest card
-covers.
-
-**Day 10 — Choose:**
-- **(a) Hohenwerfen Castle** (about 1 h). It's a cliff-top fortress with a
-  **falconry show**: eagles and vultures flying over the valley.
-- **(b) A slow resort day** before the flight.
+**Days 7–10 — At the resort.** You're paying for an all-inclusive family
+resort, so these days are spent there. The car stays parked unless you pick
+something from *Optional outings* below.
+- **Day 7:** pool, and the outdoor area: climbing tower, trampolines,
+  adventure playground and the kids' vehicle course.
+- **Day 8:** the resort's **guided family hike**. Ask at check-in what runs
+  that week.
+- **Day 9:** kids' club for the children, and a spa morning for the parents.
+  In the afternoon, everyone's back at the pool.
+- **Day 10:** a slow day before the flight.
 
 **Day 11 — Drive to MUC** (2½–3 h), fly home.
+
+## Optional outings from the resort
+
+Pick one or two if the resort days feel long, and leave the rest:
+- **Hallstatt salt mine.** Ride the new funicular up, then go underground in
+  miners' clothes. The mine has **wooden miners' slides**, an underground
+  salt lake, and a 7,000-year mining story. It reopens in August 2026 after
+  a rebuild. **Ages 4+ only.** Afterwards, walk Hallstatt's old town.
+- **Gosau lakes.** The flat loop around **Vorderer Gosausee** (about an hour,
+  stroller-friendly) has the Dachstein glacier reflected in the water. Add
+  the **Gosaukamm cable car** up to the alpine pastures and summit
+  playground. Ask the resort which lifts the guest card covers.
+- **Hohenwerfen Castle** (about 1 h). A cliff-top fortress with a **falconry
+  show**: eagles and vultures flying over the valley.
+
+## Taken out
+
+- **Nymphenburg Palace**, as you asked. The Marstall coach museum was its
+  kids' part.
 
 ## Food — and protein for the vegetarian parent
 
@@ -115,18 +126,17 @@ Käsespätzle is basically mac and cheese.
 
 | Item | € | Notes |
 |---|---:|---|
-| Munich transit, 5 days, including the airport train | 120 | Group day tickets |
+| Munich transit, 5 days, including the airport train and Andechs | 130 | Group day tickets |
 | Alte Pinakothek | 18 | €9 adult; under-18s free; **€1 on Sundays** |
 | Residenz + Treasury | 30 | Under-18s free (reserve). *Check* |
 | Neuschwanstein day | 130 | Castle €21 adult, kids free, €2.50 booking fee per ticket; Bayern-Ticket ~€44; buses |
-| Nymphenburg | 40 | €20 adult combination ticket; under-18s free |
 | Car, 5 days (7-seat), Austrian vignette, fuel | 950 | Book early: 7-seaters are scarce in summer |
 | Hohensalzburg + funicular | 45 | ~€15.50 adult, ~€6.30 child 6–14, under 6 free. *Check* |
-| Hallstatt salt mine + funicular | 170 | €49 adult, €23 child 4–15 |
-| Gosau lifts | 80 | May be covered by the guest card. *Check* |
-| Hohenwerfen falconry (option a) | 70 | €23.90 adult, €9.10 child 6–14 |
-| Food, Munich days + travel days | 1,100 | ~€180/day; the resort days are included in its price |
-| **Total fixed** | **~€2,750 ≈ $3,150** | Before flights, the Munich hotel (tracked daily) and the resort |
+| Food, Munich days + travel days | 1,100 | ~€180/day, beer gardens included; the resort days are included in its price |
+| **Total fixed** | **~€2,400 ≈ $2,750** | Before flights, the Munich hotel (tracked daily) and the resort |
+| *Option: Hallstatt salt mine + funicular* | *170* | *€49 adult, €23 child 4–15* |
+| *Option: Gosau lifts* | *80* | *May be covered by the guest card. Check* |
+| *Option: Hohenwerfen falconry* | *70* | *€23.90 adult, €9.10 child 6–14* |
 
 **The resort:** Dachsteinkönig sells direct and doesn't publish a price that
 Google can track. For a rough figure, the comparable all-inclusive ULRICHSHOF
@@ -145,7 +155,7 @@ They advertise a "5 nights for 4" offer; ask whether it applies in summer.
 | Munich hotel or apartment | The tracker prices it. Book a refundable rate once the dates are fixed |
 | Neuschwanstein | When the timed slots open, typically a few months ahead. May–September sells out days ahead |
 | Car | Early spring 2027 (refundable) |
-| Hallstatt salt mine | A month or two ahead |
+| Hallstatt salt mine (if chosen) | A month or two ahead |
 
 ## Watch out for
 

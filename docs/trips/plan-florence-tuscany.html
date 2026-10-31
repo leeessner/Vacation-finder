@@ -1,0 +1,391 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Florence &amp; Tuscany · Vacation deal watch</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;700&family=Public+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap"><style>
+:root{--paper:#f7f8fb;--card:#fff;--ink:#1b2233;--muted:#5a6478;--line:#dfe3ec;
+--accent:#2b4c9b;--accent-soft:#e7ecf8;--check-bg:#fff3d6;--check-fg:#7a5200;
+--display:"Libre Caslon Text",Georgia,"Times New Roman",serif;
+--body:"Public Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){
+--paper:#12161f;--card:#1a2030;--ink:#e6e9f0;--muted:#9aa3b6;--line:#2c3446;
+--accent:#8fa9ec;--accent-soft:#222c46;--check-bg:#3a2e12;--check-fg:#f3d27a;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:15.5px/1.6 var(--body)}
+.wrap{max-width:1000px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));
+padding-right:max(16px,env(safe-area-inset-right,0px))}
+header.top{padding-block:26px 16px}
+.eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);
+font-weight:600;margin:0 0 4px}
+header.top h1{font:700 clamp(26px,4.6vw,36px)/1.15 var(--display);margin:0}
+.sub{color:var(--muted);font-size:14px;margin:6px 0 0}
+nav.tabs{position:sticky;top:0;z-index:5;background:var(--card);border-block:1px solid var(--line)}
+nav.tabs .wrap{display:flex;gap:4px;overflow-x:auto;padding-block:6px}
+.tab{flex:0 0 auto;display:flex;flex-direction:column;padding:7px 13px;border-radius:6px 6px 0 0;
+text-decoration:none;color:var(--muted);border-bottom:3px solid transparent}
+.tab:hover{background:var(--accent-soft);color:var(--ink)}
+.tab:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.tab[aria-current=page]{color:var(--ink);border-bottom-color:var(--accent)}
+.tab b{font-size:14.5px}
+.tab span{font-size:12px;font-variant-numeric:tabular-nums}
+main{padding-block:24px 56px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.tcard{display:flex;flex-direction:column;gap:8px;background:var(--card);border:1px solid var(--line);
+border-radius:10px;padding:16px 18px;color:inherit;text-decoration:none;min-width:0}
+.tcard:hover{border-color:var(--accent)}
+.tcard:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.tcard h2{font:700 19px/1.25 var(--display);margin:0}
+.price{font-size:28px;font-weight:700;letter-spacing:-.01em;font-variant-numeric:tabular-nums;line-height:1.1}
+.price small{display:block;font-size:12.5px;font-weight:400;color:var(--muted);letter-spacing:0;margin-top:3px}
+.pill{align-self:flex-start;display:inline-block;padding:3px 11px;border-radius:99px;color:#fff;
+font-size:12.5px;font-weight:600;white-space:nowrap}
+.status{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.conf{font-size:12.5px;color:var(--muted)}
+.chart{margin-top:4px;color:var(--ink)}
+.more{margin-top:auto;font-size:13px;color:var(--accent);font-weight:600}
+.muted{color:var(--muted)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px;margin-bottom:18px}
+.head{display:flex;flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.name{font:700 22px/1.25 var(--display);margin:0}
+.why{color:var(--muted);font-size:13.5px;margin:4px 0 0;max-width:65ch}
+.big{font-size:30px;font-weight:700;margin:14px 0 2px;font-variant-numeric:tabular-nums}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-top:16px}
+.stat{border-top:1px solid var(--line);padding-top:9px}
+.stat b{display:block;font-size:17px;font-weight:650;font-variant-numeric:tabular-nums}
+.stat span{color:var(--muted);font-size:12px}
+.outlook{margin:14px 0 0;padding:10px 12px;border-radius:8px;background:var(--paper)}
+.outlook b{font-size:15px}
+.moves{margin-top:10px;font-size:14px}
+.note{color:var(--muted);font-size:13px;margin-top:4px}
+.caveat{margin:14px 0 0;padding:8px 11px;border-left:3px solid #d97706;
+background:rgba(217,119,6,.09);font-size:13px;border-radius:0 6px 6px 0}
+.scroll{overflow-x:auto;margin:14px 0;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{text-align:left;padding:8px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--muted);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.05em;
+background:var(--accent-soft)}
+tr:last-child td{border-bottom:0}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+a{color:var(--accent);text-underline-offset:2px}
+.plan h1{font:700 clamp(24px,4.2vw,32px)/1.2 var(--display);margin:34px 0 12px;text-wrap:balance}
+.plan h2{font:700 21px/1.3 var(--display);margin:36px 0 10px;padding-top:18px;border-top:1px solid var(--line)}
+.plan h3{font:700 17px/1.35 var(--display);margin:24px 0 8px;color:var(--accent)}
+.plan p,.plan li{max-width:70ch}
+.plan hr{display:none}
+.plan blockquote{margin:18px 0;padding:12px 16px;background:var(--check-bg);border-radius:6px}
+.plan blockquote p{margin:0}
+.plan p.day{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:13px 16px;margin:12px 0}
+.plan p.day strong:first-child{display:block;font:700 16.5px/1.35 var(--display);color:var(--accent);margin-bottom:3px}
+.check{display:inline-block;font-size:11.5px;font-weight:600;letter-spacing:.04em;padding:0 6px;
+border-radius:4px;background:var(--check-bg);color:var(--check-fg);text-transform:uppercase;line-height:1.6}
+.section-label{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);
+font-weight:600;margin:0 0 10px}
+pre{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:10px;
+font-size:12px;overflow-x:auto;white-space:pre-wrap}
+footer{color:var(--muted);font-size:12.5px;margin-top:30px;border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><header class='top'><div class='wrap'><p class="eyebrow"><a href="../index.html">Vacation deal watch</a></p><h1>Florence &amp; Tuscany</h1></div></header><nav class="tabs" aria-label="Trips"><div class="wrap"><a class="tab" href="../index.html"><b>All trips</b><span>highlights</span></a><a class="tab" href="../trips/nashville-spring-break.html"><b>Nashville</b><span>4 nights · $1,176</span></a><a class="tab" href="../trips/smokies-spring-break.html"><b>Great Smoky Mountains</b><span>4 nights · $884</span></a><a class="tab" href="../trips/spain-barcelona-madrid.html"><b>Spain — Barcelona &amp; Madrid</b><span>10 nights · $11,221</span></a><a class="tab" href="../trips/paris-versailles.html"><b>Paris &amp; Versailles</b><span>9 nights · $12,039</span></a><a class="tab" href="../trips/nice-riviera.html"><b>Nice &amp; the French Riviera</b><span>9 nights · $13,628</span></a><a class="tab" href="../trips/greece-summer.html"><b>Greece — Athens &amp; the islands</b><span>10 nights · $9,415</span></a><a class="tab" href="../trips/portugal-azores-summer.html"><b>Portugal &amp; the Azores</b><span>10 nights · $10,593</span></a><a class="tab" href="../trips/austria-bavaria-summer.html"><b>Austria &amp; Bavaria</b><span>10 nights · $12,168</span></a><a class="tab" href="../trips/london-summer.html"><b>London</b><span>7 nights · $8,514 so far</span></a><a class="tab" href="../trips/plan-florence-tuscany.html" aria-current="page"><b>Florence &amp; Tuscany</b><span>8 nights · not tracked yet</span></a><a class="tab" href="../trips/plan-resorts.html"><b>The family resorts — a plan for each</b><span>plan</span></a></div></nav><main><div class='wrap'><p class="muted">This plan isn't tracked yet: no daily flight or hotel prices.</p><section class="plan"><h1>Florence &amp; Tuscany</h1><p><strong>Shape:</strong> 8 nights. Five on the farm above Florence, three in the
+countryside near Siena with a car. Florence is the art; the countryside is
+the castle, the towers, a vineyard and the cheese. The days are fuller than
+the first draft, as you asked. Nothing was dropped: the extra choices sit
+under <em>Options</em> for spare time or swaps.</p>
+<p>Written against <code>plans/family-profile.md</code>. Prices were checked in October 2026
+from the sources listed at the end. Where those sources disagreed, the higher
+figure is used, and anything not confirmed is marked <span class="check">check</span>. Euros are
+converted at about <strong>$1.15 per €1</strong>.</p>
+<hr />
+<h2>At a glance</h2>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th></th>
+<th>Where</th>
+<th>Nights</th>
+<th>Getting around</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Base 1</td>
+<td><strong>Fattoria di Maiano</strong>, Fiesole (in <code>config/stays.yaml</code>)</td>
+<td>5</td>
+<td>Bus 7 or a minivan taxi into Florence (20 min); trains for the day trip</td>
+</tr>
+<tr>
+<td>Base 2</td>
+<td>A farm stay (agriturismo) or apartment near <strong>Siena</strong>, 2+ bedrooms, with a pool</td>
+<td>3</td>
+<td>A rental car (7-seat)</td>
+</tr>
+</tbody>
+</table></div>
+<p>Fly into <strong>Florence (FLR)</strong>, usually with one connection, or into <strong>Rome
+(FCO)</strong> and take the fast train to Florence (about 1h30). Fly home from
+<strong>FCO</strong> (about 2 h from Pienza on the last day) or FLR. Florence's airport is
+small, so the tracker should price both (see <em>Tracker settings</em>).</p>
+<h2>Day by day</h2>
+<p>One big thing in the morning and another in the afternoon. The farm's pool
+is there for the evenings. <strong>Gelato every day</strong>: the best scoops are listed
+under <em>Gelato</em>, and each day names the one on the way.</p>
+<p class="day"><strong>Day 1 — Arrive.</strong> Settle in at Fattoria di Maiano: pool and the farm.
+Dinner at <strong>Cucina Pietraforte</strong>, within walking distance (from the Instagram
+post; <span class="check">check</span> it's open).</p>
+<p class="day"><strong>Day 2 — Bargello, Pitti &amp; Boboli, then sunset at Piazzale Michelangelo.</strong>
+Start at the <strong>Bargello</strong> at 8:15, the great sculpture museum: Donatello's
+<em>David</em> and Michelangelo's <em>Bacchus</em>. It's small, so plan about an hour.
+Walk across the <strong>Ponte Vecchio</strong> to the <strong>Pitti Palace</strong>. Its <strong>Palatine
+Gallery</strong> is the Raphael room of the trip, with the <em>Madonna della Seggiola</em>
+and <em>La Velata</em>. Then let the kids loose in the <strong>Boboli Gardens</strong>: grottoes,
+statues and big lawns. Go back to the farm for a pool break and an early
+dinner. Come back down for <strong>sunset at Piazzale Michelangelo</strong>, the whole
+city laid out below. In June the sun sets around 8:50 pm, so it's a late
+night; the farm is 20 minutes away. Gelato: <strong>La Carraia</strong>, by the bridge on
+the Pitti side.</p>
+<p class="day"><strong>Day 3 — Michelangelo's David, then Leonardo's machines.</strong> Take the first
+slot at the <strong>Accademia</strong> (8:15) and allow about an hour. The combined
+Accademia + Bargello ticket is valid for 48 hours, so it covers Days 2 and
+3. Walk past the Duomo and the Baptistery's bronze doors. In the afternoon,
+the <strong>Leonardo Interactive Museum</strong> has 50+ working models of his inventions
+to crank and push. It's the one science museum on the trip, because it's
+unique. Gelato: <strong>Carabè</strong>, near the Accademia, for Sicilian granita too.</p>
+<p class="day"><strong>Day 4 — Uffizi, then a pasta class.</strong> Book the 8:15 slot and keep the
+visit to about 2 hours. Go straight for Raphael's <em>Madonna of the
+Goldfinch</em>, Leonardo's <em>Annunciation</em>, Michelangelo's <em>Doni Tondo</em> and
+Caravaggio's <em>Medusa</em>. In the afternoon, take a family <strong>pasta class</strong>:
+tagliatelle or ravioli, with a "little chef" diploma for the kids at some
+schools. Dinner is what you made. Gelato: <strong>Vivoli</strong>, near Santa Croce, the
+city's oldest.</p>
+<p class="day"><strong>Day 5 — Day trip by train: Parmesan + Bologna.</strong> This is the profile's own
+example of a "local making-of" experience. Take a fast train to Bologna
+(37 min), then a local train or taxi to a dairy near Modena. Cheese is made
+in the early morning, so tours start around 8:30. It's the earliest start of
+the trip. In the afternoon, Bologna's <strong>Pinacoteca</strong> holds Raphael's
+<em>Ecstasy of St Cecilia</em>, back in Room 15 since July 2026. <em>Swap for Lucca +
+Montecatini Alto (under Options) if you'd rather have an easy start.</em></p>
+<p class="day"><strong>Day 6 — Pick up the car. Brolio: castle and vineyard.</strong> Pick up the car at
+Florence airport rather than in town; see <em>Watch out for</em>. Drive to
+<strong>Castello di Brolio</strong> (about 1¼ h). The gardens, the crypt (the "spooky
+crypt" from the post) and the ramparts are the castle part. The <strong>vineyard
+tour</strong> is the other half: Ricasoli, Chianti's oldest wine family, runs
+estate tours. Ask for a family-friendly one with grape juice for the kids
+(<span class="check">check</span>). Lunch at the estate's osteria, then drive 20 minutes to Base 2.</p>
+<p class="day"><strong>Day 7 — San Gimignano, Monteriggioni, Siena.</strong> All three are on one road.
+In the morning, climb <strong>Torre Salvucci Maggiore</strong> in <strong>San Gimignano</strong>, a
+private tower open to visitors, with views over Tuscany. Skip the queue at
+the main tower. Wander the old town and stop at <strong>Gelateria Dondoli</strong> on the
+main square, which has won world titles. On the way back, walk the walls of
+<strong>Monteriggioni</strong> (25 min), a tiny complete walled village. In the late
+afternoon, go to <strong>Siena</strong> (20 min more). The <strong>Duomo</strong> has a marble-inlaid
+floor and the <strong>Piccolomini Library</strong>, frescoed by Pinturicchio, the master
+who worked alongside the young Raphael. Have dinner on the shell-shaped
+<strong>Piazza del Campo</strong> as it empties out.</p>
+<p class="day"><strong>Day 8 — Pienza and pecorino.</strong> Take a <strong>pecorino dairy tour</strong> (about 1½–2
+h, starting around 10:30) on a working farm. Lunch at <strong>La Terrazza del
+Chiostro</strong>, as requested. Drive back through the Val d'Orcia: the classic
+cypress-road views, and a stop at <strong>Bagno Vignoni</strong>, a village built around a
+steaming thermal pool.</p>
+<p class="day"><strong>Day 9 — Fly home</strong> from FCO (about 2 h) or FLR (about 1½ h).</p>
+<h2>Options (kept from the first draft, for spare days or swaps)</h2>
+<ul>
+<li><strong>Lucca + Montecatini Alto, by train.</strong> Rent family bikes on top of
+  <strong>Lucca's city walls</strong>, a flat 4 km loop through the trees. Then take the
+  1898 <strong>funicular</strong> up to <strong>Montecatini Alto</strong> (8½ minutes, two red cars,
+  Gigio and Gigia). It's a trains-and-walls day with an easy start, and it
+  swaps for Day 5.</li>
+<li><strong>Fiesole itself.</strong> The Roman theatre and the view are a 15-minute walk
+  from the farm. It works for a slow morning.</li>
+<li><strong>A ninth night.</strong> Adding a night near Siena would split Day 7 in two:
+  San Gimignano on one day, Siena and Monteriggioni on the next.</li>
+<li><strong>Not in the plan:</strong> the vineyard horseback ride, because the kids are
+  young and nobody has riding experience. The <strong>Leaning Tower of Pisa</strong> is
+  also out, because children under 8 can't climb it.</li>
+</ul>
+<h2>Gelato</h2>
+<p>Florence is the place to eat all of it. Every shop below is well known; go
+early in the evening before the queues:
+- <strong>Vivoli</strong> (Santa Croce): the oldest in the city. Try the rice gelato.
+- <strong>La Carraia</strong> (by Ponte alla Carraia): good-value cones on the way to the
+  Pitti or the Piazzale.
+- <strong>Carabè</strong> (near the Accademia): Sicilian gelato and granita.
+- <strong>Gelateria dei Neri</strong> (Santa Croce): huge choice, open late.
+- <strong>Perché No!</strong> (near the Duomo): one of the oldest, with good dairy-free
+  sorbets.
+- <strong>Dondoli</strong> (San Gimignano): the world-champion one on the main square.</p>
+<h2>Food — and protein for the vegetarian parent</h2>
+<p>Tuscany is better for this than its steak reputation suggests. Order by name:
+- <strong>Beans:</strong> <em>fagioli all'uccelletto</em> (white beans in tomato and sage),
+  <em>ribollita</em> (bean-and-bread soup), <em>zuppa di farro e fagioli</em>.
+- <strong>Chickpeas:</strong> <em>cecina</em>, a chickpea flatbread sold by the slice around
+  Lucca and Pisa. It's a good snack on the Lucca day.
+- <strong>Cheese and eggs:</strong> a <strong>pecorino</strong> board in Pienza (the trip's best
+  protein day); <em>frittata</em>; <em>uova al pomodoro</em> (eggs in tomato).
+- <strong>Restaurants in Florence:</strong>
+  - <strong>Il Vegetariano</strong>: a Florence institution, with big portions. Ask about
+    the protein dishes; older reviews say they're thin.
+  - <strong>Nirvana</strong>: roasted seitan.
+  - <strong>L'OV Osteria Vegetariana</strong>.
+  - <strong>Ruth's</strong>: vegetarian and kosher, with a fish dish or two each day. It's
+    the easy pick for a mixed table.</p>
+<p>Kids' backup: pasta <em>in bianco</em> (with butter and Parmesan) is on every menu
+even when it isn't printed. Ask for it.</p>
+<h2>Fixed costs (estimate, for six)</h2>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th>Item</th>
+<th style="text-align: right;">€</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Uffizi</td>
+<td style="text-align: right;">74</td>
+<td>Adults €29 online; under-18s free, plus a €4 booking fee each</td>
+</tr>
+<tr>
+<td>Accademia + Bargello combined ticket</td>
+<td style="text-align: right;">76</td>
+<td>Adults ~€26 + fee; under-18s free; valid 48 h, so it covers Days 2–3. <em>Check</em></td>
+</tr>
+<tr>
+<td>Pitti Palatine Gallery + Boboli</td>
+<td style="text-align: right;">50</td>
+<td>Sources disagree; under-18s free. <em>Check</em></td>
+</tr>
+<tr>
+<td>Leonardo Interactive Museum</td>
+<td style="text-align: right;">46</td>
+<td>~€9 adult, ~€7 child; sold online only. <em>Check</em></td>
+</tr>
+<tr>
+<td>Family pasta class</td>
+<td style="text-align: right;">550</td>
+<td>€80–125 per person; ask for a child rate</td>
+</tr>
+<tr>
+<td>Day 5 Parmesan + Bologna</td>
+<td style="text-align: right;">250</td>
+<td>Trains (see below), dairy ~€15–25 pp, taxis, Pinacoteca ~€10 adult</td>
+</tr>
+<tr>
+<td>Getting into Florence, 4 days + the sunset evening</td>
+<td style="text-align: right;">200</td>
+<td>Bus 7 is cheap; a minivan taxi (needed for six) costs ~€35 each way</td>
+</tr>
+<tr>
+<td>Car, 4 days (7-seat), fuel, parking</td>
+<td style="text-align: right;">750</td>
+<td>Book early: 7-seaters are scarce in summer</td>
+</tr>
+<tr>
+<td>Brolio castle, gardens + vineyard tour</td>
+<td style="text-align: right;">100</td>
+<td>Garden &amp; museum ~€8 pp; estate tours from ~€28 adult. <em>Check</em></td>
+</tr>
+<tr>
+<td>Torre Salvucci, Monteriggioni walls</td>
+<td style="text-align: right;">60</td>
+<td><em>Check</em></td>
+</tr>
+<tr>
+<td>Siena Duomo (OPA SI pass)</td>
+<td style="text-align: right;">55</td>
+<td>~€20 adult; ages 7 and 8 reduced; under 7 free</td>
+</tr>
+<tr>
+<td>Pecorino dairy tour</td>
+<td style="text-align: right;">200</td>
+<td>€65 adult; ask about children</td>
+</tr>
+<tr>
+<td>Food, 8 days, gelato included</td>
+<td style="text-align: right;">1,450</td>
+<td>~€180/day: breakfast in the apartment, one meal out, gelato twice</td>
+</tr>
+<tr>
+<td><strong>Total fixed</strong></td>
+<td style="text-align: right;"><strong>~€3,850 ≈ $4,450</strong></td>
+<td>Before flights and lodging, which the tracker prices daily</td>
+</tr>
+<tr>
+<td><em>Option: Lucca + Montecatini instead of Day 5</em></td>
+<td style="text-align: right;"><em>120</em></td>
+<td><em>Local trains, bikes, funicular ~€7 return. Check</em></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Trains:</strong> Trenitalia's <strong>FrecciaFAMILY</strong> offer lets children under 15 ride
+free and gives adults 50% off the base fare on fast trains. However, it's
+limited to <strong>groups of 2–5</strong>. For six, make <strong>two bookings</strong>: one adult with
+two kids each.</p>
+<h2>When to book</h2>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th>What</th>
+<th>When</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Flights</td>
+<td>The tracker watches them daily. The usual best window is 5–7 months out, so <strong>Dec 2026–Feb 2027</strong></td>
+</tr>
+<tr>
+<td>Fattoria di Maiano</td>
+<td><strong>Soon.</strong> It's a popular family farm stay in summer. Pick a refundable rate if one is offered</td>
+</tr>
+<tr>
+<td>Base 2 farm stay, car</td>
+<td>Early spring 2027, once dates are fixed (refundable)</td>
+</tr>
+<tr>
+<td>Uffizi, Accademia, Pitti, Leonardo Interactive</td>
+<td>As soon as ticket sales open for the dates, for the 8:15 slots</td>
+</tr>
+<tr>
+<td>Fast trains</td>
+<td>Sales open up to 9 months ahead; buy once the dates are fixed</td>
+</tr>
+<tr>
+<td>Pasta class, dairy tours, Brolio vineyard tour</td>
+<td>1–2 months ahead</td>
+</tr>
+</tbody>
+</table></div>
+<h2>Watch out for</h2>
+<ul>
+<li><strong>ZTL zones.</strong> Florence, Siena, San Gimignano and Pienza fine cars that enter
+  their historic centres, and the camera fines arrive months later. Park
+  outside the walls; that's why the car is picked up at the airport.</li>
+<li><strong>Car seats.</strong> Italy requires them for children under 150 cm, which means
+  all four kids. Rental seats are pricey and variable; consider bringing
+  boosters.</li>
+<li><strong>Museums are closed Mondays.</strong> Uffizi, Accademia, Bargello and the Pitti
+  all close that day. Put the day trip (Day 5) or the drive (Day 6) on a
+  Monday as the dates fall.</li>
+<li><strong>Sunset is late in June</strong> (about 8:50 pm). For a 3-year-old, the
+  Piazzale works best with a nap and a pool break first.</li>
+</ul>
+<h2>Tracker settings (to apply once you've reviewed this)</h2>
+<ul>
+<li>New trip <strong>"Florence &amp; Tuscany"</strong>: STL → FLR, with FCO and BLQ as
+  alternates; 8 nights within Jun 5–Jul 17, 2027. Also price <strong>FLR in / FCO out</strong>.</li>
+<li>Lodging 1: price <strong>Fattoria di Maiano</strong> by name. It's sold on Hotels.com and
+  Expedia, so Google Hotels should show it. Center Fiesole, within 3 mi.</li>
+<li>Lodging 2: 3 nights, a rental with 2+ bedrooms, center <strong>Siena</strong> (43.318, 11.331),
+  within 15 mi, rating 4.0+.</li>
+<li>Fixed costs: the table above, as <code>flat_cost</code>.</li>
+</ul>
+<h2>Sources (checked October 2026)</h2>
+<ul>
+<li>Uffizi prices: <a href="https://www.uffizi.it/en/pages/tickets-fares" target="_blank" rel="noopener">uffizi.it tickets</a>, <a href="https://www.artvisitguide.com/uffizi-gallery-florence-tickets-guide/" target="_blank" rel="noopener">artvisitguide</a></li>
+<li>Accademia: <a href="https://untolditaly.com/how-to-buy-tickets-for-the-accademia-gallery-florence/" target="_blank" rel="noopener">Untold Italy</a>, <a href="https://www.artvisitguide.com/accademia-gallery-florence-tickets-guide/" target="_blank" rel="noopener">artvisitguide</a></li>
+<li>Bargello: <a href="https://bargellomusei.it/en/tickets/museo-nazionale-del-bargello/" target="_blank" rel="noopener">bargellomusei.it</a></li>
+<li>Leonardo Interactive Museum: <a href="https://thebettervacation.com/florence/leonardo-da-vinci-interactive-museum-florence/" target="_blank" rel="noopener">The Better Vacation</a>, <a href="https://whichmuseum.com/museum/leonardo-interactive-museum-florence-5901/tickets-prices" target="_blank" rel="noopener">whichmuseum</a></li>
+<li>Pasta classes: <a href="https://cookly.me/do/577-pasta-making-class-at-mama-florence/in/florence" target="_blank" rel="noopener">Cookly</a>, <a href="https://www.byfood.com/experiences/florence-pasta-cooking-class-tagliatelle-ravioli-and-tortelloni-45456" target="_blank" rel="noopener">byFood</a></li>
+<li>Raphael's St Cecilia in Bologna: <a href="https://pinacotecabologna.beniculturali.it/en/content-page/item/2811-st-cecilia-with-saints-paul-john-the-evangelist-augustine-and-mary-magdalen-ecstasy-of-st-cecilia" target="_blank" rel="noopener">Pinacoteca</a>, <a href="https://news.artprice.com/it/15650/raphael-the-return-of-the-ecstasy-of-saint-cecilia-to-bologna-in-july-2026" target="_blank" rel="noopener">artprice</a></li>
+<li>Parmesan dairies: <a href="https://www.caseificio4madonne.it/en/guided-tours/our-guided-tours" target="_blank" rel="noopener">4 Madonne guided tours</a>, <a href="https://www.bolognawelcome.com/en/experiences/326343/Food-Valley-small-group-tour" target="_blank" rel="noopener">Bologna Welcome Food Valley</a></li>
+<li>Trains: <a href="https://www.trenitalia.com/en/offers/frecciafamily.html" target="_blank" rel="noopener">Trenitalia FrecciaFAMILY</a></li>
+<li>Brolio: <a href="https://ricasoli.com/en/castle" target="_blank" rel="noopener">ricasoli.com</a></li>
+<li>Siena Duomo: <a href="https://www.european-traveler.com/italy/buying-tickets-and-tours-for-siena-cathedral-complex-duomo-in-tuscany" target="_blank" rel="noopener">european-traveler</a></li>
+<li>Montecatini funicular: <a href="https://visittuscany.com/en/attractions/montecatini-terme-funicular" target="_blank" rel="noopener">Visit Tuscany</a></li>
+<li>Pecorino tours: <a href="https://valdichianaliving.it/en/tours/pienza-pecorino-cheese-tour" target="_blank" rel="noopener">Valdichiana Living</a>, <a href="https://www.visittuscany.com/en/deals/pienza-pecorino-cheese-tour/" target="_blank" rel="noopener">Visit Tuscany</a></li>
+<li>Vegetarian Florence: <a href="https://happycow.net/best-vegan-restaurants/florence-italy" target="_blank" rel="noopener">HappyCow</a>, <a href="https://theculturetrip.com/italy/articles/the-5-best-vegetarian-restaurants-in-florence" target="_blank" rel="noopener">Culture Trip</a></li>
+</ul></section><footer>Prices are the cheapest option found across the configured dates, airports and hotels, not a quote. Availability changes faster than this page. last checked Oct 31, 2026 at 03:40 UTC.</footer></div></main></body></html>

@@ -240,6 +240,7 @@ trips:
 
   - id: paris-versailles
     name: "Paris & Versailles"
+    plan: plans/paris-alsace.md
     why: "Versailles is a 40-minute train from the city; no car needed all week"
     active: true
     destinations:
@@ -400,6 +401,7 @@ trips:
 
   - id: austria-bavaria-summer
     name: "Austria & Bavaria"
+    plan: plans/munich-bavaria-resort.md
     why: "The alpine family-resort belt — pools, lakes and lifts"
     active: true
     destinations:
@@ -446,6 +448,7 @@ trips:
 
   - id: london-summer
     name: "London"
+    plan: plans/london-york.md
     why: "Added from the family-travel accounts you follow; plan to come"
     active: true
     destinations:

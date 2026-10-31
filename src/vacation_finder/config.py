@@ -185,6 +185,7 @@ class Trip:
     alerts: AlertRules = field(default_factory=AlertRules)
     tags: tuple[str, ...] = ()
     max_date_samples: int | None = None
+    plan: str = ""                  # path to the trip's plan, e.g. plans/paris-alsace.md
 
 
 @dataclass(frozen=True)
@@ -408,6 +409,7 @@ def _parse_trip(raw: Any, index: int, settings: Settings) -> Trip:
         alerts=alerts,
         tags=tuple(str(t).strip().lower() for t in raw.get("tags", []) or []),
         max_date_samples=_opt_int(raw.get("max_date_samples")),
+        plan=str(raw.get("plan", "") or ""),
     )
 
 

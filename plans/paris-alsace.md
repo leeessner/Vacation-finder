@@ -1,8 +1,8 @@
 # Paris, Versailles & Alsace — draft plan (summer 2027)
 
 **Shape:** 9 nights. Six in Paris, covering the family's own list: the
-Louvre, likely the Orsay, Montmartre, the Eiffel Tower, a park and
-Versailles. Then three in **Strasbourg**, 1¾ hours east by TGV, with Colmar
+Louvre, the Orsay, Montmartre, the Eiffel Tower, a park, Versailles and one
+Disneyland day. Then three in **Strasbourg**, 1¾ hours east by TGV, with Colmar
 and a mountain-top castle as day trips. It's trains the whole way, with no
 car. The last train runs straight to Paris-CDG for the flight home.
 
@@ -24,8 +24,8 @@ confirmed is marked *check*. Euros are converted at about **$1.15 per €1**.
 Why the Luxembourg Gardens, rather than the tracker's current center at the
 Hôtel de Ville: the gardens are Paris's best park for children, with a big
 playground, toy sailboats on the pond and a puppet theatre. It's the profile's
-"a park" built into every day. The Louvre, Orsay, Notre-Dame and the Rodin
-museum are a short walk or Métro ride away.
+"a park" built into every day. The Louvre, Orsay and Notre-Dame
+are a short walk or Métro ride away.
 
 Fly into **Paris-CDG**. Fly home from CDG; the TGV runs from Strasbourg
 directly to the airport station.
@@ -43,12 +43,12 @@ Michelangelo's two *Slaves*; the *Winged Victory*; Caravaggio, Poussin's
 great room, and Rembrandt. Picnic in the **Tuileries**, which has trampolines
 for the kids.
 
-**Day 3 — Sainte-Chapelle, Notre-Dame, Rodin.** Go early to
+**Day 3 — Sainte-Chapelle, Notre-Dame, the Eiffel Tower.** Go early to
 **Sainte-Chapelle**, a room made of stained glass. Then **Notre-Dame**, which
-reopened in December 2024 and is free to enter. In the afternoon, visit the
-**Musée Rodin**. It's the profile's "great sculpture" stop: *The Thinker* and
-*The Gates of Hell* stand in a garden where the kids can roam while the
-parents look.
+reopened in December 2024 and is free to enter. In the afternoon, take the
+**lift to the Eiffel Tower's summit**; book the slot ahead. Afterwards, the
+Champ de Mars has playgrounds and lawns. If you can stay out, the tower
+sparkles for five minutes on the hour after dark.
 
 **Day 4 — Versailles.** Take the RER C, about 40 minutes. Tour the palace
 early. Under-18s are free but need a timed slot. Then get out into the park:
@@ -56,17 +56,17 @@ rent **bikes or a rowing boat** on the Grand Canal, or take the little train
 to the Trianons and **Marie Antoinette's Hamlet**, a storybook farm village.
 On summer weekends the fountains run to music.
 
-**Day 5 — Montmartre, then the Orsay (optional).** Ride the **funicular** up
-to Sacré-Cœur, watch the painters in Place du Tertre, and wander down the
-village lanes. The **Orsay** in the afternoon is optional. Impressionism is
-"nice, not essential" in the profile, but the Orsay's sculpture hall
-(Carpeaux, Rodin) and the giant station clock work for everyone. Keep it to
-an hour.
+**Day 5 — The Orsay in the morning, Montmartre in the evening.** Start at the
+**Orsay** at opening. Impressionism is "nice, not essential" in the profile,
+but the sculpture hall (Carpeaux, Rodin) and the giant station clock work for
+everyone. Keep it to about 1½ hours. Rest in the afternoon. In the evening,
+ride the **funicular** up to Sacré-Cœur, watch the painters in Place du
+Tertre, and have dinner in the village lanes. Then sit on the Sacré-Cœur
+steps as the city lights come on.
 
-**Day 6 — The Eiffel Tower.** Book the **lift to the summit** for the
-morning. Afterwards, the Champ de Mars has playgrounds and lawns. *Or*
-replace this day with the one special **Disneyland Paris** day, if you
-decide to do it (see *Fixed costs*).
+**Day 6 — Disneyland Paris.** The one special day, as the profile allows.
+It's 40 minutes on the RER A. Rope-drop at opening, and plan around the
+3-year-old's nap.
 
 **Day 7 — TGV to Strasbourg** (1¾ h). In the afternoon, go to **Petite
 France**, the half-timbered, canal-side old quarter. Then climb the
@@ -89,6 +89,12 @@ train to **Colmar** (12 min): **Little Venice**, a short flat-bottomed
 **Isenheim Altarpiece** at the Unterlinden museum (children under 12 free).
 
 **Day 10 — TGV to Paris-CDG** (about 2 h), then fly home.
+
+## Optional
+
+- **Musée Rodin.** It's the profile's "great sculpture" stop: *The Thinker*
+  and *The Gates of Hell* stand in a garden where the kids can roam while the
+  parents look. It fits a free afternoon, such as Day 5's rest time.
 
 ## Food — and protein for the vegetarian parent
 
@@ -113,9 +119,8 @@ the city. Paris has good craft-beer bars for the parents.
 |---|---:|---|
 | Louvre | 64 | **€32 for non-EU adults** from January 2026. Children free (*check*), timed slot required |
 | Sainte-Chapelle, Notre-Dame | 40 | Notre-Dame free. Sainte-Chapelle ~€20 adult, children free. *Check* |
-| Musée Rodin | 30 | €15 adult online. Under-18s free (*check*) |
 | Versailles day | 145 | Passport €35 adult in high season, under-18s free; RER C; bikes or the little train |
-| Orsay (optional) | 32 | ~€16 adult. Under-18s free (*check*) |
+| Orsay | 32 | ~€16 adult. Under-18s free (*check*) |
 | Eiffel Tower summit by lift | 101 | €36.70 adult, €9.20 ages 4–11, under 4 free |
 | Paris Métro, RER and airport, 6 days | 180 | €2.55 per ride; half fare ages 4–9 |
 | Luxembourg sailboats, puppet show | 50 | |
@@ -123,8 +128,9 @@ the city. Paris has good craft-beer bars for the parents.
 | Strasbourg clock, Haut-Koenigsbourg, trains, shuttle | 140 | Castle €12 adult, €8 child, under 6 free |
 | Colmar boat, Unterlinden | 70 | Boat ~€9 pp; museum free under 12 |
 | Food, 9 days | 1,700 | ~€190/day |
-| **Total fixed** | **~€3,000 ≈ $3,450** | Before flights and lodging, which the tracker prices daily |
-| *Optional: Disneyland Paris, one day* | *~700* | *Instead of Day 6. Dated tickets for six; check the price for your date* |
+| Disneyland Paris, one day | 700 | Dated tickets for six, plus the RER. *Check* the price for your date |
+| **Total fixed** | **~€3,700 ≈ $4,250** | Before flights and lodging, which the tracker prices daily |
+| *Option: Musée Rodin* | *30* | *€15 adult online. Under-18s free (check)* |
 
 ## When to book
 
@@ -133,7 +139,7 @@ the city. Paris has good craft-beer bars for the parents.
 | Flights | The tracker watches them. The best window is **Dec 2026–Feb 2027** |
 | Paris apartment | Early 2027 (refundable). The tracker prices it |
 | Strasbourg lodging | Early 2027 |
-| Louvre, Versailles, Eiffel Tower, Sainte-Chapelle | **As soon as each opens sales for your dates.** Summer morning slots go first; the Eiffel summit sells out |
+| Louvre, Versailles, Eiffel Tower, Sainte-Chapelle, Disneyland | **As soon as each opens sales for your dates.** Summer morning slots go first; the Eiffel summit sells out |
 | TGV | When sales open (several months ahead). Early fares are far cheaper |
 | Haut-Koenigsbourg | Online a few weeks ahead in summer |
 
