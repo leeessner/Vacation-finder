@@ -134,8 +134,18 @@ def day_shift(segments: tuple | list) -> int:
 # --------------------------------------------------------------------------- #
 
 def basis(source: str, party_total: int, max_stops: int | None, bags: int,
-          insight: Any = None, searched_on: date | None = None) -> str:
+          insight: Any = None, searched_on: date | None = None,
+          max_hours: float | None = None) -> str:
     """One plain paragraph saying where the airfare number came from."""
+    text = _basis(source, party_total, max_stops, bags, insight, searched_on)
+    if max_hours:
+        text += (f" Only flights of {max_hours:g} hours or less, gate to gate, count for the "
+                 "way out; the way home is picked when you book.")
+    return text
+
+
+def _basis(source: str, party_total: int, max_stops: int | None, bags: int,
+           insight: Any = None, searched_on: date | None = None) -> str:
     stops = "nonstop" if max_stops == 0 else f"at most {max_stops} stop(s) each way" if max_stops is not None else "any number of stops"
     when = f" on {searched_on:%b %d}" if searched_on else ""
     if source == "google_flights":

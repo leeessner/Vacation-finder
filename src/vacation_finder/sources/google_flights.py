@@ -24,7 +24,7 @@ from dataclasses import dataclass
 from datetime import date
 
 from ..config import Settings, Trip
-from ..flight_details import from_fast_flights
+from ..flight_details import from_fast_flights, total_minutes
 from ..models import FlightQuote
 
 log = logging.getLogger(__name__)
@@ -71,6 +71,7 @@ def search_flights(
         hit = _cheapest(
             trip, origin, destination, depart, ret, currency,
             adults=step.adults, extra_stops=step.extra_stops, return_from=return_from,
+            max_hours=settings.max_flight_hours,
         )
         if hit is not None:
             price = hit[0] if step.adults is None else hit[0] / step.adults * party.total
@@ -151,6 +152,7 @@ def _cheapest(
     extra_stops: int = 0,
     return_from: str = "",
     trip_type: str = "",
+    max_hours: float | None = None,
 ) -> tuple[float, tuple[str, ...], tuple] | None:
     """(price, airlines, outbound segments) of the cheapest result, or None."""
     who = "party" if adults is None else f"{adults} adult(s)"
@@ -175,13 +177,26 @@ def _cheapest(
         price = _price_of(item)
         if price is None or price <= 0:
             continue
+        segments = from_fast_flights(item)
+        if too_long(segments, max_hours):
+            continue
         if best is None or price < best[0]:
-            best = (price, tuple(getattr(item, "airlines", ()) or ()), from_fast_flights(item))
+            best = (price, tuple(getattr(item, "airlines", ()) or ()), segments)
     return best
 
 
+def too_long(segments: tuple, max_hours: float | None) -> bool:
+    """Over the gate-to-gate limit. A flight whose time can't be worked out
+    is kept rather than dropped."""
+    if not max_hours or not segments:
+        return False
+    minutes = total_minutes(segments)
+    return minutes is not None and minutes > max_hours * 60
+
+
 def typical_leg(
-    trip: Trip, origin: str, destination: str, day: date, currency: str
+    trip: Trip, origin: str, destination: str, day: date, currency: str,
+    max_hours: float | None = None,
 ) -> tuple[tuple, tuple[str, ...]] | None:
     """(segments, airlines) of the cheapest one-way flight on this route and
     day, for one adult: what the trip home typically looks like. Free (the
@@ -189,7 +204,8 @@ def typical_leg(
     if not available():
         return None
     hit = _cheapest(
-        trip, origin, destination, day, day, currency, adults=1, trip_type="one-way"
+        trip, origin, destination, day, day, currency, adults=1, trip_type="one-way",
+        max_hours=max_hours,
     )
     return (hit[2], hit[1]) if hit else None
 

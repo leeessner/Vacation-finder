@@ -259,6 +259,10 @@ class Settings:
     booking_window_months: tuple[int, int] = (5, 7)
     google_flights_enabled: bool = True
     google_flights_price_is_total: bool = True
+    # The longest a flight may take, gate to gate, each way. The cheapest fare
+    # can mean an overnight layover (33 h to Brussels via Reykjavík); fares
+    # over this are ignored. None for no limit.
+    max_flight_hours: float | None = 20.0
 
 
 @dataclass(frozen=True)
@@ -567,6 +571,7 @@ def _parse_settings(raw: Any) -> Settings:
         booking_window_months=_parse_window(raw.get("booking_window_months")),
         google_flights_enabled=bool(raw.get("google_flights_enabled", True)),
         google_flights_price_is_total=bool(raw.get("google_flights_price_is_total", True)),
+        max_flight_hours=_opt_float(raw.get("max_flight_hours", 20.0)),
     )
 
 

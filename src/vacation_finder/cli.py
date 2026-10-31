@@ -343,7 +343,8 @@ def _record_flight_details(details, trip, quote, insight, today, config) -> None
     inbound, inbound_airlines = (), ()
     if config.settings.google_flights_enabled:
         found = google_flights.typical_leg(
-            trip, trip.return_airport, origin, fare.return_date, config.settings.currency
+            trip, trip.return_airport, origin, fare.return_date, config.settings.currency,
+            max_hours=config.settings.max_flight_hours,
         )
         if found:
             inbound, inbound_airlines = found
@@ -365,7 +366,7 @@ def _record_flight_details(details, trip, quote, insight, today, config) -> None
         "inbound_airlines": list(inbound_airlines),
         "basis": flight_details.basis(
             fare.source, trip.party.total, trip.flights.max_stops,
-            trip.flights.checked_bags, insight, today,
+            trip.flights.checked_bags, insight, today, config.settings.max_flight_hours,
         ),
     }
 
