@@ -77,6 +77,10 @@ settings:
   # prices for every window are free and keep running.
   hotel_windows_per_trip: 1
   hotel_recheck_days: 7
+  # All of that happens on one day, in one pass, and the email digest goes
+  # out right after it, so the email always has that day's hotel prices.
+  # (14:00 UTC, which is 9am in St. Louis in summer, 8am in winter.)
+  weekly_check_day: Sat
 
   # Within this many hours' drive, drive — don't fly.
   max_drive_hours: 6

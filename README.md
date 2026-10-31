@@ -208,7 +208,7 @@ freely.
 ```bash
 python -m vacation_finder validate          # check config, estimate API usage
 python -m vacation_finder track             # price everything, record, alert
-python -m vacation_finder digest            # send the scheduled summary
+python -m vacation_finder digest            # send the summary now
 python -m vacation_finder dashboard         # rebuild docs/index.html
 python -m vacation_finder doctor            # live-check every price source
 python -m vacation_finder demo --days 60    # synthetic history, to preview output
@@ -221,11 +221,13 @@ instead.
 
 | Workflow | When | What |
 |---|---|---|
-| `track.yml` | Daily, 14:00 UTC (= 9am Central) | Prices everything, commits history, sends alerts |
-| `digest.yml` | Wed & Sat 01:00 UTC (= Tue & Fri 8pm Central) | Sends the summary email |
+| `track.yml` | Daily, 14:00 UTC (= 9am Central) | Prices flights (free) daily, commits history, sends alerts. On the weekly check day (`weekly_check_day`, Saturday) it also re-checks every hotel and the flight insights, then sends the summary email |
+| `digest.yml` | By hand only | Sends the summary email any other time |
 | `tests.yml` | On push | Runs the test suite |
 
-Both schedules are one-line cron changes at the top of the workflow files.
+The daily time is a one-line cron change at the top of `track.yml`; the
+weekly day is `weekly_check_day` in `config/trips.yaml`. A manual run can
+spend the reserve once with the `reserve` input (0), without changing it.
 Cron in GitHub Actions is always UTC.
 
 ## How the pieces fit

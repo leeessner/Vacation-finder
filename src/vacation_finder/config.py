@@ -236,6 +236,18 @@ class Trip:
         return out
 
 
+WEEKDAY_NAMES = ("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun")
+
+
+def _check_day(value: object) -> str | None:
+    if value in (None, ""):
+        return None
+    name = str(value).strip()[:3].title()
+    if name not in WEEKDAY_NAMES:
+        raise ConfigError(f"weekly_check_day must be a weekday like Sat, got {value!r}")
+    return name
+
+
 @dataclass(frozen=True)
 class Settings:
     currency: str = "USD"
@@ -257,6 +269,10 @@ class Settings:
     # old (0 = whenever the budget allows). Flights stay daily and free.
     hotel_windows_per_trip: int | None = None
     hotel_recheck_days: int = 0
+    # A weekday ("Sat"): every SerpApi search (hotels and the flight checks)
+    # happens that day in one pass, and the email digest goes out right after.
+    # Other days still price flights for free; a first look runs any day.
+    weekly_check_day: str | None = None
     # Within this many hours' drive, a trip should be driven, not flown.
     max_drive_hours: float = 6.0
     # When fares for long-haul trips are usually lowest, in months before
@@ -577,6 +593,7 @@ def _parse_settings(raw: Any) -> Settings:
         flight_insight_days=int(raw.get("flight_insight_days", 7)),
         hotel_windows_per_trip=_opt_int(raw.get("hotel_windows_per_trip")),
         hotel_recheck_days=int(raw.get("hotel_recheck_days", 0)),
+        weekly_check_day=_check_day(raw.get("weekly_check_day")),
         max_drive_hours=float(raw.get("max_drive_hours", 6.0)),
         booking_window_months=_parse_window(raw.get("booking_window_months")),
         google_flights_enabled=bool(raw.get("google_flights_enabled", True)),

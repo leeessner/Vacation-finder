@@ -1,15 +1,13 @@
 name: Email digest
 
-# The scheduled update: every trip's current price, which way it's moving and
+# The weekly update: every trip's current price, which way it's moving and
 # what to do, with links to the dashboard and spreadsheet. GitHub emails it to
 # you as an issue. Deal alerts are separate — the tracking workflow sends those
 # the moment a threshold is crossed.
 on:
-  schedule:
-    # 01:00 UTC Wednesday and Saturday == Tuesday and Friday 20:00 in
-    # America/Chicago (19:00 during standard time, since cron has no DST).
-    # Change this one line to move the digest; cron here is always UTC.
-    - cron: "0 1 * * 3,6"
+  # No schedule: the tracking run sends the digest itself on the weekly check
+  # day (settings.weekly_check_day in config/trips.yaml), right after the
+  # hotel prices come in. Run this by hand to send one any other time.
   workflow_dispatch:
 
 permissions:
