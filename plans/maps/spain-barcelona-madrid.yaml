@@ -1,0 +1,21 @@
+places:
+  - {name: "Barcelona apartment (stay)", kind: stay, days: [1, 2, 3, 4, 5], at: [41.3917, 2.1649], area: Barcelona}
+  - {name: "Barcelona airport (BCN)", kind: airport, days: [1], at: [41.2974, 2.0833], area: Barcelona}
+  - {name: Barceloneta beach, days: [1, 4], at: [41.3784, 2.1925], area: Barcelona}
+  - {name: Sagrada Família, days: [2], at: [41.4036, 2.1744], area: Barcelona}
+  - {name: Park Güell, days: [2], at: [41.4145, 2.1527], area: Barcelona}
+  - {name: Montjuïc Castle, days: [3], at: [41.3634, 2.1660], area: Barcelona}
+  - {name: Magic Fountain, days: [3], at: [41.3712, 2.1517], area: Barcelona}
+  - {name: Gothic Quarter and cathedral, days: [4], at: [41.3839, 2.1762], area: Barcelona}
+  - {name: La Boqueria, days: [4], at: [41.3817, 2.1716], area: Barcelona}
+  - {name: Montserrat monastery, days: [5], at: [41.5933, 1.8375], area: Barcelona}
+  - {name: "Madrid apartment (stay)", kind: stay, days: [6, 7, 8, 9, 10], at: [40.4169, -3.7035], area: Madrid}
+  - {name: Retiro Park, days: [6], at: [40.4153, -3.6845], area: Madrid}
+  - {name: Prado, days: [7], at: [40.4138, -3.6921], area: Madrid}
+  - {name: Chocolatería San Ginés, days: [7], at: [40.4168, -3.7071], area: Madrid}
+  - {name: Royal Palace and Armoury, days: [8], at: [40.4180, -3.7143], area: Madrid}
+  - {name: Plaza Mayor, days: [8], at: [40.4155, -3.7074], area: Madrid}
+  - {name: "Segovia: Alcázar and aqueduct", days: [9], at: [40.9510, -4.1260], area: Madrid}
+  - {name: Thyssen museum, days: [10], at: [40.4160, -3.6949], area: Madrid}
+  - {name: "Madrid airport (MAD)", kind: airport, days: [11], at: [40.4983, -3.5676], area: Madrid}
+  - {name: "Toledo (option)", kind: option, days: [], at: [39.8628, -4.0273], area: Madrid}

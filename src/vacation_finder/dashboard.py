@@ -23,6 +23,7 @@ from pathlib import Path
 
 import markdown
 
+from . import itinerary_map
 from .config import Config
 from .report import (
     NOT_CHECKED_HOTEL,
@@ -154,6 +155,7 @@ class Plan:
     title: str
     html: str
     nights: str        # "8 nights", or "" when the plan doesn't say
+    places: tuple = ()  # itinerary_map.Place pins from plans/maps/<plan>.yaml
 
 
 def render_plan(path: Path) -> Plan:
@@ -176,7 +178,8 @@ def render_plan(path: Path) -> Plan:
     html = re.sub(
         r'<a href="(https?://[^"]+)"', r'<a href="\1" target="_blank" rel="noopener"', html
     )
-    return Plan(path, title, html, nights.group(1) if nights else "")
+    places = tuple(itinerary_map.load_places(itinerary_map.map_path(path)))
+    return Plan(path, title, html, nights.group(1) if nights else "", places)
 
 
 def _plan_files(plans_dir: Path) -> list[Path]:
@@ -254,14 +257,19 @@ def _tabs(pages: list[Page], current: str, prefix: str) -> str:
     )
 
 
-def _document(title: str, header: str, tabs: str, body: str, footer: str) -> str:
+def _document(
+    title: str, header: str, tabs: str, body: str, footer: str, with_map: bool = False
+) -> str:
+    head = itinerary_map.HEAD if with_map else ""
+    css = CSS + (itinerary_map.CSS if with_map else "")
     return (
         "<!doctype html><html lang='en'><head><meta charset='utf-8'>"
         "<meta name='viewport' content='width=device-width,initial-scale=1'>"
-        f"<title>{_esc(title)}</title>{FONTS}<style>{CSS}</style></head><body>"
+        f"<title>{_esc(title)}</title>{FONTS}{head}<style>{css}</style></head><body>"
         f"<header class='top'><div class='wrap'>{header}</div></header>"
         f"{tabs}<main><div class='wrap'>{body}<footer>{footer}</footer></div></main>"
-        "</body></html>"
+        + (itinerary_map.SCRIPT if with_map else "")
+        + "</body></html>"
     )
 
 
@@ -438,11 +446,13 @@ def _trip_page(page: Page, pages: list[Page], stamp: str, footer: str) -> str:
     if page.plan is not None:
         # A plan-only page already carries the plan's title in its header.
         heading = "" if page.report is None else f"<h1>{_esc(page.plan.title)}</h1>"
-        body += f'<section class="plan">{heading}{page.plan.html}</section>'
+        plan_html = itinerary_map.with_map(page.plan.html, list(page.plan.places))
+        body += f'<section class="plan">{heading}{plan_html}</section>'
     elif page.report is not None:
         body += '<p class="muted">No plan written for this trip yet.</p>'
     return _document(
-        f"{page.name} · Vacation deal watch", header, _tabs(pages, page.slug, "../"), body, footer
+        f"{page.name} · Vacation deal watch", header, _tabs(pages, page.slug, "../"), body, footer,
+        with_map=bool(page.plan and page.plan.places),
     )
 
 

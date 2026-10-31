@@ -1,0 +1,23 @@
+places:
+  - {name: "South Kensington apartment (stay)", kind: stay, days: [1, 2, 3, 4, 5, 6], at: [51.4941, -0.1740], area: London}
+  - {name: "Heathrow (LHR)", kind: airport, days: [1], at: [51.4700, -0.4543], area: London}
+  - {name: Diana Memorial Playground, days: [1], at: [51.5065, -0.1886], area: London}
+  - {name: Big Ben and Parliament, days: [2], at: [51.5007, -0.1246], area: London}
+  - {name: Buckingham Palace (Changing of the Guard), days: [2], at: [51.5014, -0.1419], area: London}
+  - {name: National Gallery, days: [2], at: [51.5089, -0.1283], area: London}
+  - {name: Tower of London, days: [3], at: [51.5081, -0.0759], area: London}
+  - {name: Tower Bridge, days: [3], at: [51.5055, -0.0754], area: London}
+  - {name: Borough Market, days: [3], at: [51.5055, -0.0910], area: London}
+  - {name: Hampton Court Palace, days: [4], at: [51.4036, -0.3378], area: London}
+  - {name: V&A (Raphael Cartoons), days: [5], at: [51.4966, -0.1722], area: London}
+  - {name: Natural History Museum, days: [5], at: [51.4967, -0.1764], area: London}
+  - {name: Windsor Castle, days: [6], at: [51.4839, -0.6044], area: London}
+  - {name: "Wallace Collection (option)", kind: option, days: [], at: [51.5175, -0.1527], area: London}
+  - {name: "York apartment (stay)", kind: stay, days: [7, 8, 9], at: [53.9590, -1.0835], area: York}
+  - {name: City Walls, days: [7], at: [53.9625, -1.0858], area: York}
+  - {name: National Railway Museum, days: [8], at: [53.9604, -1.0965], area: York}
+  - {name: The Shambles, days: [8], at: [53.9594, -1.0804], area: York}
+  - {name: York Minster, days: [9], at: [53.9623, -1.0819], area: York}
+  - {name: JORVIK Viking Centre, days: [9], at: [53.9575, -1.0806], area: York}
+  - {name: "Clifford's Tower", days: [9], at: [53.9555, -1.0799], area: York}
+  - {name: "Manchester airport (MAN)", kind: airport, days: [10], at: [53.3588, -2.2727], area: York}
