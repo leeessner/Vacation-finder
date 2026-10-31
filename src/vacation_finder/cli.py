@@ -206,10 +206,13 @@ def cmd_validate(args: argparse.Namespace) -> int:
     )
     if slots:
         cycle = cycle_cost / hotel_per_run if hotel_per_run else float("inf")
+        cycle = max(cycle, settings.hotel_recheck_days)
         print(
             f"  Hotels: {len(slots)} slot(s) costing {cycle_cost} search(es) per full pass; "
             f"each re-checked about every {cycle:.0f} day(s)."
         )
+        monthly_use = flights_per_run * 30 + (cycle_cost * 30 / cycle if cycle else 0)
+        print(f"  Expected use: ~{monthly_use:.0f} search(es) a month of the free 250.")
         if cycle > settings.hotel_price_max_age_days:
             print(
                 "  WARNING: hotel prices will age past hotel_price_max_age_days before "
