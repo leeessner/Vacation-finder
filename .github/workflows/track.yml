@@ -60,5 +60,12 @@ jobs:
             echo "No price changes to commit."
           else
             git commit -m "Prices for $(date -u +%Y-%m-%d)"
-            git push
+            # A merge can land while the run is pricing; take it in first, so
+            # the searches already spent are never lost to a rejected push.
+            # On a clash in data/ or docs/, this run's fresh prices win.
+            for attempt in 1 2 3; do
+              git pull --rebase -X theirs && git push && exit 0
+              sleep $((attempt * 5))
+            done
+            exit 1
           fi
