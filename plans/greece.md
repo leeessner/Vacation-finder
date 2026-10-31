@@ -117,7 +117,7 @@ Greece is the easiest country on the list for this:
   That's one more reason to price the flight.
 - **Island car rental:** confirm a 7-seater and car seats in advance.
 
-## Tracker settings (to apply once you've reviewed this)
+## Tracker settings (applied)
 
 - Keep Athens (Syntagma center) at **4 nights**, rental with 2+ bedrooms.
 - Add **Naxos**: 6 nights, center Chora (37.1050, 25.3770), within 5 mi

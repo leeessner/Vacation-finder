@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import logging
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 from datetime import date, datetime, timezone
 
 from .config import Config, Trip
@@ -79,6 +79,8 @@ class TripPricer:
     def price_trip(self, trip: Trip, today: date | None = None) -> RunResult:
         today = today or datetime.now(timezone.utc).date()
         result = RunResult(trip_id=trip.id, captured_at=datetime.now(timezone.utc))
+        if trip.has_stops:
+            return self._price_stops(trip, today, result)
 
         for destination in trip.destinations:
             windows = candidate_windows(trip, today, self.settings)
@@ -116,18 +118,92 @@ class TripPricer:
                 )
         return result
 
+    def _price_stops(self, trip: Trip, today: date, result: RunResult) -> RunResult:
+        """A trip of several stops: one flight in (and home, maybe from another
+        airport), and each stop's lodging priced for its own nights."""
+        windows = candidate_windows(trip, today, self.settings)
+        route = " → ".join(d.code for d in trip.destinations)
+        if not windows:
+            result.errors.append(f"{route}: no departure dates left in the configured window")
+            return result
+
+        for depart, ret in windows:
+            nights = (ret - depart).days
+            if trip.flights.enabled:
+                flight, notes = self._best_flight(
+                    trip, trip.destinations[0].code, depart, ret, result,
+                    return_from=trip.return_airport,
+                )
+            else:
+                flight, notes = None, []
+            stays: list[LodgingQuote | None] = []
+            for stop, check_in, check_out in trip.legs(depart):
+                stays.append(
+                    self._stop_lodging(trip, stop, check_in, check_out, result, notes)
+                )
+            result.quotes.append(
+                TripQuote(
+                    trip_id=trip.id,
+                    destination=route,
+                    depart_date=depart,
+                    return_date=ret,
+                    nights=nights,
+                    currency=self.settings.currency,
+                    flight=flight,
+                    lodging=_combine_stays(trip, depart, ret, stays, notes),
+                    ground_cost=trip.ground.cost_for(nights),
+                    ground_notes=trip.ground.notes,
+                    travel_mode=trip.travel_mode,
+                    flights_expected=trip.flights.enabled,
+                    notes=notes,
+                )
+            )
+        return result
+
+    def _stop_lodging(
+        self, trip: Trip, stop, check_in: date, check_out: date,
+        result: RunResult, notes: list[str],
+    ) -> LodgingQuote | None:
+        """One stop's stay: searched, or its fixed estimate when Google can't
+        price it (a resort that sells direct)."""
+        if trip.lodging_for(stop).enabled:
+            return self._best_lodging(trip, stop, check_in, check_out, result, notes)
+        if stop.lodging_estimate is None:
+            return None
+        notes.append(
+            stop.lodging_note
+            or f"{stop.display}: fixed estimate, not a tracked price"
+        )
+        return LodgingQuote(
+            destination=stop.code,
+            check_in=check_in,
+            check_out=check_out,
+            property_name=f"{stop.display} (estimate)",
+            total_price=float(stop.lodging_estimate),
+            currency=self.settings.currency,
+            nights=(check_out - check_in).days,
+            source="estimate",
+        )
+
     def _best_flight(
-        self, trip: Trip, destination: str, depart: date, ret: date, result: RunResult
+        self, trip: Trip, destination: str, depart: date, ret: date, result: RunResult,
+        return_from: str = "",
     ) -> tuple[FlightQuote | None, list[str]]:
-        """Cheapest fare across every home airport and both sources."""
+        """Cheapest fare across every home airport and both sources.
+
+        With `return_from`, the flight home leaves from that airport instead
+        (an open-jaw ticket); only Google Flights prices those.
+        """
         candidates: list[FlightQuote] = []
         notes: list[str] = []
+        open_jaw = bool(return_from) and return_from != destination
 
         for origin in trip.origins:
             api_quote = None
             # Travelpayouts is optional now; without a token, Google Flights
-            # alone prices airfare and there is nothing worth reporting.
-            if self.client.configured:
+            # alone prices airfare and there is nothing worth reporting. Its
+            # cache only holds round trips.
+            if self.client.configured and not open_jaw:
                 try:
                     api_quote = search_flights(
                         self.client,
@@ -151,7 +227,8 @@ class TripPricer:
 
             if self.settings.google_flights_enabled:
                 scraped = google_flights.search_flights(
-                    trip, origin, destination, depart, ret, self.settings.currency, self.settings
+                    trip, origin, destination, depart, ret, self.settings.currency, self.settings,
+                    return_from=return_from if open_jaw else "",
                 )
                 result.queries_made += 1
                 if scraped:
@@ -206,8 +283,13 @@ class TripPricer:
         result: RunResult,
         notes: list[str],
     ) -> LodgingQuote | None:
-        if not trip.lodging.enabled:
+        # A stop of a multi-stop trip has its own rules; the searches below
+        # read them from the trip, so hand them a trip carrying this stop's.
+        prefs = trip.lodging_for(destination)
+        if not prefs.enabled:
             return None
+        if prefs is not trip.lodging:
+            trip = replace(trip, lodging=prefs)
 
         query = destination.lodging_query
         key = slot_key(trip.id, query, depart, ret)
@@ -329,4 +411,28 @@ def _cross_check_note(origin: str, cached: FlightQuote, scraped: FlightQuote) ->
         f"{origin}: sources disagree by {abs(gap):.0f}% "
         f"(cached {cached.total_price:.0f} vs Google {scraped.total_price:.0f}); "
         f"{cheaper} is cheaper"
+    )
+
+
+def _combine_stays(
+    trip: Trip, depart: date, ret: date, stays: list[LodgingQuote | None], notes: list[str]
+) -> LodgingQuote | None:
+    """The stops' stays as one lodging line. Incomplete until every stop is
+    priced, so a partial sum never passes for the whole trip's lodging."""
+    missing = [stop.display for stop, stay in zip(trip.destinations, stays) if stay is None]
+    if missing:
+        notes.append("no lodging price yet for " + ", ".join(missing))
+        return None
+    found = [stay for stay in stays if stay is not None]
+    ratings = [q.rating for q in found if q.rating is not None]
+    return LodgingQuote(
+        destination=" → ".join(d.code for d in trip.destinations),
+        check_in=depart,
+        check_out=ret,
+        property_name=" + ".join(f"{q.property_name} ({q.nights}n)" for q in found),
+        total_price=sum(q.total_price for q in found),
+        currency=found[0].currency,
+        nights=(ret - depart).days,
+        rating=min(ratings) if ratings else None,
+        source="+".join(sorted({q.source for q in found})),
     )

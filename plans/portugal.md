@@ -136,7 +136,7 @@ near Porto offers brewery tours.
 - **Tolls** on Algarve motorways are electronic. Get the rental's
   transponder.
 
-## Tracker settings (to apply once you've reviewed this)
+## Tracker settings (applied)
 
 - Rename the trip **"Portugal — Porto, Lisbon & Algarve"**. Price **OPO in /
   LIS out**.

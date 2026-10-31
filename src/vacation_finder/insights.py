@@ -14,6 +14,7 @@ live — so the trend line comes from the tracker's own daily prices.
 
 from __future__ import annotations
 
+import json
 import logging
 from dataclasses import asdict, dataclass
 from datetime import date
@@ -121,12 +122,30 @@ def fetch(client, trip: Trip, config: Config, today: date) -> FlightInsight | No
         return None
     depart, ret = windows[0]
     party = trip.party
+    arrive, leave = trip.destinations[0].code, trip.return_airport
+    if leave != arrive:
+        # Open-jaw: a multi-city search, out to the first stop and home from
+        # the last. Google may not give a typical range for these; the
+        # lowest fare still comes back.
+        trip_params = {
+            "type": 3,
+            "multi_city_json": json.dumps([
+                {"departure_id": ",".join(trip.origins), "arrival_id": arrive,
+                 "date": depart.isoformat()},
+                {"departure_id": leave, "arrival_id": ",".join(trip.origins),
+                 "date": ret.isoformat()},
+            ]),
+        }
+    else:
+        trip_params = {
+            "departure_id": ",".join(trip.origins),
+            "arrival_id": arrive,
+            "outbound_date": depart.isoformat(),
+            "return_date": ret.isoformat(),
+            "type": 1,
+        }
     params = {
-        "departure_id": ",".join(trip.origins),
-        "arrival_id": trip.destinations[0].code,
-        "outbound_date": depart.isoformat(),
-        "return_date": ret.isoformat(),
-        "type": 1,
+        **trip_params,
         "adults": party.adult_equivalents,
         "children": party.child_seats,
         "infants_on_lap": party.infants,

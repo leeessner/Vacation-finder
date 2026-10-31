@@ -170,7 +170,7 @@ They advertise a "5 nights for 4" offer; ask whether it applies in summer.
 - **Neuschwanstein** can only be seen inside on a timed guided tour. Kids'
   tickets are free, but each one costs the €2.50 fee and must be booked.
 
-## Tracker settings (to apply once you've reviewed this)
+## Tracker settings (applied)
 
 - Change **"Austria & Bavaria"** lodging from 10 nights to **5 nights in
   Munich**. Keep the Marienplatz center, within 3 mi. Allow apartments.

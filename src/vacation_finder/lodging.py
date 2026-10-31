@@ -42,9 +42,17 @@ def lodging_slots(config: Config, today: date) -> list[tuple[Trip, Destination, 
     """Every (trip, destination, check-in, check-out) the active trips will price."""
     slots = []
     for trip in config.active_trips:
+        windows = candidate_windows(trip, today, config.settings)
+        if trip.has_stops:
+            # Each stop is its own stay, with its own dates and rules; a stop
+            # Google can't price (lodging disabled) costs nothing.
+            for depart, _ in windows:
+                for stop, check_in, check_out in trip.legs(depart):
+                    if trip.lodging_for(stop).enabled:
+                        slots.append((trip, stop, check_in, check_out))
+            continue
         if not trip.lodging.enabled:
             continue
-        windows = candidate_windows(trip, today, config.settings)
         for destination in trip.destinations:
             for check_in, check_out in windows:
                 slots.append((trip, destination, check_in, check_out))
@@ -72,7 +80,7 @@ class LodgingBook:
     ) -> "LodgingBook":
         entries = dict(entries or {})
         costs = {
-            slot_key(trip.id, dest.lodging_query, check_in, check_out): slot_cost(trip)
+            slot_key(trip.id, dest.lodging_query, check_in, check_out): slot_cost(trip, dest)
             for trip, dest, check_in, check_out in lodging_slots(config, today)
         }
         # Never-searched slots first, then the stalest. Python's sort is
@@ -144,9 +152,10 @@ class LodgingBook:
         return _quote_from_dict(entry["quote"]), age
 
 
-def slot_cost(trip: Trip) -> int:
-    """Searches one check of this trip's slot takes."""
-    return 1 + len(trip.lodging.prefer)
+def slot_cost(trip: Trip, destination: Destination | None = None) -> int:
+    """Searches one check of this trip's slot (or this stop's) takes."""
+    prefs = trip.lodging_for(destination) if destination is not None else trip.lodging
+    return 1 + len(prefs.prefer)
 
 
 def _prune(entries: dict[str, dict[str, Any]], live: Iterable[str]) -> dict[str, dict[str, Any]]:

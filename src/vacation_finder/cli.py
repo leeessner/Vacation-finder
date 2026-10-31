@@ -85,7 +85,14 @@ def cmd_validate(args: argparse.Namespace) -> int:
     for trip in config.trips:
         windows = candidate_windows(trip, today, settings)
         dests, n_windows = len(trip.destinations), len(windows)
-        hotel_slots = dests * n_windows if trip.lodging.enabled else 0
+        if trip.has_stops:
+            # Stops share one flight; each priced stop is its own hotel slot.
+            hotel_slots = n_windows * sum(
+                1 for d in trip.destinations if trip.lodging_for(d).enabled
+            )
+            dests = 1
+        else:
+            hotel_slots = dests * n_windows if trip.lodging.enabled else 0
         scrapes = (
             dests * n_windows * len(trip.origins)
             if trip.flights.enabled and settings.google_flights_enabled
@@ -100,13 +107,35 @@ def cmd_validate(args: argparse.Namespace) -> int:
                 f"    driving to {', '.join(d.display for d in trip.destinations)}"
                 + (f" ({miles:,.0f} mi round trip, ~{money_fuel(trip)})" if miles else "")
             )
+        elif trip.has_stops:
+            back = trip.return_airport
+            print(
+                f"    from {', '.join(trip.origins)} to {trip.destinations[0].code}"
+                + (f", home from {back}" if back != trip.destinations[0].code else " and back")
+                + ("" if trip.flights.enabled else "  [airfare not priced yet]")
+            )
         else:
             print(
                 f"    from {', '.join(trip.origins)} to "
                 f"{', '.join(d.code for d in trip.destinations)}"
                 + ("" if trip.flights.enabled else "  [airfare not priced yet]")
             )
-        if trip.lodging.enabled:
+        if trip.has_stops:
+            for stop in trip.destinations:
+                prefs = trip.lodging_for(stop)
+                if not prefs.enabled:
+                    what = (
+                        f"not priced; fixed estimate ${stop.lodging_estimate:,.0f}"
+                        if stop.lodging_estimate
+                        else "not priced"
+                    )
+                elif prefs.kind == "rental":
+                    what = f"rental, {prefs.bedrooms or prefs.rooms}+ bedroom(s)"
+                else:
+                    what = f"{prefs.rooms} hotel room(s)"
+                radius = f", within {stop.within_miles:g} mi" if stop.within_miles else ""
+                print(f'    stop: {stop.display}, {stop.nights} night(s) — {what}{radius}')
+        elif trip.lodging.enabled:
             where = ", ".join(f'"{d.lodging_query}"' for d in trip.destinations)
             if trip.lodging.kind == "rental":
                 bedrooms = trip.lodging.bedrooms or trip.lodging.rooms
@@ -134,12 +163,13 @@ def cmd_validate(args: argparse.Namespace) -> int:
                     f"    WARNING: {dest.display} is a {hours:g}-hour drive — within your "
                     f"{limit:g}-hour rule. Set `travel: drive` on this trip."
                 )
-            if trip.lodging.enabled and dest.center is None:
+            priced = trip.lodging_for(dest).enabled
+            if priced and dest.center is None:
                 print(
                     f"    NOTE: no `center` for {dest.display} — the cheapest hotel may be "
                     "far from anything you'd do"
                 )
-            elif trip.lodging.enabled and dest.within_miles:
+            elif priced and dest.within_miles and not trip.has_stops:
                 print(f"    hotels within {dest.within_miles:g} mi of the center")
         if trip.lodging.prefer:
             print(f"    preferred: {', '.join(trip.lodging.prefer)} (tracked when one qualifies)")
@@ -165,7 +195,7 @@ def cmd_validate(args: argparse.Namespace) -> int:
     from .lodging import slot_cost
 
     slots = lodging_slots(config, today)
-    cycle_cost = sum(slot_cost(trip) for trip, *_ in slots)
+    cycle_cost = sum(slot_cost(trip, dest) for trip, dest, *_ in slots)
     per_run = settings.searches_per_run
     flights_per_run = len(flying_trips(config)) / max(1, settings.flight_insight_days)
     hotel_per_run = max(0.0, per_run - flights_per_run)
@@ -444,6 +474,12 @@ def cmd_doctor(args: argparse.Namespace) -> int:
         print(f"{trip.id} has no departure dates left to test with", file=sys.stderr)
         return 1
     depart, ret = windows[0]
+    if trip.has_stops:
+        # Test the first stop's stay, with that stop's own lodging rules.
+        from dataclasses import replace
+
+        destination, depart, ret = trip.legs(depart)[0]
+        trip = replace(trip, lodging=trip.lodging_for(destination))
     nights = (ret - depart).days or 1
     currency = config.settings.currency
     ok = True
