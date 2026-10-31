@@ -1,12 +1,12 @@
 {
   "trip_id": "milan-lake-como-summer",
-  "captured_at": "2026-10-31T18:00:59.321735+00:00",
+  "captured_at": "2026-10-31T19:55:47.208426+00:00",
   "queries_made": 3,
   "errors": [],
   "quotes": [
     {
       "trip_id": "milan-lake-como-summer",
-      "destination": "MXP \u2192 VAR",
+      "destination": "MXP \u2192 VAR \u2192 MPH",
       "depart_date": "2027-06-05",
       "return_date": "2027-06-14",
       "nights": 9,
@@ -16,7 +16,7 @@
         "destination": "MXP",
         "depart_date": "2027-06-04",
         "return_date": "2027-06-14",
-        "total_price": 6780.0,
+        "total_price": 6786.0,
         "currency": "USD",
         "carriers": [
           "American",
@@ -65,38 +65,23 @@
           }
         ]
       },
-      "lodging": {
-        "destination": "MXP \u2192 VAR",
-        "check_in": "2027-06-05",
-        "check_out": "2027-06-14",
-        "property_name": "Splendido quadrilocale in elegante stabile nel centro di Milano (4n) + Green House Olivedo (5n)",
-        "total_price": 3174.0,
-        "currency": "USD",
-        "property_id": "",
-        "nights": 9,
-        "rating": 4.0,
-        "stars": null,
-        "board_type": "",
-        "refundable": null,
-        "source": "google_hotels",
-        "deep_link": "",
-        "distance_miles": null
-      },
+      "lodging": null,
       "ground_cost": 2600.0,
       "ground_notes": "Plan's fixed costs: Last Supper, museums, trains, ferries, food",
       "travel_mode": "air",
       "flights_expected": true,
-      "flight_cost": 6780.0,
-      "lodging_cost": 3174.0,
-      "total_cost": 12554.0,
-      "is_complete": true,
+      "flight_cost": 6786.0,
+      "lodging_cost": 0.0,
+      "total_cost": 9386.0,
+      "is_complete": false,
       "notes": [
-        "airfare allows one more stop than your limit \u2014 none was found within it"
+        "airfare allows one more stop than your limit \u2014 none was found within it",
+        "no lodging price yet for Varenna, Italy, Milan Malpensa airport hotel"
       ]
     },
     {
       "trip_id": "milan-lake-como-summer",
-      "destination": "MXP \u2192 VAR",
+      "destination": "MXP \u2192 VAR \u2192 MPH",
       "depart_date": "2027-06-21",
       "return_date": "2027-06-30",
       "nights": 9,
@@ -166,12 +151,12 @@
       "is_complete": false,
       "notes": [
         "airfare allows one more stop than your limit \u2014 none was found within it",
-        "no lodging price yet for Milan, Italy"
+        "no lodging price yet for Milan, Italy, Varenna, Italy, Milan Malpensa airport hotel"
       ]
     },
     {
       "trip_id": "milan-lake-como-summer",
-      "destination": "MXP \u2192 VAR",
+      "destination": "MXP \u2192 VAR \u2192 MPH",
       "depart_date": "2027-07-08",
       "return_date": "2027-07-17",
       "nights": 9,
@@ -230,33 +215,18 @@
           }
         ]
       },
-      "lodging": {
-        "destination": "MXP \u2192 VAR",
-        "check_in": "2027-07-08",
-        "check_out": "2027-07-17",
-        "property_name": "Splendido quadrilocale in elegante stabile nel centro di Milano (4n) + Varenna Beach Perledo (5n)",
-        "total_price": 3346.0,
-        "currency": "USD",
-        "property_id": "",
-        "nights": 9,
-        "rating": 4.35,
-        "stars": null,
-        "board_type": "",
-        "refundable": null,
-        "source": "google_hotels",
-        "deep_link": "",
-        "distance_miles": null
-      },
+      "lodging": null,
       "ground_cost": 2600.0,
       "ground_notes": "Plan's fixed costs: Last Supper, museums, trains, ferries, food",
       "travel_mode": "air",
       "flights_expected": true,
       "flight_cost": 7098.0,
-      "lodging_cost": 3346.0,
-      "total_cost": 13044.0,
-      "is_complete": true,
+      "lodging_cost": 0.0,
+      "total_cost": 9698.0,
+      "is_complete": false,
       "notes": [
-        "airfare allows one more stop than your limit \u2014 none was found within it"
+        "airfare allows one more stop than your limit \u2014 none was found within it",
+        "no lodging price yet for Milan, Italy, Varenna, Italy, Milan Malpensa airport hotel"
       ]
     }
   ]

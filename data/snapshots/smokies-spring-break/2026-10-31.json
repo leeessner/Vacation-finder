@@ -1,6 +1,6 @@
 {
   "trip_id": "smokies-spring-break",
-  "captured_at": "2026-10-31T18:00:02.738896+00:00",
+  "captured_at": "2026-10-31T19:55:06.532968+00:00",
   "queries_made": 0,
   "errors": [],
   "quotes": [
@@ -31,34 +31,16 @@
       "nights": 4,
       "currency": "USD",
       "flight": null,
-      "lodging": {
-        "destination": "Gatlinburg, TN",
-        "check_in": "2027-03-13",
-        "check_out": "2027-03-17",
-        "property_name": "Spacious Condo with beautiful Mountain Views. 2 BR/2Bath sleeps 6 guests.",
-        "total_price": 708.0,
-        "currency": "USD",
-        "property_id": "ChkQ8LTb6dzzjI4GGg0vZy8xMXhsbXpqZmsxEAI",
-        "nights": 4,
-        "rating": 4.5,
-        "stars": null,
-        "board_type": "",
-        "refundable": null,
-        "source": "google_hotels",
-        "deep_link": "https://www.google.com/travel/search?q=Spacious%20Condo%20with%20beautiful%20Mountain%20Views.%202%20BR/2Bath%20sleeps%206%20guests.%20Gatlinburg%2C%20TN&checkin=2027-03-13&checkout=2027-03-17",
-        "distance_miles": 3.1
-      },
+      "lodging": null,
       "ground_cost": 1124.36,
       "ground_notes": "Fuel, park parking tag, SkyBridge, mountain railroad, food",
       "travel_mode": "drive",
       "flights_expected": false,
       "flight_cost": 0.0,
-      "lodging_cost": 708.0,
-      "total_cost": 1832.36,
-      "is_complete": true,
-      "notes": [
-        "hotel price checked 1 day(s) ago"
-      ]
+      "lodging_cost": 0.0,
+      "total_cost": 1124.36,
+      "is_complete": false,
+      "notes": []
     },
     {
       "trip_id": "smokies-spring-break",
@@ -68,34 +50,16 @@
       "nights": 4,
       "currency": "USD",
       "flight": null,
-      "lodging": {
-        "destination": "Gatlinburg, TN",
-        "check_in": "2027-03-14",
-        "check_out": "2027-03-18",
-        "property_name": "Spacious Condo with beautiful Mountain Views. 2 BR/2Bath sleeps 6 guests.",
-        "total_price": 695.0,
-        "currency": "USD",
-        "property_id": "ChkQ8LTb6dzzjI4GGg0vZy8xMXhsbXpqZmsxEAI",
-        "nights": 4,
-        "rating": 4.5,
-        "stars": null,
-        "board_type": "",
-        "refundable": null,
-        "source": "google_hotels",
-        "deep_link": "https://www.google.com/travel/search?q=Spacious%20Condo%20with%20beautiful%20Mountain%20Views.%202%20BR/2Bath%20sleeps%206%20guests.%20Gatlinburg%2C%20TN&checkin=2027-03-14&checkout=2027-03-18",
-        "distance_miles": 3.1
-      },
+      "lodging": null,
       "ground_cost": 1124.36,
       "ground_notes": "Fuel, park parking tag, SkyBridge, mountain railroad, food",
       "travel_mode": "drive",
       "flights_expected": false,
       "flight_cost": 0.0,
-      "lodging_cost": 695.0,
-      "total_cost": 1819.36,
-      "is_complete": true,
-      "notes": [
-        "hotel price checked 1 day(s) ago"
-      ]
+      "lodging_cost": 0.0,
+      "total_cost": 1124.36,
+      "is_complete": false,
+      "notes": []
     },
     {
       "trip_id": "smokies-spring-break",
@@ -105,34 +69,16 @@
       "nights": 4,
       "currency": "USD",
       "flight": null,
-      "lodging": {
-        "destination": "Gatlinburg, TN",
-        "check_in": "2027-03-15",
-        "check_out": "2027-03-19",
-        "property_name": "Spacious Condo with beautiful Mountain Views. 2 BR/2Bath sleeps 6 guests.",
-        "total_price": 703.0,
-        "currency": "USD",
-        "property_id": "ChkQ8LTb6dzzjI4GGg0vZy8xMXhsbXpqZmsxEAI",
-        "nights": 4,
-        "rating": 4.5,
-        "stars": null,
-        "board_type": "",
-        "refundable": null,
-        "source": "google_hotels",
-        "deep_link": "https://www.google.com/travel/search?q=Spacious%20Condo%20with%20beautiful%20Mountain%20Views.%202%20BR/2Bath%20sleeps%206%20guests.%20Gatlinburg%2C%20TN&checkin=2027-03-15&checkout=2027-03-19",
-        "distance_miles": 3.1
-      },
+      "lodging": null,
       "ground_cost": 1124.36,
       "ground_notes": "Fuel, park parking tag, SkyBridge, mountain railroad, food",
       "travel_mode": "drive",
       "flights_expected": false,
       "flight_cost": 0.0,
-      "lodging_cost": 703.0,
-      "total_cost": 1827.36,
-      "is_complete": true,
-      "notes": [
-        "hotel price checked 1 day(s) ago"
-      ]
+      "lodging_cost": 0.0,
+      "total_cost": 1124.36,
+      "is_complete": false,
+      "notes": []
     }
   ]
 }

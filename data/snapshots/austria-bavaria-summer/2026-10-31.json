@@ -1,12 +1,12 @@
 {
   "trip_id": "austria-bavaria-summer",
-  "captured_at": "2026-10-31T18:00:44.665591+00:00",
+  "captured_at": "2026-10-31T19:55:34.060879+00:00",
   "queries_made": 3,
   "errors": [],
   "quotes": [
     {
       "trip_id": "austria-bavaria-summer",
-      "destination": "MUC \u2192 SZG",
+      "destination": "MUC \u2192 SZG \u2192 MAH",
       "depart_date": "2027-06-05",
       "return_date": "2027-06-15",
       "nights": 10,
@@ -65,39 +65,24 @@
           }
         ]
       },
-      "lodging": {
-        "destination": "MUC \u2192 SZG",
-        "check_in": "2027-06-05",
-        "check_out": "2027-06-15",
-        "property_name": "INNSiDE by Meli\u00e1 M\u00fcnchen Parkstadt Schwabing (5n) + Dachsteink\u00f6nig, Gosau (estimate) (5n)",
-        "total_price": 9268.0,
-        "currency": "USD",
-        "property_id": "",
-        "nights": 10,
-        "rating": 4.0,
-        "stars": null,
-        "board_type": "",
-        "refundable": null,
-        "source": "estimate+google_hotels",
-        "deep_link": "",
-        "distance_miles": null
-      },
+      "lodging": null,
       "ground_cost": 2750.0,
       "ground_notes": "Plan's fixed costs: tickets, trains, 5-day car, food in Munich (resort meals are included)",
       "travel_mode": "air",
       "flights_expected": true,
       "flight_cost": 7350.0,
-      "lodging_cost": 9268.0,
-      "total_cost": 19368.0,
-      "is_complete": true,
+      "lodging_cost": 0.0,
+      "total_cost": 10100.0,
+      "is_complete": false,
       "notes": [
         "airfare allows one more stop than your limit \u2014 none was found within it",
-        "Dachsteink\u00f6nig: an estimate (\u2248\u20ac5,750 all-inclusive), not a tracked price \u2014 replace with the resort's quote"
+        "Dachsteink\u00f6nig: an estimate (\u2248\u20ac4,600 for 4 nights all-inclusive), not a tracked price \u2014 replace with the resort's quote",
+        "no lodging price yet for Munich airport hotel"
       ]
     },
     {
       "trip_id": "austria-bavaria-summer",
-      "destination": "MUC \u2192 SZG",
+      "destination": "MUC \u2192 SZG \u2192 MAH",
       "depart_date": "2027-06-21",
       "return_date": "2027-07-01",
       "nights": 10,
@@ -115,7 +100,7 @@
         ],
         "stops_out": 2,
         "stops_back": null,
-        "source": "google_flights_extra_stop",
+        "source": "google_flights_scaled_extra_stop",
         "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20MUC%20from%20STL%20on%202027-06-20%20through%202027-07-01",
         "outbound": [
           {
@@ -156,39 +141,25 @@
           }
         ]
       },
-      "lodging": {
-        "destination": "MUC \u2192 SZG",
-        "check_in": "2027-06-21",
-        "check_out": "2027-07-01",
-        "property_name": "Hotel M\u00fcnchen City Center, Affiliated by Meli\u00e1 (5n) + Dachsteink\u00f6nig, Gosau (estimate) (5n)",
-        "total_price": 8734.0,
-        "currency": "USD",
-        "property_id": "",
-        "nights": 10,
-        "rating": 4.0,
-        "stars": null,
-        "board_type": "",
-        "refundable": null,
-        "source": "estimate+google_hotels",
-        "deep_link": "",
-        "distance_miles": null
-      },
+      "lodging": null,
       "ground_cost": 2750.0,
       "ground_notes": "Plan's fixed costs: tickets, trains, 5-day car, food in Munich (resort meals are included)",
       "travel_mode": "air",
       "flights_expected": true,
       "flight_cost": 8400.0,
-      "lodging_cost": 8734.0,
-      "total_cost": 19884.0,
-      "is_complete": true,
+      "lodging_cost": 0.0,
+      "total_cost": 11150.0,
+      "is_complete": false,
       "notes": [
+        "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)",
         "airfare allows one more stop than your limit \u2014 none was found within it",
-        "Dachsteink\u00f6nig: an estimate (\u2248\u20ac5,750 all-inclusive), not a tracked price \u2014 replace with the resort's quote"
+        "Dachsteink\u00f6nig: an estimate (\u2248\u20ac4,600 for 4 nights all-inclusive), not a tracked price \u2014 replace with the resort's quote",
+        "no lodging price yet for Munich, Germany, Munich airport hotel"
       ]
     },
     {
       "trip_id": "austria-bavaria-summer",
-      "destination": "MUC \u2192 SZG",
+      "destination": "MUC \u2192 SZG \u2192 MAH",
       "depart_date": "2027-07-07",
       "return_date": "2027-07-17",
       "nights": 10,
@@ -234,34 +205,19 @@
           }
         ]
       },
-      "lodging": {
-        "destination": "MUC \u2192 SZG",
-        "check_in": "2027-07-07",
-        "check_out": "2027-07-17",
-        "property_name": "AWA Hotel GmbH (5n) + Dachsteink\u00f6nig, Gosau (estimate) (5n)",
-        "total_price": 8498.0,
-        "currency": "USD",
-        "property_id": "",
-        "nights": 10,
-        "rating": 4.1,
-        "stars": null,
-        "board_type": "",
-        "refundable": null,
-        "source": "estimate+google_hotels",
-        "deep_link": "",
-        "distance_miles": null
-      },
+      "lodging": null,
       "ground_cost": 2750.0,
       "ground_notes": "Plan's fixed costs: tickets, trains, 5-day car, food in Munich (resort meals are included)",
       "travel_mode": "air",
       "flights_expected": true,
       "flight_cost": 9480.0,
-      "lodging_cost": 8498.0,
-      "total_cost": 20728.0,
-      "is_complete": true,
+      "lodging_cost": 0.0,
+      "total_cost": 12230.0,
+      "is_complete": false,
       "notes": [
         "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)",
-        "Dachsteink\u00f6nig: an estimate (\u2248\u20ac5,750 all-inclusive), not a tracked price \u2014 replace with the resort's quote"
+        "Dachsteink\u00f6nig: an estimate (\u2248\u20ac4,600 for 4 nights all-inclusive), not a tracked price \u2014 replace with the resort's quote",
+        "no lodging price yet for Munich, Germany, Munich airport hotel"
       ]
     }
   ]

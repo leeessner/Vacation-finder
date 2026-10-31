@@ -1,7 +1,7 @@
 {
   "trip_id": "paris-versailles",
-  "captured_at": "2026-10-31T18:00:09.050565+00:00",
-  "queries_made": 8,
+  "captured_at": "2026-10-31T19:55:11.993712+00:00",
+  "queries_made": 3,
   "errors": [],
   "quotes": [
     {
@@ -129,33 +129,18 @@
           }
         ]
       },
-      "lodging": {
-        "destination": "CDG \u2192 SXB \u2192 RSY",
-        "check_in": "2027-06-21",
-        "check_out": "2027-06-30",
-        "property_name": "Luxury Parisian Flat (6n) + Downtown Apartment, Quiet and Spacious (2n) + Holiday Inn Paris - Cdg Airport by IHG (1n)",
-        "total_price": 2761.0,
-        "currency": "USD",
-        "property_id": "",
-        "nights": 9,
-        "rating": 4.1,
-        "stars": null,
-        "board_type": "",
-        "refundable": null,
-        "source": "google_hotels",
-        "deep_link": "",
-        "distance_miles": null
-      },
+      "lodging": null,
       "ground_cost": 4250.0,
       "ground_notes": "Plan's fixed costs: tickets, Disneyland day, TGV, transit, food",
       "travel_mode": "air",
       "flights_expected": true,
       "flight_cost": 7641.0,
-      "lodging_cost": 2761.0,
-      "total_cost": 14652.0,
-      "is_complete": true,
+      "lodging_cost": 0.0,
+      "total_cost": 11891.0,
+      "is_complete": false,
       "notes": [
-        "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)"
+        "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)",
+        "no lodging price yet for Paris, France, Strasbourg, France, Paris-CDG airport hotel"
       ]
     },
     {
@@ -217,7 +202,7 @@
       "is_complete": false,
       "notes": [
         "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)",
-        "no lodging price yet for Paris-CDG airport hotel"
+        "no lodging price yet for Paris, France, Strasbourg, France, Paris-CDG airport hotel"
       ]
     }
   ]

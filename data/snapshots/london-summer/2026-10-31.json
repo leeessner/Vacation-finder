@@ -1,12 +1,12 @@
 {
   "trip_id": "london-summer",
-  "captured_at": "2026-10-31T18:00:49.642844+00:00",
+  "captured_at": "2026-10-31T19:55:38.768834+00:00",
   "queries_made": 3,
   "errors": [],
   "quotes": [
     {
       "trip_id": "london-summer",
-      "destination": "LHR \u2192 YRK",
+      "destination": "LHR \u2192 YRK \u2192 MNH",
       "depart_date": "2027-06-05",
       "return_date": "2027-06-14",
       "nights": 9,
@@ -16,7 +16,7 @@
         "destination": "LHR",
         "depart_date": "2027-06-04",
         "return_date": "2027-06-14",
-        "total_price": 7234.0,
+        "total_price": 7833.0,
         "currency": "USD",
         "carriers": [],
         "stops_out": null,
@@ -25,63 +25,48 @@
         "deep_link": "",
         "outbound": [
           {
-            "airline": "Icelandair",
-            "arrive": "2027-06-05T08:20",
-            "depart": "2027-06-04T20:45",
-            "flight": "FI 834",
             "from": "STL",
             "from_name": "St. Louis Lambert International Airport",
-            "minutes": 395,
-            "plane": "Boeing 737MAX 8 Passenger",
-            "to": "KEF",
-            "to_name": "Keflav\u00edk International Airport"
+            "to": "DTW",
+            "to_name": "Detroit Metropolitan Wayne County Airport",
+            "depart": "2027-06-04T14:18",
+            "arrive": "2027-06-04T16:50",
+            "minutes": 92,
+            "airline": "Delta",
+            "flight": "DL 2223",
+            "plane": "Boeing 717"
           },
           {
-            "airline": "Icelandair",
-            "arrive": "2027-06-05T20:20",
-            "depart": "2027-06-05T16:10",
-            "flight": "FI 454",
-            "from": "KEF",
-            "from_name": "Keflav\u00edk International Airport",
-            "minutes": 190,
-            "plane": "Airbus A320",
+            "from": "DTW",
+            "from_name": "Detroit Metropolitan Wayne County Airport",
             "to": "LHR",
-            "to_name": "Heathrow Airport"
+            "to_name": "Heathrow Airport",
+            "depart": "2027-06-04T18:45",
+            "arrive": "2027-06-05T07:10",
+            "minutes": 445,
+            "airline": "Delta",
+            "flight": "DL 16",
+            "plane": "Airbus A330-900neo"
           }
         ]
       },
-      "lodging": {
-        "destination": "LHR \u2192 YRK",
-        "check_in": "2027-06-05",
-        "check_out": "2027-06-14",
-        "property_name": "Modern Home in Battersea for 4 People (6n) + Superb citycentre new built flat and gym (3n)",
-        "total_price": 2279.0,
-        "currency": "USD",
-        "property_id": "",
-        "nights": 9,
-        "rating": 4.32375,
-        "stars": null,
-        "board_type": "",
-        "refundable": null,
-        "source": "google_hotels",
-        "deep_link": "",
-        "distance_miles": null
-      },
+      "lodging": null,
       "ground_cost": 3800.0,
       "ground_notes": "Plan's fixed costs: Tower, palaces, trains to York and Manchester, food",
       "travel_mode": "air",
       "flights_expected": true,
-      "flight_cost": 7234.0,
-      "lodging_cost": 2279.0,
-      "total_cost": 13313.0,
-      "is_complete": true,
+      "flight_cost": 7833.0,
+      "lodging_cost": 0.0,
+      "total_cost": 11633.0,
+      "is_complete": false,
       "notes": [
-        "airfare from this week's Google Flights check (the free daily check found none for this route)"
+        "airfare from this week's Google Flights check (the free daily check found none for this route)",
+        "no lodging price yet for York, UK, Manchester airport hotel"
       ]
     },
     {
       "trip_id": "london-summer",
-      "destination": "LHR \u2192 YRK",
+      "destination": "LHR \u2192 YRK \u2192 MNH",
       "depart_date": "2027-06-21",
       "return_date": "2027-06-30",
       "nights": 9,
@@ -97,43 +82,29 @@
       "total_cost": 3800.0,
       "is_complete": false,
       "notes": [
-        "no lodging price yet for London, UK"
+        "no lodging price yet for London, UK, York, UK, Manchester airport hotel"
       ]
     },
     {
       "trip_id": "london-summer",
-      "destination": "LHR \u2192 YRK",
+      "destination": "LHR \u2192 YRK \u2192 MNH",
       "depart_date": "2027-07-08",
       "return_date": "2027-07-17",
       "nights": 9,
       "currency": "USD",
       "flight": null,
-      "lodging": {
-        "destination": "LHR \u2192 YRK",
-        "check_in": "2027-07-08",
-        "check_out": "2027-07-17",
-        "property_name": "2 Bedroom flat in Putney by the river - Apartment, 2 Bedrooms (6n) + Apartment 11 Bluebridge with Free Parking (3n)",
-        "total_price": 2816.0,
-        "currency": "USD",
-        "property_id": "",
-        "nights": 9,
-        "rating": 4.0,
-        "stars": null,
-        "board_type": "",
-        "refundable": null,
-        "source": "google_hotels",
-        "deep_link": "",
-        "distance_miles": null
-      },
+      "lodging": null,
       "ground_cost": 3800.0,
       "ground_notes": "Plan's fixed costs: Tower, palaces, trains to York and Manchester, food",
       "travel_mode": "air",
       "flights_expected": true,
       "flight_cost": 0.0,
-      "lodging_cost": 2816.0,
-      "total_cost": 6616.0,
+      "lodging_cost": 0.0,
+      "total_cost": 3800.0,
       "is_complete": false,
-      "notes": []
+      "notes": [
+        "no lodging price yet for London, UK, York, UK, Manchester airport hotel"
+      ]
     }
   ]
 }

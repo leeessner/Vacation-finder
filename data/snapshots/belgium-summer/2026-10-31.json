@@ -1,6 +1,6 @@
 {
   "trip_id": "belgium-summer",
-  "captured_at": "2026-10-31T18:01:04.457839+00:00",
+  "captured_at": "2026-10-31T19:55:51.601690+00:00",
   "queries_made": 3,
   "errors": [],
   "quotes": [
@@ -87,32 +87,18 @@
       "nights": 9,
       "currency": "USD",
       "flight": null,
-      "lodging": {
-        "destination": "BRU \u2192 BXL",
-        "check_in": "2027-06-21",
-        "check_out": "2027-06-30",
-        "property_name": "Holiday Home Family @ home 97 (4n) + ibis Brussels off Grand Place (5n)",
-        "total_price": 3041.0,
-        "currency": "USD",
-        "property_id": "",
-        "nights": 9,
-        "rating": 4.3,
-        "stars": null,
-        "board_type": "",
-        "refundable": null,
-        "source": "google_hotels",
-        "deep_link": "",
-        "distance_miles": null
-      },
+      "lodging": null,
       "ground_cost": 3050.0,
       "ground_notes": "Plan's fixed costs: trains (adults only), museums, chocolate workshop, one car day, food",
       "travel_mode": "air",
       "flights_expected": true,
       "flight_cost": 0.0,
-      "lodging_cost": 3041.0,
-      "total_cost": 6091.0,
+      "lodging_cost": 0.0,
+      "total_cost": 3050.0,
       "is_complete": false,
-      "notes": []
+      "notes": [
+        "no lodging price yet for Bruges, Belgium, Brussels, Belgium"
+      ]
     },
     {
       "trip_id": "belgium-summer",
@@ -122,32 +108,18 @@
       "nights": 9,
       "currency": "USD",
       "flight": null,
-      "lodging": {
-        "destination": "BRU \u2192 BXL",
-        "check_in": "2027-07-08",
-        "check_out": "2027-07-17",
-        "property_name": "Holiday Home Family @ home 97 (4n) + ibis Brussels Centre Gare Midi (5n)",
-        "total_price": 2951.0,
-        "currency": "USD",
-        "property_id": "",
-        "nights": 9,
-        "rating": 4.1,
-        "stars": null,
-        "board_type": "",
-        "refundable": null,
-        "source": "google_hotels",
-        "deep_link": "",
-        "distance_miles": null
-      },
+      "lodging": null,
       "ground_cost": 3050.0,
       "ground_notes": "Plan's fixed costs: trains (adults only), museums, chocolate workshop, one car day, food",
       "travel_mode": "air",
       "flights_expected": true,
       "flight_cost": 0.0,
-      "lodging_cost": 2951.0,
-      "total_cost": 6001.0,
+      "lodging_cost": 0.0,
+      "total_cost": 3050.0,
       "is_complete": false,
-      "notes": []
+      "notes": [
+        "no lodging price yet for Bruges, Belgium, Brussels, Belgium"
+      ]
     }
   ]
 }

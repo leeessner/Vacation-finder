@@ -113,60 +113,60 @@
     "inbound": [
       {
         "airline": "",
-        "arrive": "2027-06-13T18:48",
-        "depart": "2027-06-13T14:45",
+        "arrive": "2027-06-13T16:00",
+        "depart": "2027-06-13T12:25",
         "flight": "",
         "from": "FCO",
         "from_name": "Leonardo da Vinci International Airport",
-        "minutes": 663,
-        "plane": "Airbus A330-900neo",
-        "to": "MSP",
-        "to_name": "Minneapolis-Saint Paul International Airport"
+        "minutes": 575,
+        "plane": "Boeing 777",
+        "to": "YYZ",
+        "to_name": "Toronto Pearson International Airport"
       },
       {
         "airline": "",
-        "arrive": "2027-06-13T23:18",
-        "depart": "2027-06-13T21:45",
+        "arrive": "2027-06-13T19:54",
+        "depart": "2027-06-13T18:45",
         "flight": "",
-        "from": "MSP",
-        "from_name": "Minneapolis-Saint Paul International Airport",
-        "minutes": 93,
-        "plane": "Airbus A220-100 Passenger",
+        "from": "YYZ",
+        "from_name": "Toronto Pearson International Airport",
+        "minutes": 129,
+        "plane": "Canadair RJ 900",
         "to": "STL",
         "to_name": "St. Louis Lambert International Airport"
       }
     ],
     "inbound_airlines": [
-      "Delta"
+      "Air Canada"
     ],
     "origin": "STL",
     "outbound": [
       {
-        "airline": "British Airways",
-        "arrive": "2027-06-05T11:35",
-        "depart": "2027-06-04T21:35",
-        "flight": "BA 220",
+        "airline": "Lufthansa",
+        "arrive": "2027-06-05T07:25",
+        "depart": "2027-06-04T15:30",
+        "flight": "LH 449",
         "from": "STL",
         "from_name": "St. Louis Lambert International Airport",
-        "minutes": 480,
-        "plane": "Boeing 787",
-        "to": "LHR",
-        "to_name": "Heathrow Airport"
+        "minutes": 535,
+        "plane": "Airbus A330",
+        "to": "FRA",
+        "to_name": "Frankfurt Airport"
       },
       {
-        "airline": "British Airways",
-        "arrive": "2027-06-05T22:20",
-        "depart": "2027-06-05T19:05",
-        "flight": "BA 522",
-        "from": "LHR",
-        "from_name": "Heathrow Airport",
-        "minutes": 135,
-        "plane": "Airbus A320neo",
+        "airline": "Lufthansa",
+        "arrive": "2027-06-05T12:30",
+        "depart": "2027-06-05T10:50",
+        "flight": "LH 312",
+        "from": "FRA",
+        "from_name": "Frankfurt Airport",
+        "minutes": 100,
+        "plane": "Embraer 190",
         "to": "FLR",
         "to_name": "Amerigo Vespucci Airport"
       }
     ],
-    "price": 8140.0,
+    "price": 9146.0,
     "return_date": "2027-06-13",
     "source": "google_flights_weekly"
   },
@@ -257,31 +257,31 @@
     "origin": "STL",
     "outbound": [
       {
-        "airline": "Icelandair",
-        "arrive": "2027-06-05T08:20",
-        "depart": "2027-06-04T20:45",
-        "flight": "FI 834",
+        "airline": "Delta",
+        "arrive": "2027-06-04T16:50",
+        "depart": "2027-06-04T14:18",
+        "flight": "DL 2223",
         "from": "STL",
         "from_name": "St. Louis Lambert International Airport",
-        "minutes": 395,
-        "plane": "Boeing 737MAX 8 Passenger",
-        "to": "KEF",
-        "to_name": "Keflav\u00edk International Airport"
+        "minutes": 92,
+        "plane": "Boeing 717",
+        "to": "DTW",
+        "to_name": "Detroit Metropolitan Wayne County Airport"
       },
       {
-        "airline": "Icelandair",
-        "arrive": "2027-06-05T20:20",
-        "depart": "2027-06-05T16:10",
-        "flight": "FI 454",
-        "from": "KEF",
-        "from_name": "Keflav\u00edk International Airport",
-        "minutes": 190,
-        "plane": "Airbus A320",
+        "airline": "Delta",
+        "arrive": "2027-06-05T07:10",
+        "depart": "2027-06-04T18:45",
+        "flight": "DL 16",
+        "from": "DTW",
+        "from_name": "Detroit Metropolitan Wayne County Airport",
+        "minutes": 445,
+        "plane": "Airbus A330-900neo",
         "to": "LHR",
         "to_name": "Heathrow Airport"
       }
     ],
-    "price": 7234.0,
+    "price": 7833.0,
     "return_date": "2027-06-14",
     "source": "google_flights_weekly"
   },
@@ -292,11 +292,11 @@
       "American",
       "Condor"
     ],
-    "check_in": "2027-06-05",
-    "check_out": "2027-06-14",
+    "check_in": "2027-06-21",
+    "check_out": "2027-06-30",
     "checked_on": "2026-10-31",
     "currency": "USD",
-    "depart_date": "2027-06-04",
+    "depart_date": "2027-06-20",
     "home_from": "MXP",
     "inbound": [],
     "inbound_airlines": [],
@@ -304,8 +304,8 @@
     "outbound": [
       {
         "airline": "",
-        "arrive": "2027-06-04T13:30",
-        "depart": "2027-06-04T09:45",
+        "arrive": "2027-06-20T13:30",
+        "depart": "2027-06-20T09:45",
         "flight": "",
         "from": "STL",
         "from_name": "St. Louis Lambert International Airport",
@@ -316,8 +316,8 @@
       },
       {
         "airline": "",
-        "arrive": "2027-06-05T05:45",
-        "depart": "2027-06-04T16:30",
+        "arrive": "2027-06-21T05:45",
+        "depart": "2027-06-20T16:30",
         "flight": "",
         "from": "BOS",
         "from_name": "Boston Logan International Airport",
@@ -328,8 +328,8 @@
       },
       {
         "airline": "",
-        "arrive": "2027-06-05T11:00",
-        "depart": "2027-06-05T09:40",
+        "arrive": "2027-06-21T11:00",
+        "depart": "2027-06-21T09:40",
         "flight": "",
         "from": "FRA",
         "from_name": "Frankfurt Airport",
@@ -339,13 +339,13 @@
         "to_name": "Milano Malpensa Airport"
       }
     ],
-    "price": 6780.0,
-    "return_date": "2027-06-14",
+    "price": 6774.0,
+    "return_date": "2027-06-30",
     "source": "google_flights_extra_stop"
   },
   "nice-riviera": {
     "arrive_at": "NCE",
-    "basis": "Google Flights' lowest price for all 6 travellers for these dates, from the weekly check (one paid search a week) on Oct 31, because the free daily check found no fares for this route. Google rated it typical against a typical range of $8,000\u2013$11,500. Only flights of 20 hours or less, gate to gate, count for the way out, and ones with every connection under 5 hours come first; the way home is picked when you book.",
+    "basis": "Google Flights' lowest price for all 6 travellers for these dates, from the weekly check (one paid search a week) on Oct 31, because the free daily check found no fares for this route. Only flights of 20 hours or less, gate to gate, count for the way out, and ones with every connection under 5 hours come first; the way home is picked when you book.",
     "carriers": [],
     "check_in": "2027-06-05",
     "check_out": "2027-06-14",
@@ -359,12 +359,12 @@
     "outbound": [
       {
         "airline": "American",
-        "arrive": "2027-06-04T09:39",
-        "depart": "2027-06-04T06:16",
-        "flight": "AA 1308",
+        "arrive": "2027-06-04T14:39",
+        "depart": "2027-06-04T11:18",
+        "flight": "AA 1981",
         "from": "STL",
         "from_name": "St. Louis Lambert International Airport",
-        "minutes": 143,
+        "minutes": 141,
         "plane": "Airbus A319",
         "to": "PHL",
         "to_name": "Philadelphia International Airport"
@@ -390,36 +390,36 @@
     "arrive_at": "CDG",
     "basis": "An estimate. Google Flights' first page on Oct 31 showed no fares for 6 travellers, which is common for big parties on long-haul routes. So the tracker priced a smaller party (at most 1 stop(s) each way) and multiplied that per-person fare by 6. Children's economy fares to Europe are usually close to adult fares, so this is a fair guide, but it doesn't include checked bags. Only flights of 20 hours or less, gate to gate, count for the way out, and ones with every connection under 5 hours come first; the way home is picked when you book.",
     "carriers": [
-      "Delta"
+      "American"
     ],
-    "check_in": "2027-06-21",
-    "check_out": "2027-06-30",
+    "check_in": "2027-06-05",
+    "check_out": "2027-06-14",
     "checked_on": "2026-10-31",
     "currency": "USD",
-    "depart_date": "2027-06-20",
+    "depart_date": "2027-06-04",
     "home_from": "CDG",
     "inbound": [
       {
         "airline": "",
-        "arrive": "2027-06-30T15:55",
-        "depart": "2027-06-30T12:15",
+        "arrive": "2027-06-14T13:21",
+        "depart": "2027-06-14T10:25",
         "flight": "",
         "from": "CDG",
         "from_name": "A\u00e9roport de Paris-Charles de Gaulle",
-        "minutes": 580,
-        "plane": "Boeing 767",
-        "to": "ATL",
-        "to_name": "Hartsfield-Jackson Atlanta International Airport"
+        "minutes": 536,
+        "plane": "Airbus A330",
+        "to": "DTW",
+        "to_name": "Detroit Metropolitan Wayne County Airport"
       },
       {
         "airline": "",
-        "arrive": "2027-06-30T20:49",
-        "depart": "2027-06-30T20:05",
+        "arrive": "2027-06-14T16:50",
+        "depart": "2027-06-14T16:10",
         "flight": "",
-        "from": "ATL",
-        "from_name": "Hartsfield-Jackson Atlanta International Airport",
-        "minutes": 104,
-        "plane": "Boeing 737",
+        "from": "DTW",
+        "from_name": "Detroit Metropolitan Wayne County Airport",
+        "minutes": 100,
+        "plane": "Boeing 717",
         "to": "STL",
         "to_name": "St. Louis Lambert International Airport"
       }
@@ -431,31 +431,31 @@
     "outbound": [
       {
         "airline": "",
-        "arrive": "2027-06-20T13:15",
-        "depart": "2027-06-20T10:45",
+        "arrive": "2027-06-04T12:55",
+        "depart": "2027-06-04T09:23",
         "flight": "",
         "from": "STL",
         "from_name": "St. Louis Lambert International Airport",
-        "minutes": 90,
-        "plane": "Boeing 717",
-        "to": "DTW",
-        "to_name": "Detroit Metropolitan Wayne County Airport"
+        "minutes": 152,
+        "plane": "Embraer 175",
+        "to": "LGA",
+        "to_name": "LaGuardia Airport"
       },
       {
         "airline": "",
-        "arrive": "2027-06-21T06:45",
-        "depart": "2027-06-20T17:10",
+        "arrive": "2027-06-05T07:20",
+        "depart": "2027-06-04T17:50",
         "flight": "",
-        "from": "DTW",
-        "from_name": "Detroit Metropolitan Wayne County Airport",
-        "minutes": 455,
-        "plane": "Airbus A330",
+        "from": "JFK",
+        "from_name": "John F. Kennedy International Airport",
+        "minutes": 450,
+        "plane": "Boeing 777",
         "to": "CDG",
         "to_name": "A\u00e9roport de Paris-Charles de Gaulle"
       }
     ],
-    "price": 7641.0,
-    "return_date": "2027-06-30",
+    "price": 8658.0,
+    "return_date": "2027-06-14",
     "source": "google_flights_scaled"
   },
   "portugal-azores-summer": {
@@ -532,72 +532,72 @@
     "arrive_at": "FCO",
     "basis": "An estimate. Google Flights' first page on Oct 31 showed no fares for 6 travellers, which is common for big parties on long-haul routes. So the tracker priced a smaller party (at most 1 stop(s) each way) and multiplied that per-person fare by 6. Children's economy fares to Europe are usually close to adult fares, so this is a fair guide, but it doesn't include checked bags. Only flights of 20 hours or less, gate to gate, count for the way out, and ones with every connection under 5 hours come first; the way home is picked when you book.",
     "carriers": [
-      "American"
+      "Lufthansa"
     ],
-    "check_in": "2027-07-10",
-    "check_out": "2027-07-17",
+    "check_in": "2027-06-05",
+    "check_out": "2027-06-12",
     "checked_on": "2026-10-31",
     "currency": "USD",
-    "depart_date": "2027-07-09",
+    "depart_date": "2027-06-04",
     "home_from": "FCO",
     "inbound": [
       {
         "airline": "",
-        "arrive": "2027-07-17T13:30",
-        "depart": "2027-07-17T10:00",
+        "arrive": "2027-06-12T17:00",
+        "depart": "2027-06-12T12:55",
         "flight": "",
         "from": "FCO",
         "from_name": "Leonardo da Vinci International Airport",
-        "minutes": 630,
-        "plane": "Boeing 787",
-        "to": "ORD",
-        "to_name": "Chicago O'Hare International Airport"
+        "minutes": 605,
+        "plane": "Boeing 767",
+        "to": "EWR",
+        "to_name": "Newark Liberty International Airport"
       },
       {
         "airline": "",
-        "arrive": "2027-07-17T19:26",
-        "depart": "2027-07-17T17:59",
+        "arrive": "2027-06-12T23:25",
+        "depart": "2027-06-12T21:30",
         "flight": "",
-        "from": "ORD",
-        "from_name": "Chicago O'Hare International Airport",
-        "minutes": 87,
-        "plane": "Embraer 170",
+        "from": "EWR",
+        "from_name": "Newark Liberty International Airport",
+        "minutes": 175,
+        "plane": "Embraer 175",
         "to": "STL",
         "to_name": "St. Louis Lambert International Airport"
       }
     ],
     "inbound_airlines": [
-      "American"
+      "United"
     ],
     "origin": "STL",
     "outbound": [
       {
         "airline": "",
-        "arrive": "2027-07-09T15:19",
-        "depart": "2027-07-09T13:20",
+        "arrive": "2027-06-05T07:25",
+        "depart": "2027-06-04T15:30",
         "flight": "",
         "from": "STL",
         "from_name": "St. Louis Lambert International Airport",
-        "minutes": 119,
-        "plane": "Canadair RJ 900",
-        "to": "DFW",
-        "to_name": "Dallas Fort Worth International Airport"
+        "minutes": 535,
+        "plane": "Airbus A330",
+        "to": "FRA",
+        "to_name": "Frankfurt Airport"
       },
       {
         "airline": "",
-        "arrive": "2027-07-10T09:50",
-        "depart": "2027-07-09T16:25",
+        "arrive": "2027-06-05T12:30",
+        "depart": "2027-06-05T10:40",
         "flight": "",
-        "from": "DFW",
-        "from_name": "Dallas Fort Worth International Airport",
-        "minutes": 625,
-        "plane": "Boeing 777",
+        "from": "FRA",
+        "from_name": "Frankfurt Airport",
+        "minutes": 110,
+        "plane": "Airbus A321",
         "to": "FCO",
         "to_name": "Leonardo da Vinci International Airport"
       }
     ],
-    "price": 7344.0,
-    "return_date": "2027-07-17",
+    "price": 9195.0,
+    "return_date": "2027-06-12",
     "source": "google_flights_scaled"
   },
   "spain-barcelona-madrid": {
