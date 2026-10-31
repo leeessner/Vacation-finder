@@ -1,7 +1,7 @@
 {
   "trip_id": "florence-tuscany-summer",
-  "captured_at": "2026-10-31T13:12:21.612145+00:00",
-  "queries_made": 11,
+  "captured_at": "2026-10-31T13:16:49.010488+00:00",
+  "queries_made": 9,
   "errors": [],
   "quotes": [
     {
@@ -66,12 +66,12 @@
         "destination": "FLR \u2192 SAY",
         "check_in": "2027-06-22",
         "check_out": "2027-06-30",
-        "property_name": "Hostel 7 Santi (5n) + Laurel Apartment (3n)",
-        "total_price": 2015.0,
+        "property_name": "a&o Hostel Firenze Campo Di Marte (5n) + Laurel Apartment (3n)",
+        "total_price": 1919.0,
         "currency": "USD",
         "property_id": "",
         "nights": 8,
-        "rating": 4.0,
+        "rating": 4.2,
         "stars": null,
         "board_type": "",
         "refundable": null,
@@ -84,8 +84,8 @@
       "travel_mode": "air",
       "flights_expected": true,
       "flight_cost": 0.0,
-      "lodging_cost": 2015.0,
-      "total_cost": 6465.0,
+      "lodging_cost": 1919.0,
+      "total_cost": 6369.0,
       "is_complete": false,
       "notes": [
         "no Fattoria di Maiano within 3 mi met the rules for these dates"

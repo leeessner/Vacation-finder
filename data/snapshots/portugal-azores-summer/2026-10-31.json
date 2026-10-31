@@ -1,7 +1,7 @@
 {
   "trip_id": "portugal-azores-summer",
-  "captured_at": "2026-10-31T13:12:59.602274+00:00",
-  "queries_made": 3,
+  "captured_at": "2026-10-31T13:17:20.586319+00:00",
+  "queries_made": 6,
   "errors": [],
   "quotes": [
     {
@@ -24,18 +24,33 @@
         "source": "google_flights_weekly",
         "deep_link": ""
       },
-      "lodging": null,
+      "lodging": {
+        "destination": "OPO \u2192 LIS \u2192 FAO",
+        "check_in": "2027-06-05",
+        "check_out": "2027-06-15",
+        "property_name": "OPO-APT 110-1 Deco apartment in city center. Peacefull, pratiical, near all! (3n) + Charming Graca, river view, 28 tram, 4pax (4n) + My Friendly House (3n)",
+        "total_price": 1368.0,
+        "currency": "USD",
+        "property_id": "",
+        "nights": 10,
+        "rating": 4.6097503,
+        "stars": null,
+        "board_type": "",
+        "refundable": null,
+        "source": "google_hotels",
+        "deep_link": "",
+        "distance_miles": null
+      },
       "ground_cost": 3150.0,
       "ground_notes": "Plan's fixed costs: port cellar, trains, Sintra, Algarve car, food",
       "travel_mode": "air",
       "flights_expected": true,
       "flight_cost": 7642.0,
-      "lodging_cost": 0.0,
-      "total_cost": 10792.0,
-      "is_complete": false,
+      "lodging_cost": 1368.0,
+      "total_cost": 12160.0,
+      "is_complete": true,
       "notes": [
-        "airfare from this week's Google Flights check (the free daily check found none for this route)",
-        "no lodging price yet for Porto, Portugal, Lisbon, Portugal, Lagos, Portugal"
+        "airfare from this week's Google Flights check (the free daily check found none for this route)"
       ]
     },
     {

@@ -1,6 +1,6 @@
 {
   "trip_id": "belgium-summer",
-  "captured_at": "2026-10-31T13:13:19.264657+00:00",
+  "captured_at": "2026-10-31T13:17:46.226108+00:00",
   "queries_made": 4,
   "errors": [],
   "quotes": [
@@ -24,18 +24,33 @@
         "source": "google_flights_weekly",
         "deep_link": ""
       },
-      "lodging": null,
+      "lodging": {
+        "destination": "BRU \u2192 BXL",
+        "check_in": "2027-06-05",
+        "check_out": "2027-06-14",
+        "property_name": "Holiday Home Family @ home 97 (4n) + Yooma Urban Lodge (5n)",
+        "total_price": 2935.0,
+        "currency": "USD",
+        "property_id": "",
+        "nights": 9,
+        "rating": 4.5,
+        "stars": null,
+        "board_type": "",
+        "refundable": null,
+        "source": "google_hotels",
+        "deep_link": "",
+        "distance_miles": null
+      },
       "ground_cost": 3050.0,
       "ground_notes": "Plan's fixed costs: trains (adults only), museums, chocolate workshop, one car day, food",
       "travel_mode": "air",
       "flights_expected": true,
       "flight_cost": 8012.0,
-      "lodging_cost": 0.0,
-      "total_cost": 11062.0,
-      "is_complete": false,
+      "lodging_cost": 2935.0,
+      "total_cost": 13997.0,
+      "is_complete": true,
       "notes": [
-        "airfare from this week's Google Flights check (the free daily check found none for this route)",
-        "no lodging price yet for Brussels, Belgium"
+        "airfare from this week's Google Flights check (the free daily check found none for this route)"
       ]
     },
     {

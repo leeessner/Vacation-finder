@@ -24,9 +24,25 @@
     "belgium-summer|Brussels, Belgium|2027-06-09|2027-06-14": {
       "checked_on": "2026-10-31",
       "note": "",
-      "quote": null
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-06-09",
+        "check_out": "2027-06-14",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=Yooma%20Urban%20Lodge%20Brussels%2C%20Belgium&checkin=2027-06-09&checkout=2027-06-14",
+        "destination": "Brussels, Belgium",
+        "distance_miles": 0.7,
+        "nights": 5,
+        "property_id": "ChcIp5jXid-vxoUnGgsvZy8xdGRqdzViZhAB",
+        "property_name": "Yooma Urban Lodge",
+        "rating": 4.5,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": 4.0,
+        "total_price": 1814.0
+      }
     },
-    "florence-tuscany-summer|Fiesole, Italy|2027-06-05|2027-06-10": {
+    "florence-tuscany-summer|Fiesole, Florence, Italy|2027-06-05|2027-06-10": {
       "checked_on": "2026-10-31",
       "note": "no Fattoria di Maiano within 3 mi met the rules for these dates",
       "quote": {
@@ -34,8 +50,8 @@
         "check_in": "2027-06-05",
         "check_out": "2027-06-10",
         "currency": "USD",
-        "deep_link": "https://www.google.com/travel/search?q=a%26o%20Hostel%20Firenze%20Campo%20Di%20Marte%20Fiesole%2C%20Italy&checkin=2027-06-05&checkout=2027-06-10",
-        "destination": "Fiesole, Italy",
+        "deep_link": "https://www.google.com/travel/search?q=a%26o%20Hostel%20Firenze%20Campo%20Di%20Marte%20Fiesole%2C%20Florence%2C%20Italy&checkin=2027-06-05&checkout=2027-06-10",
+        "destination": "Fiesole, Florence, Italy",
         "distance_miles": 2.2,
         "nights": 5,
         "property_id": "ChkI14v66N_u9c9NGg0vZy8xMXZ5cDRrNTN6EAE",
@@ -47,7 +63,7 @@
         "total_price": 1010.0
       }
     },
-    "florence-tuscany-summer|Fiesole, Italy|2027-06-22|2027-06-27": {
+    "florence-tuscany-summer|Fiesole, Florence, Italy|2027-06-22|2027-06-27": {
       "checked_on": "2026-10-31",
       "note": "no Fattoria di Maiano within 3 mi met the rules for these dates",
       "quote": {
@@ -55,20 +71,20 @@
         "check_in": "2027-06-22",
         "check_out": "2027-06-27",
         "currency": "USD",
-        "deep_link": "https://www.google.com/travel/search?q=Hostel%207%20Santi%20Fiesole%2C%20Italy&checkin=2027-06-22&checkout=2027-06-27",
-        "destination": "Fiesole, Italy",
-        "distance_miles": 1.9,
+        "deep_link": "https://www.google.com/travel/search?q=a%26o%20Hostel%20Firenze%20Campo%20Di%20Marte%20Fiesole%2C%20Florence%2C%20Italy&checkin=2027-06-22&checkout=2027-06-27",
+        "destination": "Fiesole, Florence, Italy",
+        "distance_miles": 2.2,
         "nights": 5,
-        "property_id": "ChcIz8zP9Pfik_wIGgsvZy8xdG1taGxoZxAB",
-        "property_name": "Hostel 7 Santi",
-        "rating": 4.0,
+        "property_id": "ChkI14v66N_u9c9NGg0vZy8xMXZ5cDRrNTN6EAE",
+        "property_name": "a&o Hostel Firenze Campo Di Marte",
+        "rating": 4.2,
         "refundable": null,
         "source": "google_hotels",
         "stars": 3.0,
-        "total_price": 1276.0
+        "total_price": 1180.0
       }
     },
-    "florence-tuscany-summer|Fiesole, Italy|2027-07-09|2027-07-14": {
+    "florence-tuscany-summer|Fiesole, Florence, Italy|2027-07-09|2027-07-14": {
       "checked_on": "2026-10-31",
       "note": "no Fattoria di Maiano within 3 mi met the rules for these dates",
       "quote": {
@@ -76,8 +92,8 @@
         "check_in": "2027-07-09",
         "check_out": "2027-07-14",
         "currency": "USD",
-        "deep_link": "https://www.google.com/travel/search?q=Hostel%207%20Santi%20Fiesole%2C%20Italy&checkin=2027-07-09&checkout=2027-07-14",
-        "destination": "Fiesole, Italy",
+        "deep_link": "https://www.google.com/travel/search?q=Hostel%207%20Santi%20Fiesole%2C%20Florence%2C%20Italy&checkin=2027-07-09&checkout=2027-07-14",
+        "destination": "Fiesole, Florence, Italy",
         "distance_miles": 1.9,
         "nights": 5,
         "property_id": "ChcIz8zP9Pfik_wIGgsvZy8xdG1taGxoZxAB",
@@ -194,6 +210,27 @@
         "total_price": 336.0
       }
     },
+    "greece-summer|Athens, Greece|2027-07-07|2027-07-11": {
+      "checked_on": "2026-10-31",
+      "note": "",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-07-07",
+        "check_out": "2027-07-11",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=Wohnung%20%7C%20Akropolis-N%C3%A4he%20Athens%2C%20Greece&checkin=2027-07-07&checkout=2027-07-11",
+        "destination": "Athens, Greece",
+        "distance_miles": 0.9,
+        "nights": 4,
+        "property_id": "ChoQlKrNp5GXgsL-ARoNL2cvMTFrajVwMW14cxAC",
+        "property_name": "Wohnung | Akropolis-N\u00e4he",
+        "rating": 4.8,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": null,
+        "total_price": 336.0
+      }
+    },
     "greece-summer|Naxos, Greece|2027-06-09|2027-06-15": {
       "checked_on": "2026-10-31",
       "note": "",
@@ -234,6 +271,27 @@
         "source": "google_hotels",
         "stars": null,
         "total_price": 1129.0
+      }
+    },
+    "greece-summer|Naxos, Greece|2027-07-11|2027-07-17": {
+      "checked_on": "2026-10-31",
+      "note": "",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-07-11",
+        "check_out": "2027-07-17",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=Cledari%20Plaka%20Appartments%20Naxos%2C%20Greece&checkin=2027-07-11&checkout=2027-07-17",
+        "destination": "Naxos, Greece",
+        "distance_miles": 4.3,
+        "nights": 6,
+        "property_id": "ChoQ3paUuefbmO2yARoNL2cvMTFudzUzaHpnNRAC",
+        "property_name": "Cledari Plaka Appartments",
+        "rating": 4.45,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": null,
+        "total_price": 1247.0
       }
     },
     "london-summer|London, UK|2027-06-05|2027-06-11": {
@@ -591,6 +649,69 @@
         "source": "google_hotels",
         "stars": null,
         "total_price": 619.0
+      }
+    },
+    "portugal-azores-summer|Lagos, Portugal|2027-06-12|2027-06-15": {
+      "checked_on": "2026-10-31",
+      "note": "",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-06-12",
+        "check_out": "2027-06-15",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=My%20Friendly%20House%20Lagos%2C%20Portugal&checkin=2027-06-12&checkout=2027-06-15",
+        "destination": "Lagos, Portugal",
+        "distance_miles": 0.3,
+        "nights": 3,
+        "property_id": "ChoQhfD5n7ma_e--ARoNL2cvMTF5NXpjcjVmMhAC",
+        "property_name": "My Friendly House",
+        "rating": 4.897143,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": null,
+        "total_price": 462.0
+      }
+    },
+    "portugal-azores-summer|Lisbon, Portugal|2027-06-08|2027-06-12": {
+      "checked_on": "2026-10-31",
+      "note": "",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-06-08",
+        "check_out": "2027-06-12",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=Charming%20Graca%2C%20river%20view%2C%2028%20tram%2C%204pax%20Lisbon%2C%20Portugal&checkin=2027-06-08&checkout=2027-06-12",
+        "destination": "Lisbon, Portugal",
+        "distance_miles": 0.8,
+        "nights": 4,
+        "property_id": "ChkQ_JqKluSOw8crGg0vZy8xMWtqNW5qZ2NrEAI",
+        "property_name": "Charming Graca, river view, 28 tram, 4pax",
+        "rating": 4.95,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": null,
+        "total_price": 502.0
+      }
+    },
+    "portugal-azores-summer|Porto, Portugal|2027-06-05|2027-06-08": {
+      "checked_on": "2026-10-31",
+      "note": "",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-06-05",
+        "check_out": "2027-06-08",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=OPO-APT%20110-1%20Deco%20apartment%20in%20city%20center.%20Peacefull%2C%20pratiical%2C%20near%20all%21%20Porto%2C%20Portugal&checkin=2027-06-05&checkout=2027-06-08",
+        "destination": "Porto, Portugal",
+        "distance_miles": 1.3,
+        "nights": 3,
+        "property_id": "ChkQ1Jmmp5Kr1aBTGg0vZy8xMXZ5dnM4bnB2EAI",
+        "property_name": "OPO-APT 110-1 Deco apartment in city center. Peacefull, pratiical, near all!",
+        "rating": 4.6097503,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": null,
+        "total_price": 404.0
       }
     },
     "rome-summer|Rome, Italy|2027-06-05|2027-06-12": {
