@@ -3,7 +3,7 @@ places:
   - {name: Piazza Navona, days: [1], at: [41.8992, 12.4731], area: Rome}
   - {name: Pantheon, days: [1], at: [41.8986, 12.4769], area: Rome}
   - {name: Giolitti gelato, days: [1], at: [41.9010, 12.4767], area: Rome}
-  - {name: Vatican Museums (Raphael Rooms), days: [2], at: [41.9065, 12.4536], area: Rome}
+  - {name: "Vatican Museums (Key Master's tour, Raphael Rooms)", days: [2], at: [41.9065, 12.4536], area: Rome}
   - {name: "St Peter's and the dome", days: [2], at: [41.9022, 12.4539], area: Rome}
   - {name: Colosseum, days: [3], at: [41.8902, 12.4922], area: Rome}
   - {name: Roman Forum and Palatine, days: [3], at: [41.8925, 12.4853], area: Rome}
