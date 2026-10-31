@@ -1,7 +1,7 @@
 {
   "trip_id": "florence-tuscany-summer",
-  "captured_at": "2026-10-31T12:16:14.834924+00:00",
-  "queries_made": 3,
+  "captured_at": "2026-10-31T13:07:02.281800+00:00",
+  "queries_made": 6,
   "errors": [],
   "quotes": [
     {
@@ -35,7 +35,7 @@
       "is_complete": false,
       "notes": [
         "airfare from this week's Google Flights check (the free daily check found none for this route)",
-        "no lodging price yet for Fattoria di Maiano, Fiesole, Siena, Italy"
+        "no lodging price yet for Fattoria di Maiano, Fiesole"
       ]
     },
     {

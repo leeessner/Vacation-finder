@@ -1,0 +1,113 @@
+{
+  "trip_id": "rome-summer",
+  "captured_at": "2026-10-31T13:07:37.260684+00:00",
+  "queries_made": 4,
+  "errors": [],
+  "quotes": [
+    {
+      "trip_id": "rome-summer",
+      "destination": "FCO",
+      "depart_date": "2027-06-05",
+      "return_date": "2027-06-12",
+      "nights": 7,
+      "currency": "USD",
+      "flight": {
+        "origin": "STL",
+        "destination": "FCO",
+        "depart_date": "2027-06-05",
+        "return_date": "2027-06-12",
+        "total_price": 8535.0,
+        "currency": "USD",
+        "carriers": [
+          "Air Canada"
+        ],
+        "stops_out": null,
+        "stops_back": null,
+        "source": "google_flights_scaled",
+        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20FCO%20from%20STL%20on%202027-06-05%20through%202027-06-12"
+      },
+      "lodging": null,
+      "ground_cost": 2250.0,
+      "ground_notes": "Plan's fixed costs: Vatican, Borghese, Colosseum, Ostia, taxis, food",
+      "travel_mode": "air",
+      "flights_expected": true,
+      "flight_cost": 8535.0,
+      "lodging_cost": 0.0,
+      "total_cost": 10785.0,
+      "is_complete": false,
+      "notes": [
+        "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)"
+      ]
+    },
+    {
+      "trip_id": "rome-summer",
+      "destination": "FCO",
+      "depart_date": "2027-06-23",
+      "return_date": "2027-06-30",
+      "nights": 7,
+      "currency": "USD",
+      "flight": {
+        "origin": "STL",
+        "destination": "FCO",
+        "depart_date": "2027-06-23",
+        "return_date": "2027-06-30",
+        "total_price": 7749.0,
+        "currency": "USD",
+        "carriers": [
+          "American"
+        ],
+        "stops_out": null,
+        "stops_back": null,
+        "source": "google_flights_scaled",
+        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20FCO%20from%20STL%20on%202027-06-23%20through%202027-06-30"
+      },
+      "lodging": null,
+      "ground_cost": 2250.0,
+      "ground_notes": "Plan's fixed costs: Vatican, Borghese, Colosseum, Ostia, taxis, food",
+      "travel_mode": "air",
+      "flights_expected": true,
+      "flight_cost": 7749.0,
+      "lodging_cost": 0.0,
+      "total_cost": 9999.0,
+      "is_complete": false,
+      "notes": [
+        "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)"
+      ]
+    },
+    {
+      "trip_id": "rome-summer",
+      "destination": "FCO",
+      "depart_date": "2027-07-10",
+      "return_date": "2027-07-17",
+      "nights": 7,
+      "currency": "USD",
+      "flight": {
+        "origin": "STL",
+        "destination": "FCO",
+        "depart_date": "2027-07-10",
+        "return_date": "2027-07-17",
+        "total_price": 7284.0,
+        "currency": "USD",
+        "carriers": [
+          "Air Canada"
+        ],
+        "stops_out": null,
+        "stops_back": null,
+        "source": "google_flights_scaled",
+        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20FCO%20from%20STL%20on%202027-07-10%20through%202027-07-17"
+      },
+      "lodging": null,
+      "ground_cost": 2250.0,
+      "ground_notes": "Plan's fixed costs: Vatican, Borghese, Colosseum, Ostia, taxis, food",
+      "travel_mode": "air",
+      "flights_expected": true,
+      "flight_cost": 7284.0,
+      "lodging_cost": 0.0,
+      "total_cost": 9534.0,
+      "is_complete": false,
+      "notes": [
+        "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)"
+      ]
+    }
+  ]
+}

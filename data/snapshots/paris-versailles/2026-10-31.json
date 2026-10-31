@@ -1,7 +1,7 @@
 {
   "trip_id": "paris-versailles",
-  "captured_at": "2026-10-31T12:16:12.541944+00:00",
-  "queries_made": 3,
+  "captured_at": "2026-10-31T13:06:48.430835+00:00",
+  "queries_made": 9,
   "errors": [],
   "quotes": [
     {
@@ -26,18 +26,33 @@
         "source": "google_flights_scaled",
         "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20CDG%20from%20STL%20on%202027-06-05%20through%202027-06-14"
       },
-      "lodging": null,
+      "lodging": {
+        "destination": "CDG \u2192 SXB",
+        "check_in": "2027-06-05",
+        "check_out": "2027-06-14",
+        "property_name": "Tr\u00e8s beau T3 proche RER Port Royal 6 pers - Two-Bedroom Apartment (6n) + Downtown Apartment, Quiet and Spacious (3n)",
+        "total_price": 2488.0,
+        "currency": "USD",
+        "property_id": "",
+        "nights": 9,
+        "rating": 4.1235046,
+        "stars": null,
+        "board_type": "",
+        "refundable": null,
+        "source": "google_hotels",
+        "deep_link": "",
+        "distance_miles": null
+      },
       "ground_cost": 4250.0,
       "ground_notes": "Plan's fixed costs: tickets, Disneyland day, TGV, transit, food",
       "travel_mode": "air",
       "flights_expected": true,
       "flight_cost": 8619.0,
-      "lodging_cost": 0.0,
-      "total_cost": 12869.0,
-      "is_complete": false,
+      "lodging_cost": 2488.0,
+      "total_cost": 15357.0,
+      "is_complete": true,
       "notes": [
-        "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)",
-        "no lodging price yet for Paris, France, Strasbourg, France"
+        "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)"
       ]
     },
     {
@@ -62,18 +77,33 @@
         "source": "google_flights_scaled",
         "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20CDG%20from%20STL%20on%202027-06-21%20through%202027-06-30"
       },
-      "lodging": null,
+      "lodging": {
+        "destination": "CDG \u2192 SXB",
+        "check_in": "2027-06-21",
+        "check_out": "2027-06-30",
+        "property_name": "Luxury Parisian Flat (6n) + ENA 3 pi\u00e8ces neuf entre centre et gare (3n)",
+        "total_price": 2543.0,
+        "currency": "USD",
+        "property_id": "",
+        "nights": 9,
+        "rating": 4.346667,
+        "stars": null,
+        "board_type": "",
+        "refundable": null,
+        "source": "google_hotels",
+        "deep_link": "",
+        "distance_miles": null
+      },
       "ground_cost": 4250.0,
       "ground_notes": "Plan's fixed costs: tickets, Disneyland day, TGV, transit, food",
       "travel_mode": "air",
       "flights_expected": true,
       "flight_cost": 7641.0,
-      "lodging_cost": 0.0,
-      "total_cost": 11891.0,
-      "is_complete": false,
+      "lodging_cost": 2543.0,
+      "total_cost": 14434.0,
+      "is_complete": true,
       "notes": [
-        "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)",
-        "no lodging price yet for Paris, France, Strasbourg, France"
+        "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)"
       ]
     },
     {
@@ -98,18 +128,33 @@
         "source": "google_flights_scaled",
         "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20CDG%20from%20STL%20on%202027-07-08%20through%202027-07-17"
       },
-      "lodging": null,
+      "lodging": {
+        "destination": "CDG \u2192 SXB",
+        "check_in": "2027-07-08",
+        "check_out": "2027-07-17",
+        "property_name": "Tr\u00e8s beau T3 proche RER Port Royal 6 pers - Two-Bedroom Apartment (6n) + Le Molsheim - Duplex proche Mus\u00e9e d'Art Moderne - Two-Bedroom Apartment (3n)",
+        "total_price": 2493.0,
+        "currency": "USD",
+        "property_id": "",
+        "nights": 9,
+        "rating": 4.0443926,
+        "stars": null,
+        "board_type": "",
+        "refundable": null,
+        "source": "google_hotels",
+        "deep_link": "",
+        "distance_miles": null
+      },
       "ground_cost": 4250.0,
       "ground_notes": "Plan's fixed costs: tickets, Disneyland day, TGV, transit, food",
       "travel_mode": "air",
       "flights_expected": true,
       "flight_cost": 8613.0,
-      "lodging_cost": 0.0,
-      "total_cost": 12863.0,
-      "is_complete": false,
+      "lodging_cost": 2493.0,
+      "total_cost": 15356.0,
+      "is_complete": true,
       "notes": [
-        "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)",
-        "no lodging price yet for Paris, France, Strasbourg, France"
+        "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)"
       ]
     }
   ]

@@ -1,7 +1,7 @@
 {
   "trip_id": "london-summer",
-  "captured_at": "2026-10-31T12:16:58.449780+00:00",
-  "queries_made": 3,
+  "captured_at": "2026-10-31T13:07:29.039044+00:00",
+  "queries_made": 5,
   "errors": [],
   "quotes": [
     {
@@ -22,7 +22,7 @@
       "total_cost": 3800.0,
       "is_complete": false,
       "notes": [
-        "no lodging price yet for London, UK, York, UK"
+        "no lodging price yet for London, UK"
       ]
     },
     {

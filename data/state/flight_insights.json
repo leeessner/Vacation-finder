@@ -9,6 +9,16 @@
     "typical_high": 12000.0,
     "typical_low": 7600.0
   },
+  "belgium-summer": {
+    "checked_on": "2026-10-31",
+    "depart": "2027-06-05",
+    "level": "typical",
+    "lowest": 8012.0,
+    "return_": "2027-06-14",
+    "trip_id": "belgium-summer",
+    "typical_high": 10500.0,
+    "typical_low": 7300.0
+  },
   "florence-tuscany-summer": {
     "checked_on": "2026-10-31",
     "depart": "2027-06-05",
@@ -39,6 +49,16 @@
     "typical_high": 11000.0,
     "typical_low": 8500.0
   },
+  "milan-lake-como-summer": {
+    "checked_on": "2026-10-31",
+    "depart": "2027-06-05",
+    "level": "typical",
+    "lowest": 7709.0,
+    "return_": "2027-06-14",
+    "trip_id": "milan-lake-como-summer",
+    "typical_high": 9300.0,
+    "typical_low": 7600.0
+  },
   "nice-riviera": {
     "checked_on": "2026-10-25",
     "depart": "2027-06-05",
@@ -68,6 +88,16 @@
     "trip_id": "portugal-azores-summer",
     "typical_high": 11500.0,
     "typical_low": 8300.0
+  },
+  "rome-summer": {
+    "checked_on": "2026-10-31",
+    "depart": "2027-06-05",
+    "level": "typical",
+    "lowest": 8149.0,
+    "return_": "2027-06-12",
+    "trip_id": "rome-summer",
+    "typical_high": 9100.0,
+    "typical_low": 7500.0
   },
   "spain-barcelona-madrid": {
     "checked_on": "2026-10-25",

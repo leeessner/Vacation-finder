@@ -1,6 +1,6 @@
 {
   "trip_id": "austria-bavaria-summer",
-  "captured_at": "2026-10-31T12:16:52.495562+00:00",
+  "captured_at": "2026-10-31T13:07:24.610380+00:00",
   "queries_made": 3,
   "errors": [],
   "quotes": [
@@ -101,7 +101,7 @@
         ],
         "stops_out": null,
         "stops_back": null,
-        "source": "google_flights_extra_stop",
+        "source": "google_flights_scaled_extra_stop",
         "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20MUC%20from%20STL%20on%202027-07-07%20through%202027-07-17"
       },
       "lodging": null,
@@ -114,6 +114,7 @@
       "total_cost": 9686.0,
       "is_complete": false,
       "notes": [
+        "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)",
         "airfare allows one more stop than your limit \u2014 none was found within it",
         "Dachsteink\u00f6nig: an estimate (\u2248\u20ac5,750 all-inclusive), not a tracked price \u2014 replace with the resort's quote",
         "no lodging price yet for Munich, Germany"

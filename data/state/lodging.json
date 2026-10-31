@@ -1,5 +1,130 @@
 {
   "slots": {
+    "belgium-summer|Bruges, Belgium|2027-06-05|2027-06-09": {
+      "checked_on": "2026-10-31",
+      "note": "",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-06-05",
+        "check_out": "2027-06-09",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=Holiday%20Home%20Family%20%40%20home%2097%20Bruges%2C%20Belgium&checkin=2027-06-05&checkout=2027-06-09",
+        "destination": "Bruges, Belgium",
+        "distance_miles": 1.0,
+        "nights": 4,
+        "property_id": "ChkQx7jH_tfs6YV4Gg0vZy8xMXNzZ2RjZjhwEAI",
+        "property_name": "Holiday Home Family @ home 97",
+        "rating": 4.59,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": null,
+        "total_price": 1121.0
+      }
+    },
+    "belgium-summer|Brussels, Belgium|2027-06-09|2027-06-14": {
+      "checked_on": "2026-10-31",
+      "note": "",
+      "quote": null
+    },
+    "florence-tuscany-summer|Fattoria di Maiano, Fiesole|2027-06-05|2027-06-10": {
+      "checked_on": "2026-10-31",
+      "note": "",
+      "quote": null
+    },
+    "florence-tuscany-summer|Fattoria di Maiano, Fiesole|2027-06-22|2027-06-27": {
+      "checked_on": "2026-10-31",
+      "note": "",
+      "quote": null
+    },
+    "florence-tuscany-summer|Siena, Italy|2027-06-10|2027-06-13": {
+      "checked_on": "2026-10-31",
+      "note": "",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-06-10",
+        "check_out": "2027-06-13",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=Laurel%20Apartment%20Siena%2C%20Italy&checkin=2027-06-10&checkout=2027-06-13",
+        "destination": "Siena, Italy",
+        "distance_miles": 2.4,
+        "nights": 3,
+        "property_id": "ChkQmd-S-N3qk9wEGg0vZy8xMXo2NTh0NHg1EAI",
+        "property_name": "Laurel Apartment",
+        "rating": 4.7,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": null,
+        "total_price": 599.0
+      }
+    },
+    "london-summer|London, UK|2027-06-05|2027-06-11": {
+      "checked_on": "2026-10-31",
+      "note": "",
+      "quote": null
+    },
+    "london-summer|York, UK|2027-06-11|2027-06-14": {
+      "checked_on": "2026-10-31",
+      "note": "",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-06-11",
+        "check_out": "2027-06-14",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=Superb%20citycentre%20new%20built%20flat%20and%20gym%20York%2C%20UK&checkin=2027-06-11&checkout=2027-06-14",
+        "destination": "York, UK",
+        "distance_miles": 0.5,
+        "nights": 3,
+        "property_id": "ChkQkaH6tpW6xqshGg0vZy8xMXo0c2N3ZHM5EAI",
+        "property_name": "Superb citycentre new built flat and gym",
+        "rating": 4.32375,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": null,
+        "total_price": 651.0
+      }
+    },
+    "milan-lake-como-summer|Milan, Italy|2027-06-05|2027-06-09": {
+      "checked_on": "2026-10-31",
+      "note": "",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-06-05",
+        "check_out": "2027-06-09",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=Splendido%20quadrilocale%20in%20elegante%20stabile%20nel%20centro%20di%20Milano%20Milan%2C%20Italy&checkin=2027-06-05&checkout=2027-06-09",
+        "destination": "Milan, Italy",
+        "distance_miles": 1.2,
+        "nights": 4,
+        "property_id": "ChoQo_XFy9DIpO7JARoNL2cvMTF2bTEwZGR2cRAC",
+        "property_name": "Splendido quadrilocale in elegante stabile nel centro di Milano",
+        "rating": 4.35,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": null,
+        "total_price": 1693.0
+      }
+    },
+    "milan-lake-como-summer|Varenna, Italy|2027-06-09|2027-06-14": {
+      "checked_on": "2026-10-31",
+      "note": "",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-06-09",
+        "check_out": "2027-06-14",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=Green%20House%20Olivedo%20Varenna%2C%20Italy&checkin=2027-06-09&checkout=2027-06-14",
+        "destination": "Varenna, Italy",
+        "distance_miles": 0.3,
+        "nights": 5,
+        "property_id": "ChkQ7_-77fT_rcVMGg0vZy8xMXp5ZnN4Yzg2EAI",
+        "property_name": "Green House Olivedo",
+        "rating": 4.0,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": null,
+        "total_price": 1481.0
+      }
+    },
     "nashville-spring-break|Downtown Nashville, TN|2027-03-12|2027-03-16": {
       "checked_on": "2026-10-29",
       "note": "Embassy Suites: $266 less than the cheapest qualifying option, Homewood Suites by Hilton Nashville Downtown The Gulch ($1,441)",
@@ -146,6 +271,137 @@
         "stars": 3.0,
         "total_price": 3118.0
       }
+    },
+    "paris-versailles|Paris, France|2027-06-05|2027-06-11": {
+      "checked_on": "2026-10-31",
+      "note": "",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-06-05",
+        "check_out": "2027-06-11",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=Tr%C3%A8s%20beau%20T3%20proche%20RER%20Port%20Royal%206%20pers%20-%20Two-Bedroom%20Apartment%20Paris%2C%20France&checkin=2027-06-05&checkout=2027-06-11",
+        "destination": "Paris, France",
+        "distance_miles": 0.7,
+        "nights": 6,
+        "property_id": "ChoQsaPw4NGg-sLKARoNL2cvMTF2d3RoX3g2YxAC",
+        "property_name": "Tr\u00e8s beau T3 proche RER Port Royal 6 pers - Two-Bedroom Apartment",
+        "rating": 4.613044,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": null,
+        "total_price": 1886.0
+      }
+    },
+    "paris-versailles|Paris, France|2027-06-21|2027-06-27": {
+      "checked_on": "2026-10-31",
+      "note": "",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-06-21",
+        "check_out": "2027-06-27",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=Luxury%20Parisian%20Flat%20Paris%2C%20France&checkin=2027-06-21&checkout=2027-06-27",
+        "destination": "Paris, France",
+        "distance_miles": 0.7,
+        "nights": 6,
+        "property_id": "ChkQqPWd4LD0lLNqGg0vZy8xMXZ5MHRtcDZ4EAI",
+        "property_name": "Luxury Parisian Flat",
+        "rating": 4.346667,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": null,
+        "total_price": 1951.0
+      }
+    },
+    "paris-versailles|Paris, France|2027-07-08|2027-07-14": {
+      "checked_on": "2026-10-31",
+      "note": "",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-07-08",
+        "check_out": "2027-07-14",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=Tr%C3%A8s%20beau%20T3%20proche%20RER%20Port%20Royal%206%20pers%20-%20Two-Bedroom%20Apartment%20Paris%2C%20France&checkin=2027-07-08&checkout=2027-07-14",
+        "destination": "Paris, France",
+        "distance_miles": 0.7,
+        "nights": 6,
+        "property_id": "ChoQsaPw4NGg-sLKARoNL2cvMTF2d3RoX3g2YxAC",
+        "property_name": "Tr\u00e8s beau T3 proche RER Port Royal 6 pers - Two-Bedroom Apartment",
+        "rating": 4.613044,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": null,
+        "total_price": 1874.0
+      }
+    },
+    "paris-versailles|Strasbourg, France|2027-06-11|2027-06-14": {
+      "checked_on": "2026-10-31",
+      "note": "",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-06-11",
+        "check_out": "2027-06-14",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=Downtown%20Apartment%2C%20Quiet%20and%20Spacious%20Strasbourg%2C%20France&checkin=2027-06-11&checkout=2027-06-14",
+        "destination": "Strasbourg, France",
+        "distance_miles": 0.4,
+        "nights": 3,
+        "property_id": "ChkQ75-ztNLnq_8LGg0vZy8xMW1zdjd2OWhxEAI",
+        "property_name": "Downtown Apartment, Quiet and Spacious",
+        "rating": 4.1235046,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": null,
+        "total_price": 602.0
+      }
+    },
+    "paris-versailles|Strasbourg, France|2027-06-27|2027-06-30": {
+      "checked_on": "2026-10-31",
+      "note": "",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-06-27",
+        "check_out": "2027-06-30",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=ENA%203%20pi%C3%A8ces%20neuf%20entre%20centre%20et%20gare%20Strasbourg%2C%20France&checkin=2027-06-27&checkout=2027-06-30",
+        "destination": "Strasbourg, France",
+        "distance_miles": 0.7,
+        "nights": 3,
+        "property_id": "ChoQz4fMqfqHgcr5ARoNL2cvMTFzc2djNjdtNBAC",
+        "property_name": "ENA 3 pi\u00e8ces neuf entre centre et gare",
+        "rating": 4.5487804,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": null,
+        "total_price": 592.0
+      }
+    },
+    "paris-versailles|Strasbourg, France|2027-07-14|2027-07-17": {
+      "checked_on": "2026-10-31",
+      "note": "",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-07-14",
+        "check_out": "2027-07-17",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=Le%20Molsheim%20-%20Duplex%20proche%20Mus%C3%A9e%20d%27Art%20Moderne%20-%20Two-Bedroom%20Apartment%20Strasbourg%2C%20France&checkin=2027-07-14&checkout=2027-07-17",
+        "destination": "Strasbourg, France",
+        "distance_miles": 0.8,
+        "nights": 3,
+        "property_id": "ChkQpYK3za2HwLUsGg0vZy8xMXlscHkzcTdsEAI",
+        "property_name": "Le Molsheim - Duplex proche Mus\u00e9e d'Art Moderne - Two-Bedroom Apartment",
+        "rating": 4.0443926,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": null,
+        "total_price": 619.0
+      }
+    },
+    "rome-summer|Rome, Italy|2027-06-05|2027-06-12": {
+      "checked_on": "2026-10-31",
+      "note": "",
+      "quote": null
     },
     "smokies-spring-break|Gatlinburg, TN|2027-03-12|2027-03-16": {
       "checked_on": "2026-10-30",

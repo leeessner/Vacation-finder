@@ -1,0 +1,84 @@
+{
+  "trip_id": "belgium-summer",
+  "captured_at": "2026-10-31T13:07:48.186486+00:00",
+  "queries_made": 5,
+  "errors": [],
+  "quotes": [
+    {
+      "trip_id": "belgium-summer",
+      "destination": "BRU \u2192 BXL",
+      "depart_date": "2027-06-05",
+      "return_date": "2027-06-14",
+      "nights": 9,
+      "currency": "USD",
+      "flight": {
+        "origin": "STL",
+        "destination": "BRU",
+        "depart_date": "2027-06-05",
+        "return_date": "2027-06-14",
+        "total_price": 8012.0,
+        "currency": "USD",
+        "carriers": [],
+        "stops_out": null,
+        "stops_back": null,
+        "source": "google_flights_weekly",
+        "deep_link": ""
+      },
+      "lodging": null,
+      "ground_cost": 3050.0,
+      "ground_notes": "Plan's fixed costs: trains (adults only), museums, chocolate workshop, one car day, food",
+      "travel_mode": "air",
+      "flights_expected": true,
+      "flight_cost": 8012.0,
+      "lodging_cost": 0.0,
+      "total_cost": 11062.0,
+      "is_complete": false,
+      "notes": [
+        "airfare from this week's Google Flights check (the free daily check found none for this route)",
+        "no lodging price yet for Brussels, Belgium"
+      ]
+    },
+    {
+      "trip_id": "belgium-summer",
+      "destination": "BRU \u2192 BXL",
+      "depart_date": "2027-06-21",
+      "return_date": "2027-06-30",
+      "nights": 9,
+      "currency": "USD",
+      "flight": null,
+      "lodging": null,
+      "ground_cost": 3050.0,
+      "ground_notes": "Plan's fixed costs: trains (adults only), museums, chocolate workshop, one car day, food",
+      "travel_mode": "air",
+      "flights_expected": true,
+      "flight_cost": 0.0,
+      "lodging_cost": 0.0,
+      "total_cost": 3050.0,
+      "is_complete": false,
+      "notes": [
+        "no lodging price yet for Bruges, Belgium, Brussels, Belgium"
+      ]
+    },
+    {
+      "trip_id": "belgium-summer",
+      "destination": "BRU \u2192 BXL",
+      "depart_date": "2027-07-08",
+      "return_date": "2027-07-17",
+      "nights": 9,
+      "currency": "USD",
+      "flight": null,
+      "lodging": null,
+      "ground_cost": 3050.0,
+      "ground_notes": "Plan's fixed costs: trains (adults only), museums, chocolate workshop, one car day, food",
+      "travel_mode": "air",
+      "flights_expected": true,
+      "flight_cost": 0.0,
+      "lodging_cost": 0.0,
+      "total_cost": 3050.0,
+      "is_complete": false,
+      "notes": [
+        "no lodging price yet for Bruges, Belgium, Brussels, Belgium"
+      ]
+    }
+  ]
+}
