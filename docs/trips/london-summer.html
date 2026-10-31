@@ -1,0 +1,339 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>London · Vacation deal watch</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;700&family=Public+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap"><style>
+:root{--paper:#f7f8fb;--card:#fff;--ink:#1b2233;--muted:#5a6478;--line:#dfe3ec;
+--accent:#2b4c9b;--accent-soft:#e7ecf8;--check-bg:#fff3d6;--check-fg:#7a5200;
+--display:"Libre Caslon Text",Georgia,"Times New Roman",serif;
+--body:"Public Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){
+--paper:#12161f;--card:#1a2030;--ink:#e6e9f0;--muted:#9aa3b6;--line:#2c3446;
+--accent:#8fa9ec;--accent-soft:#222c46;--check-bg:#3a2e12;--check-fg:#f3d27a;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:15.5px/1.6 var(--body)}
+.wrap{max-width:1000px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));
+padding-right:max(16px,env(safe-area-inset-right,0px))}
+header.top{padding-block:26px 16px}
+.eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);
+font-weight:600;margin:0 0 4px}
+header.top h1{font:700 clamp(26px,4.6vw,36px)/1.15 var(--display);margin:0}
+.sub{color:var(--muted);font-size:14px;margin:6px 0 0}
+nav.tabs{position:sticky;top:0;z-index:5;background:var(--card);border-block:1px solid var(--line)}
+nav.tabs .wrap{display:flex;gap:4px;overflow-x:auto;padding-block:6px}
+.tab{flex:0 0 auto;display:flex;flex-direction:column;padding:7px 13px;border-radius:6px 6px 0 0;
+text-decoration:none;color:var(--muted);border-bottom:3px solid transparent}
+.tab:hover{background:var(--accent-soft);color:var(--ink)}
+.tab:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.tab[aria-current=page]{color:var(--ink);border-bottom-color:var(--accent)}
+.tab b{font-size:14.5px}
+.tab span{font-size:12px;font-variant-numeric:tabular-nums}
+main{padding-block:24px 56px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.tcard{display:flex;flex-direction:column;gap:8px;background:var(--card);border:1px solid var(--line);
+border-radius:10px;padding:16px 18px;color:inherit;text-decoration:none;min-width:0}
+.tcard:hover{border-color:var(--accent)}
+.tcard:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.tcard h2{font:700 19px/1.25 var(--display);margin:0}
+.price{font-size:28px;font-weight:700;letter-spacing:-.01em;font-variant-numeric:tabular-nums;line-height:1.1}
+.price small{display:block;font-size:12.5px;font-weight:400;color:var(--muted);letter-spacing:0;margin-top:3px}
+.pill{align-self:flex-start;display:inline-block;padding:3px 11px;border-radius:99px;color:#fff;
+font-size:12.5px;font-weight:600;white-space:nowrap}
+.status{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.conf{font-size:12.5px;color:var(--muted)}
+.chart{margin-top:4px;color:var(--ink)}
+.more{margin-top:auto;font-size:13px;color:var(--accent);font-weight:600}
+.muted{color:var(--muted)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px;margin-bottom:18px}
+.head{display:flex;flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.name{font:700 22px/1.25 var(--display);margin:0}
+.why{color:var(--muted);font-size:13.5px;margin:4px 0 0;max-width:65ch}
+.big{font-size:30px;font-weight:700;margin:14px 0 2px;font-variant-numeric:tabular-nums}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-top:16px}
+.stat{border-top:1px solid var(--line);padding-top:9px}
+.stat b{display:block;font-size:17px;font-weight:650;font-variant-numeric:tabular-nums}
+.stat span{color:var(--muted);font-size:12px}
+.outlook{margin:14px 0 0;padding:10px 12px;border-radius:8px;background:var(--paper)}
+.outlook b{font-size:15px}
+.moves{margin-top:10px;font-size:14px}
+.note{color:var(--muted);font-size:13px;margin-top:4px}
+.caveat{margin:14px 0 0;padding:8px 11px;border-left:3px solid #d97706;
+background:rgba(217,119,6,.09);font-size:13px;border-radius:0 6px 6px 0}
+.scroll{overflow-x:auto;margin:14px 0;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{text-align:left;padding:8px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--muted);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.05em;
+background:var(--accent-soft)}
+tr:last-child td{border-bottom:0}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+a{color:var(--accent);text-underline-offset:2px}
+.plan h1{font:700 clamp(24px,4.2vw,32px)/1.2 var(--display);margin:34px 0 12px;text-wrap:balance}
+.plan h2{font:700 21px/1.3 var(--display);margin:36px 0 10px;padding-top:18px;border-top:1px solid var(--line)}
+.plan h3{font:700 17px/1.35 var(--display);margin:24px 0 8px;color:var(--accent)}
+.plan p,.plan li{max-width:70ch}
+.plan hr{display:none}
+.plan blockquote{margin:18px 0;padding:12px 16px;background:var(--check-bg);border-radius:6px}
+.plan blockquote p{margin:0}
+.plan p.day{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:13px 16px;margin:12px 0}
+.plan p.day strong:first-child{display:block;font:700 16.5px/1.35 var(--display);color:var(--accent);margin-bottom:3px}
+.check{display:inline-block;font-size:11.5px;font-weight:600;letter-spacing:.04em;padding:0 6px;
+border-radius:4px;background:var(--check-bg);color:var(--check-fg);text-transform:uppercase;line-height:1.6}
+.section-label{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);
+font-weight:600;margin:0 0 10px}
+pre{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:10px;
+font-size:12px;overflow-x:auto;white-space:pre-wrap}
+footer{color:var(--muted);font-size:12.5px;margin-top:30px;border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><header class='top'><div class='wrap'><p class="eyebrow"><a href="../index.html">Vacation deal watch</a></p><h1>London</h1></div></header><nav class="tabs" aria-label="Trips"><div class="wrap"><a class="tab" href="../index.html"><b>All trips</b><span>highlights</span></a><a class="tab" href="../trips/nashville-spring-break.html"><b>Nashville</b><span>4 nights · $1,176</span></a><a class="tab" href="../trips/smokies-spring-break.html"><b>Great Smoky Mountains</b><span>4 nights · $884</span></a><a class="tab" href="../trips/spain-barcelona-madrid.html"><b>Spain — Barcelona &amp; Madrid</b><span>10 nights · $11,221</span></a><a class="tab" href="../trips/paris-versailles.html"><b>Paris &amp; Versailles</b><span>9 nights · $12,039</span></a><a class="tab" href="../trips/nice-riviera.html"><b>Nice &amp; the French Riviera</b><span>9 nights · $13,628</span></a><a class="tab" href="../trips/greece-summer.html"><b>Greece — Athens &amp; the islands</b><span>10 nights · $9,415</span></a><a class="tab" href="../trips/portugal-azores-summer.html"><b>Portugal &amp; the Azores</b><span>10 nights · $10,593</span></a><a class="tab" href="../trips/austria-bavaria-summer.html"><b>Austria &amp; Bavaria</b><span>10 nights · $12,168</span></a><a class="tab" href="../trips/london-summer.html" aria-current="page"><b>London</b><span>7 nights · $8,514 so far</span></a><a class="tab" href="../trips/plan-florence-tuscany.html"><b>Florence &amp; Tuscany</b><span>8 nights · not tracked yet</span></a><a class="tab" href="../trips/plan-resorts.html"><b>The family resorts — a plan for each</b><span>plan</span></a></div></nav><main><div class='wrap'><section class="card"><div class="head"><div><h2 class="name">Price tracker</h2><p class="why">Added from the family-travel accounts you follow; plan to come</p></div><span class="pill" style="background:#6b7280">not fully priced yet</span></div><div class="big">$8,514</div><div class="note">Total so far — no hotel price yet</div><div class="why">LHR · Jun 05 – Jun 12, 2027 · American/British Airways</div><div class="note">airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)</div><div class="outlook" style="border-left:4px solid #15803d"><b style="color:#15803d">Good time to book</b><span class="note"> · medium confidence</span><div style="font-size:14px;margin-top:3px">the fare is low for this route and season; Google's typical range is $8,500–$11,000; only 5 day(s) of tracking so far</div></div><div class="moves"><div>Flights $8,064</div></div><div class="chart"><svg viewBox="0 0 640 170" width="100%" role="img" aria-label="Price history 2026-10-26 to 2026-10-30" style="max-width:640px;display:block"><line x1="58" x2="630" y1="146.0" y2="146.0" stroke="currentColor" stroke-opacity="0.12"/><text x="52" y="150.0" text-anchor="end" font-size="11" fill="currentColor" fill-opacity="0.6">$8,038</text><line x1="58" x2="630" y1="100.7" y2="100.7" stroke="currentColor" stroke-opacity="0.12"/><text x="52" y="104.7" text-anchor="end" font-size="11" fill="currentColor" fill-opacity="0.6">$8,047</text><line x1="58" x2="630" y1="55.3" y2="55.3" stroke="currentColor" stroke-opacity="0.12"/><text x="52" y="59.3" text-anchor="end" font-size="11" fill="currentColor" fill-opacity="0.6">$8,057</text><line x1="58" x2="630" y1="10.0" y2="10.0" stroke="currentColor" stroke-opacity="0.12"/><text x="52" y="14.0" text-anchor="end" font-size="11" fill="currentColor" fill-opacity="0.6">$8,066</text><text x="58" y="164" font-size="11" fill="currentColor" fill-opacity="0.6">Oct 26</text><text x="630" y="164" text-anchor="end" font-size="11" fill="currentColor" fill-opacity="0.6">Oct 30</text><path d="M58.0,78.0 L201.0,136.6 L344.0,136.6 L487.0,48.7 L630.0,19.4" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/><circle cx="630.0" cy="19.4" r="3.5" fill="#2563eb"/></svg><div style="font-size:12px;margin-top:4px"><span style="display:inline-flex;align-items:center;gap:5px;margin-right:14px"><span style="width:12px;height:3px;border-radius:2px;background:#2563eb"></span>Flights</span></div></div><div class="grid"><div class="stat"><b>$8,064</b><span>flights, whole party</span></div><div class="stat"><b>being checked — within a few days</b><span>lodging, 7 nights</span></div><div class="stat"><b>$450</b><span>Elizabeth line from Heathrow and a week of Tube fares for six (estimate)</span></div></div><div class="scroll"><table><thead><tr><th>Checked</th><th>Travel dates</th><th class="num">Flights</th><th class="num">Lodging</th><th class="num">Tracked total</th><th>Property</th></tr></thead><tbody><tr><td>Oct 30</td><td>Jun 05–Jun 12</td><td class="num">$8,064</td><td class="num">—</td><td class="num"><b>$8,514</b></td><td></td></tr><tr><td>Oct 29</td><td>Jun 05–Jun 12</td><td class="num">$8,058</td><td class="num">—</td><td class="num"><b>$8,508</b></td><td></td></tr><tr><td>Oct 28</td><td>Jun 05–Jun 12</td><td class="num">$8,040</td><td class="num">—</td><td class="num"><b>$8,490</b></td><td></td></tr><tr><td>Oct 27</td><td>Jun 05–Jun 12</td><td class="num">$8,040</td><td class="num">—</td><td class="num"><b>$8,490</b></td><td></td></tr><tr><td>Oct 26</td><td>Jun 05–Jun 12</td><td class="num">$8,052</td><td class="num">—</td><td class="num"><b>$8,502</b></td><td></td></tr></tbody></table></div></section><section class="plan"><h1>London &amp; York</h1><p><strong>Shape:</strong> 9 nights. Six in London, with the two Tudor and royal palaces as
+day trips. Then three in <strong>York</strong>, two hours north by train, for the
+National Railway Museum, Vikings and medieval walls. Everything is by foot,
+Tube and train. No car.</p>
+<p>This builds on the "England with Kids" post (London 4 → Bath 3 → York 3),
+adds Hampton Court as requested, and gives London more room because so much
+of the art is there. <strong>Bath</strong> is the alternative to York; see <em>York or Bath?</em></p>
+<p>Written against <code>plans/family-profile.md</code>. Prices were checked in October 2026
+from the sources listed at the end. Anything not confirmed is marked <span class="check">check</span>.
+Pounds are converted at about <strong>$1.30 per £1</strong>.</p>
+<hr />
+<h2>At a glance</h2>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th></th>
+<th>Where</th>
+<th>Nights</th>
+<th>Getting around</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Base 1</td>
+<td>An apartment (2+ bedrooms) in <strong>South Kensington</strong></td>
+<td>6</td>
+<td>Tube and train. <strong>Under-11s ride the Tube free</strong> with a paying adult (<span class="check">check</span> the current TfL rule)</td>
+</tr>
+<tr>
+<td>Base 2</td>
+<td>An apartment or 2-room hotel inside <strong>York's walls</strong></td>
+<td>3</td>
+<td>On foot. Everything in York is walkable</td>
+</tr>
+</tbody>
+</table></div>
+<p>Why South Kensington, rather than the tracker's provisional Trafalgar
+Square: the V&amp;A, with its Raphael Cartoons, is around the corner. So is
+<strong>Kensington Gardens</strong>, with the <strong>Diana Memorial Playground</strong>, whose pirate
+ship is the best playground in London. The Tube runs direct to Heathrow.</p>
+<p>Fly into <strong>Heathrow (LHR)</strong>. Fly home from LHR, or from <strong>Manchester (MAN)</strong>,
+1½ h from York, if fares allow. The tracker can price both.</p>
+<h2>Day by day</h2>
+<p class="day"><strong>Day 1 — Arrive. Kensington Gardens.</strong> The Diana Memorial Playground's
+pirate ship, then an early night.</p>
+<p class="day"><strong>Day 2 — Westminster and the National Gallery.</strong> Big Ben and Parliament,
+then <strong>Changing of the Guard</strong> at Buckingham Palace (about 11:00 on set days;
+<span class="check">check</span> the schedule). Picnic in St James's Park. In the afternoon, go to the
+<strong>National Gallery</strong>, which is free. The art is world-class: Raphael,
+Leonardo's <em>Virgin of the Rocks</em>, Caravaggio's <em>Supper at Emmaus</em>,
+Rembrandt's late self-portrait and Poussin. Keep it to an hour of the
+highlights, then let the kids climb on the <strong>Trafalgar Square lions</strong>.</p>
+<p class="day"><strong>Day 3 — Tower of London.</strong> The Crown Jewels, a Yeoman Warder ("Beefeater")
+tour, the armour in the White Tower and the ravens. The profile names it
+specifically. Walk across <strong>Tower Bridge</strong> to <strong>Borough Market</strong> for lunch.</p>
+<p class="day"><strong>Day 4 — Hampton Court Palace.</strong> Henry VIII's palace is 35 minutes by train
+from Waterloo. It has the <strong>Tudor kitchens</strong>, the <strong>maze</strong> (included in the
+ticket) and the <strong>Magic Garden</strong> play area with its dragon (<span class="check">check</span> whether
+it's included or ticketed on your date). The gardens run down to the Thames.</p>
+<p class="day"><strong>Day 5 — The V&amp;A, then dinosaurs.</strong> The <strong>Raphael Cartoons</strong> at the V&amp;A
+are seven huge designs for the Sistine Chapel tapestries. It's the best
+Raphael room outside Italy, and it's free. Next door are the <strong>Cast Courts</strong>,
+with a full-size cast of Michelangelo's <em>David</em> and Trajan's Column. Spend the
+afternoon at the <strong>Natural History Museum</strong> (free; book a slot) for the
+dinosaurs and the blue whale. It's from the England post, so keep it short.</p>
+<p class="day"><strong>Day 6 — Windsor Castle.</strong> The oldest occupied castle in the world is 40
+minutes by train, which makes it a castle day for the kids. <em>Alternative,
+staying in town:</em> the <strong>Wallace Collection</strong> (free). It holds a superb
+armoury, Rembrandt, Poussin and Titian in a mansion, and it's one of the
+"small museum, first-rate work" places the profile describes.</p>
+<p class="day"><strong>Day 7 — Train to York</strong> (2 h from King's Cross). In the afternoon, walk a
+stretch of the <strong>City Walls</strong>, which are free and the most complete in
+England.</p>
+<p class="day"><strong>Day 8 — National Railway Museum.</strong> It's free and the trains day of the
+trip. <em>Mallard</em>, the world's fastest steam locomotive, a Japanese <strong>bullet
+train</strong>, the royal carriages and a miniature railway (ticketed). Then the
+<strong>Shambles</strong>, York's medieval shopping lane, for an old-town wander.</p>
+<p class="day"><strong>Day 9 — York Minster and the Vikings.</strong> <strong>York Minster</strong> is one of Europe's
+great Gothic cathedrals. <strong>JORVIK Viking Centre</strong> has a ride through a
+rebuilt Viking street, with sights, sounds and smells. Book a time slot. Climb
+<strong>Clifford's Tower</strong>, the castle keep, for the view.</p>
+<p class="day"><strong>Day 10 — Home.</strong> Take a morning train to London and the Elizabeth line to
+Heathrow, for an afternoon flight. Or fly from Manchester.</p>
+<h2>York or Bath?</h2>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th></th>
+<th>York</th>
+<th>Bath</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>For the kids</td>
+<td>Trains (NRM), a Viking ride, walls to walk, a castle keep</td>
+<td>The Roman Baths (good kids' audio guide), Royal Crescent lawns</td>
+</tr>
+<tr>
+<td>For the parents</td>
+<td>The Minster, medieval streets</td>
+<td>Georgian architecture, the Abbey</td>
+</tr>
+<tr>
+<td>Logistics</td>
+<td>2 h direct from King's Cross</td>
+<td>1½ h from Paddington</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Recommendation: York.</strong> It hits three of the kids' four loves (trains,
+castles, old towns), while Bath's main draw is Roman. Bath's thermal spa
+doesn't admit under-16s.</p>
+<h2>Food — and protein for the vegetarian parent</h2>
+<p>London is the easiest city on the list for this:
+- <strong>Indian food</strong> is the best protein bet: dal, paneer, chana (chickpeas).
+  <strong>Dishoom</strong> is a family favourite and books ahead. Its black dal is famous.
+- <strong>Mildreds</strong> is long-running and vegetarian.
+- Pubs routinely have a vegetarian main and fish and chips for the others.
+- In York, try Indian restaurants and the cafés in the Shambles area.</p>
+<p>Kids' backup: <strong>burgers</strong>, as the profile says. Honest Burgers is a reliable
+chain. Fish and chips is the obvious local food.</p>
+<p><strong>Beer:</strong> London's microbrewery scene (the Bermondsey "Beer Mile" taprooms,
+Saturdays) is for the parents. Kid-friendly historic pubs work at lunchtime.
+For Belgian Trappists, a Belgium trip would beat England.</p>
+<h2>Fixed costs (estimate, for six)</h2>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th>Item</th>
+<th style="text-align: right;">£</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tower of London</td>
+<td style="text-align: right;">130</td>
+<td>£37 adult, £18.50 child (5–15), under 5 free. No family ticket any more</td>
+</tr>
+<tr>
+<td>Hampton Court</td>
+<td style="text-align: right;">112</td>
+<td>~£32 adult, ~£16 child, under 5 free. Peak/off-peak pricing. <em>Check</em></td>
+</tr>
+<tr>
+<td>Windsor Castle</td>
+<td style="text-align: right;">115</td>
+<td><em>Check</em>. The Wallace Collection alternative is free</td>
+</tr>
+<tr>
+<td>National Gallery, V&amp;A, Natural History Museum, Wallace, NRM</td>
+<td style="text-align: right;">0</td>
+<td>Free</td>
+</tr>
+<tr>
+<td>London transit, 6 days</td>
+<td style="text-align: right;">120</td>
+<td>Adults pay the daily cap; under-11s are free on the Tube</td>
+</tr>
+<tr>
+<td>Trains to Hampton Court and Windsor</td>
+<td style="text-align: right;">120</td>
+<td>Children 5–15 pay a reduced fare</td>
+</tr>
+<tr>
+<td>London ⇄ York trains + Family &amp; Friends Railcard</td>
+<td style="text-align: right;">350</td>
+<td>Railcard £35: ⅓ off adults, 60% off children 5–15. Advance fares</td>
+</tr>
+<tr>
+<td>JORVIK</td>
+<td style="text-align: right;">71</td>
+<td>£17.50 adult, £12 child, under 5 free</td>
+</tr>
+<tr>
+<td>York Minster, Clifford's Tower</td>
+<td style="text-align: right;">75</td>
+<td><em>Check</em></td>
+</tr>
+<tr>
+<td>Food, 9 days</td>
+<td style="text-align: right;">1,800</td>
+<td>~£200/day. London is expensive</td>
+</tr>
+<tr>
+<td><strong>Total fixed</strong></td>
+<td style="text-align: right;"><strong>~£2,900 ≈ $3,800</strong></td>
+<td>Before flights and lodging, which the tracker prices daily</td>
+</tr>
+</tbody>
+</table></div>
+<h2>When to book</h2>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th>What</th>
+<th>When</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Flights</td>
+<td>The tracker watches them. The best window is <strong>Dec 2026–Feb 2027</strong></td>
+</tr>
+<tr>
+<td>South Kensington apartment</td>
+<td>Early 2027 (refundable). Summer weeks book up</td>
+</tr>
+<tr>
+<td>York lodging</td>
+<td>Early 2027</td>
+</tr>
+<tr>
+<td>London–York trains</td>
+<td><strong>Advance fares</strong> open about 12 weeks ahead and are much cheaper. Buy the Railcard first</td>
+</tr>
+<tr>
+<td>Tower, Hampton Court, Windsor</td>
+<td>A few weeks ahead. Online is cheaper than at the gate</td>
+</tr>
+<tr>
+<td>JORVIK, Dishoom</td>
+<td>A few weeks ahead</td>
+</tr>
+</tbody>
+</table></div>
+<h2>Watch out for</h2>
+<ul>
+<li><strong>UK school holidays</strong> start in late July, so June and early July are
+  quieter.</li>
+<li><strong>Changing of the Guard</strong> doesn't happen every day. <em>Check</em> the schedule
+  for your dates.</li>
+<li><strong>Big museums are free but busy.</strong> Book the free time slots where offered
+  (Natural History Museum).</li>
+</ul>
+<h2>Tracker settings (to apply once you've reviewed this)</h2>
+<ul>
+<li><strong>"London"</strong>: change from 7 nights to <strong>6</strong>, and move the center to
+  <strong>South Kensington</strong> (51.4941, -0.1740), within 2 mi. Keep the rental with
+  2+ bedrooms.</li>
+<li>Add <strong>York</strong> as a second destination: 3 nights, center York Minster
+  (53.9620, -1.0819), within 1 mi, hotel with 2 rooms or a 2-bedroom
+  apartment.</li>
+<li>Flights: LHR round trip, and also price <strong>LHR in / MAN out</strong>.</li>
+<li>Fixed costs: the table above, as <code>flat_cost</code> (replacing the current £450
+  placeholder).</li>
+</ul>
+<h2>Sources (checked October 2026)</h2>
+<ul>
+<li>Tower of London: <a href="https://www.hrp.org.uk/tower-of-london/visit-us/" target="_blank" rel="noopener">HRP</a>, <a href="https://www.artvisitguide.com/tower-of-london-tickets-guide/" target="_blank" rel="noopener">artvisitguide</a></li>
+<li>Hampton Court: <a href="https://www.hrp.org.uk/hampton-court-palace/visit/tickets-and-prices/one-pound-tickets/" target="_blank" rel="noopener">HRP</a>, <a href="https://www.dayoutwiththekids.co.uk/tickets/hampton-court-palace-3420f0cf" target="_blank" rel="noopener">Day Out With The Kids</a></li>
+<li>National Gallery: <a href="https://www.nationalgallery.org.uk/about-us/press-and-media/press-releases/their-majesties-the-king-and-queen-reopen-the-national-gallery-sainsbury-wing" target="_blank" rel="noopener">nationalgallery.org.uk</a>, <a href="https://www.artvisitguide.com/national-gallery-london/" target="_blank" rel="noopener">artvisitguide</a></li>
+<li>V&amp;A Raphael Cartoons: <a href="https://theartnewspaper.com/news/raphael-returns-to-the-v-and-a-glorious-cartoons-court-reopens-in-november" target="_blank" rel="noopener">The Art Newspaper</a></li>
+<li>York: <a href="https://leeds-list.com/family/10-brilliant-family-attractions-in-york-and-the-easiest-way-to-reach-them/" target="_blank" rel="noopener">Leeds List family attractions</a>, <a href="https://visityork.org/groups-travel-trade/family-days-out-in-york" target="_blank" rel="noopener">Visit York</a></li>
+<li>Bath: <a href="https://newsroom.bathnes.gov.uk/node/34771" target="_blank" rel="noopener">BathNES newsroom</a>, <a href="https://thermaebathspa.ytlhotels.com/spa-sessions-new-royal-bath" target="_blank" rel="noopener">Thermae Bath Spa</a></li>
+<li>Family &amp; Friends Railcard: <a href="https://www.railcard.co.uk/family-and-friends-railcard/" target="_blank" rel="noopener">railcard.co.uk</a></li>
+</ul></section><footer>Prices are the cheapest option found across the configured dates, airports and hotels, not a quote. Availability changes faster than this page. last checked Oct 31, 2026 at 03:40 UTC.</footer></div></main></body></html>

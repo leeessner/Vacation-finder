@@ -1,0 +1,342 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Paris &amp; Versailles · Vacation deal watch</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;700&family=Public+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap"><style>
+:root{--paper:#f7f8fb;--card:#fff;--ink:#1b2233;--muted:#5a6478;--line:#dfe3ec;
+--accent:#2b4c9b;--accent-soft:#e7ecf8;--check-bg:#fff3d6;--check-fg:#7a5200;
+--display:"Libre Caslon Text",Georgia,"Times New Roman",serif;
+--body:"Public Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){
+--paper:#12161f;--card:#1a2030;--ink:#e6e9f0;--muted:#9aa3b6;--line:#2c3446;
+--accent:#8fa9ec;--accent-soft:#222c46;--check-bg:#3a2e12;--check-fg:#f3d27a;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:15.5px/1.6 var(--body)}
+.wrap{max-width:1000px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));
+padding-right:max(16px,env(safe-area-inset-right,0px))}
+header.top{padding-block:26px 16px}
+.eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);
+font-weight:600;margin:0 0 4px}
+header.top h1{font:700 clamp(26px,4.6vw,36px)/1.15 var(--display);margin:0}
+.sub{color:var(--muted);font-size:14px;margin:6px 0 0}
+nav.tabs{position:sticky;top:0;z-index:5;background:var(--card);border-block:1px solid var(--line)}
+nav.tabs .wrap{display:flex;gap:4px;overflow-x:auto;padding-block:6px}
+.tab{flex:0 0 auto;display:flex;flex-direction:column;padding:7px 13px;border-radius:6px 6px 0 0;
+text-decoration:none;color:var(--muted);border-bottom:3px solid transparent}
+.tab:hover{background:var(--accent-soft);color:var(--ink)}
+.tab:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.tab[aria-current=page]{color:var(--ink);border-bottom-color:var(--accent)}
+.tab b{font-size:14.5px}
+.tab span{font-size:12px;font-variant-numeric:tabular-nums}
+main{padding-block:24px 56px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.tcard{display:flex;flex-direction:column;gap:8px;background:var(--card);border:1px solid var(--line);
+border-radius:10px;padding:16px 18px;color:inherit;text-decoration:none;min-width:0}
+.tcard:hover{border-color:var(--accent)}
+.tcard:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.tcard h2{font:700 19px/1.25 var(--display);margin:0}
+.price{font-size:28px;font-weight:700;letter-spacing:-.01em;font-variant-numeric:tabular-nums;line-height:1.1}
+.price small{display:block;font-size:12.5px;font-weight:400;color:var(--muted);letter-spacing:0;margin-top:3px}
+.pill{align-self:flex-start;display:inline-block;padding:3px 11px;border-radius:99px;color:#fff;
+font-size:12.5px;font-weight:600;white-space:nowrap}
+.status{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.conf{font-size:12.5px;color:var(--muted)}
+.chart{margin-top:4px;color:var(--ink)}
+.more{margin-top:auto;font-size:13px;color:var(--accent);font-weight:600}
+.muted{color:var(--muted)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px;margin-bottom:18px}
+.head{display:flex;flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.name{font:700 22px/1.25 var(--display);margin:0}
+.why{color:var(--muted);font-size:13.5px;margin:4px 0 0;max-width:65ch}
+.big{font-size:30px;font-weight:700;margin:14px 0 2px;font-variant-numeric:tabular-nums}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-top:16px}
+.stat{border-top:1px solid var(--line);padding-top:9px}
+.stat b{display:block;font-size:17px;font-weight:650;font-variant-numeric:tabular-nums}
+.stat span{color:var(--muted);font-size:12px}
+.outlook{margin:14px 0 0;padding:10px 12px;border-radius:8px;background:var(--paper)}
+.outlook b{font-size:15px}
+.moves{margin-top:10px;font-size:14px}
+.note{color:var(--muted);font-size:13px;margin-top:4px}
+.caveat{margin:14px 0 0;padding:8px 11px;border-left:3px solid #d97706;
+background:rgba(217,119,6,.09);font-size:13px;border-radius:0 6px 6px 0}
+.scroll{overflow-x:auto;margin:14px 0;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{text-align:left;padding:8px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--muted);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.05em;
+background:var(--accent-soft)}
+tr:last-child td{border-bottom:0}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+a{color:var(--accent);text-underline-offset:2px}
+.plan h1{font:700 clamp(24px,4.2vw,32px)/1.2 var(--display);margin:34px 0 12px;text-wrap:balance}
+.plan h2{font:700 21px/1.3 var(--display);margin:36px 0 10px;padding-top:18px;border-top:1px solid var(--line)}
+.plan h3{font:700 17px/1.35 var(--display);margin:24px 0 8px;color:var(--accent)}
+.plan p,.plan li{max-width:70ch}
+.plan hr{display:none}
+.plan blockquote{margin:18px 0;padding:12px 16px;background:var(--check-bg);border-radius:6px}
+.plan blockquote p{margin:0}
+.plan p.day{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:13px 16px;margin:12px 0}
+.plan p.day strong:first-child{display:block;font:700 16.5px/1.35 var(--display);color:var(--accent);margin-bottom:3px}
+.check{display:inline-block;font-size:11.5px;font-weight:600;letter-spacing:.04em;padding:0 6px;
+border-radius:4px;background:var(--check-bg);color:var(--check-fg);text-transform:uppercase;line-height:1.6}
+.section-label{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);
+font-weight:600;margin:0 0 10px}
+pre{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:10px;
+font-size:12px;overflow-x:auto;white-space:pre-wrap}
+footer{color:var(--muted);font-size:12.5px;margin-top:30px;border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><header class='top'><div class='wrap'><p class="eyebrow"><a href="../index.html">Vacation deal watch</a></p><h1>Paris &amp; Versailles</h1></div></header><nav class="tabs" aria-label="Trips"><div class="wrap"><a class="tab" href="../index.html"><b>All trips</b><span>highlights</span></a><a class="tab" href="../trips/nashville-spring-break.html"><b>Nashville</b><span>4 nights · $1,176</span></a><a class="tab" href="../trips/smokies-spring-break.html"><b>Great Smoky Mountains</b><span>4 nights · $884</span></a><a class="tab" href="../trips/spain-barcelona-madrid.html"><b>Spain — Barcelona &amp; Madrid</b><span>10 nights · $11,221</span></a><a class="tab" href="../trips/paris-versailles.html" aria-current="page"><b>Paris &amp; Versailles</b><span>9 nights · $12,039</span></a><a class="tab" href="../trips/nice-riviera.html"><b>Nice &amp; the French Riviera</b><span>9 nights · $13,628</span></a><a class="tab" href="../trips/greece-summer.html"><b>Greece — Athens &amp; the islands</b><span>10 nights · $9,415</span></a><a class="tab" href="../trips/portugal-azores-summer.html"><b>Portugal &amp; the Azores</b><span>10 nights · $10,593</span></a><a class="tab" href="../trips/austria-bavaria-summer.html"><b>Austria &amp; Bavaria</b><span>10 nights · $12,168</span></a><a class="tab" href="../trips/london-summer.html"><b>London</b><span>7 nights · $8,514 so far</span></a><a class="tab" href="../trips/plan-florence-tuscany.html"><b>Florence &amp; Tuscany</b><span>8 nights · not tracked yet</span></a><a class="tab" href="../trips/plan-resorts.html"><b>The family resorts — a plan for each</b><span>plan</span></a></div></nav><main><div class='wrap'><section class="card"><div class="head"><div><h2 class="name">Price tracker</h2><p class="why">Versailles is a 40-minute train from the city; no car needed all week</p></div><span class="pill" style="background:#b91c1c">very high</span></div><div class="big">$12,039</div><div class="why">CDG · Jun 21 – Jun 30, 2027 · Delta</div><div class="note">airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)</div><div class="note">hotel price checked 4 day(s) ago</div><div class="outlook" style="border-left:4px solid #15803d"><b style="color:#15803d">Good time to book</b><span class="note"> · medium confidence</span><div style="font-size:14px;margin-top:3px">the fare is low for this route and season; Google's typical range is $7,900–$9,500; only 6 day(s) of tracking so far</div></div><div class="moves"><div>Flights $7,641</div><div>Hotel $4,058</div></div><div class="chart"><svg viewBox="0 0 640 170" width="100%" role="img" aria-label="Price history 2026-10-25 to 2026-10-30" style="max-width:640px;display:block"><line x1="58" x2="630" y1="146.0" y2="146.0" stroke="currentColor" stroke-opacity="0.12"/><text x="52" y="150.0" text-anchor="end" font-size="11" fill="currentColor" fill-opacity="0.6">$2,491</text><line x1="58" x2="630" y1="100.7" y2="100.7" stroke="currentColor" stroke-opacity="0.12"/><text x="52" y="104.7" text-anchor="end" font-size="11" fill="currentColor" fill-opacity="0.6">$5,909</text><line x1="58" x2="630" y1="55.3" y2="55.3" stroke="currentColor" stroke-opacity="0.12"/><text x="52" y="59.3" text-anchor="end" font-size="11" fill="currentColor" fill-opacity="0.6">$9,328</text><line x1="58" x2="630" y1="10.0" y2="10.0" stroke="currentColor" stroke-opacity="0.12"/><text x="52" y="14.0" text-anchor="end" font-size="11" fill="currentColor" fill-opacity="0.6">$12,746</text><text x="58" y="164" font-size="11" fill="currentColor" fill-opacity="0.6">Oct 25</text><text x="630" y="164" text-anchor="end" font-size="11" fill="currentColor" fill-opacity="0.6">Oct 30</text><path d="M58.0,77.7 L172.4,70.9 L286.8,71.1 L401.2,66.6 L515.6,66.6 L630.0,77.7" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/><circle cx="630.0" cy="77.7" r="3.5" fill="#2563eb"/><path d="M172.4,136.6 L286.8,136.6 L401.2,136.6 L515.6,136.6 L630.0,125.2" fill="none" stroke="#d97706" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/><circle cx="630.0" cy="125.2" r="3.5" fill="#d97706"/><path d="M172.4,24.0 L286.8,24.2 L401.2,19.6 L515.6,19.6 L630.0,19.4" fill="none" stroke="#6d28d9" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/><circle cx="630.0" cy="19.4" r="3.5" fill="#6d28d9"/></svg><div style="font-size:12px;margin-top:4px"><span style="display:inline-flex;align-items:center;gap:5px;margin-right:14px"><span style="width:12px;height:3px;border-radius:2px;background:#2563eb"></span>Flights</span><span style="display:inline-flex;align-items:center;gap:5px;margin-right:14px"><span style="width:12px;height:3px;border-radius:2px;background:#d97706"></span>Hotel</span><span style="display:inline-flex;align-items:center;gap:5px;margin-right:14px"><span style="width:12px;height:3px;border-radius:2px;background:#6d28d9"></span>Total</span></div></div><div class="grid"><div class="stat"><b>$7,641</b><span>flights, whole party</span></div><div class="stat"><b>$4,058</b><span>lodging, 9 nights</span></div><div class="stat"><b>$340</b><span>Paris transit passes for six, plus RER to Versailles and CDG</span></div><div class="stat"><b>$11,674</b><span>cheapest ever (Oct 27)</span></div><div class="stat"><b>$12,019</b><span>median of 5 checks</span></div></div><div class="scroll"><table><thead><tr><th>Checked</th><th>Travel dates</th><th class="num">Flights</th><th class="num">Lodging</th><th class="num">Tracked total</th><th>Property</th></tr></thead><tbody><tr><td>Oct 30</td><td>Jun 21–Jun 30</td><td class="num">$7,641</td><td class="num">$4,058</td><td class="num"><b>$12,039</b></td><td>Hôtel Bridget</td></tr><tr><td>Oct 29</td><td>Jul 08–Jul 17</td><td class="num">$8,481</td><td class="num">$3,198</td><td class="num"><b>$12,019</b></td><td>Simon's Boutique Hotel</td></tr><tr><td>Oct 28</td><td>Jul 08–Jul 17</td><td class="num">$8,481</td><td class="num">$3,198</td><td class="num"><b>$12,019</b></td><td>Simon's Boutique Hotel</td></tr><tr><td>Oct 27</td><td>Jul 08–Jul 17</td><td class="num">$8,136</td><td class="num">$3,198</td><td class="num"><b>$11,674</b></td><td>Simon's Boutique Hotel</td></tr><tr><td>Oct 26</td><td>Jul 08–Jul 17</td><td class="num">$8,154</td><td class="num">$3,198</td><td class="num"><b>$11,692</b></td><td>Simon's Boutique Hotel</td></tr><tr><td>Oct 25</td><td>Jun 21–Jun 30</td><td class="num">$7,641</td><td class="num">—</td><td class="num"><b>$7,981</b></td><td></td></tr><tr><td>Oct 25</td><td>Jun 21–Jun 30</td><td class="num">$7,641</td><td class="num">—</td><td class="num"><b>$7,981</b></td><td></td></tr><tr><td>Oct 25</td><td>Jun 21–Jun 30</td><td class="num">$7,641</td><td class="num">—</td><td class="num"><b>$7,981</b></td><td></td></tr></tbody></table></div></section><section class="plan"><h1>Paris, Versailles &amp; Alsace</h1><p><strong>Shape:</strong> 9 nights. Six in Paris, covering the family's own list: the
+Louvre, the Orsay, Montmartre, the Eiffel Tower, a park, Versailles and one
+Disneyland day. Then three in <strong>Strasbourg</strong>, 1¾ hours east by TGV, with Colmar
+and a mountain-top castle as day trips. It's trains the whole way, with no
+car. The last train runs straight to Paris-CDG for the flight home.</p>
+<p>This matches the tracked trip <strong>"Paris &amp; Versailles"</strong> (9 nights). It adds the
+<strong>Alsace</strong> idea from the Colmar-with-kids post, which is in
+<code>plans/inspiration.md</code>. Written against <code>plans/family-profile.md</code>. Prices
+were checked in October 2026 from the sources listed at the end. Anything not
+confirmed is marked <span class="check">check</span>. Euros are converted at about <strong>$1.15 per €1</strong>.</p>
+<hr />
+<h2>At a glance</h2>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th></th>
+<th>Where</th>
+<th>Nights</th>
+<th>Getting around</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Base 1</td>
+<td>A 2–3-bedroom apartment near the <strong>Luxembourg Gardens</strong> (6th arr.)</td>
+<td>6</td>
+<td>Métro and RER. <strong>Under 4s ride free; ages 4–9 pay half</strong></td>
+</tr>
+<tr>
+<td>Base 2</td>
+<td>An apartment or 2-room hotel in <strong>Strasbourg's old town</strong> (Grande Île)</td>
+<td>3</td>
+<td>On foot and tram; regional trains to Sélestat and Colmar</td>
+</tr>
+</tbody>
+</table></div>
+<p>Why the Luxembourg Gardens, rather than the tracker's current center at the
+Hôtel de Ville: the gardens are Paris's best park for children, with a big
+playground, toy sailboats on the pond and a puppet theatre. It's the profile's
+"a park" built into every day. The Louvre, Orsay and Notre-Dame
+are a short walk or Métro ride away.</p>
+<p>Fly into <strong>Paris-CDG</strong>. Fly home from CDG; the TGV runs from Strasbourg
+directly to the airport station.</p>
+<h2>Day by day</h2>
+<p class="day"><strong>Day 1 — Arrive. The Luxembourg Gardens.</strong> Rent a wooden <strong>toy sailboat</strong> to
+push around the Grand Bassin, then go to the playground. An easy first
+afternoon.</p>
+<p class="day"><strong>Day 2 — The Louvre, first thing.</strong> Take the 9:00 slot and plan about 2½
+hours. Raphael's <em>Belle Jardinière</em> and <em>Baldassare Castiglione</em>; Leonardo's
+<em>Mona Lisa</em>, <em>Virgin of the Rocks</em> and <em>Virgin and Child with St Anne</em>;
+Michelangelo's two <em>Slaves</em>; the <em>Winged Victory</em>; Caravaggio, Poussin's
+great room, and Rembrandt. Picnic in the <strong>Tuileries</strong>, which has trampolines
+for the kids.</p>
+<p class="day"><strong>Day 3 — Sainte-Chapelle, Notre-Dame, the Eiffel Tower.</strong> Go early to
+<strong>Sainte-Chapelle</strong>, a room made of stained glass. Then <strong>Notre-Dame</strong>, which
+reopened in December 2024 and is free to enter. In the afternoon, take the
+<strong>lift to the Eiffel Tower's summit</strong>; book the slot ahead. Afterwards, the
+Champ de Mars has playgrounds and lawns. If you can stay out, the tower
+sparkles for five minutes on the hour after dark.</p>
+<p class="day"><strong>Day 4 — Versailles.</strong> Take the RER C, about 40 minutes. Tour the palace
+early. Under-18s are free but need a timed slot. Then get out into the park:
+rent <strong>bikes or a rowing boat</strong> on the Grand Canal, or take the little train
+to the Trianons and <strong>Marie Antoinette's Hamlet</strong>, a storybook farm village.
+On summer weekends the fountains run to music.</p>
+<p class="day"><strong>Day 5 — The Orsay in the morning, Montmartre in the evening.</strong> Start at the
+<strong>Orsay</strong> at opening. Impressionism is "nice, not essential" in the profile,
+but the sculpture hall (Carpeaux, Rodin) and the giant station clock work for
+everyone. Keep it to about 1½ hours. Rest in the afternoon. In the evening,
+ride the <strong>funicular</strong> up to Sacré-Cœur, watch the painters in Place du
+Tertre, and have dinner in the village lanes. Then sit on the Sacré-Cœur
+steps as the city lights come on.</p>
+<p class="day"><strong>Day 6 — Disneyland Paris.</strong> The one special day, as the profile allows.
+It's 40 minutes on the RER A. Rope-drop at opening, and plan around the
+3-year-old's nap.</p>
+<p class="day"><strong>Day 7 — TGV to Strasbourg</strong> (1¾ h). In the afternoon, go to <strong>Petite
+France</strong>, the half-timbered, canal-side old quarter. Then climb the
+<strong>Barrage Vauban</strong>, a 17th-century covered bridge with a free roof terrace
+over the canals.</p>
+<p class="day"><strong>Day 8 — The cathedral and its astronomical clock.</strong> At <strong>12:30</strong> each day,
+the clock's mechanical apostles parade and the rooster crows. It's a big
+hit with kids. Buy the ticket that morning; <span class="check">check</span> the times. Climb the
+platform for the view if legs allow. The afternoon is for <strong>Parc de
+l'Orangerie</strong>: playground, rowing boats and the storks (a bonus).</p>
+<p class="day"><strong>Day 9 — The castle, then Colmar.</strong> Take the train to Sélestat (25 min),
+then the shuttle bus (line 500, which runs in the tourist season; <span class="check">check</span>
+the times) up to <strong>Haut-Koenigsbourg</strong>. It's a huge red
+sandstone castle on a mountain top, with ramparts, an armoury and views over
+the Rhine plain. It's the castle day of the trip. In the afternoon, take the
+train to <strong>Colmar</strong> (12 min): <strong>Little Venice</strong>, a short flat-bottomed
+<strong>boat ride</strong> on the canal (25 min), and old-town lanes. Parents can add the
+<strong>Isenheim Altarpiece</strong> at the Unterlinden museum (children under 12 free).</p>
+<p class="day"><strong>Day 10 — TGV to Paris-CDG</strong> (about 2 h), then fly home.</p>
+<h2>Optional</h2>
+<ul>
+<li><strong>Musée Rodin.</strong> It's the profile's "great sculpture" stop: <em>The Thinker</em>
+  and <em>The Gates of Hell</em> stand in a garden where the kids can roam while the
+  parents look. It fits a free afternoon, such as Day 5's rest time.</li>
+</ul>
+<h2>Food — and protein for the vegetarian parent</h2>
+<ul>
+<li><strong>Paris:</strong> falafel in the Marais (L'As du Fallafel is the famous one), which
+  gives chickpea protein and is a kids' favourite. Buckwheat <strong>galettes</strong> with
+  egg and cheese, served in any crêperie. Creperies are also the kids'
+  backup, along with <em>steak-frites</em> and pasta.</li>
+<li><strong>Alsace:</strong> <strong>tarte flambée</strong> (<em>flammekueche</em>) has a vegetarian version
+  without bacon, and every winstub makes it. <em>Bibeleskaas</em>, herbed fresh
+  cheese with potatoes, is protein-rich. There's also <strong>Munster</strong> cheese, and
+  <em>spätzle</em>.</li>
+<li>Vegetarian is normal in Paris now. Most bistros have a vegetarian main;
+  ask for <em>sans viande</em>.</li>
+</ul>
+<p><strong>Beer:</strong> Alsace is France's beer country. Look for Strasbourg's
+microbreweries and brasseries, plus <strong>Meteor</strong>, a family brewery north of
+the city. Paris has good craft-beer bars for the parents.</p>
+<h2>Fixed costs (estimate, for six)</h2>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th>Item</th>
+<th style="text-align: right;">€</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Louvre</td>
+<td style="text-align: right;">64</td>
+<td><strong>€32 for non-EU adults</strong> from January 2026. Children free (<span class="check">check</span>), timed slot required</td>
+</tr>
+<tr>
+<td>Sainte-Chapelle, Notre-Dame</td>
+<td style="text-align: right;">40</td>
+<td>Notre-Dame free. Sainte-Chapelle ~€20 adult, children free. <em>Check</em></td>
+</tr>
+<tr>
+<td>Versailles day</td>
+<td style="text-align: right;">145</td>
+<td>Passport €35 adult in high season, under-18s free; RER C; bikes or the little train</td>
+</tr>
+<tr>
+<td>Orsay</td>
+<td style="text-align: right;">32</td>
+<td>~€16 adult. Under-18s free (<span class="check">check</span>)</td>
+</tr>
+<tr>
+<td>Eiffel Tower summit by lift</td>
+<td style="text-align: right;">101</td>
+<td>€36.70 adult, €9.20 ages 4–11, under 4 free</td>
+</tr>
+<tr>
+<td>Paris Métro, RER and airport, 6 days</td>
+<td style="text-align: right;">180</td>
+<td>€2.55 per ride; half fare ages 4–9</td>
+</tr>
+<tr>
+<td>Luxembourg sailboats, puppet show</td>
+<td style="text-align: right;">50</td>
+<td></td>
+</tr>
+<tr>
+<td>TGV Paris → Strasbourg → CDG</td>
+<td style="text-align: right;">450</td>
+<td>Advance fares. <em>Check</em> SNCF's family fares</td>
+</tr>
+<tr>
+<td>Strasbourg clock, Haut-Koenigsbourg, trains, shuttle</td>
+<td style="text-align: right;">140</td>
+<td>Castle €12 adult, €8 child, under 6 free</td>
+</tr>
+<tr>
+<td>Colmar boat, Unterlinden</td>
+<td style="text-align: right;">70</td>
+<td>Boat ~€9 pp; museum free under 12</td>
+</tr>
+<tr>
+<td>Food, 9 days</td>
+<td style="text-align: right;">1,700</td>
+<td>~€190/day</td>
+</tr>
+<tr>
+<td>Disneyland Paris, one day</td>
+<td style="text-align: right;">700</td>
+<td>Dated tickets for six, plus the RER. <em>Check</em> the price for your date</td>
+</tr>
+<tr>
+<td><strong>Total fixed</strong></td>
+<td style="text-align: right;"><strong>~€3,700 ≈ $4,250</strong></td>
+<td>Before flights and lodging, which the tracker prices daily</td>
+</tr>
+<tr>
+<td><em>Option: Musée Rodin</em></td>
+<td style="text-align: right;"><em>30</em></td>
+<td><em>€15 adult online. Under-18s free (check)</em></td>
+</tr>
+</tbody>
+</table></div>
+<h2>When to book</h2>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th>What</th>
+<th>When</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Flights</td>
+<td>The tracker watches them. The best window is <strong>Dec 2026–Feb 2027</strong></td>
+</tr>
+<tr>
+<td>Paris apartment</td>
+<td>Early 2027 (refundable). The tracker prices it</td>
+</tr>
+<tr>
+<td>Strasbourg lodging</td>
+<td>Early 2027</td>
+</tr>
+<tr>
+<td>Louvre, Versailles, Eiffel Tower, Sainte-Chapelle, Disneyland</td>
+<td><strong>As soon as each opens sales for your dates.</strong> Summer morning slots go first; the Eiffel summit sells out</td>
+</tr>
+<tr>
+<td>TGV</td>
+<td>When sales open (several months ahead). Early fares are far cheaper</td>
+</tr>
+<tr>
+<td>Haut-Koenigsbourg</td>
+<td>Online a few weeks ahead in summer</td>
+</tr>
+</tbody>
+</table></div>
+<h2>Watch out for</h2>
+<ul>
+<li><strong>French school holidays</strong> start in early July. June is calmer, especially
+  at Versailles.</li>
+<li><strong>Museum closing days:</strong> the Louvre is closed Tuesdays, Versailles and the
+  Orsay are closed Mondays. Arrange Days 2–5 around them when the dates are
+  fixed.</li>
+<li><strong>Pickpockets</strong> on the Métro and around the Eiffel Tower: keep phones and
+  wallets zipped.</li>
+</ul>
+<h2>Tracker settings (to apply once you've reviewed this)</h2>
+<ul>
+<li><strong>"Paris &amp; Versailles"</strong>: lodging for <strong>6 nights</strong>, center <strong>Luxembourg
+  Gardens</strong> (48.8462, 2.3372), within 2 mi, a rental with 2+ bedrooms or 2
+  hotel rooms. Rename it "Paris &amp; Alsace".</li>
+<li>Add <strong>Strasbourg</strong> as a second destination: 3 nights, center the
+  cathedral (48.5819, 7.7510), within 1 mi.</li>
+<li>Fixed costs: the table above, as <code>flat_cost</code> (replacing the current €340).</li>
+</ul>
+<h2>Sources (checked October 2026)</h2>
+<ul>
+<li>Louvre non-EU price: <a href="https://www.thelocal.com/20260114/explained-frances-new-museum-prices-for-tourists-and-residents" target="_blank" rel="noopener">The Local</a>, <a href="https://abc7.com/post/louvre-museum-paris-hikes-ticket-prices-most-european-tourists-what-know/18401055/" target="_blank" rel="noopener">ABC7</a></li>
+<li>Versailles: <a href="https://en.chateauversailles.fr/2026-ticketing" target="_blank" rel="noopener">chateauversailles.fr 2026 ticketing</a>, <a href="https://en.chateauversailles.fr/plan-your-visit/conditions-free-admission" target="_blank" rel="noopener">free admission</a></li>
+<li>Musée Rodin: <a href="https://www.musee-rodin.fr/en/plan-your-visit/plan-your-visit-musee-rodin" target="_blank" rel="noopener">musee-rodin.fr</a>, <a href="https://www.artvisitguide.com/musee-rodin-paris-tickets-2026/" target="_blank" rel="noopener">artvisitguide</a></li>
+<li>Eiffel Tower: <a href="https://www.toureiffel.paris/en/rates-opening-times" target="_blank" rel="noopener">toureiffel.paris</a></li>
+<li>Métro fares: <a href="https://www.ratp.fr/en/titres-et-tarifs/ticket-metro-train-rer" target="_blank" rel="noopener">RATP</a>, <a href="https://www.european-traveler.com/france/guide-to-paris-public-transport-tickets-and-prices-for-visitors/" target="_blank" rel="noopener">european-traveler</a></li>
+<li>Haut-Koenigsbourg: <a href="https://www.tourisme-colmar.com/en/whats-on/leisure-places/the-castles/F269000048_haut-koenigsbourg-castle-orschwiller" target="_blank" rel="noopener">Tourisme Colmar</a>, <a href="https://www.selestat-haut-koenigsbourg.com/en/lei/detail/114/269000048/1884/chateau-du-haut-koenigsbourg-orschwiller.htm" target="_blank" rel="noopener">Sélestat tourism</a></li>
+<li>Colmar with kids: <a href="https://kidsareatrip.com/colmar-with-kids/" target="_blank" rel="noopener">Kids Are A Trip</a>, <a href="https://www.theworldisabook.com/26629/colmar-with-kids/" target="_blank" rel="noopener">The World Is A Book</a>, <a href="https://postcardnarrative.com/colmar-with-kids/" target="_blank" rel="noopener">postcardnarrative</a></li>
+<li>Unterlinden: <a href="https://www.musement.com/uk/colmar/billets-pour-le-musee-unterlinden-498390/" target="_blank" rel="noopener">Musement listing</a></li>
+</ul></section><footer>Prices are the cheapest option found across the configured dates, airports and hotels, not a quote. Availability changes faster than this page. last checked Oct 31, 2026 at 03:40 UTC.</footer></div></main></body></html>
