@@ -314,10 +314,12 @@ trips:
         # hills above Florence, with Fattoria di Maiano as the preferred
         # property — tracked whenever Google shows a price for it, with the
         # cheapest alternative noted beside it.
-        hotel_query: "Fiesole, Italy"
+        # Second run: without a star floor the cheapest was a hostel, and the
+        # farm itself didn't appear. 3-star minimum; the farm stays preferred.
+        hotel_query: "Fiesole, Florence, Italy"
         center: [43.8066, 11.2936]   # Fiesole; 3 mi reaches Maiano and the edge of Florence
         within_miles: 3
-        lodging: {prefer: ["Fattoria di Maiano"]}
+        lodging: {prefer: ["Fattoria di Maiano"], min_stars: 3}
       - code: SAY
         label: "Siena, Italy"
         nights: 3
@@ -689,9 +691,10 @@ trips:
         label: "Brussels, Belgium"
         nights: 5
         center: [50.8467, 4.3525]    # Grand Place
-        # First run (Oct 31): nothing within 1.5 mi under $500 a night.
+        # Oct 31: no 2-bedroom apartment within 1.5 or 2.5 mi, even at $650
+        # a night. Brussels prices as two hotel rooms instead.
         within_miles: 2.5
-        lodging: {max_per_night: 650}
+        lodging: {kind: hotel, rooms: 2, min_stars: 3, max_per_night: 650}
     party:
       adults: 2
       children: [8, 7, 5, 3]
