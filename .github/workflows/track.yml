@@ -1,7 +1,9 @@
 name: Track prices
 
 # Runs daily, records the day's best price for every active trip, fires any
-# alerts, rebuilds the dashboard, and commits the result. The daily commit also
+# alerts, rebuilds the dashboard, and commits the result. On the weekly check
+# day (settings.weekly_check_day) it also re-checks every hotel and sends the
+# email digest. The daily commit also
 # keeps the repository "active", which stops GitHub from auto-disabling these
 # scheduled workflows after 60 idle days.
 on:
@@ -11,6 +13,10 @@ on:
     inputs:
       first_look:
         description: "Trip ids to price once now, ahead of the queue (comma-separated; blank for a normal run)"
+        required: false
+        default: ""
+      reserve:
+        description: "This run only: searches to keep back (blank = the configured reserve; 0 spends it)"
         required: false
         default: ""
 
@@ -49,7 +55,10 @@ jobs:
           # assigned to you, and GitHub emails you. No mail password exists.
           GITHUB_TOKEN: ${{ github.token }}
           FIRST_LOOK: ${{ inputs.first_look }}
-        run: PYTHONPATH=src python -m vacation_finder track --verbose --first-look "$FIRST_LOOK"
+          RESERVE: ${{ inputs.reserve }}
+        run: >-
+          PYTHONPATH=src python -m vacation_finder track --verbose --first-look "$FIRST_LOOK"
+          ${RESERVE:+--reserve "$RESERVE"}
 
       - name: Commit the day's prices
         run: |

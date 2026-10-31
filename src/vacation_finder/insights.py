@@ -109,10 +109,12 @@ def save_insights(insights: dict[str, FlightInsight]) -> None:
     save_state(STATE_NAME, {k: v.to_dict() for k, v in sorted(insights.items())})
 
 
-def due(config: Config, insights: dict[str, FlightInsight], today: date) -> list[Trip]:
-    """Flying trips whose insight is missing or older than the refresh interval,
-    oldest first."""
-    every = config.settings.flight_insight_days
+def due(
+    config: Config, insights: dict[str, FlightInsight], today: date, every: int | None = None
+) -> list[Trip]:
+    """Flying trips whose insight is missing or older than the refresh interval
+    (`every` days, default `flight_insight_days`), oldest first."""
+    every = config.settings.flight_insight_days if every is None else every
 
     def age(trip: Trip) -> int:
         known = insights.get(trip.id)

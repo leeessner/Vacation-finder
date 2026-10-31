@@ -80,6 +80,7 @@ class LodgingBook:
         entries: dict[str, dict[str, Any]] | None = None,
         unavailable_reason: str = "",
         priority: Iterable[str] = (),
+        recheck_days: int | None = None,
     ) -> "LodgingBook":
         """`priority` slots (a first look at a new trip) go to the front of the
         queue; everything else keeps its stalest-first order behind them."""
@@ -98,7 +99,7 @@ class LodgingBook:
         first = [k for k in dict.fromkeys(priority) if k in costs and k not in done_today]
         # A price newer than hotel_recheck_days waits its turn (a weekly
         # cadence); a first look always goes ahead.
-        recheck = config.settings.hotel_recheck_days
+        recheck = config.settings.hotel_recheck_days if recheck_days is None else recheck_days
         cutoff = (today - timedelta(days=recheck)).isoformat() if recheck else ""
         ordered = first + sorted(
             (k for k in costs if k not in set(first)
@@ -128,13 +129,14 @@ class LodgingBook:
     @classmethod
     def load(
         cls, config: Config, today: date, allowance: int, unavailable_reason: str = "",
-        priority: Iterable[str] = (),
+        priority: Iterable[str] = (), recheck_days: int | None = None,
     ) -> "LodgingBook":
         from .storage import load_state  # storage imports pricing, which imports this
 
         state = load_state(STATE_NAME)
         return cls.plan(
-            config, today, allowance, state.get("slots", {}), unavailable_reason, priority
+            config, today, allowance, state.get("slots", {}), unavailable_reason, priority,
+            recheck_days,
         )
 
     def save(self) -> None:

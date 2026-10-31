@@ -20,7 +20,7 @@ from pathlib import Path
 from . import alerts as alerts_mod
 from . import dashboard as dashboard_mod
 from . import flight_details, notify
-from .config import Config, ConfigError, load_config
+from .config import WEEKDAY_NAMES, Config, ConfigError, load_config
 from .dates import candidate_windows
 from .pricing import TripPricer
 from .report import build_reports
@@ -199,7 +199,11 @@ def cmd_validate(args: argparse.Namespace) -> int:
     per_run = settings.searches_per_run
     flights_per_run = len(flying_trips(config)) / max(1, settings.flight_insight_days)
     hotel_per_run = max(0.0, per_run - flights_per_run)
-    print(f"\nSerpApi budget: up to {per_run} search(es) per daily run, of 250 free a month.")
+    if settings.weekly_check_day:
+        print(f"\nSerpApi budget: one pass each {settings.weekly_check_day} (digest the same "
+              "day), of 250 free a month; other days use no searches.")
+    else:
+        print(f"\nSerpApi budget: up to {per_run} search(es) per daily run, of 250 free a month.")
     print(
         f"  Flights: {len(flying_trips(config))} trip(s) checked every "
         f"{settings.flight_insight_days} days (~{flights_per_run * 30:.0f}/month)."
@@ -207,6 +211,8 @@ def cmd_validate(args: argparse.Namespace) -> int:
     if slots:
         cycle = cycle_cost / hotel_per_run if hotel_per_run else float("inf")
         cycle = max(cycle, settings.hotel_recheck_days)
+        if settings.weekly_check_day:
+            cycle = 7       # one full pass every check day
         print(
             f"  Hotels: {len(slots)} slot(s) costing {cycle_cost} search(es) per full pass; "
             f"each re-checked about every {cycle:.0f} day(s)."
@@ -219,12 +225,47 @@ def cmd_validate(args: argparse.Namespace) -> int:
                 "being re-checked — fewer date windows, or more searches per run."
             )
     monthly = per_run * 31
-    if monthly + settings.hotel_search_reserve > 250:
+    if not settings.weekly_check_day and monthly + settings.hotel_search_reserve > 250:
         print(
             f"  WARNING: up to {monthly} searches in a 31-day month plus the reserve is more "
             "than the free 250; the tracker stops searching when the month runs out."
         )
     return 0
+
+
+WEEKLY_SLACK_DAYS = 2   # on the check day, anything older than this is redone
+
+
+def args_reserve(args: argparse.Namespace) -> int | None:
+    value = getattr(args, "reserve", None)
+    return None if value is None else max(0, int(value))
+
+
+def check_days(settings, today: date) -> tuple[bool, bool]:
+    """(today is the weekly check day, today is a weekly-mode off day)."""
+    weekly = settings.weekly_check_day
+    if weekly is None:
+        return False, False
+    is_day = WEEKDAY_NAMES[today.weekday()] == weekly
+    return is_day, not is_day
+
+
+def search_allowance(settings, today: date, left: int | None, needed: int, reserve: int) -> int:
+    """SerpApi searches this run may spend. `needed` is a first look's cost."""
+    from .lodging import run_allowance
+
+    check_day, off_day = check_days(settings, today)
+    if off_day:
+        allowance = 0
+    elif check_day:
+        # The whole weekly pass at once, not the daily cap.
+        allowance = max(0, left - reserve) if left is not None else settings.searches_per_run * 7
+    else:
+        allowance = run_allowance(left, settings.searches_per_run, reserve)
+    if needed and left is not None:
+        # Enough for the first look on top, never into the reserve.
+        allowance = min(allowance + needed, max(0, left - reserve))
+    return allowance
 
 
 def cmd_track(args: argparse.Namespace) -> int:
@@ -248,29 +289,45 @@ def cmd_track(args: argparse.Namespace) -> int:
     from .lodging import first_look_slots
 
     priority = first_look_slots(config, today, look)
-    due = insights_mod.due(config, insights, today)
+
+    # Weekly mode: every paid search happens on the check day, in one pass
+    # (anything not checked in the last WEEKLY_SLACK_DAYS is redone), and the
+    # digest follows. On other days only a first look spends searches.
+    weekly = settings.weekly_check_day
+    check_day, off_day = check_days(settings, today)
+    recheck = WEEKLY_SLACK_DAYS if check_day else None
+
+    due = insights_mod.due(config, insights, today, every=recheck)
     look_due = [t for t in due if t.id in look]
-    due = look_due + [t for t in due if t not in look_due]
+    due = look_due + ([] if off_day else [t for t in due if t not in look_due])
     needed = len(look_due) + sum(priority.values())
 
+    # --reserve N: this run only, leave N searches untouched instead of the
+    # configured reserve (0 spends it). The setting itself is unchanged.
+    reserve = settings.hotel_search_reserve if args_reserve(args) is None else args_reserve(args)
     if hotels.configured:
         left = hotels.searches_left()
-        allowance = run_allowance(left, settings.searches_per_run, settings.hotel_search_reserve)
-        if needed and left is not None:
-            # Enough for the first look plus a normal day, never into the reserve.
-            allowance = min(allowance + needed, max(0, left - settings.hotel_search_reserve))
+        allowance = search_allowance(settings, today, left, needed, reserve)
         if left is not None:
-            log.info("SerpApi: %d search(es) left this month", left)
-        reason = "" if allowance else "this month's free SerpApi searches are used up"
+            log.info("SerpApi: %d search(es) left this month (reserve %d)", left, reserve)
+        if allowance:
+            reason = ""
+        elif off_day:
+            reason = f"hotel prices are re-checked each {weekly}"
+        else:
+            reason = "this month's free SerpApi searches are used up"
     else:
         allowance, reason = 0, f"SERPAPI_KEY is not set — {SIGNUP_HINT}"
     if look:
         log.info("first look at %s: %d search(es) set aside", ", ".join(look), needed)
+    if weekly:
+        log.info("weekly check day is %s; today is %s", weekly, "a check day" if check_day else "not")
 
     # Flight insights first: one search a week per flying trip, and the only
     # source of "is this fare typical?" Hotels get what's left. A first-look
-    # trip without one goes first and doesn't count against the usual cap.
-    per_run = insights_mod.MAX_PER_RUN + len(look_due)
+    # trip without one goes first and doesn't count against the usual cap;
+    # the weekly check day does them all.
+    per_run = len(due) if check_day else insights_mod.MAX_PER_RUN + len(look_due)
     for trip in due[: min(allowance, per_run)]:
         fresh = insights_mod.fetch(hotels, trip, config, today)
         allowance -= 1
@@ -280,7 +337,8 @@ def cmd_track(args: argparse.Namespace) -> int:
     insights_mod.save_insights(insights)
 
     book = LodgingBook.load(
-        config, today, allowance, unavailable_reason=reason, priority=list(priority)
+        config, today, allowance, unavailable_reason=reason, priority=list(priority),
+        recheck_days=recheck,
     )
     details = load_state(flight_details.STATE_NAME) or {}
     pricer = TripPricer(config, hotels=hotels, book=book, insights=insights)
@@ -331,6 +389,13 @@ def cmd_track(args: argparse.Namespace) -> int:
         _deliver(title, body, notify.ALERT_LABEL, args)
     else:
         log.info("no new alerts")
+    if check_day and not look:
+        # The weekly prices are in: send the digest the same day.
+        title, body = notify.digest_markdown(
+            reports, today, _dashboard_url(), _spreadsheet_url()
+        )
+        _deliver(title, body, notify.DIGEST_LABEL, args, close_previous=True)
+        log.info("weekly digest sent")
     if hotels.configured:
         after = hotels.searches_left()      # free: the account endpoint costs nothing
         if after is not None:
@@ -768,6 +833,10 @@ def build_parser() -> argparse.ArgumentParser:
     track.add_argument(
         "--first-look", default="", metavar="IDS",
         help="comma-separated trip ids to price once now (first date window), ahead of the queue",
+    )
+    track.add_argument(
+        "--reserve", type=int, default=None, metavar="N",
+        help="this run only: keep N SerpApi searches back instead of hotel_search_reserve",
     )
     track.set_defaults(func=cmd_track)
     add("digest", help="send the scheduled update").set_defaults(func=cmd_digest)

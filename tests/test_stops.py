@@ -224,3 +224,28 @@ def test_weekly_hotels_price_the_first_window_and_wait_a_week(tmp_path):
     assert LodgingBook.plan(config, TODAY, allowance=20, entries=six_days).refresh == set()
     week = {k: {"checked_on": (TODAY - timedelta(days=7)).isoformat(), "quote": None} for k in keys}
     assert LodgingBook.plan(config, TODAY, allowance=20, entries=week).refresh == set(keys)
+
+
+
+def test_weekly_mode_spends_only_on_the_check_day_or_a_first_look():
+    from dataclasses import replace
+
+    from vacation_finder.cli import search_allowance
+
+    weekly = replace(SETTINGS, weekly_check_day="Sat", searches_per_run=7)
+    sat, mon = date(2026, 11, 7), date(2026, 11, 9)
+    assert search_allowance(weekly, sat, left=100, needed=0, reserve=10) == 90   # whole pass
+    assert search_allowance(weekly, mon, left=100, needed=0, reserve=10) == 0    # off day
+    assert search_allowance(weekly, mon, left=100, needed=5, reserve=10) == 5    # first look
+    assert search_allowance(weekly, mon, left=12, needed=5, reserve=10) == 2     # never the reserve
+    assert search_allowance(weekly, mon, left=12, needed=5, reserve=0) == 5      # --reserve 0
+    daily = replace(SETTINGS, searches_per_run=7)
+    assert search_allowance(daily, mon, left=100, needed=0, reserve=10) == 7
+
+
+def test_check_day_must_be_a_weekday(tmp_path):
+    with pytest.raises(ConfigError, match="weekly_check_day"):
+        load(tmp_path, YAML.replace("  home_airports: [STL]\n",
+                                    "  home_airports: [STL]\n  weekly_check_day: Caturday\n"))
+    assert load(tmp_path, YAML.replace("  home_airports: [STL]\n",
+                "  home_airports: [STL]\n  weekly_check_day: saturday\n")).settings.weekly_check_day == "Sat"
