@@ -690,7 +690,7 @@ trips:
       max_per_night: 800
     ground:
       flat_cost: 2250
-      notes: "Plan's fixed costs: Vatican, Borghese, Colosseum, Ostia, taxis, food"
+      notes: "Plan's fixed costs: Vatican, Borghese, Colosseum, Ostia, taxis, food. The Vatican Key Master's tour isn't priced yet (standard tickets are used)"
     alerts:
       drop_pct_vs_median: 10
       percentile_below: 20

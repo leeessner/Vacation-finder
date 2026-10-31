@@ -2,7 +2,7 @@ legs:
   - {day: 1, kind: from_airport, mode: taxi, from: "Rome Fiumicino (FCO)", to: "Apartment near Piazza Navona", minutes: 45, note: "fixed-fare van taxi"}
   - {day: 8, kind: to_airport, mode: taxi, from: "Apartment near Piazza Navona", to: "Rome Fiumicino (FCO)", minutes: 45}
 timed:
-  - {day: 2, what: "Vatican Museums, first slot (about 8:00)", leave: "07:30", arrive: "07:45", how: "taxi or a 25-minute walk"}
+  - {day: 2, what: "Vatican Key Master's tour: the doors are unlocked about 6:00 (check)", leave: "05:30", arrive: "05:45", how: "taxi; the streets are empty"}
   - {day: 3, what: "Colosseum, first slot (about 8:30)", leave: "07:55", arrive: "08:20", how: "taxi or bus"}
   - {day: 4, what: "Galleria Borghese, 9:00 slot (collect tickets 30 min ahead)", leave: "08:05", arrive: "08:30", how: "taxi"}
   - {day: 6, what: "Ostia Antica opens 8:30", leave: "08:30", arrive: "09:30", how: "metro to Piramide, then the Roma–Lido train (~30 min)"}

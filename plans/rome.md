@@ -32,7 +32,13 @@ Fly into and out of **Rome (FCO)**.
 **Day 1 — Arrive.** An evening walk: **Piazza Navona**'s Bernini fountain,
 then the **Pantheon**, and gelato at **Giolitti**.
 
-**Day 2 — The Vatican.** Take the earliest slot. The **Raphael Rooms** are
+**Day 2 — The Vatican, opened with the Key Master.** Book the **Key
+Master's tour** (the "Clavigero" visit): a small group meets the Vatican's
+key keeper before dawn, watches the first of the museum's doors being
+unlocked, and has the galleries nearly to itself before the crowds arrive.
+Be at the entrance by about **6:00** (*check* the exact time, the group
+size and whether the 3-year-old can come). It replaces the earliest-slot
+ticket. Plan a nap or a slow lunch after it. The **Raphael Rooms** are
 the reason to come: *The School of Athens*, *The Fire in the Borgo*, *The
 Liberation of St Peter*. Add the **Sistine Chapel** (*check* that the altar
 wall restoration has finished), the *Laocoön* and the map gallery. In the
@@ -91,7 +97,7 @@ Teatro** (near Navona), and **Otaleg** in Trastevere.
 
 | Item | € | Notes |
 |---|---:|---|
-| Vatican Museums | 76 | €25 adult online; €13 ages 6–18; under 6 free |
+| Vatican Museums, Key Master's tour | *not priced yet* | Replaces the €76 standard tickets. Price, age rules and group size to *check*; the total below still uses the standard tickets |
 | St Peter's dome | 40 | Lift + stairs. *Check* |
 | Colosseum, Forum, Palatine | 48 | ~€20 adult; children free with a reservation fee. *Check* |
 | Galleria Borghese | 44 | €18 adult; under-18s free but must reserve (€2 fee) |
@@ -108,6 +114,7 @@ Teatro** (near Navona), and **Otaleg** in Trastevere.
 | What | When |
 |---|---|
 | Flights | Add Rome to the tracker if you choose it. The best window is **Dec 2026–Feb 2027** |
+| Vatican Key Master's tour | **As soon as it opens for your dates**; the groups are small and sell out first |
 | Vatican, Borghese, Colosseum | **As soon as slots open** (about 60 days ahead for the Vatican and Borghese). The earliest slots go first |
 | Apartment | Early 2027 |
 
