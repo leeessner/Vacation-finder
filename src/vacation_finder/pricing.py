@@ -94,7 +94,7 @@ class TripPricer:
                 nights = (ret - depart).days
                 if trip.flights.enabled:
                     flight, notes = self._best_flight(
-                        trip, destination.code, depart, ret, result
+                        trip, destination.code, *trip.flight_dates(depart, ret), result
                     )
                 else:
                     flight, notes = None, []
@@ -131,7 +131,7 @@ class TripPricer:
             nights = (ret - depart).days
             if trip.flights.enabled:
                 flight, notes = self._best_flight(
-                    trip, trip.destinations[0].code, depart, ret, result,
+                    trip, trip.destinations[0].code, *trip.flight_dates(depart, ret), result,
                     return_from=trip.return_airport,
                 )
             else:
@@ -272,6 +272,7 @@ class TripPricer:
             total_price=float(insight.lowest),
             currency=self.settings.currency,
             source="google_flights_weekly",
+            outbound=tuple(insight.outbound),
         )
 
     def _best_lodging(

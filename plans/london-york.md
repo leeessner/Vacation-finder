@@ -32,6 +32,8 @@ Fly into **Heathrow (LHR)**. Fly home from LHR, or from **Manchester (MAN)**,
 
 ## Day by day
 
+**Day 0 — Travel day: fly overnight.** Leave St. Louis in the afternoon with one connection (usually Chicago, Atlanta, Charlotte, Dallas or an East Coast hub). Fly overnight, and land the next morning, which is Day 1. Allow about 11–15 hours gate to gate. The clocks jump **6 hours ahead**, so Day 1 is for settling in, not sightseeing. The trip page's **Flights** section shows the airports, connection and times of the fare being tracked.
+
 **Day 1 — Arrive. Kensington Gardens.** The Diana Memorial Playground's
 pirate ship, then an early night.
 
@@ -80,7 +82,7 @@ rebuilt Viking street, with sights, sounds and smells. Book a time slot. Climb
 **Clifford's Tower**, the castle keep, for the view.
 
 **Day 10 — Home.** Take a morning train to London and the Elizabeth line to
-Heathrow, for an afternoon flight. Or fly from Manchester.
+Heathrow, for an afternoon flight. Or fly from Manchester. It's a full travel day home: westbound flights usually leave late morning or midday and land in St. Louis that evening, about 12–16 hours gate to gate. You gain back the 6 hours.
 
 ## York or Bath?
 

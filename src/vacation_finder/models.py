@@ -56,6 +56,9 @@ class FlightQuote:
     stops_back: int | None = None
     source: str = "unknown"
     deep_link: str = ""
+    # The priced option's outbound flights (flight_details.segment dicts),
+    # when the source listed them.
+    outbound: tuple = ()
 
     @property
     def per_person(self) -> float:

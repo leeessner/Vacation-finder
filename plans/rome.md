@@ -27,6 +27,8 @@ Fly into and out of **Rome (FCO)**.
 
 ## Day by day
 
+**Day 0 — Travel day: fly overnight.** Leave St. Louis in the afternoon with one connection (usually Chicago, Atlanta, Charlotte, Dallas or an East Coast hub). Fly overnight, and land the next morning, which is Day 1. Allow about 11–15 hours gate to gate. The clocks jump **7 hours ahead**, so Day 1 is for settling in, not sightseeing. The trip page's **Flights** section shows the airports, connection and times of the fare being tracked.
+
 **Day 1 — Arrive.** An evening walk: **Piazza Navona**'s Bernini fountain,
 then the **Pantheon**, and gelato at **Giolitti**.
 
@@ -67,7 +69,7 @@ Saturday mornings (*check*). Otherwise, take a **family pasta class**, or the
 **gladiator school** near the Appian Way, where the kids train with wooden
 swords (*check* ages).
 
-**Day 8 — Fly home** from FCO.
+**Day 8 — Fly home** from FCO. It's a full travel day home: westbound flights usually leave late morning or midday and land in St. Louis that evening, about 12–16 hours gate to gate. You gain back the 7 hours.
 
 ## Gelato
 

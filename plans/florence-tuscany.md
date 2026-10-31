@@ -31,6 +31,8 @@ One big thing in the morning and another in the afternoon. The farm's pool
 is there for the evenings. **Gelato every day**: the best scoops are listed
 under *Gelato*, and each day names the one on the way.
 
+**Day 0 — Travel day: fly overnight.** Leave St. Louis in the afternoon with one connection (usually Chicago, Atlanta, Charlotte, Dallas or an East Coast hub). Fly overnight, and land the next morning, which is Day 1. Allow about 11–15 hours gate to gate. The clocks jump **7 hours ahead**, so Day 1 is for settling in, not sightseeing. The trip page's **Flights** section shows the airports, connection and times of the fare being tracked.
+
 **Day 1 — Arrive.** Settle in at Fattoria di Maiano: pool and the farm.
 Dinner at **Cucina Pietraforte**, within walking distance (from the Instagram
 post; *check* it's open).
@@ -96,7 +98,7 @@ Chiostro**, as requested. Drive back through the Val d'Orcia: the classic
 cypress-road views, and a stop at **Bagno Vignoni**, a village built around a
 steaming thermal pool.
 
-**Day 9 — Fly home** from FCO (about 2 h) or FLR (about 1½ h).
+**Day 9 — Fly home** from FCO (about 2 h) or FLR (about 1½ h). It's a full travel day home: westbound flights usually leave late morning or midday and land in St. Louis that evening, about 12–16 hours gate to gate. You gain back the 7 hours.
 
 ## Options (kept from the first draft, for spare days or swaps)
 
