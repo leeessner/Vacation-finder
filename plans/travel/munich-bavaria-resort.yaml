@@ -1,0 +1,11 @@
+legs:
+  - {day: 1, kind: from_airport, mode: train, from: "Munich airport (MUC)", to: "Marienplatz", minutes: 45, note: "S-Bahn S8"}
+  - {day: 6, mode: car, from: "Munich (car pickup)", to: "Salzburg, Hohensalzburg", depart: "09:00", minutes: 105}
+  - {day: 6, mode: car, from: "Salzburg", to: "Dachsteinkönig, Gosau", depart: "14:30", minutes: 75}
+  - {day: 11, kind: to_airport, mode: car, from: "Dachsteinkönig, Gosau", to: "Munich airport (MUC), car return", minutes: 180}
+timed:
+  - {day: 2, what: "Alte Pinakothek opens 10:00", leave: "09:35", arrive: "09:55", how: "tram or a 20-minute walk"}
+  - {day: 2, what: "Glockenspiel at 11:00 on Marienplatz", arrive: "10:50"}
+  - {day: 3, what: "Residenz opens 9:00", leave: "08:45", arrive: "08:55", how: "a 10-minute walk"}
+  - {day: 4, what: "Neuschwanstein (your tour slot, late morning)", leave: "07:20", arrive: "10:15", how: "regional train from Munich Hbf about 7:50a to Füssen (~2 h), then bus 73/78 to Hohenschwangau"}
+  - {day: 5, what: "Andechs for lunch", leave: "09:30", arrive: "11:15", how: "S8 to Herrsching (~50 min), then a 45-minute walk up"}

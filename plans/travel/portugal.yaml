@@ -1,0 +1,9 @@
+legs:
+  - {day: 1, kind: from_airport, mode: taxi, from: "Porto airport (OPO)", to: "Apartment, Ribeira", minutes: 30}
+  - {day: 4, mode: train, from: "Porto Campanhã", to: "Lisbon Santa Apolónia", depart: "09:00", minutes: 170, note: "Alfa Pendular; taxi to Campanhã ~15 min"}
+  - {day: 8, mode: car, from: "Lisbon (car pickup)", to: "Lagos", depart: "09:30", minutes: 180}
+  - {day: 11, kind: to_airport, mode: car, from: "Lagos", to: "Lisbon airport (LIS), car return", minutes: 180}
+timed:
+  - {day: 5, what: "Jerónimos Monastery opens 9:30", leave: "08:55", arrive: "09:25", how: "tram 15E to Belém"}
+  - {day: 6, what: "Pena Palace, first slot (9:30)", leave: "07:45", arrive: "09:20", how: "train from Rossio to Sintra (40 min), then the 434 bus up"}
+  - {day: 7, what: "São Jorge Castle opens 9:00", leave: "08:30", arrive: "08:55", how: "tram 28 or a taxi up the hill"}

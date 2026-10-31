@@ -1,0 +1,7 @@
+legs:
+  - {day: 1, kind: from_airport, mode: taxi, from: "Nice airport (NCE)", to: "Apartment near Place Masséna", minutes: 25, note: "tram line 2 also runs to the centre"}
+  - {day: 10, kind: to_airport, mode: taxi, from: "Apartment near Place Masséna", to: "Nice airport (NCE)", minutes: 25}
+timed:
+  - {day: 3, what: "Prince's Palace changing of the guard, about 11:55", leave: "10:40", arrive: "11:30", how: "train to Monaco (20 min), then the lift up the Rock"}
+  - {day: 5, what: "Train des Pignes to Entrevaux (morning departure; check the timetable)", leave: "08:30", arrive: "08:50", how: "walk to the Gare de Provence"}
+  - {day: 8, what: "Boat to Île Sainte-Marguerite (about 10:00)", leave: "08:50", arrive: "09:45", how: "train to Cannes (35 min), then a walk to the port"}

@@ -1,0 +1,10 @@
+legs:
+  - {day: 1, kind: from_airport, mode: taxi, from: "Barcelona airport (BCN)", to: "Apartment, Eixample", minutes: 30, note: "a van taxi for six"}
+  - {day: 6, mode: train, from: "Barcelona Sants", to: "Madrid Atocha", depart: "10:00", minutes: 150, note: "AVE; metro or taxi to Sants ~20 min, so leave by 9:25a"}
+  - {day: 11, kind: to_airport, mode: taxi, from: "Apartment near Sol", to: "Madrid airport (MAD)", minutes: 35}
+timed:
+  - {day: 2, what: "Sagrada Família, first slot (9:00)", leave: "08:30", arrive: "08:45", how: "metro L5"}
+  - {day: 5, what: "Montserrat monastery; the boys' choir sings about 1:00p (check)", leave: "08:15", arrive: "10:15", how: "R5 train from Plaça Espanya (~1 h), then the rack railway"}
+  - {day: 7, what: "Prado opens 10:00", leave: "09:30", arrive: "09:50", how: "a 20-minute walk"}
+  - {day: 8, what: "Royal Palace opens 10:00", leave: "09:35", arrive: "09:50", how: "a 15-minute walk"}
+  - {day: 9, what: "Segovia's Alcázar opens 10:00", leave: "08:20", arrive: "10:00", how: "metro to Chamartín, the ~9:00a AVE (27 min), then the bus into town"}

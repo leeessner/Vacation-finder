@@ -1,0 +1,9 @@
+legs:
+  - {day: 1, kind: from_airport, mode: train, from: "Milan Malpensa (MXP)", to: "Milano Centrale / Cadorna", minutes: 50, note: "Malpensa Express"}
+  - {day: 5, mode: train, from: "Milano Centrale", to: "Varenna-Esino", depart: "10:10", minutes: 65, note: "regional train towards Tirano/Sondrio"}
+  - {day: 10, kind: to_airport, mode: train, from: "Varenna", to: "Milan Malpensa (MXP)", minutes: 135, note: "change at Milano Centrale to the Malpensa Express"}
+timed:
+  - {day: 2, what: "The Last Supper, your 15-minute slot (be there 20 min early)", leave: "08:40", arrive: "09:00", how: "metro M1 to Conciliazione"}
+  - {day: 3, what: "Pinacoteca Ambrosiana opens 10:00", leave: "09:40", arrive: "09:55", how: "a short walk"}
+  - {day: 4, what: "Science museum opens 9:30 (submarine tours fill early)", leave: "09:00", arrive: "09:25", how: "metro M2 to Sant'Ambrogio"}
+  - {day: 6, what: "Ferry to Bellagio (about every 30 min)", leave: "09:45", arrive: "10:15", how: "15-minute crossing"}

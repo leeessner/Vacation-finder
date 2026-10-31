@@ -1,0 +1,9 @@
+legs:
+  - {day: 1, kind: from_airport, mode: train, from: "Brussels airport (BRU)", to: "Bruges", minutes: 90, note: "direct train most hours; kids under 12 free"}
+  - {day: 5, mode: train, from: "Bruges", to: "Brussels Central", depart: "10:00", minutes: 60}
+  - {day: 10, kind: to_airport, mode: train, from: "Brussels Central", to: "Brussels airport (BRU)", minutes: 20}
+timed:
+  - {day: 3, what: "Gravensteen opens 10:00", leave: "09:00", arrive: "09:55", how: "train to Ghent Sint-Pieters (25 min), then tram 1"}
+  - {day: 4, what: "In de Vrede opens 10:00 (closed Fridays)", leave: "09:00", arrive: "10:00", how: "rental car, about an hour"}
+  - {day: 4, what: "The Last Post at the Menin Gate, 8:00p", arrive: "19:30"}
+  - {day: 8, what: "Grottes de Han, first tours about 10:00 (check)", leave: "07:50", arrive: "10:00", how: "train to Jemelle (~1h45), then the bus"}
