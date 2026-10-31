@@ -331,6 +331,10 @@ def cmd_track(args: argparse.Namespace) -> int:
         _deliver(title, body, notify.ALERT_LABEL, args)
     else:
         log.info("no new alerts")
+    if hotels.configured:
+        after = hotels.searches_left()      # free: the account endpoint costs nothing
+        if after is not None:
+            print(f"SerpApi: {after} search(es) left this month after this run")
     return 0
 
 
