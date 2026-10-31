@@ -1,0 +1,290 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Belgium &amp; the Trappist abbeys · Vacation deal watch</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;700&family=Public+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap"><style>
+:root{--paper:#f7f8fb;--card:#fff;--ink:#1b2233;--muted:#5a6478;--line:#dfe3ec;
+--accent:#2b4c9b;--accent-soft:#e7ecf8;--check-bg:#fff3d6;--check-fg:#7a5200;
+--display:"Libre Caslon Text",Georgia,"Times New Roman",serif;
+--body:"Public Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){
+--paper:#12161f;--card:#1a2030;--ink:#e6e9f0;--muted:#9aa3b6;--line:#2c3446;
+--accent:#8fa9ec;--accent-soft:#222c46;--check-bg:#3a2e12;--check-fg:#f3d27a;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:15.5px/1.6 var(--body)}
+.wrap{max-width:1000px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));
+padding-right:max(16px,env(safe-area-inset-right,0px))}
+header.top{padding-block:26px 16px}
+.eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);
+font-weight:600;margin:0 0 4px}
+header.top h1{font:700 clamp(26px,4.6vw,36px)/1.15 var(--display);margin:0}
+.sub{color:var(--muted);font-size:14px;margin:6px 0 0}
+nav.tabs{position:sticky;top:0;z-index:5;background:var(--card);border-block:1px solid var(--line)}
+nav.tabs .wrap{display:flex;gap:4px;overflow-x:auto;padding-block:6px}
+.tab{flex:0 0 auto;display:flex;flex-direction:column;padding:7px 13px;border-radius:6px 6px 0 0;
+text-decoration:none;color:var(--muted);border-bottom:3px solid transparent}
+.tab:hover{background:var(--accent-soft);color:var(--ink)}
+.tab:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.tab[aria-current=page]{color:var(--ink);border-bottom-color:var(--accent)}
+.tab b{font-size:14.5px}
+.tab span{font-size:12px;font-variant-numeric:tabular-nums}
+main{padding-block:24px 56px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.tcard{display:flex;flex-direction:column;gap:8px;background:var(--card);border:1px solid var(--line);
+border-radius:10px;padding:16px 18px;color:inherit;text-decoration:none;min-width:0}
+.tcard:hover{border-color:var(--accent)}
+.tcard:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.tcard h2{font:700 19px/1.25 var(--display);margin:0}
+.price{font-size:28px;font-weight:700;letter-spacing:-.01em;font-variant-numeric:tabular-nums;line-height:1.1}
+.price small{display:block;font-size:12.5px;font-weight:400;color:var(--muted);letter-spacing:0;margin-top:3px}
+.pill{align-self:flex-start;display:inline-block;padding:3px 11px;border-radius:99px;color:#fff;
+font-size:12.5px;font-weight:600;white-space:nowrap}
+.status{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.conf{font-size:12.5px;color:var(--muted)}
+.chart{margin-top:4px;color:var(--ink)}
+.more{margin-top:auto;font-size:13px;color:var(--accent);font-weight:600}
+.muted{color:var(--muted)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px;margin-bottom:18px}
+.head{display:flex;flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.name{font:700 22px/1.25 var(--display);margin:0}
+.why{color:var(--muted);font-size:13.5px;margin:4px 0 0;max-width:65ch}
+.big{font-size:30px;font-weight:700;margin:14px 0 2px;font-variant-numeric:tabular-nums}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-top:16px}
+.stat{border-top:1px solid var(--line);padding-top:9px}
+.stat b{display:block;font-size:17px;font-weight:650;font-variant-numeric:tabular-nums}
+.stat span{color:var(--muted);font-size:12px}
+.outlook{margin:14px 0 0;padding:10px 12px;border-radius:8px;background:var(--paper)}
+.outlook b{font-size:15px}
+.moves{margin-top:10px;font-size:14px}
+.note{color:var(--muted);font-size:13px;margin-top:4px}
+.caveat{margin:14px 0 0;padding:8px 11px;border-left:3px solid #d97706;
+background:rgba(217,119,6,.09);font-size:13px;border-radius:0 6px 6px 0}
+.scroll{overflow-x:auto;margin:14px 0;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{text-align:left;padding:8px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--muted);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.05em;
+background:var(--accent-soft)}
+tr:last-child td{border-bottom:0}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+a{color:var(--accent);text-underline-offset:2px}
+.plan h1{font:700 clamp(24px,4.2vw,32px)/1.2 var(--display);margin:34px 0 12px;text-wrap:balance}
+.plan h2{font:700 21px/1.3 var(--display);margin:36px 0 10px;padding-top:18px;border-top:1px solid var(--line)}
+.plan h3{font:700 17px/1.35 var(--display);margin:24px 0 8px;color:var(--accent)}
+.plan p,.plan li{max-width:70ch}
+.plan hr{display:none}
+.plan blockquote{margin:18px 0;padding:12px 16px;background:var(--check-bg);border-radius:6px}
+.plan blockquote p{margin:0}
+.plan p.day{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:13px 16px;margin:12px 0}
+.plan p.day strong:first-child{display:block;font:700 16.5px/1.35 var(--display);color:var(--accent);margin-bottom:3px}
+.check{display:inline-block;font-size:11.5px;font-weight:600;letter-spacing:.04em;padding:0 6px;
+border-radius:4px;background:var(--check-bg);color:var(--check-fg);text-transform:uppercase;line-height:1.6}
+.section-label{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);
+font-weight:600;margin:0 0 10px}
+pre{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:10px;
+font-size:12px;overflow-x:auto;white-space:pre-wrap}
+footer{color:var(--muted);font-size:12.5px;margin-top:30px;border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><header class='top'><div class='wrap'><p class="eyebrow"><a href="../index.html">Vacation deal watch</a></p><h1>Belgium &amp; the Trappist abbeys</h1></div></header><nav class="tabs" aria-label="Trips"><div class="wrap"><a class="tab" href="../index.html"><b>All trips</b><span>highlights</span></a><a class="tab" href="../trips/nashville-spring-break.html"><b>Nashville</b><span>4 nights · $1,176</span></a><a class="tab" href="../trips/smokies-spring-break.html"><b>Great Smoky Mountains</b><span>4 nights · $884</span></a><a class="tab" href="../trips/spain-barcelona-madrid.html"><b>Spain — Barcelona &amp; Madrid</b><span>10 nights · $11,221</span></a><a class="tab" href="../trips/paris-versailles.html"><b>Paris &amp; Versailles</b><span>9 nights · $12,039</span></a><a class="tab" href="../trips/nice-riviera.html"><b>Nice &amp; the French Riviera</b><span>9 nights · $13,628</span></a><a class="tab" href="../trips/greece-summer.html"><b>Greece — Athens &amp; the islands</b><span>10 nights · $9,415</span></a><a class="tab" href="../trips/portugal-azores-summer.html"><b>Portugal &amp; the Azores</b><span>10 nights · $10,593</span></a><a class="tab" href="../trips/austria-bavaria-summer.html"><b>Austria &amp; Bavaria</b><span>10 nights · $12,168</span></a><a class="tab" href="../trips/london-summer.html"><b>London</b><span>7 nights · $8,514 so far</span></a><a class="tab" href="../trips/plan-belgium.html" aria-current="page"><b>Belgium &amp; the Trappist abbeys</b><span>9 nights · not tracked yet</span></a><a class="tab" href="../trips/plan-florence-tuscany.html"><b>Florence &amp; Tuscany</b><span>8 nights · not tracked yet</span></a><a class="tab" href="../trips/plan-milan-lake-como.html"><b>Milan &amp; Lake Como</b><span>9 nights · not tracked yet</span></a><a class="tab" href="../trips/plan-resorts.html"><b>The family resorts</b><span>plan</span></a><a class="tab" href="../trips/plan-rome.html"><b>Rome</b><span>7 nights · not tracked yet</span></a></div></nav><main><div class='wrap'><p class="muted">This plan isn't tracked yet: no daily flight or hotel prices.</p><section class="plan"><p><strong>Shape:</strong> 9 nights. This is the Trappist beer trip the profile was waiting
+for, and it's built on trains, where <strong>children under 12 ride free</strong>. It has
+two castles, the Ghent Altarpiece, Michelangelo's only sculpture to leave
+Italy in his lifetime, Rubens in Antwerp, a chocolate workshop, a tram ride
+into a cave, and a café with a playground next to the Westvleteren abbey.</p>
+<p>Not tracked yet. Written against <code>plans/family-profile.md</code>. Prices were
+checked in October 2026; anything not confirmed is marked <span class="check">check</span>. Euros are
+converted at about <strong>$1.15 per €1</strong>.</p>
+<hr />
+<h2>At a glance</h2>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th></th>
+<th>Where</th>
+<th>Nights</th>
+<th>Getting around</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Base 1</td>
+<td>An apartment in central <strong>Bruges</strong></td>
+<td>4</td>
+<td>Walking; trains to Ghent; one rental-car day for Westvleteren</td>
+</tr>
+<tr>
+<td>Base 2</td>
+<td>An apartment near the <strong>Grand Place</strong>, Brussels</td>
+<td>5</td>
+<td>Trains to Antwerp and the Ardennes; metro</td>
+</tr>
+</tbody>
+</table></div>
+<p>Fly into and out of <strong>Brussels (BRU)</strong>. The airport has its own train
+station, and Bruges is about 1½ h away.</p>
+<h2>Day by day</h2>
+<p class="day"><strong>Day 1 — Arrive. Train to Bruges.</strong> Walk the canals and the <strong>Markt</strong>, and
+have frites on a bench.</p>
+<p class="day"><strong>Day 2 — Bruges: belfry, Michelangelo, chocolate.</strong> Climb the <strong>Belfry</strong>
+(366 steps, so maybe a parent stays down with the youngest; <span class="check">check</span> the age
+rules). Then see Michelangelo's <strong>Madonna of Bruges</strong> in the <strong>Church of Our
+Lady</strong>, the only sculpture of his to leave Italy in his lifetime. In the
+afternoon, take a <strong>chocolate-making workshop</strong>, the local making-of. Finish
+with a short <strong>canal boat</strong> ride (30 min).</p>
+<p class="day"><strong>Day 3 — Ghent</strong> (25 min by train). <strong>Gravensteen</strong> is a real 12th-century
+moated castle with ramparts and a torture museum the 8-year-old will love.
+<strong>Under-13s are free.</strong> Then the <strong>Ghent Altarpiece</strong> (van Eyck's <em>Adoration
+of the Mystic Lamb</em>) in St Bavo's Cathedral, and dinner on the <strong>Graslei</strong>.</p>
+<p class="day"><strong>Day 4 — Westvleteren and Ypres (rental car).</strong> Lunch at <strong>In de Vrede</strong>,
+the café opposite St Sixtus Abbey. It's the only place you can drink
+Westvleteren at the source, and it has an outdoor play area. Then go to
+<strong>Ypres</strong> (20 min): the <strong>In Flanders Fields Museum</strong> in the rebuilt Cloth
+Hall, and the <strong>Menin Gate</strong>. The Last Post is sounded every evening at 8
+pm, which is late but moving.</p>
+<p class="day"><strong>Day 5 — Train to Brussels.</strong> See the <strong>Grand Place</strong>, <strong>Manneken Pis</strong> and
+a waffle. In the afternoon, the <strong>Belgian Comic Strip Center</strong>: Tintin and
+the Smurfs in an Art Nouveau building.</p>
+<p class="day"><strong>Day 6 — The Old Masters, then the Atomium.</strong> The <strong>Royal Museums of Fine
+Arts</strong> have Bruegel, Rubens, Jordaens and the Flemish primitives. Afterwards,
+go up the <strong>Atomium</strong>, the giant steel molecule. You ride an escalator
+through the tubes.</p>
+<p class="day"><strong>Day 7 — Antwerp</strong> (40 min). The <strong>Cathedral of Our Lady</strong> has two Rubens
+altarpieces, <em>The Raising of the Cross</em> and <em>The Descent from the Cross</em>.
+Then <strong>Het Steen</strong>, the riverside castle. <strong>Antwerp Central</strong> station is one
+of the world's most beautiful, which earns trains points. The <strong>Rubens
+House</strong> is closed for restoration (only the garden is open). Parents' option:
+<strong>Café Trappisten</strong> opposite Westmalle Abbey, a bus ride from Antwerp.</p>
+<p class="day"><strong>Day 8 — The Han caves.</strong> Take the train to the Ardennes, then a short bus.
+At the <strong>Grottes de Han</strong>, a vintage <strong>tram</strong> takes you into the forest to
+enormous caves with an underground river. Nearby is <strong>Rochefort</strong>, home of
+the Trappist beer; the abbey itself is closed to visitors.</p>
+<p class="day"><strong>Day 9 — Brussels, slow.</strong> Choose: <strong>Cantillon</strong>, a working lambic
+brewery and museum (a making-of, <span class="check">check</span> tours), or parks and shopping.</p>
+<p class="day"><strong>Day 10 — Fly home</strong> from BRU.</p>
+<h2>The Trappist map</h2>
+<p>Of the world's handful of Trappist breweries, five of Belgium's six can be
+reached on this trip:
+- <strong>Westvleteren</strong>: In de Vrede (Day 4), with a playground.
+- <strong>Westmalle</strong>: Café Trappisten (option on Day 7).
+- <strong>Rochefort</strong>: in the town (Day 8); the abbey isn't open.
+- <strong>Chimay</strong>: the abbey's inn, the <strong>Auberge de Poteaupré</strong>. It's too far
+  for this route; consider it for a car-based variant.
+- <strong>Orval</strong>: you can visit the abbey ruins. Same note as Chimay.</p>
+<p>Every bar in Belgium pours the rest.</p>
+<h2>Food — and protein for the vegetarian parent</h2>
+<ul>
+<li><strong>Kaaskroketten</strong> (cheese croquettes), <strong>stoemp</strong> (mash with vegetables,
+  often with an egg), Flemish <strong>asparagus with egg</strong> (spring), and a great
+  deal of cheese, including Trappist abbey cheeses.</li>
+<li><strong>Others:</strong> <strong>moules-frites</strong> (mussels and fries) and Flemish beef stew
+  cooked in beer.</li>
+<li><strong>Kids' backup:</strong> frites, waffles, and <em>spaghetti bolognese</em>, which is on
+  every Belgian café menu.</li>
+</ul>
+<h2>Fixed costs (estimate, for six)</h2>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th>Item</th>
+<th style="text-align: right;">€</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Trains (adults only: <strong>under 12 free</strong>, up to 4 per adult)</td>
+<td style="text-align: right;">250</td>
+<td></td>
+</tr>
+<tr>
+<td>Bruges: belfry, Church of Our Lady, canal boat</td>
+<td style="text-align: right;">135</td>
+<td><em>Check</em></td>
+</tr>
+<tr>
+<td>Chocolate workshop</td>
+<td style="text-align: right;">180</td>
+<td>~€30 pp. <em>Check</em></td>
+</tr>
+<tr>
+<td>Gravensteen + Ghent Altarpiece</td>
+<td style="text-align: right;">80</td>
+<td>Gravensteen €15 adult, under 13 free</td>
+</tr>
+<tr>
+<td>Car for one day, fuel</td>
+<td style="text-align: right;">160</td>
+<td></td>
+</tr>
+<tr>
+<td>Comic Strip Center, Royal Museums, Atomium</td>
+<td style="text-align: right;">140</td>
+<td><em>Check</em></td>
+</tr>
+<tr>
+<td>Antwerp cathedral, Het Steen</td>
+<td style="text-align: right;">30</td>
+<td></td>
+</tr>
+<tr>
+<td>Grottes de Han</td>
+<td style="text-align: right;">160</td>
+<td><em>Check</em></td>
+</tr>
+<tr>
+<td>Brussels transit</td>
+<td style="text-align: right;">60</td>
+<td></td>
+</tr>
+<tr>
+<td>Food, 9 days</td>
+<td style="text-align: right;">1,450</td>
+<td>~€160/day</td>
+</tr>
+<tr>
+<td><strong>Total fixed</strong></td>
+<td style="text-align: right;"><strong>~€2,650 ≈ $3,050</strong></td>
+<td>Before flights and lodging</td>
+</tr>
+</tbody>
+</table></div>
+<h2>When to book</h2>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th>What</th>
+<th>When</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Flights</td>
+<td>Add Belgium to the tracker if you choose it</td>
+</tr>
+<tr>
+<td>Apartments</td>
+<td>Early 2027</td>
+</tr>
+<tr>
+<td>Chocolate workshop, Han caves</td>
+<td>A few weeks ahead</td>
+</tr>
+<tr>
+<td>Trains</td>
+<td>No need. Buy on the day; kids ride free</td>
+</tr>
+</tbody>
+</table></div>
+<h2>Watch out for</h2>
+<ul>
+<li><strong>In de Vrede is closed on Fridays.</strong> Check its calendar before fixing the
+  Westvleteren day.</li>
+<li><strong>Belgian weather:</strong> bring rain layers even in July.</li>
+<li><strong>Cobblestones:</strong> bring a stroller with real wheels for the 3-year-old.</li>
+</ul>
+<h2>Tracker settings (if you choose Belgium)</h2>
+<ul>
+<li>New trip <strong>"Belgium"</strong>: STL → BRU, 9 nights within Jun 5–Jul 17, 2027.
+  Bruges: 4 nights, center Markt (51.2089, 3.2242), within 1 mi. Brussels:
+  5 nights, center Grand Place (50.8467, 4.3525), within 1.5 mi.</li>
+</ul>
+<h2>Sources (checked October 2026)</h2>
+<ul>
+<li>Free train travel for under-12s: <a href="https://www.belgiantrain.be/en/products/special-conditions/large-families" target="_blank" rel="noopener">SNCB</a>, <a href="https://www.wallonie.be/fr/demarches/se-deplacer-gratuitement-en-train-pour-les-enfants-ages-de-moins-de-12-ans" target="_blank" rel="noopener">Wallonia</a></li>
+<li>Gravensteen: <a href="https://historischehuizen.stad.gent/en/gravensteen/bezoek/plan-je-bezoek/information-prices" target="_blank" rel="noopener">Ghent historic houses</a></li>
+<li>In de Vrede: <a href="https://www.indevrede.be/idv_indevrede.php?lang=en" target="_blank" rel="noopener">indevrede.be</a></li>
+<li>Rubens House status: <a href="https://www.finestresullarte.info/en/news/antwerp-rubens-house-to-close-four-years-for-redevelopment-work" target="_blank" rel="noopener">Finestre sull'Arte</a>, <a href="https://www.vrt.be/vrtnws/en/2024/04/29/antwerp_s-rubens-house-partially-reopens-at-the-end-of-august/" target="_blank" rel="noopener">VRT</a></li>
+</ul></section><footer>Prices are the cheapest option found across the configured dates, airports and hotels, not a quote. Availability changes faster than this page. last checked Oct 31, 2026 at 03:49 UTC.</footer></div></main></body></html>

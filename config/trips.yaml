@@ -90,6 +90,7 @@ trips:
 
   - id: nashville-spring-break
     name: "Nashville"
+    plan: plans/nashville.md
     why: "Four and a half hours by car — no airfare for six, and a real city at the end of it"
     active: true
     travel: drive
@@ -135,6 +136,7 @@ trips:
 
   - id: smokies-spring-break
     name: "Great Smoky Mountains"
+    plan: plans/smokies.md
     why: "The park is free and the kids would love it — but it's 8+ hours each way for a 4-night trip"
     active: true
     travel: drive
@@ -200,6 +202,7 @@ trips:
 
   - id: spain-barcelona-madrid
     name: "Spain — Barcelona & Madrid"
+    plan: plans/spain-barcelona-madrid.md
     why: "Two great cities on one trip, connected by a three-hour train; walkable with kids"
     active: true
     destinations:
@@ -281,6 +284,7 @@ trips:
 
   - id: nice-riviera
     name: "Nice & the French Riviera"
+    plan: plans/nice-riviera.md
     why: "Beach plus an old town, and day trips along the coast by train"
     active: true
     destinations:
@@ -321,6 +325,7 @@ trips:
 
   - id: greece-summer
     name: "Greece — Athens & the islands"
+    plan: plans/greece.md
     why: "Ruins the kids will actually remember, and island ferries instead of a car"
     active: true
     destinations:
@@ -362,6 +367,7 @@ trips:
 
   - id: portugal-azores-summer
     name: "Portugal & the Azores"
+    plan: plans/portugal.md
     why: "Cheapest way into Western Europe, and the Azores are unlike anywhere else"
     active: true
     destinations:
