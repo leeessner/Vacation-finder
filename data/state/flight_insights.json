@@ -39,39 +39,39 @@
   "belgium-summer": {
     "checked_on": "2026-10-31",
     "depart": "2027-06-04",
-    "level": "low",
-    "lowest": 6167.0,
+    "level": "",
+    "lowest": 8060.0,
     "outbound": [
       {
-        "airline": "Icelandair",
-        "arrive": "2027-06-05T08:20",
-        "depart": "2027-06-04T20:45",
-        "flight": "FI 834",
+        "airline": "Delta",
+        "arrive": "2027-06-04T16:09",
+        "depart": "2027-06-04T13:30",
+        "flight": "DL 3147",
         "from": "STL",
         "from_name": "St. Louis Lambert International Airport",
-        "minutes": 395,
-        "plane": "Boeing 737MAX 8 Passenger",
-        "to": "KEF",
-        "to_name": "Keflav\u00edk International Airport"
+        "minutes": 99,
+        "plane": "Boeing 737",
+        "to": "ATL",
+        "to_name": "Hartsfield-Jackson Atlanta International Airport"
       },
       {
-        "airline": "Icelandair",
-        "arrive": "2027-06-06T12:55",
-        "depart": "2027-06-06T07:35",
-        "flight": "FI 554",
-        "from": "KEF",
-        "from_name": "Keflav\u00edk International Airport",
-        "minutes": 200,
-        "plane": "Airbus A320",
+        "airline": "Delta",
+        "arrive": "2027-06-05T07:40",
+        "depart": "2027-06-04T17:05",
+        "flight": "DL 140",
+        "from": "ATL",
+        "from_name": "Hartsfield-Jackson Atlanta International Airport",
+        "minutes": 515,
+        "plane": "Boeing 767",
         "to": "BRU",
         "to_name": "Brussels Airport"
       }
     ],
     "return_": "2027-06-14",
-    "short_layovers": false,
+    "short_layovers": true,
     "trip_id": "belgium-summer",
-    "typical_high": 16500.0,
-    "typical_low": 7400.0
+    "typical_high": null,
+    "typical_low": null
   },
   "florence-tuscany-summer": {
     "checked_on": "2026-10-31",

@@ -59,7 +59,7 @@
   },
   "belgium-summer": {
     "arrive_at": "BRU",
-    "basis": "Google Flights' lowest price for all 6 travellers for these dates, from the weekly check (one paid search a week) on Oct 31, because the free daily check found no fares for this route. Google rated it low against a typical range of $7,400\u2013$16,500. Only flights of 20 hours or less, gate to gate, count for the way out, and ones with every connection under 5 hours come first; the way home is picked when you book.",
+    "basis": "Google Flights' lowest price for all 6 travellers for these dates, from the weekly check (one paid search a week) on Oct 31, because the free daily check found no fares for this route. Only flights of 20 hours or less, gate to gate, count for the way out, and ones with every connection under 5 hours come first; the way home is picked when you book.",
     "carriers": [],
     "check_in": "2027-06-05",
     "check_out": "2027-06-14",
@@ -72,31 +72,31 @@
     "origin": "STL",
     "outbound": [
       {
-        "airline": "Icelandair",
-        "arrive": "2027-06-05T08:20",
-        "depart": "2027-06-04T20:45",
-        "flight": "FI 834",
+        "airline": "Delta",
+        "arrive": "2027-06-04T16:09",
+        "depart": "2027-06-04T13:30",
+        "flight": "DL 3147",
         "from": "STL",
         "from_name": "St. Louis Lambert International Airport",
-        "minutes": 395,
-        "plane": "Boeing 737MAX 8 Passenger",
-        "to": "KEF",
-        "to_name": "Keflav\u00edk International Airport"
+        "minutes": 99,
+        "plane": "Boeing 737",
+        "to": "ATL",
+        "to_name": "Hartsfield-Jackson Atlanta International Airport"
       },
       {
-        "airline": "Icelandair",
-        "arrive": "2027-06-06T12:55",
-        "depart": "2027-06-06T07:35",
-        "flight": "FI 554",
-        "from": "KEF",
-        "from_name": "Keflav\u00edk International Airport",
-        "minutes": 200,
-        "plane": "Airbus A320",
+        "airline": "Delta",
+        "arrive": "2027-06-05T07:40",
+        "depart": "2027-06-04T17:05",
+        "flight": "DL 140",
+        "from": "ATL",
+        "from_name": "Hartsfield-Jackson Atlanta International Airport",
+        "minutes": 515,
+        "plane": "Boeing 767",
         "to": "BRU",
         "to_name": "Brussels Airport"
       }
     ],
-    "price": 6167.0,
+    "price": 8060.0,
     "return_date": "2027-06-14",
     "source": "google_flights_weekly"
   },
@@ -176,47 +176,47 @@
     "carriers": [
       "American"
     ],
-    "check_in": "2027-06-21",
-    "check_out": "2027-07-01",
+    "check_in": "2027-06-05",
+    "check_out": "2027-06-15",
     "checked_on": "2026-10-31",
     "currency": "USD",
-    "depart_date": "2027-06-20",
+    "depart_date": "2027-06-04",
     "home_from": "ATH",
     "inbound": [
       {
         "airline": "",
-        "arrive": "2027-07-01T15:10",
-        "depart": "2027-07-01T09:45",
+        "arrive": "2027-06-15T14:55",
+        "depart": "2027-06-15T11:15",
         "flight": "",
         "from": "ATH",
         "from_name": "Athens International Airport \"Eleftherios Venizelos\"",
-        "minutes": 745,
-        "plane": "Airbus A330-900neo",
-        "to": "ATL",
-        "to_name": "Hartsfield-Jackson Atlanta International Airport"
+        "minutes": 700,
+        "plane": "Boeing 787",
+        "to": "ORD",
+        "to_name": "Chicago O'Hare International Airport"
       },
       {
         "airline": "",
-        "arrive": "2027-07-01T20:49",
-        "depart": "2027-07-01T20:05",
+        "arrive": "2027-06-15T19:44",
+        "depart": "2027-06-15T18:17",
         "flight": "",
-        "from": "ATL",
-        "from_name": "Hartsfield-Jackson Atlanta International Airport",
-        "minutes": 104,
-        "plane": "Boeing 737",
+        "from": "ORD",
+        "from_name": "Chicago O'Hare International Airport",
+        "minutes": 87,
+        "plane": "Embraer 170",
         "to": "STL",
         "to_name": "St. Louis Lambert International Airport"
       }
     ],
     "inbound_airlines": [
-      "Delta"
+      "American"
     ],
     "origin": "STL",
     "outbound": [
       {
         "airline": "",
-        "arrive": "2027-06-20T12:55",
-        "depart": "2027-06-20T09:23",
+        "arrive": "2027-06-04T12:55",
+        "depart": "2027-06-04T09:23",
         "flight": "",
         "from": "STL",
         "from_name": "St. Louis Lambert International Airport",
@@ -227,8 +227,8 @@
       },
       {
         "airline": "",
-        "arrive": "2027-06-21T10:00",
-        "depart": "2027-06-20T17:20",
+        "arrive": "2027-06-05T10:00",
+        "depart": "2027-06-04T17:20",
         "flight": "",
         "from": "JFK",
         "from_name": "John F. Kennedy International Airport",
@@ -238,8 +238,8 @@
         "to_name": "Athens International Airport \"Eleftherios Venizelos\""
       }
     ],
-    "price": 7350.0,
-    "return_date": "2027-07-01",
+    "price": 9141.0,
+    "return_date": "2027-06-15",
     "source": "google_flights_scaled"
   },
   "london-summer": {
@@ -287,16 +287,16 @@
   },
   "milan-lake-como-summer": {
     "arrive_at": "MXP",
-    "basis": "The cheapest fare for all 6 travellers on Oct 31 once one more stop than your limit was allowed; none was found within it. Only flights of 20 hours or less, gate to gate, count for the way out, and ones with every connection under 5 hours come first; the way home is picked when you book.",
+    "basis": "An estimate. Google Flights' first page on Oct 31 showed no fares for 6 travellers, which is common for big parties on long-haul routes. So the tracker priced a smaller party (at most 1 stop(s) each way) and multiplied that per-person fare by 6. Children's economy fares to Europe are usually close to adult fares, so this is a fair guide, but it doesn't include checked bags. One more stop than your limit was allowed, because none was found within it. Only flights of 20 hours or less, gate to gate, count for the way out, and ones with every connection under 5 hours come first; the way home is picked when you book.",
     "carriers": [
       "American",
       "Condor"
     ],
-    "check_in": "2027-06-21",
-    "check_out": "2027-06-30",
+    "check_in": "2027-06-05",
+    "check_out": "2027-06-14",
     "checked_on": "2026-10-31",
     "currency": "USD",
-    "depart_date": "2027-06-20",
+    "depart_date": "2027-06-04",
     "home_from": "MXP",
     "inbound": [],
     "inbound_airlines": [],
@@ -304,8 +304,8 @@
     "outbound": [
       {
         "airline": "",
-        "arrive": "2027-06-20T13:30",
-        "depart": "2027-06-20T09:45",
+        "arrive": "2027-06-04T13:30",
+        "depart": "2027-06-04T09:45",
         "flight": "",
         "from": "STL",
         "from_name": "St. Louis Lambert International Airport",
@@ -316,8 +316,8 @@
       },
       {
         "airline": "",
-        "arrive": "2027-06-21T05:45",
-        "depart": "2027-06-20T16:30",
+        "arrive": "2027-06-05T05:45",
+        "depart": "2027-06-04T16:30",
         "flight": "",
         "from": "BOS",
         "from_name": "Boston Logan International Airport",
@@ -328,8 +328,8 @@
       },
       {
         "airline": "",
-        "arrive": "2027-06-21T11:00",
-        "depart": "2027-06-21T09:40",
+        "arrive": "2027-06-05T11:00",
+        "depart": "2027-06-05T09:40",
         "flight": "",
         "from": "FRA",
         "from_name": "Frankfurt Airport",
@@ -339,9 +339,9 @@
         "to_name": "Milano Malpensa Airport"
       }
     ],
-    "price": 6774.0,
-    "return_date": "2027-06-30",
-    "source": "google_flights_extra_stop"
+    "price": 6786.0,
+    "return_date": "2027-06-14",
+    "source": "google_flights_scaled_extra_stop"
   },
   "nice-riviera": {
     "arrive_at": "NCE",

@@ -1,7 +1,7 @@
 {
   "trip_id": "portugal-azores-summer",
-  "captured_at": "2026-10-31T19:55:29.043171+00:00",
-  "queries_made": 3,
+  "captured_at": "2026-10-31T20:07:04.198796+00:00",
+  "queries_made": 5,
   "errors": [],
   "quotes": [
     {
@@ -25,28 +25,28 @@
         "deep_link": "",
         "outbound": [
           {
+            "airline": "United",
+            "arrive": "2027-06-04T15:15",
+            "depart": "2027-06-04T11:45",
+            "flight": "UA 3478",
             "from": "STL",
             "from_name": "St. Louis Lambert International Airport",
-            "to": "EWR",
-            "to_name": "Newark Liberty International Airport",
-            "depart": "2027-06-04T11:45",
-            "arrive": "2027-06-04T15:15",
             "minutes": 150,
-            "airline": "United",
-            "flight": "UA 3478",
-            "plane": "Embraer 175"
+            "plane": "Embraer 175",
+            "to": "EWR",
+            "to_name": "Newark Liberty International Airport"
           },
           {
+            "airline": "United",
+            "arrive": "2027-06-05T06:55",
+            "depart": "2027-06-04T18:50",
+            "flight": "UA 238",
             "from": "EWR",
             "from_name": "Newark Liberty International Airport",
-            "to": "OPO",
-            "to_name": "Francisco S\u00e1 Carneiro Airport",
-            "depart": "2027-06-04T18:50",
-            "arrive": "2027-06-05T06:55",
             "minutes": 425,
-            "airline": "United",
-            "flight": "UA 238",
-            "plane": "Boeing 757"
+            "plane": "Boeing 757",
+            "to": "OPO",
+            "to_name": "Francisco S\u00e1 Carneiro Airport"
           }
         ]
       },
@@ -61,7 +61,7 @@
       "is_complete": false,
       "notes": [
         "airfare from this week's Google Flights check (the free daily check found none for this route)",
-        "no lodging price yet for Lagos, Portugal, Lisbon airport hotel"
+        "no lodging price yet for Lisbon airport hotel"
       ]
     },
     {

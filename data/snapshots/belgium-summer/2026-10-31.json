@@ -1,6 +1,6 @@
 {
   "trip_id": "belgium-summer",
-  "captured_at": "2026-10-31T19:55:51.601690+00:00",
+  "captured_at": "2026-10-31T20:07:33.391337+00:00",
   "queries_made": 3,
   "errors": [],
   "quotes": [
@@ -16,7 +16,7 @@
         "destination": "BRU",
         "depart_date": "2027-06-04",
         "return_date": "2027-06-14",
-        "total_price": 6167.0,
+        "total_price": 8060.0,
         "currency": "USD",
         "carriers": [],
         "stops_out": null,
@@ -25,28 +25,28 @@
         "deep_link": "",
         "outbound": [
           {
-            "airline": "Icelandair",
-            "arrive": "2027-06-05T08:20",
-            "depart": "2027-06-04T20:45",
-            "flight": "FI 834",
             "from": "STL",
             "from_name": "St. Louis Lambert International Airport",
-            "minutes": 395,
-            "plane": "Boeing 737MAX 8 Passenger",
-            "to": "KEF",
-            "to_name": "Keflav\u00edk International Airport"
+            "to": "ATL",
+            "to_name": "Hartsfield-Jackson Atlanta International Airport",
+            "depart": "2027-06-04T13:30",
+            "arrive": "2027-06-04T16:09",
+            "minutes": 99,
+            "airline": "Delta",
+            "flight": "DL 3147",
+            "plane": "Boeing 737"
           },
           {
-            "airline": "Icelandair",
-            "arrive": "2027-06-06T12:55",
-            "depart": "2027-06-06T07:35",
-            "flight": "FI 554",
-            "from": "KEF",
-            "from_name": "Keflav\u00edk International Airport",
-            "minutes": 200,
-            "plane": "Airbus A320",
+            "from": "ATL",
+            "from_name": "Hartsfield-Jackson Atlanta International Airport",
             "to": "BRU",
-            "to_name": "Brussels Airport"
+            "to_name": "Brussels Airport",
+            "depart": "2027-06-04T17:05",
+            "arrive": "2027-06-05T07:40",
+            "minutes": 515,
+            "airline": "Delta",
+            "flight": "DL 140",
+            "plane": "Boeing 767"
           }
         ]
       },
@@ -71,9 +71,9 @@
       "ground_notes": "Plan's fixed costs: trains (adults only), museums, chocolate workshop, one car day, food",
       "travel_mode": "air",
       "flights_expected": true,
-      "flight_cost": 6167.0,
+      "flight_cost": 8060.0,
       "lodging_cost": 2935.0,
-      "total_cost": 12152.0,
+      "total_cost": 14045.0,
       "is_complete": true,
       "notes": [
         "airfare from this week's Google Flights check (the free daily check found none for this route)"

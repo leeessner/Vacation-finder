@@ -1,7 +1,7 @@
 {
   "trip_id": "london-summer",
-  "captured_at": "2026-10-31T19:55:38.768834+00:00",
-  "queries_made": 3,
+  "captured_at": "2026-10-31T20:07:16.798766+00:00",
+  "queries_made": 5,
   "errors": [],
   "quotes": [
     {
@@ -25,43 +25,58 @@
         "deep_link": "",
         "outbound": [
           {
+            "airline": "Delta",
+            "arrive": "2027-06-04T16:50",
+            "depart": "2027-06-04T14:18",
+            "flight": "DL 2223",
             "from": "STL",
             "from_name": "St. Louis Lambert International Airport",
-            "to": "DTW",
-            "to_name": "Detroit Metropolitan Wayne County Airport",
-            "depart": "2027-06-04T14:18",
-            "arrive": "2027-06-04T16:50",
             "minutes": 92,
-            "airline": "Delta",
-            "flight": "DL 2223",
-            "plane": "Boeing 717"
+            "plane": "Boeing 717",
+            "to": "DTW",
+            "to_name": "Detroit Metropolitan Wayne County Airport"
           },
           {
+            "airline": "Delta",
+            "arrive": "2027-06-05T07:10",
+            "depart": "2027-06-04T18:45",
+            "flight": "DL 16",
             "from": "DTW",
             "from_name": "Detroit Metropolitan Wayne County Airport",
-            "to": "LHR",
-            "to_name": "Heathrow Airport",
-            "depart": "2027-06-04T18:45",
-            "arrive": "2027-06-05T07:10",
             "minutes": 445,
-            "airline": "Delta",
-            "flight": "DL 16",
-            "plane": "Airbus A330-900neo"
+            "plane": "Airbus A330-900neo",
+            "to": "LHR",
+            "to_name": "Heathrow Airport"
           }
         ]
       },
-      "lodging": null,
+      "lodging": {
+        "destination": "LHR \u2192 YRK \u2192 MNH",
+        "check_in": "2027-06-05",
+        "check_out": "2027-06-14",
+        "property_name": "Modern Home in Battersea for 4 People (6n) + Superb citycentre new built flat and gym (2n) + Pymgate Lodge Hotel Manchester Airport (1n)",
+        "total_price": 2352.0,
+        "currency": "USD",
+        "property_id": "",
+        "nights": 9,
+        "rating": 4.3,
+        "stars": null,
+        "board_type": "",
+        "refundable": null,
+        "source": "google_hotels",
+        "deep_link": "",
+        "distance_miles": null
+      },
       "ground_cost": 3800.0,
       "ground_notes": "Plan's fixed costs: Tower, palaces, trains to York and Manchester, food",
       "travel_mode": "air",
       "flights_expected": true,
       "flight_cost": 7833.0,
-      "lodging_cost": 0.0,
-      "total_cost": 11633.0,
-      "is_complete": false,
+      "lodging_cost": 2352.0,
+      "total_cost": 13985.0,
+      "is_complete": true,
       "notes": [
-        "airfare from this week's Google Flights check (the free daily check found none for this route)",
-        "no lodging price yet for York, UK, Manchester airport hotel"
+        "airfare from this week's Google Flights check (the free daily check found none for this route)"
       ]
     },
     {

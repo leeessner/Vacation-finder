@@ -1,7 +1,7 @@
 {
   "trip_id": "austria-bavaria-summer",
-  "captured_at": "2026-10-31T19:55:34.060879+00:00",
-  "queries_made": 3,
+  "captured_at": "2026-10-31T20:07:11.810697+00:00",
+  "queries_made": 4,
   "errors": [],
   "quotes": [
     {
@@ -65,19 +65,34 @@
           }
         ]
       },
-      "lodging": null,
+      "lodging": {
+        "destination": "MUC \u2192 SZG \u2192 MAH",
+        "check_in": "2027-06-05",
+        "check_out": "2027-06-15",
+        "property_name": "INNSiDE by Meli\u00e1 M\u00fcnchen Parkstadt Schwabing (5n) + Dachsteink\u00f6nig, Gosau (estimate) (4n) + Atomis Hotel Munich Airport by Mercure (1n)",
+        "total_price": 8202.0,
+        "currency": "USD",
+        "property_id": "",
+        "nights": 10,
+        "rating": 4.0,
+        "stars": null,
+        "board_type": "",
+        "refundable": null,
+        "source": "estimate+google_hotels",
+        "deep_link": "",
+        "distance_miles": null
+      },
       "ground_cost": 2750.0,
       "ground_notes": "Plan's fixed costs: tickets, trains, 5-day car, food in Munich (resort meals are included)",
       "travel_mode": "air",
       "flights_expected": true,
       "flight_cost": 7350.0,
-      "lodging_cost": 0.0,
-      "total_cost": 10100.0,
-      "is_complete": false,
+      "lodging_cost": 8202.0,
+      "total_cost": 18302.0,
+      "is_complete": true,
       "notes": [
         "airfare allows one more stop than your limit \u2014 none was found within it",
-        "Dachsteink\u00f6nig: an estimate (\u2248\u20ac4,600 for 4 nights all-inclusive), not a tracked price \u2014 replace with the resort's quote",
-        "no lodging price yet for Munich airport hotel"
+        "Dachsteink\u00f6nig: an estimate (\u2248\u20ac4,600 for 4 nights all-inclusive), not a tracked price \u2014 replace with the resort's quote"
       ]
     },
     {
@@ -100,7 +115,7 @@
         ],
         "stops_out": 2,
         "stops_back": null,
-        "source": "google_flights_scaled_extra_stop",
+        "source": "google_flights_extra_stop",
         "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20MUC%20from%20STL%20on%202027-06-20%20through%202027-07-01",
         "outbound": [
           {
@@ -151,7 +166,6 @@
       "total_cost": 11150.0,
       "is_complete": false,
       "notes": [
-        "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)",
         "airfare allows one more stop than your limit \u2014 none was found within it",
         "Dachsteink\u00f6nig: an estimate (\u2248\u20ac4,600 for 4 nights all-inclusive), not a tracked price \u2014 replace with the resort's quote",
         "no lodging price yet for Munich, Germany, Munich airport hotel"
