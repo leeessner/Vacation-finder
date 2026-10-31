@@ -1,0 +1,9 @@
+legs:
+  - {day: 1, kind: from_airport, mode: taxi, from: "Athens airport (ATH)", to: "Apartment, Plaka", minutes: 45, note: "metro line 3 also runs to Syntagma"}
+  - {day: 5, mode: ferry, from: "Piraeus", to: "Naxos", depart: "07:25", minutes: 225, note: "fast ferry; taxi to Piraeus ~25 min, so leave by 6:40a. Or fly ATH–JNX, 35 min"}
+  - {day: 11, kind: to_airport, mode: flight, from: "Naxos (JNX)", to: "Athens airport (ATH)", minutes: 45, note: "or stay the night before near the Athens airport"}
+timed:
+  - {day: 2, what: "Acropolis opens 8:00 (beat the heat)", leave: "07:40", arrive: "07:55", how: "a short walk"}
+  - {day: 3, what: "Evzones changing of the guard on the hour (Sunday parade 11:00)", arrive: "10:50"}
+  - {day: 3, what: "Lycabettus funicular for sunset (about 8:50p)", leave: "19:45", arrive: "20:15", how: "taxi to the funicular station"}
+  - {day: 7, what: "Vallindras distillery in Halki", leave: "09:30", arrive: "10:00", how: "drive"}

@@ -1,0 +1,6 @@
+legs:
+  - {day: 1, mode: car, from: "St. Louis", to: "Cabin near Gatlinburg", depart: "07:00", minutes: 510, note: "about 8 h of driving plus a lunch stop in Nashville"}
+  - {day: 5, mode: car, from: "Gatlinburg", to: "St. Louis", depart: "08:00", minutes: 510}
+timed:
+  - {day: 2, what: "Cades Cove before the crowds", leave: "07:30", arrive: "08:30", how: "about an hour's drive"}
+  - {day: 4, what: "Great Smoky Mountains Railroad, morning departure (check the spring schedule)", leave: "08:15", arrive: "10:00", how: "over Newfound Gap, with stops"}

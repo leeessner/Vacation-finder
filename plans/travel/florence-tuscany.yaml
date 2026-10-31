@@ -1,0 +1,14 @@
+legs:
+  - {day: 1, kind: from_airport, mode: taxi, from: "Florence airport (FLR)", to: "Fattoria di Maiano, Fiesole", minutes: 30, note: "a van taxi for six"}
+  - {day: 6, mode: car, from: "Florence airport (car pickup)", to: "Castello di Brolio", depart: "09:00", minutes: 75, note: "taxi from the farm to the airport first, ~25 min; leave by 8:30a"}
+  - {day: 6, mode: car, from: "Castello di Brolio", to: "Farm stay near Siena", depart: "14:30", minutes: 25}
+  - {day: 9, kind: to_airport, mode: car, from: "Farm stay near Siena", to: "Rome Fiumicino (FCO), car return", minutes: 165}
+timed:
+  - {day: 2, what: "Bargello opens 8:15", leave: "07:35", arrive: "08:05", how: "bus 7 or a taxi into town, then a short walk"}
+  - {day: 2, what: "Sunset at Piazzale Michelangelo (about 8:50p in June)", leave: "19:45", arrive: "20:15", how: "taxi from the farm"}
+  - {day: 3, what: "Accademia, 8:15 slot", leave: "07:35", arrive: "08:05", how: "bus 7 to San Marco, then a 5-minute walk"}
+  - {day: 4, what: "Uffizi, 8:15 slot", leave: "07:30", arrive: "08:00", how: "bus 7 or a taxi"}
+  - {day: 5, what: "Parmesan dairy tour about 8:30 (the earliest start)", leave: "06:30", arrive: "08:20", how: "taxi to Santa Maria Novella, the 7:05a fast train to Bologna, then a train or taxi to the dairy"}
+  - {day: 6, what: "Castello di Brolio gardens open 10:00", arrive: "10:15"}
+  - {day: 7, what: "San Gimignano before the tour buses", leave: "08:30", arrive: "09:30", how: "drive, about an hour"}
+  - {day: 8, what: "Pecorino dairy tour about 10:30", leave: "09:15", arrive: "10:15", how: "drive to Pienza, about an hour"}

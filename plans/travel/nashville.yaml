@@ -1,0 +1,6 @@
+legs:
+  - {day: 1, mode: car, from: "St. Louis", to: "Embassy Suites, Nashville", depart: "08:00", minutes: 300, note: "about 4½ h of driving plus a lunch stop at Metropolis, IL"}
+  - {day: 5, mode: car, from: "Nashville", to: "St. Louis", depart: "10:00", minutes: 270}
+timed:
+  - {day: 2, what: "Parthenon opens 9:00 (check the day)", leave: "08:45", arrive: "09:00", how: "a 5-minute drive"}
+  - {day: 2, what: "Grand Ole Opry, 7:00p show (option)", leave: "18:00", arrive: "18:30", how: "a 20-minute drive"}
