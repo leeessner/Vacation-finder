@@ -1,6 +1,6 @@
 {
   "trip_id": "spain-barcelona-madrid",
-  "captured_at": "2026-10-31T13:47:24.534194+00:00",
+  "captured_at": "2026-10-31T18:00:02.739895+00:00",
   "queries_made": 3,
   "errors": [],
   "quotes": [
@@ -16,7 +16,7 @@
         "destination": "BCN",
         "depart_date": "2027-06-04",
         "return_date": "2027-06-15",
-        "total_price": 7728.0,
+        "total_price": 8196.0,
         "currency": "USD",
         "carriers": [],
         "stops_out": null,
@@ -27,26 +27,26 @@
           {
             "from": "STL",
             "from_name": "St. Louis Lambert International Airport",
-            "to": "LGA",
-            "to_name": "LaGuardia Airport",
-            "depart": "2027-06-04T09:23",
-            "arrive": "2027-06-04T12:55",
-            "minutes": 152,
-            "airline": "American",
-            "flight": "AA 4508",
-            "plane": "Embraer 175"
+            "to": "FRA",
+            "to_name": "Frankfurt Airport",
+            "depart": "2027-06-04T15:30",
+            "arrive": "2027-06-05T07:25",
+            "minutes": 535,
+            "airline": "Lufthansa",
+            "flight": "LH 449",
+            "plane": "Airbus A330"
           },
           {
-            "from": "JFK",
-            "from_name": "John F. Kennedy International Airport",
+            "from": "FRA",
+            "from_name": "Frankfurt Airport",
             "to": "BCN",
             "to_name": "Josep Tarradellas Barcelona-El Prat Airport",
-            "depart": "2027-06-04T17:55",
-            "arrive": "2027-06-05T07:35",
-            "minutes": 460,
-            "airline": "American",
-            "flight": "AA 66",
-            "plane": "Boeing 777"
+            "depart": "2027-06-05T09:50",
+            "arrive": "2027-06-05T11:55",
+            "minutes": 125,
+            "airline": "Lufthansa",
+            "flight": "LH 1126",
+            "plane": "Airbus A321neo"
           }
         ]
       },
@@ -71,9 +71,9 @@
       "ground_notes": "Plan's fixed costs: tickets, AVE and Segovia trains, transit, food",
       "travel_mode": "air",
       "flights_expected": true,
-      "flight_cost": 7728.0,
+      "flight_cost": 8196.0,
       "lodging_cost": 2947.0,
-      "total_cost": 13825.0,
+      "total_cost": 14293.0,
       "is_complete": true,
       "notes": [
         "airfare from this week's Google Flights check (the free daily check found none for this route)"

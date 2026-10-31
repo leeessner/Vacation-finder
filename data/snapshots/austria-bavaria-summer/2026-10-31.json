@@ -1,7 +1,7 @@
 {
   "trip_id": "austria-bavaria-summer",
-  "captured_at": "2026-10-31T13:48:09.306824+00:00",
-  "queries_made": 6,
+  "captured_at": "2026-10-31T18:00:44.665591+00:00",
+  "queries_made": 3,
   "errors": [],
   "quotes": [
     {
@@ -16,7 +16,7 @@
         "destination": "MUC",
         "depart_date": "2027-06-04",
         "return_date": "2027-06-15",
-        "total_price": 7344.0,
+        "total_price": 7350.0,
         "currency": "USD",
         "carriers": [
           "Southwest",
@@ -86,9 +86,9 @@
       "ground_notes": "Plan's fixed costs: tickets, trains, 5-day car, food in Munich (resort meals are included)",
       "travel_mode": "air",
       "flights_expected": true,
-      "flight_cost": 7344.0,
+      "flight_cost": 7350.0,
       "lodging_cost": 9268.0,
-      "total_cost": 19362.0,
+      "total_cost": 19368.0,
       "is_complete": true,
       "notes": [
         "airfare allows one more stop than your limit \u2014 none was found within it",

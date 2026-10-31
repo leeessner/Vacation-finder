@@ -1,6 +1,6 @@
 {
   "trip_id": "florence-tuscany-summer",
-  "captured_at": "2026-10-31T13:47:34.933022+00:00",
+  "captured_at": "2026-10-31T18:00:22.612796+00:00",
   "queries_made": 3,
   "errors": [],
   "quotes": [
@@ -25,28 +25,28 @@
         "deep_link": "",
         "outbound": [
           {
+            "airline": "British Airways",
+            "arrive": "2027-06-05T11:35",
+            "depart": "2027-06-04T21:35",
+            "flight": "BA 220",
             "from": "STL",
             "from_name": "St. Louis Lambert International Airport",
-            "to": "LHR",
-            "to_name": "Heathrow Airport",
-            "depart": "2027-06-04T21:35",
-            "arrive": "2027-06-05T11:35",
             "minutes": 480,
-            "airline": "British Airways",
-            "flight": "BA 220",
-            "plane": "Boeing 787"
+            "plane": "Boeing 787",
+            "to": "LHR",
+            "to_name": "Heathrow Airport"
           },
           {
+            "airline": "British Airways",
+            "arrive": "2027-06-05T22:20",
+            "depart": "2027-06-05T19:05",
+            "flight": "BA 522",
             "from": "LHR",
             "from_name": "Heathrow Airport",
-            "to": "FLR",
-            "to_name": "Amerigo Vespucci Airport",
-            "depart": "2027-06-05T19:05",
-            "arrive": "2027-06-05T22:20",
             "minutes": 135,
-            "airline": "British Airways",
-            "flight": "BA 522",
-            "plane": "Airbus A320neo"
+            "plane": "Airbus A320neo",
+            "to": "FLR",
+            "to_name": "Amerigo Vespucci Airport"
           }
         ]
       },

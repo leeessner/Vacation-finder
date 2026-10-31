@@ -1,7 +1,7 @@
 {
   "trip_id": "rome-summer",
-  "captured_at": "2026-10-31T13:48:32.442563+00:00",
-  "queries_made": 5,
+  "captured_at": "2026-10-31T18:00:56.173001+00:00",
+  "queries_made": 3,
   "errors": [],
   "quotes": [
     {
@@ -16,7 +16,7 @@
         "destination": "FCO",
         "depart_date": "2027-06-04",
         "return_date": "2027-06-12",
-        "total_price": 9018.0,
+        "total_price": 9195.0,
         "currency": "USD",
         "carriers": [
           "Lufthansa"
@@ -73,9 +73,9 @@
       "ground_notes": "Plan's fixed costs: Vatican, Borghese, Colosseum, Ostia, taxis, food",
       "travel_mode": "air",
       "flights_expected": true,
-      "flight_cost": 9018.0,
+      "flight_cost": 9195.0,
       "lodging_cost": 1313.0,
-      "total_cost": 12581.0,
+      "total_cost": 12758.0,
       "is_complete": true,
       "notes": [
         "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)"
@@ -93,10 +93,10 @@
         "destination": "FCO",
         "depart_date": "2027-06-22",
         "return_date": "2027-06-30",
-        "total_price": 7575.0,
+        "total_price": 7665.0,
         "currency": "USD",
         "carriers": [
-          "Air Canada"
+          "American"
         ],
         "stops_out": 1,
         "stops_back": null,
@@ -106,26 +106,26 @@
           {
             "from": "STL",
             "from_name": "St. Louis Lambert International Airport",
-            "to": "YUL",
-            "to_name": "Montr\u00e9al-Pierre Elliott Trudeau International Airport",
-            "depart": "2027-06-22T13:25",
-            "arrive": "2027-06-22T16:57",
-            "minutes": 152,
+            "to": "DFW",
+            "to_name": "Dallas Fort Worth International Airport",
+            "depart": "2027-06-22T13:20",
+            "arrive": "2027-06-22T15:24",
+            "minutes": 124,
             "airline": "",
             "flight": "",
             "plane": "Canadair RJ 900"
           },
           {
-            "from": "YUL",
-            "from_name": "Montr\u00e9al-Pierre Elliott Trudeau International Airport",
+            "from": "DFW",
+            "from_name": "Dallas Fort Worth International Airport",
             "to": "FCO",
             "to_name": "Leonardo da Vinci International Airport",
-            "depart": "2027-06-22T22:30",
-            "arrive": "2027-06-23T12:30",
-            "minutes": 480,
+            "depart": "2027-06-22T16:25",
+            "arrive": "2027-06-23T09:50",
+            "minutes": 625,
             "airline": "",
             "flight": "",
-            "plane": "Boeing 787"
+            "plane": "Boeing 777"
           }
         ]
       },
@@ -150,9 +150,9 @@
       "ground_notes": "Plan's fixed costs: Vatican, Borghese, Colosseum, Ostia, taxis, food",
       "travel_mode": "air",
       "flights_expected": true,
-      "flight_cost": 7575.0,
+      "flight_cost": 7665.0,
       "lodging_cost": 1350.0,
-      "total_cost": 11175.0,
+      "total_cost": 11265.0,
       "is_complete": true,
       "notes": [
         "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)"
@@ -170,10 +170,10 @@
         "destination": "FCO",
         "depart_date": "2027-07-09",
         "return_date": "2027-07-17",
-        "total_price": 7311.0,
+        "total_price": 7344.0,
         "currency": "USD",
         "carriers": [
-          "Air Canada"
+          "American"
         ],
         "stops_out": 1,
         "stops_back": null,
@@ -183,23 +183,23 @@
           {
             "from": "STL",
             "from_name": "St. Louis Lambert International Airport",
-            "to": "YYZ",
-            "to_name": "Toronto Pearson International Airport",
-            "depart": "2027-07-09T08:15",
-            "arrive": "2027-07-09T11:12",
-            "minutes": 117,
+            "to": "DFW",
+            "to_name": "Dallas Fort Worth International Airport",
+            "depart": "2027-07-09T13:20",
+            "arrive": "2027-07-09T15:19",
+            "minutes": 119,
             "airline": "",
             "flight": "",
             "plane": "Canadair RJ 900"
           },
           {
-            "from": "YYZ",
-            "from_name": "Toronto Pearson International Airport",
+            "from": "DFW",
+            "from_name": "Dallas Fort Worth International Airport",
             "to": "FCO",
             "to_name": "Leonardo da Vinci International Airport",
-            "depart": "2027-07-09T20:00",
-            "arrive": "2027-07-10T10:20",
-            "minutes": 500,
+            "depart": "2027-07-09T16:25",
+            "arrive": "2027-07-10T09:50",
+            "minutes": 625,
             "airline": "",
             "flight": "",
             "plane": "Boeing 777"
@@ -227,9 +227,9 @@
       "ground_notes": "Plan's fixed costs: Vatican, Borghese, Colosseum, Ostia, taxis, food",
       "travel_mode": "air",
       "flights_expected": true,
-      "flight_cost": 7311.0,
+      "flight_cost": 7344.0,
       "lodging_cost": 1238.0,
-      "total_cost": 10799.0,
+      "total_cost": 10832.0,
       "is_complete": true,
       "notes": [
         "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)"

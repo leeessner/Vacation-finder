@@ -1,7 +1,7 @@
 {
   "trip_id": "nice-riviera",
-  "captured_at": "2026-10-31T13:47:41.507111+00:00",
-  "queries_made": 6,
+  "captured_at": "2026-10-31T18:00:28.622825+00:00",
+  "queries_made": 3,
   "errors": [],
   "quotes": [
     {
@@ -25,28 +25,28 @@
         "deep_link": "",
         "outbound": [
           {
+            "airline": "American",
+            "arrive": "2027-06-04T09:39",
+            "depart": "2027-06-04T06:16",
+            "flight": "AA 1308",
             "from": "STL",
             "from_name": "St. Louis Lambert International Airport",
-            "to": "PHL",
-            "to_name": "Philadelphia International Airport",
-            "depart": "2027-06-04T06:16",
-            "arrive": "2027-06-04T09:39",
             "minutes": 143,
-            "airline": "American",
-            "flight": "AA 1308",
-            "plane": "Airbus A319"
+            "plane": "Airbus A319",
+            "to": "PHL",
+            "to_name": "Philadelphia International Airport"
           },
           {
+            "airline": "American",
+            "arrive": "2027-06-05T08:10",
+            "depart": "2027-06-04T18:15",
+            "flight": "AA 746",
             "from": "PHL",
             "from_name": "Philadelphia International Airport",
-            "to": "NCE",
-            "to_name": "Nice C\u00f4te d'Azur Airport",
-            "depart": "2027-06-04T18:15",
-            "arrive": "2027-06-05T08:10",
             "minutes": 475,
-            "airline": "American",
-            "flight": "AA 746",
-            "plane": "Boeing 787"
+            "plane": "Boeing 787",
+            "to": "NCE",
+            "to_name": "Nice C\u00f4te d'Azur Airport"
           }
         ]
       },
