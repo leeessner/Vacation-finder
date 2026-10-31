@@ -1,7 +1,7 @@
 {
   "trip_id": "london-summer",
-  "captured_at": "2026-10-31T13:07:29.039044+00:00",
-  "queries_made": 5,
+  "captured_at": "2026-10-31T13:13:08.032918+00:00",
+  "queries_made": 4,
   "errors": [],
   "quotes": [
     {
@@ -11,18 +11,46 @@
       "return_date": "2027-06-14",
       "nights": 9,
       "currency": "USD",
-      "flight": null,
-      "lodging": null,
+      "flight": {
+        "origin": "STL",
+        "destination": "LHR",
+        "depart_date": "2027-06-05",
+        "return_date": "2027-06-14",
+        "total_price": 7501.0,
+        "currency": "USD",
+        "carriers": [],
+        "stops_out": null,
+        "stops_back": null,
+        "source": "google_flights_weekly",
+        "deep_link": ""
+      },
+      "lodging": {
+        "destination": "LHR \u2192 YRK",
+        "check_in": "2027-06-05",
+        "check_out": "2027-06-14",
+        "property_name": "Modern Home in Battersea for 4 People (6n) + Superb citycentre new built flat and gym (3n)",
+        "total_price": 2279.0,
+        "currency": "USD",
+        "property_id": "",
+        "nights": 9,
+        "rating": 4.32375,
+        "stars": null,
+        "board_type": "",
+        "refundable": null,
+        "source": "google_hotels",
+        "deep_link": "",
+        "distance_miles": null
+      },
       "ground_cost": 3800.0,
       "ground_notes": "Plan's fixed costs: Tower, palaces, trains to York and Manchester, food",
       "travel_mode": "air",
       "flights_expected": true,
-      "flight_cost": 0.0,
-      "lodging_cost": 0.0,
-      "total_cost": 3800.0,
-      "is_complete": false,
+      "flight_cost": 7501.0,
+      "lodging_cost": 2279.0,
+      "total_cost": 13580.0,
+      "is_complete": true,
       "notes": [
-        "no lodging price yet for London, UK"
+        "airfare from this week's Google Flights check (the free daily check found none for this route)"
       ]
     },
     {

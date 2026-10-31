@@ -1,6 +1,6 @@
 {
   "trip_id": "rome-summer",
-  "captured_at": "2026-10-31T13:07:37.260684+00:00",
+  "captured_at": "2026-10-31T13:13:12.635221+00:00",
   "queries_made": 4,
   "errors": [],
   "quotes": [
@@ -26,15 +26,31 @@
         "source": "google_flights_scaled",
         "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20FCO%20from%20STL%20on%202027-06-05%20through%202027-06-12"
       },
-      "lodging": null,
+      "lodging": {
+        "destination": "Rome, Italy",
+        "check_in": "2027-06-05",
+        "check_out": "2027-06-12",
+        "property_name": "Elegant house in the center of Rome-Parioli a stone's throw from Via Veneto",
+        "total_price": 1313.0,
+        "currency": "USD",
+        "property_id": "ChoQo-mWtdHTj-vVARoNL2cvMTF0eHFueXBkbhAC",
+        "nights": 7,
+        "rating": 4.762427,
+        "stars": null,
+        "board_type": "",
+        "refundable": null,
+        "source": "google_hotels",
+        "deep_link": "https://www.google.com/travel/search?q=Elegant%20house%20in%20the%20center%20of%20Rome-Parioli%20a%20stone%27s%20throw%20from%20Via%20Veneto%20Rome%2C%20Italy&checkin=2027-06-05&checkout=2027-06-12",
+        "distance_miles": 1.9
+      },
       "ground_cost": 2250.0,
       "ground_notes": "Plan's fixed costs: Vatican, Borghese, Colosseum, Ostia, taxis, food",
       "travel_mode": "air",
       "flights_expected": true,
       "flight_cost": 8535.0,
-      "lodging_cost": 0.0,
-      "total_cost": 10785.0,
-      "is_complete": false,
+      "lodging_cost": 1313.0,
+      "total_cost": 12098.0,
+      "is_complete": true,
       "notes": [
         "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)"
       ]

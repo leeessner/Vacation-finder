@@ -1,7 +1,7 @@
 {
   "trip_id": "florence-tuscany-summer",
-  "captured_at": "2026-10-31T13:07:02.281800+00:00",
-  "queries_made": 6,
+  "captured_at": "2026-10-31T13:12:21.612145+00:00",
+  "queries_made": 11,
   "errors": [],
   "quotes": [
     {
@@ -24,18 +24,34 @@
         "source": "google_flights_weekly",
         "deep_link": ""
       },
-      "lodging": null,
+      "lodging": {
+        "destination": "FLR \u2192 SAY",
+        "check_in": "2027-06-05",
+        "check_out": "2027-06-13",
+        "property_name": "a&o Hostel Firenze Campo Di Marte (5n) + Laurel Apartment (3n)",
+        "total_price": 1609.0,
+        "currency": "USD",
+        "property_id": "",
+        "nights": 8,
+        "rating": 4.2,
+        "stars": null,
+        "board_type": "",
+        "refundable": null,
+        "source": "google_hotels",
+        "deep_link": "",
+        "distance_miles": null
+      },
       "ground_cost": 4450.0,
       "ground_notes": "Plan's fixed costs: museums, pasta class, Bologna day, 4-day car, food",
       "travel_mode": "air",
       "flights_expected": true,
       "flight_cost": 7633.0,
-      "lodging_cost": 0.0,
-      "total_cost": 12083.0,
-      "is_complete": false,
+      "lodging_cost": 1609.0,
+      "total_cost": 13692.0,
+      "is_complete": true,
       "notes": [
         "airfare from this week's Google Flights check (the free daily check found none for this route)",
-        "no lodging price yet for Fattoria di Maiano, Fiesole"
+        "no Fattoria di Maiano within 3 mi met the rules for these dates"
       ]
     },
     {
@@ -46,17 +62,33 @@
       "nights": 8,
       "currency": "USD",
       "flight": null,
-      "lodging": null,
+      "lodging": {
+        "destination": "FLR \u2192 SAY",
+        "check_in": "2027-06-22",
+        "check_out": "2027-06-30",
+        "property_name": "Hostel 7 Santi (5n) + Laurel Apartment (3n)",
+        "total_price": 2015.0,
+        "currency": "USD",
+        "property_id": "",
+        "nights": 8,
+        "rating": 4.0,
+        "stars": null,
+        "board_type": "",
+        "refundable": null,
+        "source": "google_hotels",
+        "deep_link": "",
+        "distance_miles": null
+      },
       "ground_cost": 4450.0,
       "ground_notes": "Plan's fixed costs: museums, pasta class, Bologna day, 4-day car, food",
       "travel_mode": "air",
       "flights_expected": true,
       "flight_cost": 0.0,
-      "lodging_cost": 0.0,
-      "total_cost": 4450.0,
+      "lodging_cost": 2015.0,
+      "total_cost": 6465.0,
       "is_complete": false,
       "notes": [
-        "no lodging price yet for Fattoria di Maiano, Fiesole, Siena, Italy"
+        "no Fattoria di Maiano within 3 mi met the rules for these dates"
       ]
     },
     {
@@ -67,17 +99,33 @@
       "nights": 8,
       "currency": "USD",
       "flight": null,
-      "lodging": null,
+      "lodging": {
+        "destination": "FLR \u2192 SAY",
+        "check_in": "2027-07-09",
+        "check_out": "2027-07-17",
+        "property_name": "Hostel 7 Santi (5n) + Ampio appartamento 6 ospiti - 2 camere - Vicino al Centro - ZTL Free (3n)",
+        "total_price": 1599.0,
+        "currency": "USD",
+        "property_id": "",
+        "nights": 8,
+        "rating": 4.0,
+        "stars": null,
+        "board_type": "",
+        "refundable": null,
+        "source": "google_hotels",
+        "deep_link": "",
+        "distance_miles": null
+      },
       "ground_cost": 4450.0,
       "ground_notes": "Plan's fixed costs: museums, pasta class, Bologna day, 4-day car, food",
       "travel_mode": "air",
       "flights_expected": true,
       "flight_cost": 0.0,
-      "lodging_cost": 0.0,
-      "total_cost": 4450.0,
+      "lodging_cost": 1599.0,
+      "total_cost": 6049.0,
       "is_complete": false,
       "notes": [
-        "no lodging price yet for Fattoria di Maiano, Fiesole, Siena, Italy"
+        "no Fattoria di Maiano within 3 mi met the rules for these dates"
       ]
     }
   ]

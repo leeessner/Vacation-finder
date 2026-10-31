@@ -26,15 +26,68 @@
       "note": "",
       "quote": null
     },
-    "florence-tuscany-summer|Fattoria di Maiano, Fiesole|2027-06-05|2027-06-10": {
+    "florence-tuscany-summer|Fiesole, Italy|2027-06-05|2027-06-10": {
       "checked_on": "2026-10-31",
-      "note": "",
-      "quote": null
+      "note": "no Fattoria di Maiano within 3 mi met the rules for these dates",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-06-05",
+        "check_out": "2027-06-10",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=a%26o%20Hostel%20Firenze%20Campo%20Di%20Marte%20Fiesole%2C%20Italy&checkin=2027-06-05&checkout=2027-06-10",
+        "destination": "Fiesole, Italy",
+        "distance_miles": 2.2,
+        "nights": 5,
+        "property_id": "ChkI14v66N_u9c9NGg0vZy8xMXZ5cDRrNTN6EAE",
+        "property_name": "a&o Hostel Firenze Campo Di Marte",
+        "rating": 4.2,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": 3.0,
+        "total_price": 1010.0
+      }
     },
-    "florence-tuscany-summer|Fattoria di Maiano, Fiesole|2027-06-22|2027-06-27": {
+    "florence-tuscany-summer|Fiesole, Italy|2027-06-22|2027-06-27": {
       "checked_on": "2026-10-31",
-      "note": "",
-      "quote": null
+      "note": "no Fattoria di Maiano within 3 mi met the rules for these dates",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-06-22",
+        "check_out": "2027-06-27",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=Hostel%207%20Santi%20Fiesole%2C%20Italy&checkin=2027-06-22&checkout=2027-06-27",
+        "destination": "Fiesole, Italy",
+        "distance_miles": 1.9,
+        "nights": 5,
+        "property_id": "ChcIz8zP9Pfik_wIGgsvZy8xdG1taGxoZxAB",
+        "property_name": "Hostel 7 Santi",
+        "rating": 4.0,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": 3.0,
+        "total_price": 1276.0
+      }
+    },
+    "florence-tuscany-summer|Fiesole, Italy|2027-07-09|2027-07-14": {
+      "checked_on": "2026-10-31",
+      "note": "no Fattoria di Maiano within 3 mi met the rules for these dates",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-07-09",
+        "check_out": "2027-07-14",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=Hostel%207%20Santi%20Fiesole%2C%20Italy&checkin=2027-07-09&checkout=2027-07-14",
+        "destination": "Fiesole, Italy",
+        "distance_miles": 1.9,
+        "nights": 5,
+        "property_id": "ChcIz8zP9Pfik_wIGgsvZy8xdG1taGxoZxAB",
+        "property_name": "Hostel 7 Santi",
+        "rating": 4.0,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": 3.0,
+        "total_price": 1048.0
+      }
     },
     "florence-tuscany-summer|Siena, Italy|2027-06-10|2027-06-13": {
       "checked_on": "2026-10-31",
@@ -57,10 +110,152 @@
         "total_price": 599.0
       }
     },
+    "florence-tuscany-summer|Siena, Italy|2027-06-27|2027-06-30": {
+      "checked_on": "2026-10-31",
+      "note": "",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-06-27",
+        "check_out": "2027-06-30",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=Laurel%20Apartment%20Siena%2C%20Italy&checkin=2027-06-27&checkout=2027-06-30",
+        "destination": "Siena, Italy",
+        "distance_miles": 2.4,
+        "nights": 3,
+        "property_id": "ChkQmd-S-N3qk9wEGg0vZy8xMXo2NTh0NHg1EAI",
+        "property_name": "Laurel Apartment",
+        "rating": 4.7,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": null,
+        "total_price": 739.0
+      }
+    },
+    "florence-tuscany-summer|Siena, Italy|2027-07-14|2027-07-17": {
+      "checked_on": "2026-10-31",
+      "note": "",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-07-14",
+        "check_out": "2027-07-17",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=Ampio%20appartamento%206%20ospiti%20-%202%20camere%20-%20Vicino%20al%20Centro%20-%20ZTL%20Free%20Siena%2C%20Italy&checkin=2027-07-14&checkout=2027-07-17",
+        "destination": "Siena, Italy",
+        "distance_miles": 0.9,
+        "nights": 3,
+        "property_id": "ChkQ7PDLxZSg2J1NGg0vZy8xMXpoNHg4djIzEAI",
+        "property_name": "Ampio appartamento 6 ospiti - 2 camere - Vicino al Centro - ZTL Free",
+        "rating": 4.25,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": null,
+        "total_price": 551.0
+      }
+    },
+    "greece-summer|Athens, Greece|2027-06-05|2027-06-09": {
+      "checked_on": "2026-10-31",
+      "note": "",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-06-05",
+        "check_out": "2027-06-09",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=George%27s%20Apartment%20in%20%27%27Pedion%20Areos%27%27%20area%20Athens%2C%20Greece&checkin=2027-06-05&checkout=2027-06-09",
+        "destination": "Athens, Greece",
+        "distance_miles": 1.4,
+        "nights": 4,
+        "property_id": "ChkQo-zu36bT7eMUGg0vZy8xMXAxZ3Y2NjlwEAI",
+        "property_name": "George's Apartment in ''Pedion Areos'' area",
+        "rating": 4.4846454,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": null,
+        "total_price": 372.0
+      }
+    },
+    "greece-summer|Athens, Greece|2027-06-21|2027-06-25": {
+      "checked_on": "2026-10-31",
+      "note": "",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-06-21",
+        "check_out": "2027-06-25",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=Wohnung%20%7C%20Akropolis-N%C3%A4he%20Athens%2C%20Greece&checkin=2027-06-21&checkout=2027-06-25",
+        "destination": "Athens, Greece",
+        "distance_miles": 0.9,
+        "nights": 4,
+        "property_id": "ChoQlKrNp5GXgsL-ARoNL2cvMTFrajVwMW14cxAC",
+        "property_name": "Wohnung | Akropolis-N\u00e4he",
+        "rating": 4.8,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": null,
+        "total_price": 336.0
+      }
+    },
+    "greece-summer|Naxos, Greece|2027-06-09|2027-06-15": {
+      "checked_on": "2026-10-31",
+      "note": "",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-06-09",
+        "check_out": "2027-06-15",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=Cledari%20Plaka%20Appartments%20Naxos%2C%20Greece&checkin=2027-06-09&checkout=2027-06-15",
+        "destination": "Naxos, Greece",
+        "distance_miles": 4.3,
+        "nights": 6,
+        "property_id": "ChoQ3paUuefbmO2yARoNL2cvMTFudzUzaHpnNRAC",
+        "property_name": "Cledari Plaka Appartments",
+        "rating": 4.45,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": null,
+        "total_price": 860.0
+      }
+    },
+    "greece-summer|Naxos, Greece|2027-06-25|2027-07-01": {
+      "checked_on": "2026-10-31",
+      "note": "",
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-06-25",
+        "check_out": "2027-07-01",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=Lovely%20Apartment%20for%206Ppl%20%2C%202%20BDRM%20%2C%20in%20Naxos%20%2C%20private%20patio%20Naxos%2C%20Greece&checkin=2027-06-25&checkout=2027-07-01",
+        "destination": "Naxos, Greece",
+        "distance_miles": 0.4,
+        "nights": 6,
+        "property_id": "ChkQvvXNzeCA2rNzGg0vZy8xMW53NTZoY3N0EAI",
+        "property_name": "Lovely Apartment for 6Ppl , 2 BDRM , in Naxos , private patio",
+        "rating": 4.834483,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": null,
+        "total_price": 1129.0
+      }
+    },
     "london-summer|London, UK|2027-06-05|2027-06-11": {
       "checked_on": "2026-10-31",
       "note": "",
-      "quote": null
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-06-05",
+        "check_out": "2027-06-11",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=Modern%20Home%20in%20Battersea%20for%204%20People%20London%2C%20UK&checkin=2027-06-05&checkout=2027-06-11",
+        "destination": "London, UK",
+        "distance_miles": 2.1,
+        "nights": 6,
+        "property_id": "ChoQ6YWAkfSJv_HSARoNL2cvMTFzc2dic3MwcRAC",
+        "property_name": "Modern Home in Battersea for 4 People",
+        "rating": 4.5578947,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": null,
+        "total_price": 1628.0
+      }
     },
     "london-summer|York, UK|2027-06-11|2027-06-14": {
       "checked_on": "2026-10-31",
@@ -401,7 +596,23 @@
     "rome-summer|Rome, Italy|2027-06-05|2027-06-12": {
       "checked_on": "2026-10-31",
       "note": "",
-      "quote": null
+      "quote": {
+        "board_type": "",
+        "check_in": "2027-06-05",
+        "check_out": "2027-06-12",
+        "currency": "USD",
+        "deep_link": "https://www.google.com/travel/search?q=Elegant%20house%20in%20the%20center%20of%20Rome-Parioli%20a%20stone%27s%20throw%20from%20Via%20Veneto%20Rome%2C%20Italy&checkin=2027-06-05&checkout=2027-06-12",
+        "destination": "Rome, Italy",
+        "distance_miles": 1.9,
+        "nights": 7,
+        "property_id": "ChoQo-mWtdHTj-vVARoNL2cvMTF0eHFueXBkbhAC",
+        "property_name": "Elegant house in the center of Rome-Parioli a stone's throw from Via Veneto",
+        "rating": 4.762427,
+        "refundable": null,
+        "source": "google_hotels",
+        "stars": null,
+        "total_price": 1313.0
+      }
     },
     "smokies-spring-break|Gatlinburg, TN|2027-03-12|2027-03-16": {
       "checked_on": "2026-10-30",

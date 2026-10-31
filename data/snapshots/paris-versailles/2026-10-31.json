@@ -1,7 +1,7 @@
 {
   "trip_id": "paris-versailles",
-  "captured_at": "2026-10-31T13:06:48.430835+00:00",
-  "queries_made": 9,
+  "captured_at": "2026-10-31T13:12:18.689763+00:00",
+  "queries_made": 3,
   "errors": [],
   "quotes": [
     {
@@ -67,10 +67,10 @@
         "destination": "CDG",
         "depart_date": "2027-06-21",
         "return_date": "2027-06-30",
-        "total_price": 7641.0,
+        "total_price": 7782.0,
         "currency": "USD",
         "carriers": [
-          "Delta"
+          "United"
         ],
         "stops_out": null,
         "stops_back": null,
@@ -98,9 +98,9 @@
       "ground_notes": "Plan's fixed costs: tickets, Disneyland day, TGV, transit, food",
       "travel_mode": "air",
       "flights_expected": true,
-      "flight_cost": 7641.0,
+      "flight_cost": 7782.0,
       "lodging_cost": 2543.0,
-      "total_cost": 14434.0,
+      "total_cost": 14575.0,
       "is_complete": true,
       "notes": [
         "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)"

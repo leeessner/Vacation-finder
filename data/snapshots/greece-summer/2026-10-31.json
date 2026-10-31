@@ -1,7 +1,7 @@
 {
   "trip_id": "greece-summer",
-  "captured_at": "2026-10-31T13:07:17.242083+00:00",
-  "queries_made": 3,
+  "captured_at": "2026-10-31T13:12:50.433208+00:00",
+  "queries_made": 7,
   "errors": [],
   "quotes": [
     {
@@ -26,18 +26,33 @@
         "source": "google_flights_scaled",
         "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20ATH%20from%20STL%20on%202027-06-05%20through%202027-06-15"
       },
-      "lodging": null,
+      "lodging": {
+        "destination": "ATH \u2192 JNX",
+        "check_in": "2027-06-05",
+        "check_out": "2027-06-15",
+        "property_name": "George's Apartment in ''Pedion Areos'' area (4n) + Cledari Plaka Appartments (6n)",
+        "total_price": 1232.0,
+        "currency": "USD",
+        "property_id": "",
+        "nights": 10,
+        "rating": 4.45,
+        "stars": null,
+        "board_type": "",
+        "refundable": null,
+        "source": "google_hotels",
+        "deep_link": "",
+        "distance_miles": null
+      },
       "ground_cost": 2950.0,
       "ground_notes": "Plan's fixed costs: sites, ferries or flights to Naxos, island car, food",
       "travel_mode": "air",
       "flights_expected": true,
       "flight_cost": 8991.0,
-      "lodging_cost": 0.0,
-      "total_cost": 11941.0,
-      "is_complete": false,
+      "lodging_cost": 1232.0,
+      "total_cost": 13173.0,
+      "is_complete": true,
       "notes": [
-        "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)",
-        "no lodging price yet for Athens, Greece, Naxos, Greece"
+        "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)"
       ]
     },
     {
@@ -62,18 +77,33 @@
         "source": "google_flights_scaled",
         "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20ATH%20from%20STL%20on%202027-06-21%20through%202027-07-01"
       },
-      "lodging": null,
+      "lodging": {
+        "destination": "ATH \u2192 JNX",
+        "check_in": "2027-06-21",
+        "check_out": "2027-07-01",
+        "property_name": "Wohnung | Akropolis-N\u00e4he (4n) + Lovely Apartment for 6Ppl , 2 BDRM , in Naxos , private patio (6n)",
+        "total_price": 1465.0,
+        "currency": "USD",
+        "property_id": "",
+        "nights": 10,
+        "rating": 4.8,
+        "stars": null,
+        "board_type": "",
+        "refundable": null,
+        "source": "google_hotels",
+        "deep_link": "",
+        "distance_miles": null
+      },
       "ground_cost": 2950.0,
       "ground_notes": "Plan's fixed costs: sites, ferries or flights to Naxos, island car, food",
       "travel_mode": "air",
       "flights_expected": true,
       "flight_cost": 7377.0,
-      "lodging_cost": 0.0,
-      "total_cost": 10327.0,
-      "is_complete": false,
+      "lodging_cost": 1465.0,
+      "total_cost": 11792.0,
+      "is_complete": true,
       "notes": [
-        "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)",
-        "no lodging price yet for Athens, Greece, Naxos, Greece"
+        "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)"
       ]
     },
     {
