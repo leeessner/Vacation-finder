@@ -22,6 +22,7 @@ from typing import Any
 
 from .config import Config, Trip
 from .dates import candidate_windows
+from .flight_details import from_serpapi
 from .sources.base import SourceError
 
 log = logging.getLogger(__name__)
@@ -46,6 +47,7 @@ class FlightInsight:
     level: str                       # "low", "typical", "high" or ""
     typical_low: float | None
     typical_high: float | None
+    outbound: tuple = ()             # the cheapest option's outbound segments
 
     def phrase(self, currency_symbol: str = "$") -> str:
         parts = []
@@ -76,6 +78,7 @@ class FlightInsight:
                 level=str(raw.get("level") or ""),
                 typical_low=raw.get("typical_low"),
                 typical_high=raw.get("typical_high"),
+                outbound=tuple(raw.get("outbound") or ()),
             )
         except (KeyError, TypeError, ValueError):
             return None
@@ -114,7 +117,7 @@ def due(config: Config, insights: dict[str, FlightInsight], today: date) -> list
         # A check for other dates (the trip's length or window changed since)
         # can't stand in for today's fare, however recent it is.
         windows = candidate_windows(trip, today, config.settings)
-        if windows and (known.depart, known.return_) != windows[0]:
+        if windows and (known.depart, known.return_) != trip.flight_dates(*windows[0]):
             return 10_000
         return (today - known.checked_on).days
 
@@ -127,7 +130,7 @@ def fetch(client, trip: Trip, config: Config, today: date) -> FlightInsight | No
     windows = candidate_windows(trip, today, config.settings)
     if not windows or not trip.origins:
         return None
-    depart, ret = windows[0]
+    depart, ret = trip.flight_dates(*windows[0])
     party = trip.party
     arrive, leave = trip.destinations[0].code, trip.return_airport
     if leave != arrive:
@@ -167,6 +170,12 @@ def fetch(client, trip: Trip, config: Config, today: date) -> FlightInsight | No
         log.info("flight insight %s: %s", trip.id, exc)
         return None
     info = payload.get("price_insights") or {}
+    options = [
+        o for group in ("best_flights", "other_flights")
+        for o in payload.get(group) or []
+        if isinstance(o, dict) and isinstance(o.get("price"), (int, float))
+    ]
+    cheapest = min(options, key=lambda o: o["price"]) if options else None
     typical = info.get("typical_price_range") or [None, None]
     lowest = info.get("lowest_price")
     if lowest is None:
@@ -186,6 +195,7 @@ def fetch(client, trip: Trip, config: Config, today: date) -> FlightInsight | No
         level=str(info.get("price_level") or ""),
         typical_low=_num(typical[0] if len(typical) > 0 else None),
         typical_high=_num(typical[1] if len(typical) > 1 else None),
+        outbound=from_serpapi(cheapest) if cheapest else (),
     )
 
 

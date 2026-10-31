@@ -25,6 +25,8 @@ isn't big on boats, the flight is worth pricing.
 
 ## Day by day
 
+**Day 0 — Travel day: fly overnight.** Leave St. Louis in the afternoon with one connection (usually Chicago, Atlanta, Charlotte, Dallas or an East Coast hub). Fly overnight, and land the next morning, which is Day 1. Allow about 11–15 hours gate to gate. The clocks jump **8 hours ahead**, so Day 1 is for settling in, not sightseeing. The trip page's **Flights** section shows the airports, connection and times of the fare being tracked.
+
 **Day 1 — Arrive.** Plaka's lanes, and dinner with an Acropolis view.
 
 **Day 2 — The Acropolis, at 8 am.** Go at opening, before the heat and the
@@ -71,7 +73,7 @@ turquoise coves, if the crew feels up to a boat day.
 
 **Day 11 — Fly or ferry to Athens, and home.** Same-day connections from
 Naxos are tight, so consider **one night near the Athens airport** (Day 10
-evening). It's a cheap insurance policy.
+evening). It's a cheap insurance policy. It's a full travel day home: westbound flights usually leave late morning or midday and land in St. Louis that evening, about 12–16 hours gate to gate. You gain back the 8 hours.
 
 ## Food — and protein for the vegetarian parent
 

@@ -238,6 +238,7 @@ trips:
       cabin: economy
       checked_bags: 3
       return_from: MAD           # fly into Barcelona, home from Madrid
+      overnight_outbound: true    # St. Louis to Europe flies overnight: leave the day before check-in
     lodging:
       enabled: true
       coverage: good
@@ -283,6 +284,7 @@ trips:
       max_stops: 1
       cabin: economy
       checked_bags: 3            # the TGV runs from Strasbourg to CDG for the flight home
+      overnight_outbound: true    # St. Louis to Europe flies overnight: leave the day before check-in
     lodging:
       enabled: true
       coverage: good
@@ -338,6 +340,7 @@ trips:
       max_stops: 1
       checked_bags: 3
       return_from: FCO           # fly into Florence, home from Rome
+      overnight_outbound: true    # St. Louis to Europe flies overnight: leave the day before check-in
     lodging:
       enabled: true
       coverage: good
@@ -379,6 +382,7 @@ trips:
       max_stops: 1
       cabin: economy
       checked_bags: 3
+      overnight_outbound: true    # St. Louis to Europe flies overnight: leave the day before check-in
     lodging:
       enabled: true
       coverage: good
@@ -423,6 +427,7 @@ trips:
       enabled: true
       max_stops: 1
       checked_bags: 3
+      overnight_outbound: true    # St. Louis to Europe flies overnight: leave the day before check-in
     lodging:
       enabled: true
       coverage: good
@@ -473,6 +478,7 @@ trips:
       max_stops: 1
       checked_bags: 3
       return_from: LIS           # fly into Porto, home from Lisbon
+      overnight_outbound: true    # St. Louis to Europe flies overnight: leave the day before check-in
     lodging:
       enabled: true
       coverage: good
@@ -521,6 +527,7 @@ trips:
       enabled: true
       max_stops: 1
       checked_bags: 3
+      overnight_outbound: true    # St. Louis to Europe flies overnight: leave the day before check-in
     lodging:
       enabled: true
       coverage: good
@@ -572,6 +579,7 @@ trips:
       cabin: economy
       checked_bags: 3
       return_from: MAN           # fly home from Manchester, 1½ h from York
+      overnight_outbound: true    # St. Louis to Europe flies overnight: leave the day before check-in
     lodging:
       enabled: true
       kind: rental
@@ -615,6 +623,7 @@ trips:
       enabled: true
       max_stops: 1
       checked_bags: 3
+      overnight_outbound: true    # St. Louis to Europe flies overnight: leave the day before check-in
     lodging:
       enabled: true
       coverage: good
@@ -659,6 +668,7 @@ trips:
       enabled: true
       max_stops: 1
       checked_bags: 3
+      overnight_outbound: true    # St. Louis to Europe flies overnight: leave the day before check-in
     lodging:
       enabled: true
       coverage: good
@@ -706,6 +716,7 @@ trips:
       enabled: true
       max_stops: 1
       checked_bags: 3
+      overnight_outbound: true    # St. Louis to Europe flies overnight: leave the day before check-in
     lodging:
       enabled: true
       coverage: good

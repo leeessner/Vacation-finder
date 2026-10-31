@@ -113,6 +113,10 @@ class FlightPrefs:
     # Fly home from a different airport than you arrived at (an open-jaw
     # ticket): arrive at the first stop's airport, leave from this one.
     return_from: str = ""
+    # Overnight eastbound flights (St. Louis to Europe) land the day after
+    # they leave. With this set, the flight leaves the day before the first
+    # night's check-in, so the lodging dates are the nights you're there.
+    overnight_outbound: bool = False
 
 
 # How well the lodging price reflects what you'd actually book.
@@ -213,6 +217,11 @@ class Trip:
     def return_airport(self) -> str:
         """Where the flight home leaves from (the arrival airport unless open-jaw)."""
         return self.flights.return_from or self.destinations[0].code
+
+    def flight_dates(self, check_in: date, check_out: date) -> tuple[date, date]:
+        """When the flights go, for a stay from check_in to check_out."""
+        out = check_in - timedelta(days=1) if self.flights.overnight_outbound else check_in
+        return out, check_out
 
     def lodging_for(self, destination: Destination) -> LodgingPrefs:
         return destination.lodging or self.lodging
@@ -428,6 +437,7 @@ def _parse_trip(raw: Any, index: int, settings: Settings) -> Trip:
         carry_on_bags=int(flights_raw.get("carry_on_bags", 0)),
         exclude_basic_economy=bool(flights_raw.get("exclude_basic_economy", False)),
         return_from=str(flights_raw.get("return_from", "") or "").strip().upper(),
+        overnight_outbound=bool(flights_raw.get("overnight_outbound", False)),
     )
 
     lodging_raw = raw.get("lodging") or {}

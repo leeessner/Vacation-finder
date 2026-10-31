@@ -24,6 +24,7 @@ from dataclasses import dataclass
 from datetime import date
 
 from ..config import Settings, Trip
+from ..flight_details import from_fast_flights
 from ..models import FlightQuote
 
 log = logging.getLogger(__name__)
@@ -73,12 +74,12 @@ def search_flights(
         )
         if hit is not None:
             price = hit[0] if step.adults is None else hit[0] / step.adults * party.total
-            found, source = (price, hit[1]), step.source
+            found, source = (price, hit[1], hit[2]), step.source
             break
     if found is None:
         return None
 
-    best_price, best_airlines = found
+    best_price, best_airlines, outbound = found
     if source == "google_flights" and not settings.google_flights_price_is_total:
         best_price *= max(1, party.total)
 
@@ -90,9 +91,10 @@ def search_flights(
         total_price=float(best_price),
         currency=currency,
         carriers=best_airlines,
-        stops_out=None,
+        stops_out=max(0, len(outbound) - 1) if outbound else None,
         stops_back=None,
         source=source,
+        outbound=outbound,
         deep_link=(
             "https://www.google.com/travel/flights?q="
             f"Flights%20to%20{destination}%20from%20{origin}%20on%20"
@@ -148,13 +150,15 @@ def _cheapest(
     adults: int | None = None,
     extra_stops: int = 0,
     return_from: str = "",
-) -> tuple[float, tuple[str, ...]] | None:
-    """(price, airlines) of the cheapest result, or None if there were none."""
+    trip_type: str = "",
+) -> tuple[float, tuple[str, ...], tuple] | None:
+    """(price, airlines, outbound segments) of the cheapest result, or None."""
     who = "party" if adults is None else f"{adults} adult(s)"
     try:
         query = build_query(
             trip, origin, destination, depart, ret, currency,
             adults=adults, extra_stops=extra_stops, return_from=return_from,
+            trip_type=trip_type,
         )
         results = get_flights(query)
     except Exception as exc:  # noqa: BLE001 - scraping fails in many shapes
@@ -166,14 +170,28 @@ def _cheapest(
         )
         return None
 
-    best: tuple[float, tuple[str, ...]] | None = None
+    best: tuple[float, tuple[str, ...], tuple] | None = None
     for item in results or []:
         price = _price_of(item)
         if price is None or price <= 0:
             continue
         if best is None or price < best[0]:
-            best = (price, tuple(getattr(item, "airlines", ()) or ()))
+            best = (price, tuple(getattr(item, "airlines", ()) or ()), from_fast_flights(item))
     return best
+
+
+def typical_leg(
+    trip: Trip, origin: str, destination: str, day: date, currency: str
+) -> tuple[tuple, tuple[str, ...]] | None:
+    """(segments, airlines) of the cheapest one-way flight on this route and
+    day, for one adult: what the trip home typically looks like. Free (the
+    scraper), and never used as a price."""
+    if not available():
+        return None
+    hit = _cheapest(
+        trip, origin, destination, day, day, currency, adults=1, trip_type="one-way"
+    )
+    return (hit[2], hit[1]) if hit else None
 
 
 def build_query(
@@ -186,10 +204,12 @@ def build_query(
     adults: int | None = None,
     extra_stops: int = 0,
     return_from: str = "",
+    trip_type: str = "",
 ):
     """The fast-flights query for one round trip: the whole party, or with
     `adults`, that many adults and no bag filter (a stand-in to scale).
-    With `return_from`, a multi-city trip home from that airport."""
+    With `return_from`, a multi-city trip home from that airport; with
+    trip_type "one-way", only the first flight."""
     party = trip.party
     sample = adults is not None
     stops = trip.flights.max_stops
@@ -204,22 +224,27 @@ def build_query(
             infants_in_seat=0,
             infants_on_lap=party.infants,
         )
+    legs = [
+        FlightQuery(
+            date=depart.isoformat(),
+            from_airport=origin,
+            to_airport=destination,
+            max_stops=stops,
+        ),
+        FlightQuery(
+            date=ret.isoformat(),
+            from_airport=return_from or destination,
+            to_airport=origin,
+            max_stops=stops,
+        ),
+    ]
+    if trip_type == "one-way":
+        legs, kind = legs[:1], "one-way"
+    else:
+        kind = "multi-city" if return_from and return_from != destination else "round-trip"
     return create_query(
-        flights=[
-            FlightQuery(
-                date=depart.isoformat(),
-                from_airport=origin,
-                to_airport=destination,
-                max_stops=stops,
-            ),
-            FlightQuery(
-                date=ret.isoformat(),
-                from_airport=return_from or destination,
-                to_airport=origin,
-                max_stops=stops,
-            ),
-        ],
-        trip="multi-city" if return_from and return_from != destination else "round-trip",
+        flights=legs,
+        trip=kind,
         seat=trip.flights.cabin,
         passengers=passengers,
         currency=currency,

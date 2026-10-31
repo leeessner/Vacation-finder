@@ -32,6 +32,8 @@ directly to the airport station.
 
 ## Day by day
 
+**Day 0 — Travel day: fly overnight.** Leave St. Louis in the afternoon with one connection (usually Chicago, Atlanta, Charlotte, Dallas or an East Coast hub). Fly overnight, and land the next morning, which is Day 1. Allow about 11–15 hours gate to gate. The clocks jump **7 hours ahead**, so Day 1 is for settling in, not sightseeing. The trip page's **Flights** section shows the airports, connection and times of the fare being tracked.
+
 **Day 1 — Arrive. The Luxembourg Gardens.** Rent a wooden **toy sailboat** to
 push around the Grand Bassin, then go to the playground. An easy first
 afternoon.
@@ -88,7 +90,7 @@ train to **Colmar** (12 min): **Little Venice**, a short flat-bottomed
 **boat ride** on the canal (25 min), and old-town lanes. Parents can add the
 **Isenheim Altarpiece** at the Unterlinden museum (children under 12 free).
 
-**Day 10 — TGV to Paris-CDG** (about 2 h), then fly home.
+**Day 10 — TGV to Paris-CDG** (about 2 h), then fly home. It's a full travel day home: westbound flights usually leave late morning or midday and land in St. Louis that evening, about 12–16 hours gate to gate. You gain back the 7 hours.
 
 ## Optional
 

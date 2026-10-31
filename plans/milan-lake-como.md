@@ -23,6 +23,8 @@ Fly into and out of **Milan Malpensa (MXP)**.
 
 ## Day by day
 
+**Day 0 — Travel day: fly overnight.** Leave St. Louis in the afternoon with one connection (usually Chicago, Atlanta, Charlotte, Dallas or an East Coast hub). Fly overnight, and land the next morning, which is Day 1. Allow about 11–15 hours gate to gate. The clocks jump **7 hours ahead**, so Day 1 is for settling in, not sightseeing. The trip page's **Flights** section shows the airports, connection and times of the fare being tracked.
+
 **Day 1 — Arrive.** See the **Duomo** square and the glass-roofed **Galleria
 Vittorio Emanuele II**. Spin your heel on the bull mosaic for luck.
 
@@ -69,7 +71,7 @@ lighthouse for the whole-lake view. See the old walled town below.
 Express** day trip from Tirano over the Alps into Switzerland, the most
 famous train ride in the Alps (long: about 2 h to Tirano first).
 
-**Day 10 — Train to MXP** (about 2 h) and fly home.
+**Day 10 — Train to MXP** (about 2 h) and fly home. It's a full travel day home: westbound flights usually leave late morning or midday and land in St. Louis that evening, about 12–16 hours gate to gate. You gain back the 7 hours.
 
 ## Food — and protein for the vegetarian parent
 

@@ -19,12 +19,12 @@ from pathlib import Path
 
 from . import alerts as alerts_mod
 from . import dashboard as dashboard_mod
-from . import notify
+from . import flight_details, notify
 from .config import Config, ConfigError, load_config
 from .dates import candidate_windows
 from .pricing import TripPricer
 from .report import build_reports
-from .storage import HISTORY_DIR, append_run, load_history, load_state
+from .storage import HISTORY_DIR, append_run, load_history, load_state, save_state
 from .suggest import load_catalog, suggest
 from .summary import write_summary
 
@@ -279,6 +279,7 @@ def cmd_track(args: argparse.Namespace) -> int:
     book = LodgingBook.load(
         config, today, allowance, unavailable_reason=reason, priority=list(priority)
     )
+    details = load_state(flight_details.STATE_NAME) or {}
     pricer = TripPricer(config, hotels=hotels, book=book, insights=insights)
     trips_by_id = {t.id: t for t in config.trips}
     fired: list[alerts_mod.Alert] = []
@@ -294,6 +295,7 @@ def cmd_track(args: argparse.Namespace) -> int:
         if row is None:
             log.error("%s: no priceable option found this run", trip.id)
             continue
+        _record_flight_details(details, trip, result.best, insights.get(trip.id), today, config)
         log.info(
             "%s: best %s %.0f (%s → %s) from %d option(s), %d API call(s)",
             trip.id, row.currency, row.total, row.depart_date, row.return_date,
@@ -313,6 +315,7 @@ def cmd_track(args: argparse.Namespace) -> int:
 
     alerts_mod.persist(state)
     book.save()
+    save_state(flight_details.STATE_NAME, details)
 
     reports = build_reports(config)
     suggestions = suggest(config, load_catalog())
@@ -326,6 +329,45 @@ def cmd_track(args: argparse.Namespace) -> int:
     else:
         log.info("no new alerts")
     return 0
+
+
+def _record_flight_details(details, trip, quote, insight, today, config) -> None:
+    """Keep the airports, times and basis of the trip's best fare, plus a
+    typical flight home from one free one-way scrape."""
+    if quote is None or quote.flight is None:
+        return
+    from .sources import google_flights
+
+    fare = quote.flight
+    origin = fare.origin or (trip.origins[0] if trip.origins else "")
+    inbound, inbound_airlines = (), ()
+    if config.settings.google_flights_enabled:
+        found = google_flights.typical_leg(
+            trip, trip.return_airport, origin, fare.return_date, config.settings.currency
+        )
+        if found:
+            inbound, inbound_airlines = found
+    details[trip.id] = {
+        "checked_on": today.isoformat(),
+        "price": fare.total_price,
+        "currency": fare.currency,
+        "source": fare.source,
+        "carriers": list(fare.carriers),
+        "origin": origin,
+        "arrive_at": trip.destinations[0].code,
+        "home_from": trip.return_airport,
+        "depart_date": fare.depart_date.isoformat(),
+        "return_date": fare.return_date.isoformat(),
+        "check_in": quote.depart_date.isoformat(),
+        "check_out": quote.return_date.isoformat(),
+        "outbound": list(fare.outbound),
+        "inbound": list(inbound),
+        "inbound_airlines": list(inbound_airlines),
+        "basis": flight_details.basis(
+            fare.source, trip.party.total, trip.flights.max_stops,
+            trip.flights.checked_bags, insight, today,
+        ),
+    }
 
 
 def cmd_digest(args: argparse.Namespace) -> int:

@@ -23,6 +23,8 @@ centre.
 
 ## Day by day
 
+**Day 0 — Travel day: fly overnight.** Leave St. Louis in the afternoon with one connection (usually Chicago, Atlanta, Charlotte, Dallas or an East Coast hub). Fly overnight, and land the next morning, which is Day 1. Allow about 11–15 hours gate to gate. The clocks jump **7 hours ahead**, so Day 1 is for settling in, not sightseeing. The trip page's **Flights** section shows the airports, connection and times of the fare being tracked.
+
 **Day 1 — Arrive.** Walk the **Promenade des Anglais** and have the first
 swim. Nice's beaches are **pebbles**, so bring water shoes. Book a
 beach-club section with loungers for easy days.
@@ -63,7 +65,7 @@ will remember the cell. It's a short boat ride, but it is a boat. *Or* go to
 
 **Day 9 — Beach day**, or a second choice from Day 8.
 
-**Day 10 — Fly home** from NCE.
+**Day 10 — Fly home** from NCE. It's a full travel day home: westbound flights usually leave late morning or midday and land in St. Louis that evening, about 12–16 hours gate to gate. You gain back the 7 hours.
 
 ## Food — and protein for the vegetarian parent
 

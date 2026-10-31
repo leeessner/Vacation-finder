@@ -24,6 +24,8 @@ station, and Bruges is about 1½ h away.
 
 ## Day by day
 
+**Day 0 — Travel day: fly overnight.** Leave St. Louis in the afternoon with one connection (usually Chicago, Atlanta, Charlotte, Dallas or an East Coast hub). Fly overnight, and land the next morning, which is Day 1. Allow about 11–15 hours gate to gate. The clocks jump **7 hours ahead**, so Day 1 is for settling in, not sightseeing. The trip page's **Flights** section shows the airports, connection and times of the fare being tracked.
+
 **Day 1 — Arrive. Train to Bruges.** Walk the canals and the **Markt**, and
 have frites on a bench.
 
@@ -70,7 +72,7 @@ the Trappist beer; the abbey itself is closed to visitors.
 **Day 9 — Brussels, slow.** Choose: **Cantillon**, a working lambic
 brewery and museum (a making-of, *check* tours), or parks and shopping.
 
-**Day 10 — Fly home** from BRU.
+**Day 10 — Fly home** from BRU. It's a full travel day home: westbound flights usually leave late morning or midday and land in St. Louis that evening, about 12–16 hours gate to gate. You gain back the 7 hours.
 
 ## The Trappist map
 

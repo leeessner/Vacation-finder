@@ -31,6 +31,8 @@ Fly in and out of **Munich (MUC)**. It's about 2½–3 hours by car from Gosau.
 
 ## Day by day
 
+**Day 0 — Travel day: fly overnight.** Leave St. Louis in the afternoon with one connection (usually Chicago, Atlanta, Charlotte, Dallas or an East Coast hub). Fly overnight, and land the next morning, which is Day 1. Allow about 11–15 hours gate to gate. The clocks jump **7 hours ahead**, so Day 1 is for settling in, not sightseeing. The trip page's **Flights** section shows the airports, connection and times of the fare being tracked.
+
 **Day 1 — Arrive. English Garden.** A gentle first afternoon. Watch the river
 surfers at the Eisbach wave, then go to the **Chinesischer Turm** beer garden.
 It has a playground and an old carousel, so the kids play while the parents
@@ -84,7 +86,7 @@ something from *Optional outings* below.
   In the afternoon, everyone's back at the pool.
 - **Day 10:** a slow day before the flight.
 
-**Day 11 — Drive to MUC** (2½–3 h), fly home.
+**Day 11 — Drive to MUC** (2½–3 h), fly home. It's a full travel day home: westbound flights usually leave late morning or midday and land in St. Louis that evening, about 12–16 hours gate to gate. You gain back the 7 hours.
 
 ## Optional outings from the resort
 

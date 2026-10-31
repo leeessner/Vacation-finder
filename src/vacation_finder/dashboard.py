@@ -18,12 +18,12 @@ from __future__ import annotations
 
 import re
 from dataclasses import dataclass
-from datetime import datetime, timezone
+from datetime import date, datetime, timezone
 from pathlib import Path
 
 import markdown
 
-from . import itinerary_map
+from . import flight_details, itinerary_map
 from .config import Config
 from .report import (
     NOT_CHECKED_HOTEL,
@@ -131,6 +131,10 @@ border-radius:4px;background:var(--check-bg);color:var(--check-fg);text-transfor
 font-weight:600;margin:0 0 10px}
 pre{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:10px;
 font-size:12px;overflow-x:auto;white-space:pre-wrap}
+.flights h3{font:700 16px/1.3 var(--display);margin:18px 0 6px}
+.flights .big .note{font-size:14px;font-weight:400}
+tr.layover td{color:var(--muted);font-size:13px;background:var(--paper)}
+.legsum{margin:6px 0}
 footer{color:var(--muted);font-size:12.5px;margin-top:30px;border-top:1px solid var(--line);padding-top:14px}
 """
 
@@ -436,11 +440,116 @@ def _tracker_section(report: TripReport) -> str:
     )
 
 
-def _trip_page(page: Page, pages: list[Page], stamp: str, footer: str) -> str:
+def _clock(stamp: str) -> str:
+    """'Fri Jun 4, 3:10 pm' from a local 'YYYY-MM-DDTHH:MM'."""
+    when = flight_details._parse(stamp)
+    if when is None:
+        return "?"
+    hour = when.hour % 12 or 12
+    return f"{when:%a %b} {when.day}, {hour}:{when:%M} {'am' if when.hour < 12 else 'pm'}"
+
+
+def _day(iso: str) -> str:
+    """'Tue Jun 15' from '2027-06-15'."""
+    try:
+        d = date.fromisoformat(iso)
+    except (TypeError, ValueError):
+        return iso or "?"
+    return f"{d:%a %b} {d.day}"
+
+
+def _leg_table(segments: list) -> str:
+    rows = []
+    waits = flight_details.layovers(segments)
+    for i, seg in enumerate(segments):
+        who = " ".join(x for x in (seg.get("airline"), seg.get("flight")) if x)
+        rows.append(
+            f"<tr><td><b>{_esc(seg.get('from', ''))}</b> → <b>{_esc(seg.get('to', ''))}</b>"
+            f"<div class='note'>{_esc(seg.get('from_name', ''))} → {_esc(seg.get('to_name', ''))}</div></td>"
+            f"<td>{_esc(_clock(seg.get('depart', '')))}</td>"
+            f"<td>{_esc(_clock(seg.get('arrive', '')))}</td>"
+            f"<td class='num'>{flight_details.hours(seg.get('minutes'))}</td>"
+            f"<td>{_esc(who)}</td></tr>"
+        )
+        if i < len(waits):
+            airport, minutes = waits[i]
+            rows.append(
+                f"<tr class='layover'><td colspan='5'>Connection at {_esc(airport)}: "
+                f"{flight_details.hours(minutes)}</td></tr>"
+            )
+    return (
+        "<div class='scroll'><table><thead><tr><th>Flight</th><th>Leaves (local)</th>"
+        "<th>Lands (local)</th><th class='num'>Flying</th><th>Airline</th></tr></thead>"
+        f"<tbody>{''.join(rows)}</tbody></table></div>"
+    )
+
+
+def _leg_summary(segments: list, label: str) -> str:
+    total = flight_details.total_minutes(segments)
+    shift = flight_details.day_shift(segments)
+    first, last = segments[0], segments[-1]
+    lands = "the next day" if shift == 1 else f"{shift} days later" if shift > 1 else "the same day"
+    stops = len(segments) - 1
+    advice = (
+        "Plan on a full travel day, with a night on the plane."
+        if shift >= 1 else
+        "Plan on the whole day for travel." if (total or 0) >= 8 * 60 else
+        "Most of a day."
+    )
+    return (
+        f"<p class='legsum'><b>{_esc(label)}:</b> {stops} stop(s), "
+        f"{flight_details.hours(total)} gate to gate. Leaves {_esc(_clock(first.get('depart', '')))}, "
+        f"lands {_esc(_clock(last.get('arrive', '')))} local time ({lands}). {advice}</p>"
+    )
+
+
+def _flights_section(info: dict | None, report: TripReport | None) -> str:
+    if not info:
+        return ""
+    sym = report.symbol if report else "$"
+    route = f"{info.get('origin', '')} → {info.get('arrive_at', '')}"
+    home = f"{info.get('home_from', '')} → {info.get('origin', '')}"
+    out, back = info.get("outbound") or [], info.get("inbound") or []
+    carriers = ", ".join(info.get("carriers") or [])
+    parts = [
+        '<section class="card flights"><h2 class="name">Flights</h2>',
+        f"<div class='big'>{money(info.get('price', 0), sym)}<span class='note'> for the party, "
+        f"round trip{' (home from ' + _esc(info.get('home_from', '')) + ')' if info.get('home_from') != info.get('arrive_at') else ''}"
+        f"{' · ' + _esc(carriers) if carriers else ''}</span></div>",
+        f"<p><b>How this fare was found:</b> {_esc(info.get('basis', ''))}</p>",
+    ]
+    d0 = info.get("depart_date", "")
+    parts.append(f"<h3>Going out: {_esc(route)}</h3>")
+    if out:
+        parts.append(_leg_summary(out, "Going out") + _leg_table(out))
+    else:
+        parts.append(f"<p class='note'>Leaves {_esc(_day(d0))}. The source didn't list the flights "
+                     "for this fare; they'll appear after the next weekly check.</p>")
+    parts.append(f"<h3>Coming home: {_esc(home)}</h3>")
+    if back:
+        parts.append(
+            "<p class='note'>A typical flight home on that day (the cheapest one-way listing, "
+            "searched for these airports). Google lists the priced fare by its outbound flights, "
+            "so the exact return is picked when you book.</p>"
+            + _leg_summary(back, "Coming home") + _leg_table(back)
+        )
+    else:
+        parts.append(f"<p class='note'>Flies home {_esc(_day(info.get('return_date', '')))}. No typical "
+                     "return was found on the free check this time.</p>")
+    parts.append(
+        f"<p class='note'>Fare checked {_esc(_day(info.get('checked_on', '')))}. Lodging is "
+        f"{_esc(_day(info.get('check_in', '')))} to {_esc(_day(info.get('check_out', '')))}.</p></section>"
+    )
+    return "".join(parts)
+
+
+def _trip_page(page: Page, pages: list[Page], stamp: str, footer: str,
+               flight_info: dict | None = None) -> str:
     header = f'<p class="eyebrow"><a href="../index.html">Vacation deal watch</a></p><h1>{_esc(page.name)}</h1>'
     body = ""
     if page.report is not None:
         body += _tracker_section(page.report)
+        body += _flights_section(flight_info, page.report)
     else:
         body += '<p class="muted">This plan isn\'t tracked yet: no daily flight or hotel prices.</p>'
     if page.plan is not None:
@@ -498,9 +607,15 @@ def build(
     output: Path = OUTPUT,
     spreadsheet_url: str = "",
     plans_dir: Path = PLANS_DIR,
+    flight_info: dict | None = None,
 ) -> Path:
     now = datetime.now(timezone.utc)
     pages = _pages(reports, plans_dir)
+    if flight_info is None:
+        from .storage import load_state
+
+        flight_info = load_state(flight_details.STATE_NAME) or {}
+    flights = flight_info
     stamp = f"last checked {now:%b %d, %Y at %H:%M} UTC"
     sheet = (
         f' · <a href="{_esc(spreadsheet_url)}">every price as a spreadsheet</a>'
@@ -539,7 +654,7 @@ def build(
     written = set()
     for page in pages:
         target = trips_dir / f"{page.slug}.html"
-        target.write_text(_trip_page(page, pages, stamp, footer))
+        target.write_text(_trip_page(page, pages, stamp, footer, flights.get(page.slug)))
         written.add(target.name)
     for stale in trips_dir.glob("*.html"):
         if stale.name not in written:
