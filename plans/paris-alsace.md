@@ -153,7 +153,7 @@ the city. Paris has good craft-beer bars for the parents.
 - **Pickpockets** on the Métro and around the Eiffel Tower: keep phones and
   wallets zipped.
 
-## Tracker settings (to apply once you've reviewed this)
+## Tracker settings (applied)
 
 - **"Paris & Versailles"**: lodging for **6 nights**, center **Luxembourg
   Gardens** (48.8462, 2.3372), within 2 mi, a rental with 2+ bedrooms or 2

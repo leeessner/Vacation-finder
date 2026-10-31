@@ -1,0 +1,20 @@
+places:
+  - {name: "Apartment near Piazza Navona (stay)", kind: stay, days: [1, 2, 3, 4, 5, 6, 7], at: [41.8975, 12.4715], area: Rome}
+  - {name: Piazza Navona, days: [1], at: [41.8992, 12.4731], area: Rome}
+  - {name: Pantheon, days: [1], at: [41.8986, 12.4769], area: Rome}
+  - {name: Giolitti gelato, days: [1], at: [41.9010, 12.4767], area: Rome}
+  - {name: Vatican Museums (Raphael Rooms), days: [2], at: [41.9065, 12.4536], area: Rome}
+  - {name: "St Peter's and the dome", days: [2], at: [41.9022, 12.4539], area: Rome}
+  - {name: Colosseum, days: [3], at: [41.8902, 12.4922], area: Rome}
+  - {name: Roman Forum and Palatine, days: [3], at: [41.8925, 12.4853], area: Rome}
+  - {name: Trevi Fountain, days: [3], at: [41.9009, 12.4833], area: Rome}
+  - {name: Spanish Steps, days: [3], at: [41.9060, 12.4828], area: Rome}
+  - {name: Galleria Borghese, days: [4], at: [41.9142, 12.4922], area: Rome}
+  - {name: Pincio terrace, days: [4], at: [41.9113, 12.4797], area: Rome}
+  - {name: "Castel Sant'Angelo", days: [5], at: [41.9031, 12.4663], area: Rome}
+  - {name: San Luigi dei Francesi (Caravaggio), days: [5], at: [41.8994, 12.4749], area: Rome}
+  - {name: Galleria Doria Pamphilj, days: [5], at: [41.8981, 12.4813], area: Rome}
+  - {name: Trastevere, days: [5], at: [41.8894, 12.4700], area: Rome}
+  - {name: Ostia Antica, days: [6], at: [41.7558, 12.2925], area: "Day trip"}
+  - {name: Galleria Colonna, days: [7], at: [41.8983, 12.4840], area: Rome}
+  - {name: "Rome airport (FCO)", kind: airport, days: [1, 8], at: [41.8003, 12.2389], area: "Day trip"}

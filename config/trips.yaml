@@ -66,7 +66,10 @@ settings:
   # hotel_price_max_age_days. `validate` shows the resulting cadence.
   searches_per_run: 7
   hotel_search_reserve: 10
-  hotel_price_max_age_days: 10
+  # 14, not 10: with every stop of a multi-city trip its own stay, a full
+  # pass of hotel searches takes about 10 days. Prices 5–8 months out move
+  # slowly, and the dashboard says how old each one is.
+  hotel_price_max_age_days: 14
   flight_insight_days: 7
 
   # Within this many hours' drive, drive — don't fly.
@@ -123,8 +126,8 @@ trips:
       drive_round_trip_miles: 620
       mpg: 22
       fuel_price_per_gallon: 3.10
-      flat_cost: 70               # downtown parking, roughly
-      notes: "Driving from STL — fuel and parking"
+      flat_cost: 710              # the plan's fixed costs, less fuel (estimated below)
+      notes: "Fuel, parking, Parthenon, Lane Motor Museum, Cheekwood, food"
     alerts:
       # No absolute target, per your note that it depends on the experience.
       # These fire on the trip's own history instead of a fixed number.
@@ -171,8 +174,8 @@ trips:
       drive_round_trip_miles: 1060
       mpg: 22
       fuel_price_per_gallon: 3.10
-      flat_cost: 40
-      notes: "Driving from STL — fuel and park-adjacent parking"
+      flat_cost: 975              # the plan's fixed costs, less fuel (estimated below)
+      notes: "Fuel, park parking tag, SkyBridge, mountain railroad, food"
     alerts:
       drop_pct_vs_median: 12
       percentile_below: 20
@@ -193,11 +196,17 @@ trips:
 # the keyless Google Flights scraper; once a week each trip also gets
 # Google's own verdict (low / typical / high) and typical price range.
 #
-# Note on multi-city trips: the tracker prices ONE gateway per trip. For
-# Barcelona-and-Madrid it tracks the Barcelona flight and hotel, and the
-# Madrid leg sits in ground.flat_cost as a train estimate. Listing both as
-# destinations would make the tracker price them as alternatives and report
-# the cheaper one, which would understate the trip.
+# Multi-city trips list `stops:` in the order you visit them, each with its
+# own nights and (optionally) its own lodging rules on top of the trip's.
+# Each stop's stay is priced for its own dates and they add up to one
+# lodging number. Flights arrive at the first stop's airport and go home
+# from `flights.return_from` (an open-jaw ticket) or the same airport.
+# A stay Google can't price (a resort that sells direct) sets
+# `lodging: {enabled: false}` and a `lodging_estimate` in dollars instead.
+#
+# ground.flat_cost holds each plan's fixed costs (tickets, trains, food,
+# car), so the total is the whole trip: flights + lodging + fixed costs.
+# Source: the "Fixed costs" table in each trip's plan, converted to dollars.
 # ============================================================================
 
   - id: spain-barcelona-madrid
@@ -205,12 +214,17 @@ trips:
     plan: plans/spain-barcelona-madrid.md
     why: "Two great cities on one trip, connected by a three-hour train; walkable with kids"
     active: true
-    destinations:
+    stops:
       - code: BCN
         label: "Barcelona, Spain"
-        city_code: BCN
-        center: [41.3870, 2.1700]   # Plaça de Catalunya
-        within_miles: 2.5
+        nights: 5
+        center: [41.3917, 2.1649]   # Passeig de Gràcia, Eixample
+        within_miles: 2
+      - code: MAD
+        label: "Madrid, Spain"
+        nights: 5
+        center: [40.4169, -3.7035]  # Puerta del Sol
+        within_miles: 1.5
     party:
       adults: 2
       children: [8, 7, 5, 3]
@@ -218,22 +232,22 @@ trips:
       mode: window
       earliest: 2027-06-05
       latest: 2027-07-17
-      nights: 10
     flights:
       enabled: true
       max_stops: 1               # nonstop STL–Europe doesn't exist
       cabin: economy
       checked_bags: 3
+      return_from: MAD           # fly into Barcelona, home from Madrid
     lodging:
       enabled: true
       coverage: good
-      rooms: 2
-      min_stars: 3
+      kind: rental               # an apartment with 2+ bedrooms in each city
+      bedrooms: 2
       min_rating: 4.0
       max_per_night: 600
     ground:
-      flat_cost: 520
-      notes: "AVE train Barcelona–Madrid for six, plus airport transfers"
+      flat_cost: 3150
+      notes: "Plan's fixed costs: tickets, AVE and Segovia trains, transit, food"
     alerts:
       drop_pct_vs_median: 10
       percentile_below: 20
@@ -242,16 +256,21 @@ trips:
     tags: [city, culture, food, europe, walkable, kid-friendly]
 
   - id: paris-versailles
-    name: "Paris & Versailles"
+    name: "Paris & Alsace"
     plan: plans/paris-alsace.md
-    why: "Versailles is a 40-minute train from the city; no car needed all week"
+    why: "Paris and Versailles by Métro and RER, then Strasbourg by TGV; no car all trip"
     active: true
-    destinations:
+    stops:
       - code: CDG
         label: "Paris, France"
-        city_code: PAR
-        center: [48.8566, 2.3522]   # Hôtel de Ville
-        within_miles: 2.5
+        nights: 6
+        center: [48.8462, 2.3372]   # Luxembourg Gardens
+        within_miles: 2
+      - code: SXB
+        label: "Strasbourg, France"
+        nights: 3
+        center: [48.5819, 7.7510]   # the cathedral
+        within_miles: 1
     party:
       adults: 2
       children: [8, 7, 5, 3]
@@ -259,28 +278,77 @@ trips:
       mode: window
       earliest: 2027-06-05
       latest: 2027-07-17
-      nights: 9
     flights:
       enabled: true
       max_stops: 1
       cabin: economy
-      checked_bags: 3
+      checked_bags: 3            # the TGV runs from Strasbourg to CDG for the flight home
     lodging:
       enabled: true
       coverage: good
-      rooms: 2
-      min_stars: 3
+      kind: rental
+      bedrooms: 2
       min_rating: 4.0
       max_per_night: 650
     ground:
-      flat_cost: 340
-      notes: "Paris transit passes for six, plus RER to Versailles and CDG"
+      flat_cost: 4250
+      notes: "Plan's fixed costs: tickets, Disneyland day, TGV, transit, food"
     alerts:
       drop_pct_vs_median: 10
       percentile_below: 20
       all_time_low: true
       cooldown_days: 4
     tags: [city, culture, food, europe, walkable, kid-friendly]
+
+  - id: florence-tuscany-summer
+    name: "Florence & Tuscany"
+    plan: plans/florence-tuscany.md
+    why: "Raphael, Michelangelo and gelato in Florence from a farm stay, then castles and cheese near Siena"
+    active: true
+    stops:
+      - code: FLR
+        label: "Fattoria di Maiano, Fiesole"
+        nights: 5
+        # The farm stay itself (in config/stays.yaml). It sells through the
+        # big booking sites, so Google should price it; 1 mi keeps it to
+        # the farm and its neighbours. Coordinates approximate.
+        hotel_query: "Fattoria di Maiano, Fiesole"
+        center: [43.7955, 11.3040]
+        within_miles: 1
+      - code: SAY
+        label: "Siena, Italy"
+        nights: 3
+        center: [43.3188, 11.3308]   # 15 mi takes in the farm stays around Siena
+        within_miles: 15
+        lodging: {kind: rental, bedrooms: 2}
+    party:
+      adults: 2
+      children: [8, 7, 5, 3]
+    dates:
+      mode: window
+      earliest: 2027-06-05
+      latest: 2027-07-17
+    flights:
+      enabled: true
+      max_stops: 1
+      checked_bags: 3
+      return_from: FCO           # fly into Florence, home from Rome
+    lodging:
+      enabled: true
+      coverage: good
+      rooms: 2
+      min_rating: 4.0
+      max_per_night: 600
+    ground:
+      rental_car: true
+      flat_cost: 4450
+      notes: "Plan's fixed costs: museums, pasta class, Bologna day, 4-day car, food"
+    alerts:
+      drop_pct_vs_median: 10
+      percentile_below: 20
+      all_time_low: true
+      cooldown_days: 4
+    tags: [city, culture, food, europe, countryside, kid-friendly]
 
   - id: nice-riviera
     name: "Nice & the French Riviera"
@@ -309,13 +377,13 @@ trips:
     lodging:
       enabled: true
       coverage: good
-      rooms: 2
-      min_stars: 3
+      kind: rental               # a city apartment, not a resort
+      bedrooms: 2
       min_rating: 4.0
       max_per_night: 600
     ground:
-      flat_cost: 260
-      notes: "Coastal trains and airport transfers for six"
+      flat_cost: 2550
+      notes: "Plan's fixed costs: coastal trains, Train des Pignes, forts, food"
     alerts:
       drop_pct_vs_median: 10
       percentile_below: 20
@@ -324,16 +392,21 @@ trips:
     tags: [beach, city, culture, food, europe, walkable, kid-friendly, reliable-weather]
 
   - id: greece-summer
-    name: "Greece — Athens & the islands"
+    name: "Greece — Athens & Naxos"
     plan: plans/greece.md
-    why: "Ruins the kids will actually remember, and island ferries instead of a car"
+    why: "Ruins the kids will actually remember, then Naxos's shallow sandy beaches"
     active: true
-    destinations:
+    stops:
       - code: ATH
         label: "Athens, Greece"
-        city_code: ATH
+        nights: 4
         center: [37.9755, 23.7348]   # Syntagma Square
         within_miles: 2
+      - code: JNX
+        label: "Naxos, Greece"
+        nights: 6
+        center: [37.1050, 25.3770]   # Chora; 5 mi covers Agios Georgios and Agios Prokopios
+        within_miles: 5
     party:
       adults: 2
       children: [8, 7, 5, 3]
@@ -341,23 +414,20 @@ trips:
       mode: window
       earliest: 2027-06-05
       latest: 2027-07-17
-      nights: 10
     flights:
       enabled: true
       max_stops: 1
       checked_bags: 3
     lodging:
       enabled: true
-      # The tracked number is the Athens leg; the islands are a separate
-      # stay this one search can't represent.
-      coverage: thin
-      rooms: 2
-      min_stars: 3
+      coverage: good
+      kind: rental
+      bedrooms: 2
       min_rating: 4.0
       max_per_night: 600
     ground:
-      flat_cost: 700
-      notes: "Ferries and transfers for six (estimate)"
+      flat_cost: 2950
+      notes: "Plan's fixed costs: sites, ferries or flights to Naxos, island car, food"
     alerts:
       drop_pct_vs_median: 12
       percentile_below: 20
@@ -366,16 +436,26 @@ trips:
     tags: [beach, culture, food, europe, island-hopping, kid-friendly]
 
   - id: portugal-azores-summer
-    name: "Portugal & the Azores"
+    name: "Portugal — Porto, Lisbon & the Algarve"
     plan: plans/portugal.md
-    why: "Cheapest way into Western Europe, and the Azores are unlike anywhere else"
+    why: "Port wine, Sintra's castles and the Algarve's cliff beaches; the Azores are an option"
     active: true
-    destinations:
+    stops:
+      - code: OPO
+        label: "Porto, Portugal"
+        nights: 3
+        center: [41.1408, -8.6131]   # Ribeira
+        within_miles: 1.5
       - code: LIS
         label: "Lisbon, Portugal"
-        city_code: LIS
+        nights: 4
         center: [38.7139, -9.1394]   # Rossio
         within_miles: 2.5
+      - code: FAO
+        label: "Lagos, Portugal"
+        nights: 3
+        center: [37.1028, -8.6730]   # Lagos old town
+        within_miles: 3
     party:
       adults: 2
       children: [8, 7, 5, 3]
@@ -383,21 +463,21 @@ trips:
       mode: window
       earliest: 2027-06-05
       latest: 2027-07-17
-      nights: 10
     flights:
       enabled: true
       max_stops: 1
       checked_bags: 3
+      return_from: LIS           # fly into Porto, home from Lisbon
     lodging:
       enabled: true
-      coverage: good             # Lisbon is well covered; the Azores leg is in ground
-      rooms: 2
-      min_stars: 3
+      coverage: good
+      kind: rental
+      bedrooms: 2
       min_rating: 4.0
       max_per_night: 450
     ground:
-      flat_cost: 900
-      notes: "Lisbon–Ponta Delgada hop for six, plus a rental car on São Miguel"
+      flat_cost: 3150
+      notes: "Plan's fixed costs: port cellar, trains, Sintra, Algarve car, food"
     alerts:
       drop_pct_vs_median: 12
       percentile_below: 20
@@ -406,19 +486,25 @@ trips:
     tags: [city, culture, food, europe, beach, nature, adventure, kid-friendly]
 
   - id: austria-bavaria-summer
-    name: "Austria & Bavaria"
+    name: "Munich & the Alps"
     plan: plans/munich-bavaria-resort.md
-    why: "The alpine family-resort belt — pools, lakes and lifts"
+    why: "Munich's art and beer gardens, then five all-inclusive days at an alpine family resort"
     active: true
-    destinations:
+    stops:
       - code: MUC
-        label: "Munich / Bavarian Alps"
-        city_code: MUC
-        # Change to a resort town (e.g. "Garmisch-Partenkirchen") to price
-        # the alpine family resorts instead of Munich hotels.
-        hotel_query: "Munich, Germany"
+        label: "Munich, Germany"
+        nights: 5
         center: [48.1374, 11.5755]   # Marienplatz
         within_miles: 3
+      - code: SZG
+        label: "Dachsteinkönig, Gosau"
+        nights: 5
+        # Sells direct; Google Hotels shows no price (checked 2026-10-30).
+        # About €1,000–1,300 a night all-inclusive for six, from the plan;
+        # replace with the resort's quote when it comes back.
+        lodging: {enabled: false}
+        lodging_estimate: 6600
+        lodging_note: "Dachsteinkönig: an estimate (≈€5,750 all-inclusive), not a tracked price — replace with the resort's quote"
     party:
       adults: 2
       children: [8, 7, 5, 3]
@@ -426,25 +512,21 @@ trips:
       mode: window
       earliest: 2027-06-05
       latest: 2027-07-17
-      nights: 10
     flights:
       enabled: true
       max_stops: 1
       checked_bags: 3
     lodging:
       enabled: true
-      # Alpine family resorts — the main draw of this trip — are
-      # out in the mountains, not in Munich. This prices a Munich hotel,
-      # which is a floor and not the resort; see hotel_query above.
-      coverage: thin
+      coverage: good
       rooms: 2
       min_stars: 4
       min_rating: 4.0
       max_per_night: 700
     ground:
       rental_car: true
-      per_day_cost: 95
-      notes: "Van rental — the alpine resorts need a car"
+      flat_cost: 2750
+      notes: "Plan's fixed costs: tickets, trains, 5-day car, food in Munich (resort meals are included)"
     alerts:
       drop_pct_vs_median: 12
       percentile_below: 20
@@ -453,19 +535,21 @@ trips:
     tags: [mountains, nature, hiking, kid-friendly, europe, resort, culture]
 
   - id: london-summer
-    name: "London"
+    name: "London & York"
     plan: plans/london-york.md
-    why: "Added from the family-travel accounts you follow; plan to come"
+    why: "The Tower, Hampton Court and the Raphael Cartoons, then trains and Vikings in York"
     active: true
-    destinations:
+    stops:
       - code: LHR
         label: "London, UK"
-        city_code: LON
-        # PROVISIONAL: central London until the London plan says where the
-        # days are spent. An apartment (kind: rental), as for the other
-        # European cities.
-        center: [51.5080, -0.1281]   # Trafalgar Square
-        within_miles: 3
+        nights: 6
+        center: [51.4941, -0.1740]   # South Kensington
+        within_miles: 2
+      - code: YRK
+        label: "York, UK"
+        nights: 3
+        center: [53.9620, -1.0819]   # York Minster
+        within_miles: 1
     party:
       adults: 2
       children: [8, 7, 5, 3]
@@ -473,12 +557,12 @@ trips:
       mode: window
       earliest: 2027-06-05
       latest: 2027-07-17
-      nights: 7                   # provisional
     flights:
       enabled: true
       max_stops: 1
       cabin: economy
       checked_bags: 3
+      return_from: MAN           # fly home from Manchester, 1½ h from York
     lodging:
       enabled: true
       kind: rental
@@ -487,8 +571,8 @@ trips:
       min_rating: 4.0
       max_per_night: 700
     ground:
-      flat_cost: 450
-      notes: "Elizabeth line from Heathrow and a week of Tube fares for six (estimate)"
+      flat_cost: 3800
+      notes: "Plan's fixed costs: Tower, palaces, trains to York and Manchester, food"
     alerts:
       drop_pct_vs_median: 10
       percentile_below: 20

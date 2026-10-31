@@ -1,0 +1,14 @@
+places:
+  - {name: "Nice apartment (stay)", kind: stay, days: [1, 2, 3, 4, 5, 6, 7, 8, 9], at: [43.6975, 7.2730], area: Nice}
+  - {name: "Nice airport (NCE)", kind: airport, days: [1, 10], at: [43.6584, 7.2159], area: Riviera}
+  - {name: Promenade des Anglais and beach, days: [1, 6, 9], at: [43.6950, 7.2650], area: Nice}
+  - {name: Cours Saleya market, days: [2], at: [43.6957, 7.2755], area: Nice}
+  - {name: Colline du Château, days: [2], at: [43.6950, 7.2810], area: Nice}
+  - {name: "Monaco: Prince's Palace", days: [3], at: [43.7313, 7.4197], area: Riviera}
+  - {name: "Villefranche: beach and citadel", days: [4], at: [43.7040, 7.3110], area: Riviera}
+  - {name: Train des Pignes station (Nice), days: [5], at: [43.7090, 7.2620], area: Nice}
+  - {name: Entrevaux citadel, days: [5], at: [43.9497, 6.8106], area: Mountains}
+  - {name: "Antibes: Fort Carré", days: [7], at: [43.5900, 7.1270], area: Riviera}
+  - {name: "Antibes: Plage de la Gravette", days: [7], at: [43.5820, 7.1290], area: Riviera}
+  - {name: "Île Sainte-Marguerite: Fort Royal", days: [8], at: [43.5215, 7.0461], area: Riviera}
+  - {name: "Èze village (option)", kind: option, days: [], at: [43.7275, 7.3617], area: Riviera}

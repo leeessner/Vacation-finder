@@ -53,8 +53,13 @@ def search_flights(
     ret: date,
     currency: str,
     settings: Settings,
+    return_from: str = "",
 ) -> FlightQuote | None:
-    """Cheapest Google Flights round-trip result, or None if the scrape failed."""
+    """Cheapest Google Flights round-trip result, or None if the scrape failed.
+
+    With `return_from`, the flight home leaves from that airport instead: a
+    multi-city (open-jaw) search, priced as one ticket.
+    """
     if not available():
         log.debug("fast-flights unavailable: %s", import_error())
         return None
@@ -64,7 +69,7 @@ def search_flights(
     for step in fallback_ladder(trip):
         hit = _cheapest(
             trip, origin, destination, depart, ret, currency,
-            adults=step.adults, extra_stops=step.extra_stops,
+            adults=step.adults, extra_stops=step.extra_stops, return_from=return_from,
         )
         if hit is not None:
             price = hit[0] if step.adults is None else hit[0] / step.adults * party.total
@@ -92,6 +97,7 @@ def search_flights(
             "https://www.google.com/travel/flights?q="
             f"Flights%20to%20{destination}%20from%20{origin}%20on%20"
             f"{depart.isoformat()}%20through%20{ret.isoformat()}"
+            + (f"%20returning%20from%20{return_from}" if return_from else "")
         ),
     )
 
@@ -141,13 +147,14 @@ def _cheapest(
     currency: str,
     adults: int | None = None,
     extra_stops: int = 0,
+    return_from: str = "",
 ) -> tuple[float, tuple[str, ...]] | None:
     """(price, airlines) of the cheapest result, or None if there were none."""
     who = "party" if adults is None else f"{adults} adult(s)"
     try:
         query = build_query(
             trip, origin, destination, depart, ret, currency,
-            adults=adults, extra_stops=extra_stops,
+            adults=adults, extra_stops=extra_stops, return_from=return_from,
         )
         results = get_flights(query)
     except Exception as exc:  # noqa: BLE001 - scraping fails in many shapes
@@ -178,9 +185,11 @@ def build_query(
     currency: str,
     adults: int | None = None,
     extra_stops: int = 0,
+    return_from: str = "",
 ):
     """The fast-flights query for one round trip: the whole party, or with
-    `adults`, that many adults and no bag filter (a stand-in to scale)."""
+    `adults`, that many adults and no bag filter (a stand-in to scale).
+    With `return_from`, a multi-city trip home from that airport."""
     party = trip.party
     sample = adults is not None
     stops = trip.flights.max_stops
@@ -205,12 +214,12 @@ def build_query(
             ),
             FlightQuery(
                 date=ret.isoformat(),
-                from_airport=destination,
+                from_airport=return_from or destination,
                 to_airport=origin,
                 max_stops=stops,
             ),
         ],
-        trip="round-trip",
+        trip="multi-city" if return_from and return_from != destination else "round-trip",
         seat=trip.flights.cabin,
         passengers=passengers,
         currency=currency,

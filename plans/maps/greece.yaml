@@ -1,0 +1,18 @@
+places:
+  - {name: "Athens apartment (stay)", kind: stay, days: [1, 2, 3, 4], at: [37.9700, 23.7280], area: Athens}
+  - {name: "Athens airport (ATH)", kind: airport, days: [1, 11], at: [37.9364, 23.9445], area: Athens}
+  - {name: Acropolis, days: [2], at: [37.9715, 23.7267], area: Athens}
+  - {name: Acropolis Museum, days: [2], at: [37.9685, 23.7285], area: Athens}
+  - {name: Ancient Agora (Temple of Hephaestus), days: [3], at: [37.9747, 23.7224], area: Athens}
+  - {name: Syntagma (Evzones guard), days: [3], at: [37.9752, 23.7366], area: Athens}
+  - {name: Lycabettus funicular, days: [3], at: [37.9810, 23.7430], area: Athens}
+  - {name: National Archaeological Museum, days: [4], at: [37.9890, 23.7320], area: Athens}
+  - {name: "Cape Sounion (option)", kind: option, days: [], at: [37.6503, 24.0246], area: Athens}
+  - {name: "Naxos apartment (stay)", kind: stay, days: [5, 6, 7, 8, 9, 10], at: [37.1015, 25.3720], area: Naxos}
+  - {name: Portara, days: [5], at: [37.1105, 25.3720], area: Naxos}
+  - {name: Kastro (Venetian quarter), days: [6], at: [37.1060, 25.3760], area: Naxos}
+  - {name: Agios Prokopios beach, days: [6, 8, 10], at: [37.0720, 25.3480], area: Naxos}
+  - {name: "Halki: Vallindras kitron distillery", days: [7], at: [37.0600, 25.4900], area: Naxos}
+  - {name: Apeiranthos, days: [7], at: [37.0740, 25.5180], area: Naxos}
+  - {name: Kouros of Melanes, days: [7], at: [37.0820, 25.4500], area: Naxos}
+  - {name: Temple of Demeter, days: [9], at: [37.0340, 25.4300], area: Naxos}

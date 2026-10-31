@@ -1,0 +1,10 @@
+places:
+  - {name: "Cabin near Gatlinburg (stay)", kind: stay, days: [1, 2, 3, 4], at: [35.7143, -83.5102], area: Smokies}
+  - {name: Cades Cove loop, days: [2], at: [35.6011, -83.8115], area: Smokies}
+  - {name: Cable Mill, days: [2], at: [35.5880, -83.8460], area: Smokies}
+  - {name: The Sinks, days: [2], at: [35.6690, -83.6620], area: Smokies}
+  - {name: SkyLift and SkyBridge, days: [3], at: [35.7110, -83.5180], area: Smokies}
+  - {name: Elkmont and Little River Trail, days: [3], at: [35.6600, -83.5800], area: Smokies}
+  - {name: Newfound Gap, days: [4], at: [35.6110, -83.4250], area: Smokies}
+  - {name: Oconaluftee Mountain Farm Museum and Mingus Mill, days: [4], at: [35.5160, -83.3080], area: Smokies}
+  - {name: "Great Smoky Mountains Railroad, Bryson City", days: [4], at: [35.4310, -83.4470], area: Smokies}

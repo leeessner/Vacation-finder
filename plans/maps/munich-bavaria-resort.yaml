@@ -1,0 +1,19 @@
+places:
+  - {name: "Munich apartment / hotel (stay)", kind: stay, days: [1, 2, 3, 4, 5], at: [48.1385, 11.5735], area: Munich}
+  - {name: "Munich airport (MUC)", kind: airport, days: [1, 11], at: [48.3538, 11.7861], area: Munich}
+  - {name: Eisbach wave, days: [1], at: [48.1435, 11.5878], area: Munich}
+  - {name: Chinesischer Turm beer garden, days: [1], at: [48.1527, 11.5921], area: Munich}
+  - {name: Alte Pinakothek, days: [2], at: [48.1483, 11.5700], area: Munich}
+  - {name: Marienplatz Glockenspiel, days: [2], at: [48.1372, 11.5756], area: Munich}
+  - {name: Viktualienmarkt, days: [2], at: [48.1351, 11.5763], area: Munich}
+  - {name: Hofbräuhaus, days: [2], at: [48.1376, 11.5799], area: Munich}
+  - {name: Residenz and Treasury, days: [3], at: [48.1414, 11.5794], area: Munich}
+  - {name: Hirschgarten, days: [3], at: [48.1530, 11.5170], area: Munich}
+  - {name: Neuschwanstein, days: [4], at: [47.5576, 10.7498], area: Bavaria}
+  - {name: Andechs monastery brewery, days: [5], at: [47.9747, 11.1845], area: Bavaria}
+  - {name: Augustiner-Keller, days: [5], at: [48.1440, 11.5530], area: Munich}
+  - {name: "Hohensalzburg fortress, Salzburg", days: [6], at: [47.7949, 13.0476], area: Alps}
+  - {name: "Dachsteinkönig resort (stay)", kind: stay, days: [6, 7, 8, 9, 10], at: [47.5862, 13.5370], area: Alps}
+  - {name: "Hallstatt salt mine (option)", kind: option, days: [], at: [47.5622, 13.6400], area: Alps}
+  - {name: "Vorderer Gosausee (option)", kind: option, days: [], at: [47.5390, 13.5040], area: Alps}
+  - {name: "Hohenwerfen castle (option)", kind: option, days: [], at: [47.4836, 13.1903], area: Alps}

@@ -1,0 +1,15 @@
+places:
+  - {name: Dachsteinkönig (Gosau), kind: stay, days: [], at: [47.5862, 13.5370], area: Austria}
+  - {name: Familienresort Buchau (Achensee), kind: stay, days: [], at: [47.4230, 11.7460], area: Austria}
+  - {name: Naturhotel Forsthofgut (Leogang), kind: stay, days: [], at: [47.4380, 12.7470], area: Austria}
+  - {name: Moar Gut (Grossarl), kind: stay, days: [], at: [47.2360, 13.1960], area: Austria}
+  - {name: Feuerstein (Pflersch), kind: stay, days: [], at: [46.9530, 11.3500], area: "South Tyrol"}
+  - {name: SAN SONNEA (Lüsen), kind: stay, days: [], at: [46.7400, 11.7500], area: "South Tyrol"}
+  - {name: Das Mühlwald (Natz-Schabs), kind: stay, days: [], at: [46.7600, 11.6600], area: "South Tyrol"}
+  - {name: Garberhof (Rasen-Antholz), kind: stay, days: [], at: [46.8000, 12.0500], area: "South Tyrol"}
+  - {name: Familienhotel Huber (Vals), kind: stay, days: [], at: [46.8530, 11.6320], area: "South Tyrol"}
+  - {name: "Gardea (Torbole, Lake Garda)", kind: stay, days: [], at: [45.8700, 10.8750], area: Italy}
+  - {name: Fattoria di Maiano (Fiesole), kind: stay, days: [], at: [43.7955, 11.3040], area: Italy}
+  - {name: Märchenhotel Braunwald, kind: stay, days: [], at: [46.9420, 8.9960], area: Switzerland}
+  - {name: "Oberjoch Familux (closed until Dec 2027)", kind: option, days: [], at: [47.5170, 10.4100], area: Germany}
+  - {name: ULRICHSHOF (Rimbach), kind: stay, days: [], at: [49.2340, 12.8820], area: Germany}

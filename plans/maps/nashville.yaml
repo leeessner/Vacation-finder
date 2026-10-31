@@ -1,0 +1,13 @@
+places:
+  - {name: "Embassy Suites (stay)", kind: stay, days: [1, 2, 3, 4], at: [36.1505, -86.8000], area: Nashville}
+  - {name: "Superman statue, Metropolis IL", days: [1], at: [37.1510, -88.7320], area: Drive}
+  - {name: Broadway, days: [1], at: [36.1610, -86.7770], area: Nashville}
+  - {name: Parthenon and Centennial Park, days: [2], at: [36.1497, -86.8133], area: Nashville}
+  - {name: Lane Motor Museum, days: [2], at: [36.1350, -86.7520], area: Nashville}
+  - {name: "Grand Ole Opry (option)", kind: option, days: [2], at: [36.2068, -86.6920], area: Nashville}
+  - {name: Cheekwood, days: [3], at: [36.0869, -86.8706], area: Nashville}
+  - {name: "The Hermitage (alternative)", kind: option, days: [3], at: [36.2140, -86.6130], area: Nashville}
+  - {name: Frist Art Museum, days: [4], at: [36.1580, -86.7840], area: Nashville}
+  - {name: Farmers' Market and Bicentennial Mall, days: [4], at: [36.1705, -86.7865], area: Nashville}
+  - {name: Goo Goo Chocolate Co., days: [4], at: [36.1600, -86.7770], area: Nashville}
+  - {name: "Mammoth Cave (option)", kind: option, days: [5], at: [37.1862, -86.1000], area: Drive}

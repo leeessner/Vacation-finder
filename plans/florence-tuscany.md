@@ -196,7 +196,7 @@ two kids each.
 - **Sunset is late in June** (about 8:50 pm). For a 3-year-old, the
   Piazzale works best with a nap and a pool break first.
 
-## Tracker settings (to apply once you've reviewed this)
+## Tracker settings (applied)
 
 - New trip **"Florence & Tuscany"**: STL → FLR, with FCO and BLQ as
   alternates; 8 nights within Jun 5–Jul 17, 2027. Also price **FLR in / FCO out**.

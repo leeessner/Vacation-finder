@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
 from pathlib import Path
 from typing import Any
 
@@ -67,6 +67,14 @@ class Destination:
     # Driving time from home. Within settings.max_drive_hours, a trip should
     # be a drive, not a flight; `validate` says so.
     drive_hours: float | None = None
+    # Multi-stop trips (`stops:` in the config) only. How many nights this
+    # stop gets, its own lodging rules (the trip's, with this stop's
+    # overrides), and for a stay Google can't price (a resort that sells
+    # direct), a fixed estimate used in its place.
+    nights: int | None = None
+    lodging: LodgingPrefs | None = None
+    lodging_estimate: float | None = None
+    lodging_note: str = ""
 
     @property
     def display(self) -> str:
@@ -102,6 +110,9 @@ class FlightPrefs:
     checked_bags: int = 0
     carry_on_bags: int = 0
     exclude_basic_economy: bool = False
+    # Fly home from a different airport than you arrived at (an open-jaw
+    # ticket): arrive at the first stop's airport, leave from this one.
+    return_from: str = ""
 
 
 # How well the lodging price reflects what you'd actually book.
@@ -186,6 +197,31 @@ class Trip:
     tags: tuple[str, ...] = ()
     max_date_samples: int | None = None
     plan: str = ""                  # path to the trip's plan, e.g. plans/paris-alsace.md
+    # "choice": `destinations` are alternatives, each priced for the whole
+    # stay. "stops": `stops` are visited in order, each for its own nights,
+    # and their lodging adds up to one stay.
+    itinerary: str = "choice"
+
+    @property
+    def has_stops(self) -> bool:
+        return self.itinerary == "stops"
+
+    @property
+    def return_airport(self) -> str:
+        """Where the flight home leaves from (the arrival airport unless open-jaw)."""
+        return self.flights.return_from or self.destinations[0].code
+
+    def lodging_for(self, destination: Destination) -> LodgingPrefs:
+        return destination.lodging or self.lodging
+
+    def legs(self, depart: date) -> list[tuple[Destination, date, date]]:
+        """Each stop with its check-in and check-out, starting on `depart`."""
+        out, day = [], depart
+        for stop in self.destinations:
+            end = day + timedelta(days=stop.nights or 0)
+            out.append((stop, day, end))
+            day = end
+        return out
 
 
 @dataclass(frozen=True)
@@ -243,7 +279,9 @@ def _parse_party(raw: Any, where: str) -> Party:
     return Party(adults=adults, children=children)
 
 
-def _parse_destinations(raw: Any, where: str) -> tuple[Destination, ...]:
+def _parse_destinations(
+    raw: Any, where: str, stops: bool = False, trip_lodging: dict | None = None
+) -> tuple[Destination, ...]:
     if not raw:
         raise ConfigError(f"{where}: at least one destination is required")
     if isinstance(raw, str):
@@ -265,9 +303,27 @@ def _parse_destinations(raw: Any, where: str) -> tuple[Destination, ...]:
                 center=_parse_center(item.get("center"), where),
                 within_miles=_opt_float(item.get("within_miles")),
                 drive_hours=_opt_float(item.get("drive_hours")),
+                **(_stop_fields(item, where, trip_lodging or {}) if stops else {}),
             )
         )
     return tuple(out)
+
+
+def _stop_fields(item: dict, where: str, trip_lodging: dict) -> dict[str, Any]:
+    """The per-stop settings of a multi-stop trip."""
+    code = str(item["code"]).strip().upper()
+    nights = _opt_int(item.get("nights"))
+    if not nights or nights < 1:
+        raise ConfigError(f"{where}: stop {code} needs 'nights' (at least 1)")
+    own = item.get("lodging") or {}
+    if not isinstance(own, dict):
+        raise ConfigError(f"{where}: stop {code}: 'lodging' must be a mapping")
+    return {
+        "nights": nights,
+        "lodging": _parse_lodging({**trip_lodging, **own}, f"{where} stop {code}"),
+        "lodging_estimate": _opt_float(item.get("lodging_estimate")),
+        "lodging_note": str(item.get("lodging_note", "")),
+    }
 
 
 def _parse_dates(raw: Any, where: str) -> DateWindow:
@@ -301,6 +357,32 @@ def _parse_dates(raw: Any, where: str) -> DateWindow:
         earliest=earliest,
         latest=latest,
         departure_weekdays=weekdays,
+    )
+
+
+def _parse_lodging(lodging_raw: dict, where: str) -> LodgingPrefs:
+    coverage = str(lodging_raw.get("coverage", "good")).lower()
+    if coverage not in COVERAGE_LEVELS:
+        raise ConfigError(
+            f"{where}: lodging.coverage must be one of {sorted(COVERAGE_LEVELS)}"
+        )
+    kind = str(lodging_raw.get("kind", "hotel")).lower()
+    if kind not in LODGING_KINDS:
+        raise ConfigError(f"{where}: lodging.kind must be one of {sorted(LODGING_KINDS)}")
+    return LodgingPrefs(
+        # 'none' means we know the source can't see this lodging; querying it
+        # would return an unrelated property and quietly mislead.
+        enabled=bool(lodging_raw.get("enabled", True)) and coverage != "none",
+        coverage=coverage,
+        kind=kind,
+        rooms=int(lodging_raw.get("rooms", 1)),
+        bedrooms=_opt_int(lodging_raw.get("bedrooms")),
+        min_stars=_opt_float(lodging_raw.get("min_stars")),
+        min_rating=_opt_float(lodging_raw.get("min_rating")),
+        max_per_night=_opt_float(lodging_raw.get("max_per_night")),
+        board=str(lodging_raw.get("board", "")),
+        property_names=tuple(str(p) for p in lodging_raw.get("properties", []) or []),
+        prefer=tuple(str(p).strip() for p in lodging_raw.get("prefer", []) or [] if str(p).strip()),
     )
 
 
@@ -341,32 +423,31 @@ def _parse_trip(raw: Any, index: int, settings: Settings) -> Trip:
         checked_bags=int(flights_raw.get("checked_bags", 0)),
         carry_on_bags=int(flights_raw.get("carry_on_bags", 0)),
         exclude_basic_economy=bool(flights_raw.get("exclude_basic_economy", False)),
+        return_from=str(flights_raw.get("return_from", "") or "").strip().upper(),
     )
 
     lodging_raw = raw.get("lodging") or {}
-    coverage = str(lodging_raw.get("coverage", "good")).lower()
-    if coverage not in COVERAGE_LEVELS:
-        raise ConfigError(
-            f"{where}: lodging.coverage must be one of {sorted(COVERAGE_LEVELS)}"
+    lodging = _parse_lodging(lodging_raw, where)
+
+    if "stops" in raw:
+        if "destinations" in raw:
+            raise ConfigError(f"{where}: use either 'destinations' or 'stops', not both")
+        itinerary = "stops"
+        destinations = _parse_destinations(
+            raw.get("stops"), where, stops=True, trip_lodging=lodging_raw
         )
-    kind = str(lodging_raw.get("kind", "hotel")).lower()
-    if kind not in LODGING_KINDS:
-        raise ConfigError(f"{where}: lodging.kind must be one of {sorted(LODGING_KINDS)}")
-    lodging = LodgingPrefs(
-        # 'none' means we know the source can't see this lodging; querying it
-        # would return an unrelated property and quietly mislead.
-        enabled=bool(lodging_raw.get("enabled", True)) and coverage != "none",
-        coverage=coverage,
-        kind=kind,
-        rooms=int(lodging_raw.get("rooms", 1)),
-        bedrooms=_opt_int(lodging_raw.get("bedrooms")),
-        min_stars=_opt_float(lodging_raw.get("min_stars")),
-        min_rating=_opt_float(lodging_raw.get("min_rating")),
-        max_per_night=_opt_float(lodging_raw.get("max_per_night")),
-        board=str(lodging_raw.get("board", "")),
-        property_names=tuple(str(p) for p in lodging_raw.get("properties", []) or []),
-        prefer=tuple(str(p).strip() for p in lodging_raw.get("prefer", []) or [] if str(p).strip()),
-    )
+        total = sum(d.nights or 0 for d in destinations)
+        dates_raw = dict(raw.get("dates") or {})
+        if "nights" in dates_raw and int(dates_raw["nights"]) != total:
+            raise ConfigError(
+                f"{where}: dates.nights is {dates_raw['nights']} but the stops add up "
+                f"to {total} — drop dates.nights, it is worked out from the stops"
+            )
+        dates_raw["nights"] = total
+    else:
+        itinerary = "choice"
+        destinations = _parse_destinations(raw.get("destinations"), where)
+        dates_raw = raw.get("dates")
 
     ground_raw = raw.get("ground") or {}
     ground = GroundPrefs(
@@ -398,9 +479,9 @@ def _parse_trip(raw: Any, index: int, settings: Settings) -> Trip:
         active=bool(raw.get("active", True)),
         travel_mode=travel_mode,
         origins=origins,
-        destinations=_parse_destinations(raw.get("destinations"), where),
+        destinations=destinations,
         party=_parse_party(raw.get("party"), where),
-        dates=_parse_dates(raw.get("dates"), where),
+        dates=_parse_dates(dates_raw, where),
         flights=flights,
         lodging=lodging,
         ground=ground,
@@ -410,6 +491,7 @@ def _parse_trip(raw: Any, index: int, settings: Settings) -> Trip:
         tags=tuple(str(t).strip().lower() for t in raw.get("tags", []) or []),
         max_date_samples=_opt_int(raw.get("max_date_samples")),
         plan=str(raw.get("plan", "") or ""),
+        itinerary=itinerary,
     )
 
 

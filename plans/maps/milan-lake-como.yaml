@@ -1,0 +1,17 @@
+places:
+  - {name: "Milan apartment (stay)", kind: stay, days: [1, 2, 3, 4], at: [45.4670, 9.1880], area: Milan}
+  - {name: "Milan Malpensa (MXP)", kind: airport, days: [1, 10], at: [45.6306, 8.7281], area: Milan}
+  - {name: Galleria Vittorio Emanuele II, days: [1], at: [45.4659, 9.1900], area: Milan}
+  - {name: The Last Supper, days: [2], at: [45.4660, 9.1709], area: Milan}
+  - {name: Castello Sforzesco, days: [2], at: [45.4705, 9.1793], area: Milan}
+  - {name: Pinacoteca Ambrosiana, days: [3], at: [45.4635, 9.1858], area: Milan}
+  - {name: Duomo rooftop terraces, days: [3], at: [45.4641, 9.1919], area: Milan}
+  - {name: Leonardo science museum (submarine), days: [4], at: [45.4627, 9.1702], area: Milan}
+  - {name: Pinacoteca di Brera, days: [4], at: [45.4719, 9.1880], area: Milan}
+  - {name: Starbucks Reserve Roastery, days: [4], at: [45.4651, 9.1847], area: Milan}
+  - {name: "Varenna apartment (stay)", kind: stay, days: [5, 6, 7, 8, 9], at: [46.0105, 9.2836], area: "Lake Como"}
+  - {name: Castello di Vezio (falconry), days: [5], at: [46.0140, 9.2780], area: "Lake Como"}
+  - {name: Bellagio and Villa Melzi, days: [6], at: [45.9853, 9.2614], area: "Lake Como"}
+  - {name: Villa Carlotta, days: [7], at: [45.9837, 9.2318], area: "Lake Como"}
+  - {name: "Como: Brunate funicular", days: [8], at: [45.8146, 9.0891], area: "Lake Como"}
+  - {name: "Tirano, Bernina Express (option)", kind: option, days: [], at: [46.2160, 10.1680], area: "Lake Como"}

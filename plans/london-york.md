@@ -146,7 +146,7 @@ For Belgian Trappists, a Belgium trip would beat England.
 - **Big museums are free but busy.** Book the free time slots where offered
   (Natural History Museum).
 
-## Tracker settings (to apply once you've reviewed this)
+## Tracker settings (applied)
 
 - **"London"**: change from 7 nights to **6**, and move the center to
   **South Kensington** (51.4941, -0.1740), within 2 mi. Keep the rental with

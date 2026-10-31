@@ -130,7 +130,7 @@ bar. Madrid has a growing craft-beer scene in Malasaña.
   keep the pool or a museum for the afternoon.
 - **Pickpockets** on the Barcelona metro and Las Ramblas.
 
-## Tracker settings (to apply once you've reviewed this)
+## Tracker settings (applied)
 
 - Price **BCN in / MAD out**, instead of a BCN round trip with the train as a
   fixed cost.

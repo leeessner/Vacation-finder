@@ -1,0 +1,20 @@
+places:
+  - {name: "Bruges apartment (stay)", kind: stay, days: [1, 2, 3, 4], at: [51.2070, 3.2270], area: Bruges}
+  - {name: "Brussels airport (BRU)", kind: airport, days: [1, 10], at: [50.9010, 4.4856], area: Brussels}
+  - {name: Markt and the Belfry, days: [1, 2], at: [51.2085, 3.2245], area: Bruges}
+  - {name: Church of Our Lady (Michelangelo), days: [2], at: [51.2047, 3.2247], area: Bruges}
+  - {name: "Ghent: Gravensteen castle", days: [3], at: [51.0573, 3.7208], area: Bruges}
+  - {name: "Ghent: St Bavo's (Ghent Altarpiece)", days: [3], at: [51.0530, 3.7270], area: Bruges}
+  - {name: In de Vrede (Westvleteren), days: [4], at: [50.8960, 2.7230], area: Bruges}
+  - {name: "Ypres: Cloth Hall and Menin Gate", days: [4], at: [50.8515, 2.8900], area: Bruges}
+  - {name: "Brussels apartment (stay)", kind: stay, days: [5, 6, 7, 8, 9], at: [50.8480, 4.3560], area: Brussels}
+  - {name: Grand Place and Manneken Pis, days: [5], at: [50.8467, 4.3525], area: Brussels}
+  - {name: Belgian Comic Strip Center, days: [5], at: [50.8513, 4.3594], area: Brussels}
+  - {name: Royal Museums of Fine Arts, days: [6], at: [50.8418, 4.3580], area: Brussels}
+  - {name: Atomium, days: [6], at: [50.8949, 4.3415], area: Brussels}
+  - {name: "Antwerp: Cathedral of Our Lady (Rubens)", days: [7], at: [51.2203, 4.4015], area: Brussels}
+  - {name: "Antwerp: Het Steen", days: [7], at: [51.2227, 4.3972], area: Brussels}
+  - {name: Antwerp Central station, days: [7], at: [51.2172, 4.4211], area: Brussels}
+  - {name: Grottes de Han, days: [8], at: [50.1240, 5.1870], area: Ardennes}
+  - {name: Rochefort, days: [8], at: [50.1600, 5.2220], area: Ardennes}
+  - {name: Cantillon brewery, days: [9], at: [50.8414, 4.3352], area: Brussels}

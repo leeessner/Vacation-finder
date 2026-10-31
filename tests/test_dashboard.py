@@ -2,6 +2,8 @@
 
 from datetime import date, datetime, timezone
 
+import pytest
+
 from vacation_finder import dashboard
 from vacation_finder.forecast import Outlook
 from vacation_finder.report import TripReport
@@ -103,3 +105,61 @@ def test_stale_trip_pages_are_removed(tmp_path):
     (docs / "old-trip.html").write_text("gone")
     build(tmp_path, [])
     assert not (docs / "old-trip.html").exists()
+
+
+# --------------------------------------------------------------------------- #
+# Itinerary map
+# --------------------------------------------------------------------------- #
+
+MAP = """places:
+  - {name: "Apartment (stay)", kind: stay, days: [1, 2, 3], at: [48.849, 2.34], area: Paris}
+  - {name: Louvre, days: [2], at: [48.8606, 2.3376], area: Paris}
+  - {name: Cathedral, days: [8], at: [48.5819, 7.751], area: Alsace}
+  - {name: "Rodin (option)", kind: option, days: [], at: [48.8553, 2.3159], area: Paris}
+"""
+
+
+def test_trip_page_has_a_map_above_day_by_day(tmp_path):
+    (tmp_path / "plans" / "maps").mkdir(parents=True)
+    (tmp_path / "plans" / "maps" / "paris-alsace.yaml").write_text(MAP)
+    report = priced_report(id="paris", name="Paris & Alsace", plan="plans/paris-alsace.md")
+    plans = tmp_path / "plans"
+    (plans / "paris-alsace.md").write_text(PLAN)
+    out = tmp_path / "docs" / "index.html"
+    dashboard.build([report], config=None, output=out, plans_dir=plans)
+    page = (out.parent / "trips" / "paris.html").read_text()
+
+    assert "leaflet.js" in page and 'id="trip-map"' in page
+    assert page.index('id="trip-map"') < page.index("<h2>Day by day</h2>")
+    assert '"label": "⌂"' in page and '"label": "2"' in page
+    assert 'data-area="Alsace"' in page                    # zoom to each base
+    assert "<dt>Day 2</dt><dd><button" in page and "<dt>Options</dt>" in page
+    assert "leaflet" not in (out.parent / "index.html").read_text()   # only trip pages
+
+
+def test_a_page_without_a_map_file_has_no_map(tmp_path):
+    docs = build(tmp_path, [priced_report(id="paris", name="Paris", plan="plans/paris-alsace.md")])
+    assert "trip-map" not in (docs / "trips" / "paris.html").read_text()
+
+
+def test_bad_map_entries_are_skipped_not_fatal(tmp_path):
+    from vacation_finder import itinerary_map
+
+    path = tmp_path / "m.yaml"
+    path.write_text("places:\n  - {name: Hohensalzburg fortress, Salzburg, at: [47.79, 13.04]}\n"
+                    "  - {name: Ok, at: [47.0, 13.0]}\n")
+    assert [p.name for p in itinerary_map.load_places(path)] == ["Ok"]
+    with pytest.raises(itinerary_map.MapError, match="quote names"):
+        itinerary_map.load_places(path, strict=True)
+
+
+def test_every_plan_in_the_repo_has_a_valid_map():
+    from pathlib import Path
+
+    from vacation_finder import itinerary_map
+
+    plans = [p for p in Path("plans").glob("*.md") if p.name not in dashboard.NOT_PLANS]
+    assert plans
+    for plan in plans:
+        places = itinerary_map.load_places(itinerary_map.map_path(plan), strict=True)
+        assert places, f"no map for {plan.name}"

@@ -1,0 +1,27 @@
+places:
+  - {name: "Fattoria di Maiano (stay)", kind: stay, days: [1, 2, 3, 4, 5], at: [43.7955, 11.3040], area: Florence}
+  - {name: "Florence airport (FLR)", kind: airport, days: [1], at: [43.8100, 11.2051], area: Florence}
+  - {name: Bargello, days: [2], at: [43.7704, 11.2582], area: Florence}
+  - {name: Ponte Vecchio, days: [2], at: [43.7680, 11.2531], area: Florence}
+  - {name: Pitti Palace (Palatine Gallery), days: [2], at: [43.7651, 11.2500], area: Florence}
+  - {name: Boboli Gardens, days: [2], at: [43.7625, 11.2481], area: Florence}
+  - {name: "Gelateria La Carraia", days: [2], at: [43.7681, 11.2463], area: Florence}
+  - {name: Piazzale Michelangelo (sunset), days: [2], at: [43.7629, 11.2651], area: Florence}
+  - {name: Accademia (David), days: [3], at: [43.7768, 11.2586], area: Florence}
+  - {name: Duomo and Baptistery, days: [3], at: [43.7731, 11.2560], area: Florence}
+  - {name: Leonardo Interactive Museum, days: [3], at: [43.7754, 11.2582], area: Florence}
+  - {name: "Carabè gelato", days: [3], at: [43.7766, 11.2584], area: Florence}
+  - {name: Uffizi, days: [4], at: [43.7678, 11.2553], area: Florence}
+  - {name: "Vivoli gelato", days: [4], at: [43.7698, 11.2584], area: Florence}
+  - {name: "Parmesan dairy near Modena (4 Madonne)", days: [5], at: [44.6262, 10.8583], area: "Day trip"}
+  - {name: "Pinacoteca, Bologna (Raphael's St Cecilia)", days: [5], at: [44.4969, 11.3526], area: "Day trip"}
+  - {name: Castello di Brolio (castle + vineyard), days: [6], at: [43.4146, 11.4560], area: Countryside}
+  - {name: "Farm stay near Siena (to choose)", kind: stay, days: [6, 7, 8], at: [43.3188, 11.3308], area: Countryside}
+  - {name: "San Gimignano (Torre Salvucci, Dondoli gelato)", days: [7], at: [43.4677, 11.0432], area: Countryside}
+  - {name: Monteriggioni walls, days: [7], at: [43.3897, 11.2234], area: Countryside}
+  - {name: Siena Duomo and Piazza del Campo, days: [7], at: [43.3180, 11.3300], area: Countryside}
+  - {name: "Pienza (pecorino, La Terrazza del Chiostro)", days: [8], at: [43.0772, 11.6787], area: Countryside}
+  - {name: Bagno Vignoni, days: [8], at: [43.0283, 11.6198], area: Countryside}
+  - {name: "Rome airport (FCO)", kind: airport, days: [9], at: [41.8003, 12.2389], area: Countryside}
+  - {name: "Lucca's walls (option)", kind: option, days: [], at: [43.8429, 10.5027], area: "Day trip"}
+  - {name: "Montecatini Alto funicular (option)", kind: option, days: [], at: [43.8867, 10.7743], area: "Day trip"}

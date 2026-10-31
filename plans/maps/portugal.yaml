@@ -1,0 +1,22 @@
+places:
+  - {name: "Porto apartment (stay)", kind: stay, days: [1, 2, 3], at: [41.1408, -8.6131], area: Porto}
+  - {name: "Porto airport (OPO)", kind: airport, days: [1], at: [41.2481, -8.6814], area: Porto}
+  - {name: Dom Luís I bridge, days: [2], at: [41.1399, -8.6094], area: Porto}
+  - {name: "Port cellars, Vila Nova de Gaia", days: [2], at: [41.1350, -8.6150], area: Porto}
+  - {name: São Bento station, days: [3], at: [41.1456, -8.6106], area: Porto}
+  - {name: Livraria Lello, days: [3], at: [41.1468, -8.6149], area: Porto}
+  - {name: "Foz (tram 1, beach)", days: [3], at: [41.1530, -8.6760], area: Porto}
+  - {name: "Lisbon apartment (stay)", kind: stay, days: [4, 5, 6, 7], at: [38.7139, -9.1394], area: Lisbon}
+  - {name: Belém Tower, days: [5], at: [38.6916, -9.2160], area: Lisbon}
+  - {name: Jerónimos Monastery and Pastéis de Belém, days: [5], at: [38.6979, -9.2068], area: Lisbon}
+  - {name: National Coach Museum, days: [5], at: [38.6970, -9.1985], area: Lisbon}
+  - {name: "Sintra: Pena Palace", days: [6], at: [38.7876, -9.3906], area: Lisbon}
+  - {name: "Sintra: Moorish Castle", days: [6], at: [38.7925, -9.3894], area: Lisbon}
+  - {name: "Sintra: Quinta da Regaleira", days: [6], at: [38.7963, -9.3961], area: Lisbon}
+  - {name: São Jorge Castle, days: [7], at: [38.7139, -9.1335], area: Lisbon}
+  - {name: National Museum of Ancient Art, days: [7], at: [38.7046, -9.1610], area: Lisbon}
+  - {name: "Lagos apartment (stay)", kind: stay, days: [8, 9, 10], at: [37.1028, -8.6730], area: Algarve}
+  - {name: Ponta da Piedade, days: [9], at: [37.0809, -8.6694], area: Algarve}
+  - {name: Praia do Camilo, days: [9], at: [37.0886, -8.6687], area: Algarve}
+  - {name: Fortress of Sagres, days: [10], at: [37.0027, -8.9480], area: Algarve}
+  - {name: "Lisbon airport (LIS)", kind: airport, days: [11], at: [38.7742, -9.1342], area: Lisbon}
