@@ -1,10 +1,10 @@
 # Greece — Athens & Naxos — draft plan (summer 2027)
 
 **Shape:** 10 nights. Four in **Athens** for the Acropolis, the guards in
-pom-pom shoes, and the museum with the 2,000-year-old computer. Then six on
+pom-pom shoes, and the museum with the 2,000-year-old computer. Then five on
 **Naxos**, the family island: shallow sandy beaches, a Venetian castle
 quarter, a giant marble statue lying in a field, and a distillery that makes
-the island's citron liqueur.
+the island's citron liqueur. The last night is at a hotel by the airport, so the trip home doesn't start before dawn.
 
 Matches the tracked trip **"Greece — Athens & the islands"**. Written against
 `plans/family-profile.md`. Prices were checked in October 2026; anything not
@@ -17,7 +17,8 @@ confirmed is marked *check*. Euros are converted at about **$1.15 per €1**.
 | | Where | Nights | Getting around |
 |---|---|---|---|
 | Base 1 | An apartment in **Plaka / Koukaki**, below the Acropolis | 4 | Walking and metro |
-| Base 2 | An apartment near **Agios Georgios beach / Chora**, Naxos | 6 | A rental car (7-seat) on the island |
+| Base 2 | An apartment near **Agios Georgios beach / Chora**, Naxos | 5 | A rental car (7-seat) on the island |
+| Base 3 | A hotel by **Athens airport**, 2 rooms | 1 | The hotel shuttle to the terminal |
 
 Fly into and out of **Athens (ATH)**. Getting to Naxos takes a **fast ferry
 from Piraeus (about 3½–4 h)** or a **35-minute flight**. For a family that
@@ -69,11 +70,9 @@ temple in the island's centre. Have lunch at a taverna with Naxos potatoes
 and **graviera** cheese. Spend the afternoon on the beach.
 
 **Day 10 — Beach, slow.** *Or* take a short boat to **Koufonisia**'s
-turquoise coves, if the crew feels up to a boat day.
+turquoise coves, if the crew feels up to a boat day. In the evening, fly from Naxos to Athens (35 min) and stay by the airport, so the flight home doesn't depend on a same-day island connection.
 
-**Day 11 — Fly or ferry to Athens, and home.** Same-day connections from
-Naxos are tight, so consider **one night near the Athens airport** (Day 10
-evening). It's a cheap insurance policy. It's a full travel day home: westbound flights usually leave late morning or midday and land in St. Louis that evening, about 12–16 hours gate to gate. You gain back the 8 hours.
+**Day 11 — Fly home from Athens.** The hotel shuttle to the terminal takes about 10 minutes; be there 3 hours before the flight. It's a full travel day home: westbound flights usually leave late morning or midday and land in St. Louis that evening, about 12–16 hours gate to gate. You gain back the 8 hours.
 
 ## Food — and protein for the vegetarian parent
 
@@ -125,6 +124,8 @@ Greece is the easiest country on the list for this:
 - Add **Naxos**: 6 nights, center Chora (37.1050, 25.3770), within 5 mi
   (covers Agios Georgios and Agios Prokopios), rental with 2+ bedrooms.
 - Fixed costs: the table above (replacing the current €700 ferry estimate).
+
+- **Last night by the airport** (added Oct 31): the last base drops to 5 nights, plus 1 night at a hotel by Athens airport (2 rooms, 3-star or better, within 4 mi), reached the afternoon or evening before.
 
 ## Sources (checked October 2026)
 

@@ -21,3 +21,4 @@ places:
   - {name: JORVIK Viking Centre, days: [9], at: [53.9575, -1.0806], area: York}
   - {name: "Clifford's Tower", days: [9], at: [53.9555, -1.0799], area: York}
   - {name: "Manchester airport (MAN)", kind: airport, days: [10], at: [53.3588, -2.2727], area: York}
+  - {name: "Hotel by Manchester airport (stay)", kind: stay, days: [9], at: [53.363, -2.269], area: York}

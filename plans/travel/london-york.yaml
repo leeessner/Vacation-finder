@@ -1,7 +1,8 @@
 legs:
   - {day: 1, kind: from_airport, mode: train, from: "Heathrow (LHR)", to: "South Kensington", minutes: 50, note: "Piccadilly line; a van taxi takes about the same"}
   - {day: 7, mode: train, from: "London King's Cross", to: "York", depart: "10:00", minutes: 115, note: "LNER; Tube to King's Cross ~25 min, so leave by 9:20a"}
-  - {day: 10, kind: to_airport, mode: train, from: "York", to: "Manchester airport (MAN)", minutes: 120, note: "TransPennine Express, direct"}
+  - {day: 9, mode: train, from: "York", to: "Manchester airport hotel", depart: "17:00", minutes: 120}
+  - {day: 10, kind: to_airport, mode: bus, from: "Airport hotel", to: "Manchester airport terminal", minutes: 15, note: "hotel shuttle"}
 timed:
   - {day: 2, what: "Changing of the Guard about 11:00 (set days; check)", leave: "09:45", arrive: "10:15", how: "Tube to Green Park, then a short walk"}
   - {day: 3, what: "Tower of London opens 9:00", leave: "08:15", arrive: "08:50", how: "District line to Tower Hill"}

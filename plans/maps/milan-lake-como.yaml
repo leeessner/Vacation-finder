@@ -15,3 +15,4 @@ places:
   - {name: Villa Carlotta, days: [7], at: [45.9837, 9.2318], area: "Lake Como"}
   - {name: "Como: Brunate funicular", days: [8], at: [45.8146, 9.0891], area: "Lake Como"}
   - {name: "Tirano, Bernina Express (option)", kind: option, days: [], at: [46.2160, 10.1680], area: "Lake Como"}
+  - {name: "Hotel by Malpensa (stay)", kind: stay, days: [9], at: [45.619, 8.742], area: Milan}

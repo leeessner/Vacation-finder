@@ -1,10 +1,10 @@
 # Florence & Tuscany — draft plan (summer 2027)
 
-**Shape:** 8 nights. Five on the farm above Florence, three in the
+**Shape:** 8 nights. Five on the farm above Florence, two in the
 countryside near Siena with a car. Florence is the art; the countryside is
 the castle, the towers, a vineyard and the cheese. The days are fuller than
 the first draft, as you asked. Nothing was dropped: the extra choices sit
-under *Options* for spare time or swaps.
+under *Options* for spare time or swaps. The last night is at a hotel by the airport, so the trip home doesn't start before dawn.
 
 Written against `plans/family-profile.md`. Prices were checked in October 2026
 from the sources listed at the end. Where those sources disagreed, the higher
@@ -18,7 +18,8 @@ converted at about **$1.15 per €1**.
 | | Where | Nights | Getting around |
 |---|---|---|---|
 | Base 1 | **Fattoria di Maiano**, Fiesole (in `config/stays.yaml`) | 5 | Bus 7 or a minivan taxi into Florence (20 min); trains for the day trip |
-| Base 2 | A farm stay (agriturismo) or apartment near **Siena**, 2+ bedrooms, with a pool | 3 | A rental car (7-seat) |
+| Base 2 | A farm stay (agriturismo) or apartment near **Siena**, 2+ bedrooms, with a pool | 2 | A rental car (7-seat) |
+| Base 3 | A hotel by **Rome's Fiumicino airport**, 2 rooms | 1 | The hotel shuttle to the terminal |
 
 Fly into **Florence (FLR)**, usually with one connection, or into **Rome
 (FCO)** and take the fast train to Florence (about 1h30). Fly home from
@@ -96,9 +97,9 @@ who worked alongside the young Raphael. Have dinner on the shell-shaped
 h, starting around 10:30) on a working farm. Lunch at **La Terrazza del
 Chiostro**, as requested. Drive back through the Val d'Orcia: the classic
 cypress-road views, and a stop at **Bagno Vignoni**, a village built around a
-steaming thermal pool.
+steaming thermal pool. Then drive on to a hotel by **Rome's Fiumicino airport** (about 2 h from Pienza) and return the car, so the flight home is a short shuttle ride.
 
-**Day 9 — Fly home** from FCO (about 2 h) or FLR (about 1½ h). It's a full travel day home: westbound flights usually leave late morning or midday and land in St. Louis that evening, about 12–16 hours gate to gate. You gain back the 7 hours.
+**Day 9 — Fly home from Rome.** The hotel shuttle to the terminal takes about 15 minutes; be there 3 hours before the flight. It's a full travel day home: westbound flights usually leave late morning or midday and land in St. Louis that evening, about 12–16 hours gate to gate. You gain back the 7 hours.
 
 ## Options (kept from the first draft, for spare days or swaps)
 
@@ -207,6 +208,8 @@ two kids each.
 - Lodging 2: 3 nights, a rental with 2+ bedrooms, center **Siena** (43.318, 11.331),
   within 15 mi, rating 4.0+.
 - Fixed costs: the table above, as `flat_cost`.
+
+- **Last night by the airport** (added Oct 31): the last base drops to 2 nights, plus 1 night at a hotel by Rome Fiumicino (2 rooms, 3-star or better, within 4 mi), reached the afternoon or evening before.
 
 ## Sources (checked October 2026)
 

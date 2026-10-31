@@ -2,9 +2,9 @@
 
 **Shape:** 10 nights. Three in **Porto** for port wine, the bridges and a
 vintage tram. Four in **Lisbon** for its castle, Belém and Sintra's palaces.
-Three in **Lagos** on the Algarve for the cliffs and the golden beaches. This
+Two in **Lagos** on the Algarve for the cliffs and the golden beaches. This
 is the Porto → Lisbon → Lagos route from the Instagram carousel in
-`plans/inspiration.md`.
+`plans/inspiration.md`. The last night is at a hotel by the airport, so the trip home doesn't start before dawn.
 
 This replaces the tracker's current **"Portugal & the Azores"** idea, which
 is kept as an option below. Written against `plans/family-profile.md`.
@@ -19,7 +19,8 @@ Prices were checked in October 2026; anything not confirmed is marked
 |---|---|---|---|
 | Base 1 | An apartment in **Ribeira / Baixa**, Porto | 3 | Walking, the old trams, a cable car |
 | Base 2 | An apartment in **Baixa / Chiado**, Lisbon | 4 | Trams, metro, the train to Sintra |
-| Base 3 | An apartment or a resort-style hotel with a pool in **Lagos** | 3 | A rental car (7-seat) for the drive south and back |
+| Base 3 | An apartment or a resort-style hotel with a pool in **Lagos** | 2 | A rental car (7-seat) for the drive south and back |
+| Base 4 | A hotel by **Lisbon airport**, 2 rooms | 1 | The hotel shuttle to the terminal |
 
 Fly into **Porto (OPO)** and home from **Lisbon (LIS)**. The car is picked up
 in Lisbon on Day 8 and dropped at the airport on Day 11.
@@ -73,9 +74,9 @@ different from home".
 
 **Day 10 — Sagres.** Drive 40 min to the **Fortress of Sagres** on the cliffs
 at the edge of Europe, then swim at **Praia da Mareta**. Or keep it a pool
-day.
+day. Then, after lunch, drive to a hotel by **Lisbon airport** (about 3 h) and return the car, so the flight home is a 15-minute shuttle ride in the morning.
 
-**Day 11 — Drive to LIS** (about 3 h) and fly home. It's a full travel day home: westbound flights usually leave late morning or midday and land in St. Louis that evening, about 12–16 hours gate to gate. You gain back the 6 hours.
+**Day 11 — Fly home from Lisbon.** The hotel shuttle to the terminal takes about 15 minutes; be there 3 hours before the flight. It's a full travel day home: westbound flights usually leave late morning or midday and land in St. Louis that evening, about 12–16 hours gate to gate. You gain back the 6 hours.
 
 ## Options
 
@@ -146,6 +147,8 @@ near Porto offers brewery tours.
   within 1.5 mi), Lisbon 4 nights (Rossio, as now), Lagos 3 nights (center
   37.1028, -8.6730, within 3 mi, with a pool).
 - Fixed costs: the table above, replacing the Azores hop.
+
+- **Last night by the airport** (added Oct 31): the last base drops to 2 nights, plus 1 night at a hotel by Lisbon airport (2 rooms, 3-star or better, within 3 mi), reached the afternoon or evening before.
 
 ## Sources (checked October 2026)
 

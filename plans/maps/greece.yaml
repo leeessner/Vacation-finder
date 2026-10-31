@@ -16,3 +16,4 @@ places:
   - {name: Apeiranthos, days: [7], at: [37.0740, 25.5180], area: Naxos}
   - {name: Kouros of Melanes, days: [7], at: [37.0820, 25.4500], area: Naxos}
   - {name: Temple of Demeter, days: [9], at: [37.0340, 25.4300], area: Naxos}
+  - {name: "Hotel by Athens airport (stay)", kind: stay, days: [10], at: [37.93, 23.93], area: Athens}

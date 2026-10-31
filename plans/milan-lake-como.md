@@ -3,8 +3,8 @@
 **Shape:** 9 nights. Four in **Milan**, Leonardo's city: *The Last Supper*,
 his machines and notebooks, Raphael's *School of Athens* cartoon, a castle
 with Michelangelo's last sculpture, and a walk on the cathedral roof. Then
-five on **Lake Como** in Varenna: a castle with falcons, lakeside villas, a
-funicular, and swimming.
+four on **Lake Como** in Varenna: a castle with falcons, lakeside villas, a
+funicular, and swimming. The last night is at a hotel by the airport, so the trip home doesn't start before dawn.
 
 Not tracked yet. Written against `plans/family-profile.md`. Prices were
 checked in October 2026; anything not confirmed is marked *check*. Euros are
@@ -17,7 +17,8 @@ converted at about **$1.15 per €1**.
 | | Where | Nights | Getting around |
 |---|---|---|---|
 | Base 1 | An apartment near the **Duomo / Brera**, Milan | 4 | Metro, trams, walking |
-| Base 2 | An apartment in **Varenna**, Lake Como | 5 | Trains (1 h from Milan) and the lake ferries; no car |
+| Base 2 | An apartment in **Varenna**, Lake Como | 4 | Trains (1 h from Milan) and the lake ferries; no car |
+| Base 3 | A hotel by **Milan Malpensa airport**, 2 rooms | 1 | The hotel shuttle to the terminal |
 
 Fly into and out of **Milan Malpensa (MXP)**.
 
@@ -69,9 +70,9 @@ lighthouse for the whole-lake view. See the old walled town below.
 
 **Day 9 — The lake, slow.** A beach and pool day. *Or* take the **Bernina
 Express** day trip from Tirano over the Alps into Switzerland, the most
-famous train ride in the Alps (long: about 2 h to Tirano first).
+famous train ride in the Alps (long: about 2 h to Tirano first). In the afternoon, take the train to a hotel by **Malpensa airport** (about 2¼ h, changing at Milano Centrale), so the flight home is a short shuttle ride.
 
-**Day 10 — Train to MXP** (about 2 h) and fly home. It's a full travel day home: westbound flights usually leave late morning or midday and land in St. Louis that evening, about 12–16 hours gate to gate. You gain back the 7 hours.
+**Day 10 — Fly home from Malpensa.** The hotel shuttle to the terminal takes about 15 minutes; be there 3 hours before the flight. It's a full travel day home: westbound flights usually leave late morning or midday and land in St. Louis that evening, about 12–16 hours gate to gate. You gain back the 7 hours.
 
 ## Food — and protein for the vegetarian parent
 
@@ -129,6 +130,8 @@ famous train ride in the Alps (long: about 2 h to Tirano first).
 - Milan: 4 nights, center Duomo (45.4642, 9.1900), within 1.5 mi.
   Varenna: 5 nights, center (46.0105, 9.2836), within 2 mi, rental with 2+
   bedrooms.
+
+- **Last night by the airport** (added Oct 31): the last base drops to 4 nights, plus 1 night at a hotel by Malpensa (2 rooms, 3-star or better, within 4 mi), reached the afternoon or evening before.
 
 ## Sources (checked October 2026)
 

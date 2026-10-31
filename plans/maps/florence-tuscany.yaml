@@ -25,3 +25,4 @@ places:
   - {name: "Rome airport (FCO)", kind: airport, days: [9], at: [41.8003, 12.2389], area: Countryside}
   - {name: "Lucca's walls (option)", kind: option, days: [], at: [43.8429, 10.5027], area: "Day trip"}
   - {name: "Montecatini Alto funicular (option)", kind: option, days: [], at: [43.8867, 10.7743], area: "Day trip"}
+  - {name: "Hotel by Rome Fiumicino (stay)", kind: stay, days: [8], at: [41.79, 12.25], area: Countryside}
