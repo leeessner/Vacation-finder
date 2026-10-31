@@ -3,7 +3,7 @@
 from datetime import date
 
 from vacation_finder import dashboard, flight_details
-from vacation_finder.config import FlightPrefs
+from vacation_finder.config import DateWindow, FlightPrefs
 
 from test_pricing import make_trip
 
@@ -61,3 +61,52 @@ def test_trip_page_shows_the_flights_and_travel_time():
     assert "Fri Jun 4, 3:10 pm" in html and "Sat Jun 5, 10:05 am" in html
     assert "full travel day" in html
     assert "How this fare was found" in html
+
+
+def test_flights_over_the_time_limit_are_ignored():
+    from vacation_finder.sources import google_flights
+
+    legs = flight_details.from_serpapi(SERP_OPTION)          # 11h 55m
+    assert not google_flights.too_long(legs, 20)
+    assert google_flights.too_long(legs, 10)
+    assert not google_flights.too_long((), 20)               # unknown time: kept
+
+
+def test_weekly_check_takes_the_cheapest_fare_within_the_limit():
+    from vacation_finder import insights
+    from vacation_finder.config import Config, Settings
+
+    long_way = {**SERP_OPTION, "price": 6167, "total_duration": 33 * 60}
+    short_way = {**SERP_OPTION, "price": 7400, "total_duration": 12 * 60}
+
+    class Client:
+        def search(self, params, engine="google_hotels"):
+            self.params = params
+            return {"price_insights": {"lowest_price": 6167},
+                    "other_flights": [long_way, short_way]}
+
+    trip = make_trip(dates=DateWindow(mode="window", nights=10,
+                                      earliest=date(2027, 6, 5), latest=date(2027, 6, 30)))
+    settings = Settings(home_airports=("STL",), max_flight_hours=20)
+    client = Client()
+    found = insights.fetch(client, trip, Config(settings=settings, trips=(trip,)), date(2026, 10, 31))
+    assert found.lowest == 7400
+    assert client.params["max_duration"] == 1200
+
+
+def test_a_saved_fare_over_the_limit_is_redone():
+    from vacation_finder import insights
+    from vacation_finder.config import Config, Settings
+    from vacation_finder.dates import candidate_windows
+
+    trip = make_trip()
+    settings = Settings(home_airports=("STL",), max_flight_hours=10, lookahead_min_days=14)
+    config = Config(settings=settings, trips=(trip,))
+    today = date(2026, 10, 31)
+    depart, ret = trip.flight_dates(*candidate_windows(trip, today, settings)[0])
+    saved = insights.FlightInsight(
+        trip_id=trip.id, checked_on=today, depart=depart, return_=ret, lowest=6000.0,
+        level="", typical_low=None, typical_high=None,
+        outbound=flight_details.from_serpapi(SERP_OPTION),   # 11h 55m > 10h
+    )
+    assert insights.due(config, {trip.id: saved}, today) == [trip]

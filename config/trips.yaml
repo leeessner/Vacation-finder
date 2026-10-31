@@ -78,6 +78,9 @@ settings:
   # When long-haul fares are usually lowest, in months before departure.
   # Rough guidance from published booking studies; used by the outlook.
   booking_window_months: [5, 7]
+  # The longest a flight may take, gate to gate, each way. The cheapest fare
+  # was sometimes a 30-hour trip with an overnight layover; those are ignored.
+  max_flight_hours: 20
 
   google_flights_enabled: true
   google_flights_price_is_total: true

@@ -22,7 +22,7 @@ from typing import Any
 
 from .config import Config, Trip
 from .dates import candidate_windows
-from .flight_details import from_serpapi
+from .flight_details import from_serpapi, total_minutes
 from .sources.base import SourceError
 
 log = logging.getLogger(__name__)
@@ -119,6 +119,11 @@ def due(config: Config, insights: dict[str, FlightInsight], today: date) -> list
         windows = candidate_windows(trip, today, config.settings)
         if windows and (known.depart, known.return_) != trip.flight_dates(*windows[0]):
             return 10_000
+        # A fare found before the time limit, on a flight over it, is redone.
+        limit = config.settings.max_flight_hours
+        minutes = total_minutes(known.outbound) if known.outbound else None
+        if limit and minutes is not None and minutes > limit * 60:
+            return 10_000
         return (today - known.checked_on).days
 
     stale = [t for t in flying_trips(config) if age(t) >= every]
@@ -154,6 +159,8 @@ def fetch(client, trip: Trip, config: Config, today: date) -> FlightInsight | No
             "return_date": ret.isoformat(),
             "type": 1,
         }
+    if config.settings.max_flight_hours:
+        trip_params["max_duration"] = int(config.settings.max_flight_hours * 60)
     params = {
         **trip_params,
         "adults": party.adult_equivalents,
@@ -175,17 +182,21 @@ def fetch(client, trip: Trip, config: Config, today: date) -> FlightInsight | No
         for o in payload.get(group) or []
         if isinstance(o, dict) and isinstance(o.get("price"), (int, float))
     ]
+    limit = config.settings.max_flight_hours
+    if limit:
+        # Google applies max_duration to the search; this catches anything over.
+        options = [
+            o for o in options
+            if not isinstance(o.get("total_duration"), (int, float))
+            or o["total_duration"] <= limit * 60
+        ]
     cheapest = min(options, key=lambda o: o["price"]) if options else None
     typical = info.get("typical_price_range") or [None, None]
-    lowest = info.get("lowest_price")
-    if lowest is None:
-        prices = [
-            o.get("price")
-            for group in ("best_flights", "other_flights")
-            for o in payload.get(group) or []
-            if isinstance(o, dict) and isinstance(o.get("price"), (int, float))
-        ]
-        lowest = min(prices) if prices else None
+    # With a time limit, the lowest fare is the cheapest option within it;
+    # Google's own "lowest price" can be a 30-hour itinerary.
+    lowest = cheapest["price"] if (limit and cheapest) else info.get("lowest_price")
+    if lowest is None and cheapest:
+        lowest = cheapest["price"]
     return FlightInsight(
         trip_id=trip.id,
         checked_on=today,
