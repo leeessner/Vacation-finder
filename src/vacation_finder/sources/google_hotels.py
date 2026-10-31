@@ -218,6 +218,8 @@ def search_lodging(
         name = str(prop.get("name") or "unknown")
         if name_contains and name_contains.lower() not in name.lower():
             continue
+        if any(word.lower() in name.lower() for word in prefs.avoid):
+            continue
         distance = None
         if center is not None:
             distance = distance_from(center, prop.get("gps_coordinates"))
