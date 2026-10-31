@@ -246,7 +246,7 @@ def cmd_track(args: argparse.Namespace) -> int:
 
     priority = first_look_slots(config, today, look)
     due = insights_mod.due(config, insights, today)
-    look_due = [t for t in due if t.id in look and t.id not in insights]
+    look_due = [t for t in due if t.id in look]
     due = look_due + [t for t in due if t not in look_due]
     needed = len(look_due) + sum(priority.values())
 

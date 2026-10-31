@@ -109,7 +109,14 @@ def due(config: Config, insights: dict[str, FlightInsight], today: date) -> list
 
     def age(trip: Trip) -> int:
         known = insights.get(trip.id)
-        return 10_000 if known is None else (today - known.checked_on).days
+        if known is None:
+            return 10_000
+        # A check for other dates (the trip's length or window changed since)
+        # can't stand in for today's fare, however recent it is.
+        windows = candidate_windows(trip, today, config.settings)
+        if windows and (known.depart, known.return_) != windows[0]:
+            return 10_000
+        return (today - known.checked_on).days
 
     stale = [t for t in flying_trips(config) if age(t) >= every]
     return sorted(stale, key=age, reverse=True)
