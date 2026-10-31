@@ -1,13 +1,14 @@
 legs:
   - {day: 1, kind: from_airport, mode: taxi, from: "Paris-CDG", to: "Apartment by the Luxembourg Gardens", minutes: 55, note: "a van taxi for six; the RER B takes about the same"}
   - {day: 7, mode: train, from: "Paris Gare de l'Est", to: "Strasbourg", depart: "09:25", minutes: 106, note: "TGV, seats reserved; Métro to Gare de l'Est ~25 min, so leave by 8:50a"}
-  - {day: 10, kind: to_airport, mode: train, from: "Strasbourg", to: "Paris-CDG (airport station)", minutes: 125, note: "direct TGV to the airport"}
+  - {day: 9, mode: train, from: "Strasbourg", to: "Paris-CDG (airport station)", depart: "17:10", minutes: 125, note: "direct TGV, then the airport hotel"}
+  - {day: 10, kind: to_airport, mode: bus, from: "Airport hotel", to: "Paris-CDG terminal", minutes: 15, note: "hotel shuttle"}
 timed:
-  - {day: 2, what: "Louvre, 9:00 slot", leave: "08:25", arrive: "08:45", how: "a 25-minute walk or Métro"}
+  - {day: 2, what: "Louvre, 9:00 slot", leave: "08:25", arrive: "08:45", how: "a 25-minute walk or Métro", closed: [Tue]}
   - {day: 3, what: "Sainte-Chapelle opens 9:00", leave: "08:35", arrive: "08:50", how: "a 15-minute walk"}
-  - {day: 4, what: "Versailles palace opens 9:00", leave: "07:50", arrive: "08:45", how: "RER C from Saint-Michel, ~40 min, then a 10-minute walk"}
-  - {day: 5, what: "Orsay opens 9:30", leave: "09:00", arrive: "09:20", how: "a 20-minute walk"}
-  - {day: 5, what: "Montmartre for the evening", leave: "17:45", arrive: "18:30", how: "Métro to Anvers, then the funicular"}
-  - {day: 6, what: "Disneyland Paris rope drop (park opens about 9:30; check)", leave: "07:45", arrive: "09:00", how: "RER A from Châtelet, ~40 min"}
+  - {day: 4, what: "Versailles palace opens 9:00", leave: "07:50", arrive: "08:45", how: "RER C from Saint-Michel, ~40 min, then a 10-minute walk", closed: [Mon]}
+  - {day: 6, what: "Orsay opens 9:30", leave: "09:00", arrive: "09:20", how: "a 20-minute walk", closed: [Mon]}
+  - {day: 6, what: "Montmartre for the evening", leave: "17:45", arrive: "18:30", how: "Métro to Anvers, then the funicular"}
+  - {day: 5, what: "Disneyland Paris rope drop (park opens about 9:30; check)", leave: "07:45", arrive: "09:00", how: "RER A from Châtelet, ~40 min"}
   - {day: 8, what: "Astronomical clock at 12:30 (tickets sold that morning)", arrive: "11:45", how: "a short walk"}
   - {day: 9, what: "Haut-Koenigsbourg opens about 9:15 (check)", leave: "08:20", arrive: "09:30", how: "train to Sélestat, 25 min, then the line 500 shuttle"}

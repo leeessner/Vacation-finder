@@ -190,7 +190,8 @@ def test_a_flight_check_for_other_dates_is_redone(tmp_path):
     def check(ret_on):
         return {"spain": FlightInsight(trip_id="spain", checked_on=TODAY, depart=depart,
                                        return_=ret_on, lowest=9000.0, level="",
-                                       typical_low=None, typical_high=None)}
+                                       typical_low=None, typical_high=None,
+                                       short_layovers=True)}
 
     assert due(config, check(ret), TODAY) == []                       # same dates, fresh
     assert due(config, check(ret - timedelta(days=2)), TODAY) == [spain]   # trip got longer

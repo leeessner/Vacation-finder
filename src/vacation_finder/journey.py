@@ -33,6 +33,7 @@ import yaml
 
 log = logging.getLogger(__name__)
 
+WEEKDAYS = ("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun")
 MODES = {"train", "car", "taxi", "ferry", "flight", "bus", "walk"}
 KINDS = {"move", "from_airport", "to_airport"}
 CLEAR_ARRIVAL_MIN = 60      # passport control and bags after landing
@@ -62,6 +63,7 @@ class Timed:
     leave: str = ""
     arrive: str = ""
     how: str = ""
+    closed: tuple[str, ...] = ()   # weekdays it's shut: ("Mon",), ("Tue",)
 
 
 def travel_path(plan: Path) -> Path:
@@ -121,13 +123,16 @@ def _leg(item: object) -> Leg:
 def _timed(item: object) -> Timed:
     if not isinstance(item, dict):
         raise JourneyError("each timed entry must be a mapping")
-    extra = set(item) - {"day", "what", "leave", "arrive", "how"}
+    extra = set(item) - {"day", "what", "leave", "arrive", "how", "closed"}
     if extra:
         raise JourneyError(f"unknown key(s) {sorted(map(str, extra))}")
     if not isinstance(item.get("day"), int) or not item.get("what"):
         raise JourneyError("'day' and 'what' are required")
+    closed = tuple(str(d)[:3].title() for d in item.get("closed") or ())
+    if any(d not in WEEKDAYS for d in closed):
+        raise JourneyError(f"'closed' takes weekdays like Mon, Tue; got {list(closed)}")
     return Timed(item["day"], str(item["what"]), _clock(item.get("leave"), "leave"),
-                 _clock(item.get("arrive"), "arrive"), str(item.get("how", "")))
+                 _clock(item.get("arrive"), "arrive"), str(item.get("how", "")), closed)
 
 
 # --------------------------------------------------------------------------- #
@@ -181,6 +186,18 @@ def leg_times(
         start = at(day, leg.depart)
         return start, start + timedelta(minutes=leg.minutes), ""
     return None, None, ""
+
+
+def clash(item: Timed, check_in: date | None) -> str:
+    """A warning when the tracked dates put this on a day it's closed."""
+    if not (check_in and item.closed):
+        return ""
+    day = day_date(check_in, item.day)
+    name = WEEKDAYS[day.weekday()]
+    if name not in item.closed:
+        return ""
+    return (f"Closed on {name}days, and Day {item.day} falls on {day:%A, %b} {day.day} for "
+            "these dates: swap it with another day.")
 
 
 def timed_line(item: Timed, check_in: date | None) -> str:

@@ -147,6 +147,7 @@ padding:2px 8px;border-radius:99px;background:var(--accent-soft);color:var(--acc
 .journey .when{grid-column:2;font-size:13.5px;color:var(--muted)}
 .plan .timing{display:block;margin:4px 0 2px;padding:4px 10px;border-left:3px solid var(--accent);
 background:var(--accent-soft);font-size:13.5px;border-radius:0 6px 6px 0}
+.plan .timing.clash{border-left-color:#b45309;background:var(--check-bg);color:var(--check-fg);font-weight:600}
 footer{color:var(--muted);font-size:12.5px;margin-top:30px;border-top:1px solid var(--line);padding-top:14px}
 """
 
@@ -393,6 +394,10 @@ def _journey_block(report: TripReport, plan: Plan | None, info: dict | None) -> 
         start = flight_details._parse(segments[0].get("depart"))
         end = flight_details._parse(segments[-1].get("arrive"))
         when = journey.span(start, end) if start and end else ""
+        longest = flight_details.longest_layover(segments)
+        if longest and longest[1] > 5 * 60:
+            when += (f" · long connection: {flight_details.hours(longest[1])} at {longest[0]} "
+                     "(no fare with shorter ones was found)")
         return ("Fly", route, journey.hours(flight_details.total_minutes(segments)), when)
 
     legs = sorted(plan.legs if plan else (), key=lambda leg: (leg.day, leg.kind != "from_airport"))
@@ -445,7 +450,10 @@ def _with_timings(plan_html: str, timed: tuple, check_in) -> str:
         if not items:
             return match.group(0)
         lines = "".join(
-            f"<span class='timing'>{_esc(journey.timed_line(t, check_in))}</span>" for t in items
+            f"<span class='timing'>{_esc(journey.timed_line(t, check_in))}</span>"
+            + (f"<span class='timing clash'>{_esc(journey.clash(t, check_in))}</span>"
+               if journey.clash(t, check_in) else "")
+            for t in items
         )
         return match.group(0) + lines
 

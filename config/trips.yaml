@@ -272,9 +272,18 @@ trips:
         within_miles: 2
       - code: SXB
         label: "Strasbourg, France"
-        nights: 3
+        nights: 2
         center: [48.5819, 7.7510]   # the cathedral
         within_miles: 1
+      - code: RSY                   # an id only: the last night by the airport
+        label: "Paris-CDG airport hotel"
+        nights: 1
+        # The evening TGV from Strasbourg runs to the airport station, so
+        # the flight home doesn't start with a 6 a.m. train.
+        hotel_query: "Roissy-en-France, France"
+        center: [49.0097, 2.5479]   # Paris-CDG
+        within_miles: 3
+        lodging: {kind: hotel, rooms: 2, min_stars: 3}
     party:
       adults: 2
       children: [8, 7, 5, 3]
