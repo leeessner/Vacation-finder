@@ -505,7 +505,7 @@ trips:
       - code: LAH                   # an id only: the last night by the airport
         label: "Lisbon airport hotel"
         nights: 1
-        hotel_query: "Lisbon Airport, Portugal"
+        hotel_query: "Parque das Nações, Lisbon, Portugal"   # the hotel district by the airport; "Lisbon Airport" found none
         center: [38.7742, -9.1342]
         within_miles: 3
         lodging: {kind: hotel, rooms: 2, min_stars: 3}
