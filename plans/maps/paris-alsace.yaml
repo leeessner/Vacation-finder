@@ -1,6 +1,7 @@
 places:
   - {name: "Paris apartment (stay)", kind: stay, days: [1, 2, 3, 4, 5, 6], at: [48.8490, 2.3400], area: Paris}
   - {name: "Paris-CDG", kind: airport, days: [1, 10], at: [49.0097, 2.5479], area: Paris}
+  - {name: "Airport hotel, Roissy (stay)", kind: stay, days: [9], at: [49.0050, 2.5150], area: Paris}
   - {name: Luxembourg Gardens, days: [1], at: [48.8462, 2.3372], area: Paris}
   - {name: Louvre, days: [2], at: [48.8606, 2.3376], area: Paris}
   - {name: Tuileries, days: [2], at: [48.8635, 2.3275], area: Paris}
@@ -8,11 +9,11 @@ places:
   - {name: Notre-Dame, days: [3], at: [48.8530, 2.3499], area: Paris}
   - {name: Eiffel Tower, days: [3], at: [48.8584, 2.2945], area: Paris}
   - {name: Versailles, days: [4], at: [48.8049, 2.1204], area: Paris}
-  - {name: Musée d'Orsay, days: [5], at: [48.8600, 2.3266], area: Paris}
-  - {name: Montmartre and Sacré-Cœur, days: [5], at: [48.8867, 2.3431], area: Paris}
-  - {name: Disneyland Paris, days: [6], at: [48.8722, 2.7758], area: Paris}
+  - {name: Musée d'Orsay, days: [6], at: [48.8600, 2.3266], area: Paris}
+  - {name: Montmartre and Sacré-Cœur, days: [6], at: [48.8867, 2.3431], area: Paris}
+  - {name: Disneyland Paris, days: [5], at: [48.8722, 2.7758], area: Paris}
   - {name: "Musée Rodin (option)", kind: option, days: [], at: [48.8553, 2.3159], area: Paris}
-  - {name: "Strasbourg apartment (stay)", kind: stay, days: [7, 8, 9], at: [48.5800, 7.7480], area: Alsace}
+  - {name: "Strasbourg apartment (stay)", kind: stay, days: [7, 8], at: [48.5800, 7.7480], area: Alsace}
   - {name: Petite France, days: [7], at: [48.5806, 7.7408], area: Alsace}
   - {name: Barrage Vauban, days: [7], at: [48.5793, 7.7371], area: Alsace}
   - {name: Cathedral and astronomical clock, days: [8], at: [48.5819, 7.7510], area: Alsace}

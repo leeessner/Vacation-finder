@@ -345,6 +345,7 @@ def _record_flight_details(details, trip, quote, insight, today, config) -> None
         found = google_flights.typical_leg(
             trip, trip.return_airport, origin, fare.return_date, config.settings.currency,
             max_hours=config.settings.max_flight_hours,
+            max_layover=config.settings.max_layover_hours,
         )
         if found:
             inbound, inbound_airlines = found

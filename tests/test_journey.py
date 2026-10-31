@@ -62,3 +62,9 @@ def test_timings_land_under_their_day():
     out = dashboard._with_timings(html, timed, CHECK_IN)
     assert '</strong><span class=\'timing\'>Tue Jul 13: Leave 7:45a (RER A)' in out
     assert out.count("timing") == 1
+
+
+def test_a_closed_day_is_flagged():
+    orsay = journey.Timed(5, "Orsay opens 9:30", "09:00", "09:20", closed=("Mon",))
+    assert "Monday, Jul 12" in journey.clash(orsay, CHECK_IN)        # Day 5 of a Jul 8 stay
+    assert journey.clash(orsay, date(2027, 7, 9)) == ""              # a day later: Tuesday

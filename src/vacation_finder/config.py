@@ -263,6 +263,9 @@ class Settings:
     # can mean an overnight layover (33 h to Brussels via Reykjavík); fares
     # over this are ignored. None for no limit.
     max_flight_hours: float | None = 20.0
+    # Connections longer than this are avoided when a fare without them
+    # exists; otherwise the fare is kept and the long wait is flagged.
+    max_layover_hours: float | None = 5.0
 
 
 @dataclass(frozen=True)
@@ -572,6 +575,7 @@ def _parse_settings(raw: Any) -> Settings:
         google_flights_enabled=bool(raw.get("google_flights_enabled", True)),
         google_flights_price_is_total=bool(raw.get("google_flights_price_is_total", True)),
         max_flight_hours=_opt_float(raw.get("max_flight_hours", 20.0)),
+        max_layover_hours=_opt_float(raw.get("max_layover_hours", 5.0)),
     )
 
 

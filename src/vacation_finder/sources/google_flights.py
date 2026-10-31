@@ -24,7 +24,7 @@ from dataclasses import dataclass
 from datetime import date
 
 from ..config import Settings, Trip
-from ..flight_details import from_fast_flights, total_minutes
+from ..flight_details import from_fast_flights, short_connections, total_minutes
 from ..models import FlightQuote
 
 log = logging.getLogger(__name__)
@@ -71,7 +71,7 @@ def search_flights(
         hit = _cheapest(
             trip, origin, destination, depart, ret, currency,
             adults=step.adults, extra_stops=step.extra_stops, return_from=return_from,
-            max_hours=settings.max_flight_hours,
+            max_hours=settings.max_flight_hours, max_layover=settings.max_layover_hours,
         )
         if hit is not None:
             price = hit[0] if step.adults is None else hit[0] / step.adults * party.total
@@ -153,6 +153,7 @@ def _cheapest(
     return_from: str = "",
     trip_type: str = "",
     max_hours: float | None = None,
+    max_layover: float | None = None,
 ) -> tuple[float, tuple[str, ...], tuple] | None:
     """(price, airlines, outbound segments) of the cheapest result, or None."""
     who = "party" if adults is None else f"{adults} adult(s)"
@@ -172,7 +173,9 @@ def _cheapest(
         )
         return None
 
-    best: tuple[float, tuple[str, ...], tuple] | None = None
+    # The cheapest fare within the time limit, preferring one whose
+    # connections are all short; a long connection only if nothing else.
+    best = best_short = None
     for item in results or []:
         price = _price_of(item)
         if price is None or price <= 0:
@@ -180,9 +183,12 @@ def _cheapest(
         segments = from_fast_flights(item)
         if too_long(segments, max_hours):
             continue
+        option = (price, tuple(getattr(item, "airlines", ()) or ()), segments)
         if best is None or price < best[0]:
-            best = (price, tuple(getattr(item, "airlines", ()) or ()), segments)
-    return best
+            best = option
+        if short_connections(segments, max_layover) and (best_short is None or price < best_short[0]):
+            best_short = option
+    return best_short or best
 
 
 def too_long(segments: tuple, max_hours: float | None) -> bool:
@@ -196,7 +202,7 @@ def too_long(segments: tuple, max_hours: float | None) -> bool:
 
 def typical_leg(
     trip: Trip, origin: str, destination: str, day: date, currency: str,
-    max_hours: float | None = None,
+    max_hours: float | None = None, max_layover: float | None = None,
 ) -> tuple[tuple, tuple[str, ...]] | None:
     """(segments, airlines) of the cheapest one-way flight on this route and
     day, for one adult: what the trip home typically looks like. Free (the
@@ -205,7 +211,7 @@ def typical_leg(
         return None
     hit = _cheapest(
         trip, origin, destination, day, day, currency, adults=1, trip_type="one-way",
-        max_hours=max_hours,
+        max_hours=max_hours, max_layover=max_layover,
     )
     return (hit[2], hit[1]) if hit else None
 

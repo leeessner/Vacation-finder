@@ -110,3 +110,66 @@ def test_a_saved_fare_over_the_limit_is_redone():
         outbound=flight_details.from_serpapi(SERP_OPTION),   # 11h 55m > 10h
     )
     assert insights.due(config, {trip.id: saved}, today) == [trip]
+
+
+LONG_WAIT = {
+    "price": 6100, "total_duration": 19 * 60,
+    "flights": [
+        {"departure_airport": {"id": "STL", "time": "2027-06-04 07:00"},
+         "arrival_airport": {"id": "KEF", "time": "2027-06-04 20:00"}, "duration": 480},
+        {"departure_airport": {"id": "KEF", "time": "2027-06-05 03:00"},
+         "arrival_airport": {"id": "BRU", "time": "2027-06-05 08:00"}, "duration": 180},
+    ],
+}
+
+
+def test_long_connections_are_spotted():
+    legs = flight_details.from_serpapi(LONG_WAIT)
+    assert flight_details.longest_layover(legs) == ("KEF", 420)
+    assert not flight_details.short_connections(legs, 5)
+    assert flight_details.short_connections(flight_details.from_serpapi(SERP_OPTION), 5)
+
+
+def test_weekly_check_prefers_short_connections_when_it_can():
+    from vacation_finder import insights
+    from vacation_finder.config import Config, Settings
+
+    pricier_but_short = {**SERP_OPTION, "price": 7400, "total_duration": 12 * 60}
+
+    class Client:
+        def __init__(self, options):
+            self.options = options
+
+        def search(self, params, engine="google_hotels"):
+            return {"other_flights": self.options}
+
+    trip = make_trip()
+    settings = Settings(home_airports=("STL",), max_flight_hours=20, max_layover_hours=5)
+    config = Config(settings=settings, trips=(trip,))
+    today = date(2026, 10, 31)
+    found = insights.fetch(Client([LONG_WAIT, pricier_but_short]), trip, config, today)
+    assert found.lowest == 7400 and found.short_layovers
+    only_long = insights.fetch(Client([LONG_WAIT]), trip, config, today)
+    assert only_long.lowest == 6100                     # nothing shorter: keep it
+
+
+def test_journey_flags_a_long_connection():
+    info = {
+        "origin": "STL", "arrive_at": "BRU", "home_from": "BRU",
+        "depart_date": "2027-06-04", "return_date": "2027-06-14",
+        "outbound": list(flight_details.from_serpapi(LONG_WAIT)), "inbound": [],
+    }
+    from vacation_finder.report import TripReport
+    from vacation_finder.storage import HistoryRow
+    from datetime import datetime, timezone
+
+    row = HistoryRow(
+        captured_at=datetime(2026, 10, 31, tzinfo=timezone.utc), trip_id="t", destination="BRU",
+        depart_date=date(2027, 6, 5), return_date=date(2027, 6, 14), nights=9, currency="USD",
+        flight_total=6100, flight_source="google_flights_weekly", flight_carriers="",
+        lodging_name="", lodging_total=0, lodging_per_night=0, lodging_rating=None,
+        ground_total=0, total=6100, is_complete=False,
+    )
+    report = TripReport(trip=make_trip(), latest=row)
+    html = dashboard._journey_block(report, None, info)
+    assert "long connection: 7h 00m at KEF" in html

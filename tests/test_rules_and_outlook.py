@@ -182,7 +182,8 @@ def europe_trip():
 
 
 def insight(level="typical", low=7800.0, high=9400.0):
-    return FlightInsight("t", TODAY, date(2027, 6, 5), date(2027, 6, 15), 7962.0, level, low, high)
+    return FlightInsight("t", TODAY, date(2027, 6, 5), date(2027, 6, 15), 7962.0, level, low, high,
+                         short_layovers=True)
 
 
 def test_low_fare_says_book():

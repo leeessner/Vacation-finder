@@ -22,7 +22,7 @@ from typing import Any
 
 from .config import Config, Trip
 from .dates import candidate_windows
-from .flight_details import from_serpapi, total_minutes
+from .flight_details import from_serpapi, short_connections, total_minutes
 from .sources.base import SourceError
 
 log = logging.getLogger(__name__)
@@ -48,6 +48,9 @@ class FlightInsight:
     typical_low: float | None
     typical_high: float | None
     outbound: tuple = ()             # the cheapest option's outbound segments
+    # Fetched with the short-connection preference (checks from before it
+    # existed are redone once).
+    short_layovers: bool = False
 
     def phrase(self, currency_symbol: str = "$") -> str:
         parts = []
@@ -79,6 +82,7 @@ class FlightInsight:
                 typical_low=raw.get("typical_low"),
                 typical_high=raw.get("typical_high"),
                 outbound=tuple(raw.get("outbound") or ()),
+                short_layovers=bool(raw.get("short_layovers", False)),
             )
         except (KeyError, TypeError, ValueError):
             return None
@@ -120,6 +124,8 @@ def due(config: Config, insights: dict[str, FlightInsight], today: date) -> list
         if windows and (known.depart, known.return_) != trip.flight_dates(*windows[0]):
             return 10_000
         # A fare found before the time limit, on a flight over it, is redone.
+        if config.settings.max_layover_hours and not known.short_layovers:
+            return 10_000
         limit = config.settings.max_flight_hours
         minutes = total_minutes(known.outbound) if known.outbound else None
         if limit and minutes is not None and minutes > limit * 60:
@@ -190,7 +196,13 @@ def fetch(client, trip: Trip, config: Config, today: date) -> FlightInsight | No
             if not isinstance(o.get("total_duration"), (int, float))
             or o["total_duration"] <= limit * 60
         ]
-    cheapest = min(options, key=lambda o: o["price"]) if options else None
+    # Prefer options whose connections are all short; fall back to the rest.
+    short = [
+        o for o in options
+        if short_connections(from_serpapi(o), config.settings.max_layover_hours)
+    ]
+    pool = short or options
+    cheapest = min(pool, key=lambda o: o["price"]) if pool else None
     typical = info.get("typical_price_range") or [None, None]
     # With a time limit, the lowest fare is the cheapest option within it;
     # Google's own "lowest price" can be a 30-hour itinerary.
@@ -207,6 +219,7 @@ def fetch(client, trip: Trip, config: Config, today: date) -> FlightInsight | No
         typical_low=_num(typical[0] if len(typical) > 0 else None),
         typical_high=_num(typical[1] if len(typical) > 1 else None),
         outbound=from_serpapi(cheapest) if cheapest else (),
+        short_layovers=True,
     )
 
 

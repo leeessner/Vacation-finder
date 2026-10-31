@@ -2,9 +2,10 @@
 
 **Shape:** 9 nights. Six in Paris, covering the family's own list: the
 Louvre, the Orsay, Montmartre, the Eiffel Tower, a park, Versailles and one
-Disneyland day. Then three in **Strasbourg**, 1¾ hours east by TGV, with Colmar
-and a mountain-top castle as day trips. It's trains the whole way, with no
-car. The last train runs straight to Paris-CDG for the flight home.
+Disneyland day. Then two in **Strasbourg**, 1¾ hours east by TGV, with Colmar
+and a mountain-top castle as day trips. The last night is at a hotel by
+**Paris-CDG**, so the flight home doesn't start with a 6 a.m. train. It's
+trains the whole way, with no car.
 
 This matches the tracked trip **"Paris & Versailles"** (9 nights). It adds the
 **Alsace** idea from the Colmar-with-kids post, which is in
@@ -19,7 +20,8 @@ confirmed is marked *check*. Euros are converted at about **$1.15 per €1**.
 | | Where | Nights | Getting around |
 |---|---|---|---|
 | Base 1 | A 2–3-bedroom apartment near the **Luxembourg Gardens** (6th arr.) | 6 | Métro and RER. **Under 4s ride free; ages 4–9 pay half** |
-| Base 2 | An apartment or 2-room hotel in **Strasbourg's old town** (Grande Île) | 3 | On foot and tram; regional trains to Sélestat and Colmar |
+| Base 2 | An apartment or 2-room hotel in **Strasbourg's old town** (Grande Île) | 2 | On foot and tram; regional trains to Sélestat and Colmar |
+| Base 3 | A hotel at **Paris-CDG** (Roissy), 2 rooms | 1 | The hotel shuttle to the terminal |
 
 Why the Luxembourg Gardens, rather than the tracker's current center at the
 Hôtel de Ville: the gardens are Paris's best park for children, with a big
@@ -27,8 +29,13 @@ playground, toy sailboats on the pond and a puppet theatre. It's the profile's
 "a park" built into every day. The Louvre, Orsay and Notre-Dame
 are a short walk or Métro ride away.
 
-Fly into **Paris-CDG**. Fly home from CDG; the TGV runs from Strasbourg
-directly to the airport station.
+Fly into **Paris-CDG**. Fly home from CDG: the evening before, a direct TGV
+runs from Strasbourg to the airport station, and the airport hotel is a
+shuttle ride from the terminal.
+
+The order of Days 5 and 6 avoids the Orsay's closed day (Monday) for the
+dates being tracked now. If the tracked dates move, the trip page flags any
+visit that lands on a closed day.
 
 ## Day by day
 
@@ -58,17 +65,17 @@ rent **bikes or a rowing boat** on the Grand Canal, or take the little train
 to the Trianons and **Marie Antoinette's Hamlet**, a storybook farm village.
 On summer weekends the fountains run to music.
 
-**Day 5 — The Orsay in the morning, Montmartre in the evening.** Start at the
+**Day 5 — Disneyland Paris.** The one special day, as the profile allows.
+It's 40 minutes on the RER A. Rope-drop at opening, and plan around the
+3-year-old's nap.
+
+**Day 6 — The Orsay in the morning, Montmartre in the evening.** Start at the
 **Orsay** at opening. Impressionism is "nice, not essential" in the profile,
 but the sculpture hall (Carpeaux, Rodin) and the giant station clock work for
 everyone. Keep it to about 1½ hours. Rest in the afternoon. In the evening,
 ride the **funicular** up to Sacré-Cœur, watch the painters in Place du
 Tertre, and have dinner in the village lanes. Then sit on the Sacré-Cœur
 steps as the city lights come on.
-
-**Day 6 — Disneyland Paris.** The one special day, as the profile allows.
-It's 40 minutes on the RER A. Rope-drop at opening, and plan around the
-3-year-old's nap.
 
 **Day 7 — TGV to Strasbourg** (1¾ h). In the afternoon, go to **Petite
 France**, the half-timbered, canal-side old quarter. Then climb the
@@ -85,12 +92,15 @@ l'Orangerie**: playground, rowing boats and the storks (a bonus).
 then the shuttle bus (line 500, which runs in the tourist season; *check*
 the times) up to **Haut-Koenigsbourg**. It's a huge red
 sandstone castle on a mountain top, with ramparts, an armoury and views over
-the Rhine plain. It's the castle day of the trip. In the afternoon, take the
-train to **Colmar** (12 min): **Little Venice**, a short flat-bottomed
-**boat ride** on the canal (25 min), and old-town lanes. Parents can add the
-**Isenheim Altarpiece** at the Unterlinden museum (children under 12 free).
+the Rhine plain. It's the castle day of the trip. Check out first and leave the
+bags in the lockers at Strasbourg station. In the early afternoon, take the
+train to **Colmar** (12 min from Sélestat): **Little Venice**, a short
+flat-bottomed **boat ride** on the canal (25 min), and old-town lanes. Back to
+Strasbourg for the bags and the **evening TGV to Paris-CDG** (about 2 h), then
+the airport hotel. If the day feels too full, skip Colmar.
 
-**Day 10 — TGV to Paris-CDG** (about 2 h), then fly home. It's a full travel day home: westbound flights usually leave late morning or midday and land in St. Louis that evening, about 12–16 hours gate to gate. You gain back the 7 hours.
+**Day 10 — Fly home from CDG.** The hotel shuttle to the terminal takes about
+15 minutes; be there 3 hours before the flight. It's a full travel day home: westbound flights usually leave late morning or midday and land in St. Louis that evening, about 12–16 hours gate to gate. You gain back the 7 hours.
 
 ## Optional
 
@@ -160,8 +170,9 @@ the city. Paris has good craft-beer bars for the parents.
 - **"Paris & Versailles"**: lodging for **6 nights**, center **Luxembourg
   Gardens** (48.8462, 2.3372), within 2 mi, a rental with 2+ bedrooms or 2
   hotel rooms. Rename it "Paris & Alsace".
-- Add **Strasbourg** as a second destination: 3 nights, center the
-  cathedral (48.5819, 7.7510), within 1 mi.
+- Add **Strasbourg** as a second stop: 2 nights, center the cathedral
+  (48.5819, 7.7510), within 1 mi. Then **1 night at a Paris-CDG hotel**
+  (2 rooms, 3-star or better, within 3 mi of the airport).
 - Fixed costs: the table above, as `flat_cost` (replacing the current €340).
 
 ## Sources (checked October 2026)

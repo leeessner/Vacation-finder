@@ -103,6 +103,21 @@ def layovers(segments: tuple | list) -> list[tuple[str, int | None]]:
     return out
 
 
+def longest_layover(segments: tuple | list) -> tuple[str, int] | None:
+    """(airport, minutes) of the longest connection, or None if there's none
+    or its time can't be worked out."""
+    waits = [(a, m) for a, m in layovers(segments) if m is not None]
+    return max(waits, key=lambda w: w[1]) if waits else None
+
+
+def short_connections(segments: tuple | list, max_hours: float | None) -> bool:
+    """Every connection within the limit (a nonstop, or unknown times, pass)."""
+    if not max_hours:
+        return True
+    longest = longest_layover(segments)
+    return longest is None or longest[1] <= max_hours * 60
+
+
 def total_minutes(segments: tuple | list) -> int | None:
     """Flying plus connections, gate to gate. Not arrival minus departure:
     those are in different time zones."""
@@ -140,7 +155,8 @@ def basis(source: str, party_total: int, max_stops: int | None, bags: int,
     text = _basis(source, party_total, max_stops, bags, insight, searched_on)
     if max_hours:
         text += (f" Only flights of {max_hours:g} hours or less, gate to gate, count for the "
-                 "way out; the way home is picked when you book.")
+                 "way out, and ones with every connection under 5 hours come first; the way "
+                 "home is picked when you book.")
     return text
 
 
