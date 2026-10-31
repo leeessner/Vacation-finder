@@ -233,19 +233,42 @@ def cmd_track(args: argparse.Namespace) -> int:
     hotels = SerpApiClient()
     settings = config.settings
     today = date.today()
+    insights = insights_mod.load_insights()
+
+    # A first look (--first-look a,b): price each listed trip's first date
+    # window now, ahead of the queue, with the searches that takes.
+    look = [t.strip() for t in (getattr(args, "first_look", "") or "").split(",") if t.strip()]
+    unknown = [t for t in look if config.trip(t) is None or not config.trip(t).active]
+    if unknown:
+        log.error("--first-look: no active trip with id %s", ", ".join(unknown))
+        return 2
+    from .lodging import first_look_slots
+
+    priority = first_look_slots(config, today, look)
+    due = insights_mod.due(config, insights, today)
+    look_due = [t for t in due if t.id in look and t.id not in insights]
+    due = look_due + [t for t in due if t not in look_due]
+    needed = len(look_due) + sum(priority.values())
+
     if hotels.configured:
         left = hotels.searches_left()
         allowance = run_allowance(left, settings.searches_per_run, settings.hotel_search_reserve)
+        if needed and left is not None:
+            # Enough for the first look plus a normal day, never into the reserve.
+            allowance = min(allowance + needed, max(0, left - settings.hotel_search_reserve))
         if left is not None:
             log.info("SerpApi: %d search(es) left this month", left)
         reason = "" if allowance else "this month's free SerpApi searches are used up"
     else:
         allowance, reason = 0, f"SERPAPI_KEY is not set — {SIGNUP_HINT}"
+    if look:
+        log.info("first look at %s: %d search(es) set aside", ", ".join(look), needed)
 
     # Flight insights first: one search a week per flying trip, and the only
-    # source of "is this fare typical?" Hotels get what's left.
-    insights = insights_mod.load_insights()
-    for trip in insights_mod.due(config, insights, today)[: min(allowance, insights_mod.MAX_PER_RUN)]:
+    # source of "is this fare typical?" Hotels get what's left. A first-look
+    # trip without one goes first and doesn't count against the usual cap.
+    per_run = insights_mod.MAX_PER_RUN + len(look_due)
+    for trip in due[: min(allowance, per_run)]:
         fresh = insights_mod.fetch(hotels, trip, config, today)
         allowance -= 1
         if fresh is not None:
@@ -253,7 +276,9 @@ def cmd_track(args: argparse.Namespace) -> int:
             log.info("%s: Google Flights insight — %s", trip.id, fresh.phrase())
     insights_mod.save_insights(insights)
 
-    book = LodgingBook.load(config, today, allowance, unavailable_reason=reason)
+    book = LodgingBook.load(
+        config, today, allowance, unavailable_reason=reason, priority=list(priority)
+    )
     pricer = TripPricer(config, hotels=hotels, book=book, insights=insights)
     trips_by_id = {t.id: t for t in config.trips}
     fired: list[alerts_mod.Alert] = []
@@ -688,7 +713,12 @@ def build_parser() -> argparse.ArgumentParser:
         return sub.add_parser(name, parents=[common], **kwargs)
 
     add("validate", help="check config and estimate API usage").set_defaults(func=cmd_validate)
-    add("track", help="price trips, record history, fire alerts").set_defaults(func=cmd_track)
+    track = add("track", help="price trips, record history, fire alerts")
+    track.add_argument(
+        "--first-look", default="", metavar="IDS",
+        help="comma-separated trip ids to price once now (first date window), ahead of the queue",
+    )
+    track.set_defaults(func=cmd_track)
     add("digest", help="send the scheduled update").set_defaults(func=cmd_digest)
     add("dashboard", help="rebuild docs/index.html").set_defaults(func=cmd_dashboard)
     add(

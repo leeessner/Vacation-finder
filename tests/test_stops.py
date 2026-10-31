@@ -150,3 +150,28 @@ def test_weekly_check_asks_for_the_open_jaw(tmp_path):
     assert client.params["type"] == 3
     assert '"departure_id": "MAD"' in client.params["multi_city_json"]
     assert found.lowest == 9000
+
+
+def test_first_look_prices_one_window_of_each_listed_trip(tmp_path):
+    from vacation_finder.lodging import LodgingBook, first_look_slots
+
+    config = Config(settings=SETTINGS, trips=load(tmp_path).trips)
+    look = first_look_slots(config, TODAY, ["spain"])
+    assert len(look) == 2                       # Barcelona + Madrid, first window only
+    assert sum(look.values()) == 3              # Madrid's preferred brand costs one more
+
+    # Everything else is stalest-first; the first look jumps the queue.
+    old = {k: {"checked_on": "2020-01-01", "quote": None} for k in look}
+    book = LodgingBook.plan(config, TODAY, allowance=3, entries=old, priority=list(look))
+    assert book.refresh == set(look)
+    book = LodgingBook.plan(config, TODAY, allowance=3, entries=old)
+    assert book.refresh != set(look)            # without it, never-searched slots go first
+
+
+def test_first_look_rejects_an_unknown_trip(tmp_path, monkeypatch):
+    from vacation_finder import cli
+
+    path = tmp_path / "trips.yaml"
+    path.write_text(YAML)
+    monkeypatch.delenv("SERPAPI_KEY", raising=False)
+    assert cli.main(["track", "--config", str(path), "--first-look", "nowhere"]) == 2
