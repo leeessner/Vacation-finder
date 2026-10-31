@@ -161,7 +161,7 @@ def render_plan(path: Path) -> Plan:
     text = path.read_text()
     match = re.search(r"^# (.+)$", text, re.M)
     title = match.group(1) if match else path.stem.replace("-", " ").title()
-    title = re.sub(r"\s+—\s+draft plan.*$", "", title)
+    title = re.sub(r"\s+—\s+[^—]*draft plan.*$", "", title)
     body = re.sub(r"^# .+\n", "", text, count=1)
     nights = re.search(r"\*\*Shape:\*\*\s*(\d+ nights)", text)
 
@@ -436,10 +436,9 @@ def _trip_page(page: Page, pages: list[Page], stamp: str, footer: str) -> str:
     else:
         body += '<p class="muted">This plan isn\'t tracked yet: no daily flight or hotel prices.</p>'
     if page.plan is not None:
-        body += (
-            '<section class="plan">'
-            f"<h1>{_esc(page.plan.title)}</h1>{page.plan.html}</section>"
-        )
+        # A plan-only page already carries the plan's title in its header.
+        heading = "" if page.report is None else f"<h1>{_esc(page.plan.title)}</h1>"
+        body += f'<section class="plan">{heading}{page.plan.html}</section>'
     elif page.report is not None:
         body += '<p class="muted">No plan written for this trip yet.</p>'
     return _document(

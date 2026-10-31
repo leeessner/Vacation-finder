@@ -1,4 +1,4 @@
-# The family resorts — a plan for each
+# The family resorts
 
 Every resort in `config/stays.yaml` is here. For each one: what a stay
 there looks like day by day, the outings worth leaving the resort for, which
