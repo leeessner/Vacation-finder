@@ -1,0 +1,115 @@
+{
+  "trip_id": "portugal-azores-summer",
+  "captured_at": "2026-11-01T18:39:16.723918+00:00",
+  "queries_made": 3,
+  "errors": [
+    "hotel prices unavailable: hotel prices are re-checked each Sat"
+  ],
+  "quotes": [
+    {
+      "trip_id": "portugal-azores-summer",
+      "destination": "OPO \u2192 LIS \u2192 FAO \u2192 LAH",
+      "depart_date": "2027-06-05",
+      "return_date": "2027-06-15",
+      "nights": 10,
+      "currency": "USD",
+      "flight": {
+        "origin": "STL",
+        "destination": "OPO",
+        "depart_date": "2027-06-04",
+        "return_date": "2027-06-15",
+        "total_price": 7421.0,
+        "currency": "USD",
+        "carriers": [],
+        "stops_out": null,
+        "stops_back": null,
+        "source": "google_flights_weekly",
+        "deep_link": "",
+        "outbound": [
+          {
+            "airline": "United",
+            "arrive": "2027-06-04T15:15",
+            "depart": "2027-06-04T11:45",
+            "flight": "UA 3478",
+            "from": "STL",
+            "from_name": "St. Louis Lambert International Airport",
+            "minutes": 150,
+            "plane": "Embraer 175",
+            "to": "EWR",
+            "to_name": "Newark Liberty International Airport"
+          },
+          {
+            "airline": "United",
+            "arrive": "2027-06-05T06:55",
+            "depart": "2027-06-04T18:50",
+            "flight": "UA 238",
+            "from": "EWR",
+            "from_name": "Newark Liberty International Airport",
+            "minutes": 425,
+            "plane": "Boeing 757",
+            "to": "OPO",
+            "to_name": "Francisco S\u00e1 Carneiro Airport"
+          }
+        ]
+      },
+      "lodging": null,
+      "ground_cost": 3150.0,
+      "ground_notes": "Plan's fixed costs: port cellar, trains, Sintra, Algarve car, food",
+      "travel_mode": "air",
+      "flights_expected": true,
+      "flight_cost": 7421.0,
+      "lodging_cost": 0.0,
+      "total_cost": 10571.0,
+      "is_complete": false,
+      "notes": [
+        "airfare from this week's Google Flights check (the free daily check found none for this route)",
+        "hotel price checked 1 day(s) ago",
+        "hotel price checked 1 day(s) ago",
+        "hotel price checked 1 day(s) ago",
+        "no lodging price yet for Lisbon airport hotel"
+      ]
+    },
+    {
+      "trip_id": "portugal-azores-summer",
+      "destination": "OPO \u2192 LIS \u2192 FAO \u2192 LAH",
+      "depart_date": "2027-06-21",
+      "return_date": "2027-07-01",
+      "nights": 10,
+      "currency": "USD",
+      "flight": null,
+      "lodging": null,
+      "ground_cost": 3150.0,
+      "ground_notes": "Plan's fixed costs: port cellar, trains, Sintra, Algarve car, food",
+      "travel_mode": "air",
+      "flights_expected": true,
+      "flight_cost": 0.0,
+      "lodging_cost": 0.0,
+      "total_cost": 3150.0,
+      "is_complete": false,
+      "notes": [
+        "no lodging price yet for Porto, Portugal, Lisbon, Portugal, Lagos, Portugal, Lisbon airport hotel"
+      ]
+    },
+    {
+      "trip_id": "portugal-azores-summer",
+      "destination": "OPO \u2192 LIS \u2192 FAO \u2192 LAH",
+      "depart_date": "2027-07-07",
+      "return_date": "2027-07-17",
+      "nights": 10,
+      "currency": "USD",
+      "flight": null,
+      "lodging": null,
+      "ground_cost": 3150.0,
+      "ground_notes": "Plan's fixed costs: port cellar, trains, Sintra, Algarve car, food",
+      "travel_mode": "air",
+      "flights_expected": true,
+      "flight_cost": 0.0,
+      "lodging_cost": 0.0,
+      "total_cost": 3150.0,
+      "is_complete": false,
+      "notes": [
+        "no lodging price yet for Porto, Portugal, Lisbon, Portugal, Lagos, Portugal, Lisbon airport hotel"
+      ]
+    }
+  ]
+}

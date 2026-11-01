@@ -1,0 +1,210 @@
+{
+  "trip_id": "rome-summer",
+  "captured_at": "2026-11-01T18:39:34.247060+00:00",
+  "queries_made": 3,
+  "errors": [
+    "hotel prices unavailable: hotel prices are re-checked each Sat"
+  ],
+  "quotes": [
+    {
+      "trip_id": "rome-summer",
+      "destination": "FCO",
+      "depart_date": "2027-06-05",
+      "return_date": "2027-06-12",
+      "nights": 7,
+      "currency": "USD",
+      "flight": {
+        "origin": "STL",
+        "destination": "FCO",
+        "depart_date": "2027-06-04",
+        "return_date": "2027-06-12",
+        "total_price": 8703.0,
+        "currency": "USD",
+        "carriers": [
+          "Lufthansa"
+        ],
+        "stops_out": 1,
+        "stops_back": null,
+        "source": "google_flights_scaled",
+        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20FCO%20from%20STL%20on%202027-06-04%20through%202027-06-12",
+        "outbound": [
+          {
+            "from": "STL",
+            "from_name": "St. Louis Lambert International Airport",
+            "to": "FRA",
+            "to_name": "Frankfurt Airport",
+            "depart": "2027-06-04T15:30",
+            "arrive": "2027-06-05T07:25",
+            "minutes": 535,
+            "airline": "",
+            "flight": "",
+            "plane": "Airbus A330"
+          },
+          {
+            "from": "FRA",
+            "from_name": "Frankfurt Airport",
+            "to": "FCO",
+            "to_name": "Leonardo da Vinci International Airport",
+            "depart": "2027-06-05T12:20",
+            "arrive": "2027-06-05T14:10",
+            "minutes": 110,
+            "airline": "",
+            "flight": "",
+            "plane": "Airbus A320"
+          }
+        ]
+      },
+      "lodging": {
+        "destination": "Rome, Italy",
+        "check_in": "2027-06-05",
+        "check_out": "2027-06-12",
+        "property_name": "Elegant house in the center of Rome-Parioli a stone's throw from Via Veneto",
+        "total_price": 1313.0,
+        "currency": "USD",
+        "property_id": "ChoQo-mWtdHTj-vVARoNL2cvMTF0eHFueXBkbhAC",
+        "nights": 7,
+        "rating": 4.762427,
+        "stars": null,
+        "board_type": "",
+        "refundable": null,
+        "source": "google_hotels",
+        "deep_link": "https://www.google.com/travel/search?q=Elegant%20house%20in%20the%20center%20of%20Rome-Parioli%20a%20stone%27s%20throw%20from%20Via%20Veneto%20Rome%2C%20Italy&checkin=2027-06-05&checkout=2027-06-12",
+        "distance_miles": 1.9
+      },
+      "ground_cost": 2250.0,
+      "ground_notes": "Plan's fixed costs: Vatican, Borghese, Colosseum, Ostia, taxis, food. The Vatican Key Master's tour isn't priced yet (standard tickets are used)",
+      "travel_mode": "air",
+      "flights_expected": true,
+      "flight_cost": 8703.0,
+      "lodging_cost": 1313.0,
+      "total_cost": 12266.0,
+      "is_complete": true,
+      "notes": [
+        "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)",
+        "hotel price checked 1 day(s) ago"
+      ]
+    },
+    {
+      "trip_id": "rome-summer",
+      "destination": "FCO",
+      "depart_date": "2027-06-23",
+      "return_date": "2027-06-30",
+      "nights": 7,
+      "currency": "USD",
+      "flight": {
+        "origin": "STL",
+        "destination": "FCO",
+        "depart_date": "2027-06-22",
+        "return_date": "2027-06-30",
+        "total_price": 7665.0,
+        "currency": "USD",
+        "carriers": [
+          "American"
+        ],
+        "stops_out": 1,
+        "stops_back": null,
+        "source": "google_flights_scaled",
+        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20FCO%20from%20STL%20on%202027-06-22%20through%202027-06-30",
+        "outbound": [
+          {
+            "from": "STL",
+            "from_name": "St. Louis Lambert International Airport",
+            "to": "DFW",
+            "to_name": "Dallas Fort Worth International Airport",
+            "depart": "2027-06-22T13:20",
+            "arrive": "2027-06-22T15:24",
+            "minutes": 124,
+            "airline": "",
+            "flight": "",
+            "plane": "Canadair RJ 900"
+          },
+          {
+            "from": "DFW",
+            "from_name": "Dallas Fort Worth International Airport",
+            "to": "FCO",
+            "to_name": "Leonardo da Vinci International Airport",
+            "depart": "2027-06-22T16:25",
+            "arrive": "2027-06-23T09:50",
+            "minutes": 625,
+            "airline": "",
+            "flight": "",
+            "plane": "Boeing 777"
+          }
+        ]
+      },
+      "lodging": null,
+      "ground_cost": 2250.0,
+      "ground_notes": "Plan's fixed costs: Vatican, Borghese, Colosseum, Ostia, taxis, food. The Vatican Key Master's tour isn't priced yet (standard tickets are used)",
+      "travel_mode": "air",
+      "flights_expected": true,
+      "flight_cost": 7665.0,
+      "lodging_cost": 0.0,
+      "total_cost": 9915.0,
+      "is_complete": false,
+      "notes": [
+        "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)"
+      ]
+    },
+    {
+      "trip_id": "rome-summer",
+      "destination": "FCO",
+      "depart_date": "2027-07-10",
+      "return_date": "2027-07-17",
+      "nights": 7,
+      "currency": "USD",
+      "flight": {
+        "origin": "STL",
+        "destination": "FCO",
+        "depart_date": "2027-07-09",
+        "return_date": "2027-07-17",
+        "total_price": 7344.0,
+        "currency": "USD",
+        "carriers": [
+          "American"
+        ],
+        "stops_out": 1,
+        "stops_back": null,
+        "source": "google_flights_scaled",
+        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20FCO%20from%20STL%20on%202027-07-09%20through%202027-07-17",
+        "outbound": [
+          {
+            "from": "STL",
+            "from_name": "St. Louis Lambert International Airport",
+            "to": "DFW",
+            "to_name": "Dallas Fort Worth International Airport",
+            "depart": "2027-07-09T13:20",
+            "arrive": "2027-07-09T15:19",
+            "minutes": 119,
+            "airline": "",
+            "flight": "",
+            "plane": "Canadair RJ 900"
+          },
+          {
+            "from": "DFW",
+            "from_name": "Dallas Fort Worth International Airport",
+            "to": "FCO",
+            "to_name": "Leonardo da Vinci International Airport",
+            "depart": "2027-07-09T16:25",
+            "arrive": "2027-07-10T09:50",
+            "minutes": 625,
+            "airline": "",
+            "flight": "",
+            "plane": "Boeing 777"
+          }
+        ]
+      },
+      "lodging": null,
+      "ground_cost": 2250.0,
+      "ground_notes": "Plan's fixed costs: Vatican, Borghese, Colosseum, Ostia, taxis, food. The Vatican Key Master's tour isn't priced yet (standard tickets are used)",
+      "travel_mode": "air",
+      "flights_expected": true,
+      "flight_cost": 7344.0,
+      "lodging_cost": 0.0,
+      "total_cost": 9594.0,
+      "is_complete": false,
+      "notes": [
+        "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)"
+      ]
+    }
+  ]
+}

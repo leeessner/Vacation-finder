@@ -1,0 +1,124 @@
+{
+  "trip_id": "nice-riviera",
+  "captured_at": "2026-11-01T18:39:06.850708+00:00",
+  "queries_made": 3,
+  "errors": [
+    "hotel prices unavailable: hotel prices are re-checked each Sat"
+  ],
+  "quotes": [
+    {
+      "trip_id": "nice-riviera",
+      "destination": "NCE",
+      "depart_date": "2027-06-05",
+      "return_date": "2027-06-14",
+      "nights": 9,
+      "currency": "USD",
+      "flight": {
+        "origin": "STL",
+        "destination": "NCE",
+        "depart_date": "2027-06-04",
+        "return_date": "2027-06-14",
+        "total_price": 8504.0,
+        "currency": "USD",
+        "carriers": [],
+        "stops_out": null,
+        "stops_back": null,
+        "source": "google_flights_weekly",
+        "deep_link": "",
+        "outbound": [
+          {
+            "airline": "American",
+            "arrive": "2027-06-04T14:39",
+            "depart": "2027-06-04T11:18",
+            "flight": "AA 1981",
+            "from": "STL",
+            "from_name": "St. Louis Lambert International Airport",
+            "minutes": 141,
+            "plane": "Airbus A319",
+            "to": "PHL",
+            "to_name": "Philadelphia International Airport"
+          },
+          {
+            "airline": "American",
+            "arrive": "2027-06-05T08:10",
+            "depart": "2027-06-04T18:15",
+            "flight": "AA 746",
+            "from": "PHL",
+            "from_name": "Philadelphia International Airport",
+            "minutes": 475,
+            "plane": "Boeing 787",
+            "to": "NCE",
+            "to_name": "Nice C\u00f4te d'Azur Airport"
+          }
+        ]
+      },
+      "lodging": {
+        "destination": "Nice, France",
+        "check_in": "2027-06-05",
+        "check_out": "2027-06-14",
+        "property_name": "Chez Courbou",
+        "total_price": 1234.0,
+        "currency": "USD",
+        "property_id": "ChkQ74ugiZeWz6pmGg0vZy8xMXpmbWtjMG52EAI",
+        "nights": 9,
+        "rating": 5.0,
+        "stars": null,
+        "board_type": "",
+        "refundable": null,
+        "source": "google_hotels",
+        "deep_link": "https://www.google.com/travel/search?q=Chez%20Courbou%20Nice%2C%20France&checkin=2027-06-05&checkout=2027-06-14",
+        "distance_miles": 1.4
+      },
+      "ground_cost": 2550.0,
+      "ground_notes": "Plan's fixed costs: coastal trains, Train des Pignes, forts, food",
+      "travel_mode": "air",
+      "flights_expected": true,
+      "flight_cost": 8504.0,
+      "lodging_cost": 1234.0,
+      "total_cost": 12288.0,
+      "is_complete": true,
+      "notes": [
+        "airfare from this week's Google Flights check (the free daily check found none for this route)",
+        "hotel price checked 1 day(s) ago"
+      ]
+    },
+    {
+      "trip_id": "nice-riviera",
+      "destination": "NCE",
+      "depart_date": "2027-06-21",
+      "return_date": "2027-06-30",
+      "nights": 9,
+      "currency": "USD",
+      "flight": null,
+      "lodging": null,
+      "ground_cost": 2550.0,
+      "ground_notes": "Plan's fixed costs: coastal trains, Train des Pignes, forts, food",
+      "travel_mode": "air",
+      "flights_expected": true,
+      "flight_cost": 0.0,
+      "lodging_cost": 0.0,
+      "total_cost": 2550.0,
+      "is_complete": false,
+      "notes": []
+    },
+    {
+      "trip_id": "nice-riviera",
+      "destination": "NCE",
+      "depart_date": "2027-07-08",
+      "return_date": "2027-07-17",
+      "nights": 9,
+      "currency": "USD",
+      "flight": null,
+      "lodging": null,
+      "ground_cost": 2550.0,
+      "ground_notes": "Plan's fixed costs: coastal trains, Train des Pignes, forts, food",
+      "travel_mode": "air",
+      "flights_expected": true,
+      "flight_cost": 0.0,
+      "lodging_cost": 0.0,
+      "total_cost": 2550.0,
+      "is_complete": false,
+      "notes": []
+    }
+  ]
+}

@@ -1,0 +1,214 @@
+{
+  "trip_id": "greece-summer",
+  "captured_at": "2026-11-01T18:39:13.437926+00:00",
+  "queries_made": 3,
+  "errors": [
+    "hotel prices unavailable: hotel prices are re-checked each Sat"
+  ],
+  "quotes": [
+    {
+      "trip_id": "greece-summer",
+      "destination": "ATH \u2192 JNX \u2192 AAH",
+      "depart_date": "2027-06-05",
+      "return_date": "2027-06-15",
+      "nights": 10,
+      "currency": "USD",
+      "flight": {
+        "origin": "STL",
+        "destination": "ATH",
+        "depart_date": "2027-06-04",
+        "return_date": "2027-06-15",
+        "total_price": 9141.0,
+        "currency": "USD",
+        "carriers": [
+          "American"
+        ],
+        "stops_out": 1,
+        "stops_back": null,
+        "source": "google_flights_scaled",
+        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20ATH%20from%20STL%20on%202027-06-04%20through%202027-06-15",
+        "outbound": [
+          {
+            "from": "STL",
+            "from_name": "St. Louis Lambert International Airport",
+            "to": "LGA",
+            "to_name": "LaGuardia Airport",
+            "depart": "2027-06-04T09:23",
+            "arrive": "2027-06-04T12:55",
+            "minutes": 152,
+            "airline": "",
+            "flight": "",
+            "plane": "Embraer 175"
+          },
+          {
+            "from": "JFK",
+            "from_name": "John F. Kennedy International Airport",
+            "to": "ATH",
+            "to_name": "Athens International Airport \"Eleftherios Venizelos\"",
+            "depart": "2027-06-04T17:20",
+            "arrive": "2027-06-05T10:00",
+            "minutes": 580,
+            "airline": "",
+            "flight": "",
+            "plane": "Boeing 777"
+          }
+        ]
+      },
+      "lodging": {
+        "destination": "ATH \u2192 JNX \u2192 AAH",
+        "check_in": "2027-06-05",
+        "check_out": "2027-06-15",
+        "property_name": "George's Apartment in ''Pedion Areos'' area (4n) + Cledari Plaka Appartments (5n) + Alexander Apartments Airport (1n)",
+        "total_price": 1425.0,
+        "currency": "USD",
+        "property_id": "",
+        "nights": 10,
+        "rating": 4.45,
+        "stars": null,
+        "board_type": "",
+        "refundable": null,
+        "source": "google_hotels",
+        "deep_link": "",
+        "distance_miles": null
+      },
+      "ground_cost": 2950.0,
+      "ground_notes": "Plan's fixed costs: sites, ferries or flights to Naxos, island car, food",
+      "travel_mode": "air",
+      "flights_expected": true,
+      "flight_cost": 9141.0,
+      "lodging_cost": 1425.0,
+      "total_cost": 13516.0,
+      "is_complete": true,
+      "notes": [
+        "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)",
+        "hotel price checked 1 day(s) ago",
+        "hotel price checked 1 day(s) ago",
+        "hotel price checked 1 day(s) ago"
+      ]
+    },
+    {
+      "trip_id": "greece-summer",
+      "destination": "ATH \u2192 JNX \u2192 AAH",
+      "depart_date": "2027-06-21",
+      "return_date": "2027-07-01",
+      "nights": 10,
+      "currency": "USD",
+      "flight": {
+        "origin": "STL",
+        "destination": "ATH",
+        "depart_date": "2027-06-20",
+        "return_date": "2027-07-01",
+        "total_price": 8217.0,
+        "currency": "USD",
+        "carriers": [
+          "American"
+        ],
+        "stops_out": 1,
+        "stops_back": null,
+        "source": "google_flights_scaled",
+        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20ATH%20from%20STL%20on%202027-06-20%20through%202027-07-01",
+        "outbound": [
+          {
+            "from": "STL",
+            "from_name": "St. Louis Lambert International Airport",
+            "to": "PHL",
+            "to_name": "Philadelphia International Airport",
+            "depart": "2027-06-20T11:18",
+            "arrive": "2027-06-20T14:39",
+            "minutes": 141,
+            "airline": "",
+            "flight": "",
+            "plane": "Airbus A319"
+          },
+          {
+            "from": "PHL",
+            "from_name": "Philadelphia International Airport",
+            "to": "ATH",
+            "to_name": "Athens International Airport \"Eleftherios Venizelos\"",
+            "depart": "2027-06-20T16:50",
+            "arrive": "2027-06-21T09:10",
+            "minutes": 560,
+            "airline": "",
+            "flight": "",
+            "plane": "Boeing 787"
+          }
+        ]
+      },
+      "lodging": null,
+      "ground_cost": 2950.0,
+      "ground_notes": "Plan's fixed costs: sites, ferries or flights to Naxos, island car, food",
+      "travel_mode": "air",
+      "flights_expected": true,
+      "flight_cost": 8217.0,
+      "lodging_cost": 0.0,
+      "total_cost": 11167.0,
+      "is_complete": false,
+      "notes": [
+        "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)",
+        "no lodging price yet for Athens, Greece, Naxos, Greece, Athens airport hotel"
+      ]
+    },
+    {
+      "trip_id": "greece-summer",
+      "destination": "ATH \u2192 JNX \u2192 AAH",
+      "depart_date": "2027-07-07",
+      "return_date": "2027-07-17",
+      "nights": 10,
+      "currency": "USD",
+      "flight": {
+        "origin": "STL",
+        "destination": "ATH",
+        "depart_date": "2027-07-06",
+        "return_date": "2027-07-17",
+        "total_price": 7578.0,
+        "currency": "USD",
+        "carriers": [
+          "United"
+        ],
+        "stops_out": 1,
+        "stops_back": null,
+        "source": "google_flights_scaled",
+        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20ATH%20from%20STL%20on%202027-07-06%20through%202027-07-17",
+        "outbound": [
+          {
+            "from": "STL",
+            "from_name": "St. Louis Lambert International Airport",
+            "to": "EWR",
+            "to_name": "Newark Liberty International Airport",
+            "depart": "2027-07-06T07:30",
+            "arrive": "2027-07-06T11:02",
+            "minutes": 152,
+            "airline": "",
+            "flight": "",
+            "plane": "Embraer 175"
+          },
+          {
+            "from": "EWR",
+            "from_name": "Newark Liberty International Airport",
+            "to": "ATH",
+            "to_name": "Athens International Airport \"Eleftherios Venizelos\"",
+            "depart": "2027-07-06T15:50",
+            "arrive": "2027-07-07T08:10",
+            "minutes": 560,
+            "airline": "",
+            "flight": "",
+            "plane": "Boeing 777"
+          }
+        ]
+      },
+      "lodging": null,
+      "ground_cost": 2950.0,
+      "ground_notes": "Plan's fixed costs: sites, ferries or flights to Naxos, island car, food",
+      "travel_mode": "air",
+      "flights_expected": true,
+      "flight_cost": 7578.0,
+      "lodging_cost": 0.0,
+      "total_cost": 10528.0,
+      "is_complete": false,
+      "notes": [
+        "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)",
+        "no lodging price yet for Athens, Greece, Naxos, Greece, Athens airport hotel"
+      ]
+    }
+  ]
+}

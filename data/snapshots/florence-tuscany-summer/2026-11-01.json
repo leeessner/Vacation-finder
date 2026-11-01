@@ -1,0 +1,131 @@
+{
+  "trip_id": "florence-tuscany-summer",
+  "captured_at": "2026-11-01T18:38:59.979053+00:00",
+  "queries_made": 3,
+  "errors": [
+    "hotel prices unavailable: hotel prices are re-checked each Sat"
+  ],
+  "quotes": [
+    {
+      "trip_id": "florence-tuscany-summer",
+      "destination": "FLR \u2192 SAY \u2192 FAH",
+      "depart_date": "2027-06-05",
+      "return_date": "2027-06-13",
+      "nights": 8,
+      "currency": "USD",
+      "flight": {
+        "origin": "STL",
+        "destination": "FLR",
+        "depart_date": "2027-06-04",
+        "return_date": "2027-06-13",
+        "total_price": 9146.0,
+        "currency": "USD",
+        "carriers": [],
+        "stops_out": null,
+        "stops_back": null,
+        "source": "google_flights_weekly",
+        "deep_link": "",
+        "outbound": [
+          {
+            "airline": "Lufthansa",
+            "arrive": "2027-06-05T07:25",
+            "depart": "2027-06-04T15:30",
+            "flight": "LH 449",
+            "from": "STL",
+            "from_name": "St. Louis Lambert International Airport",
+            "minutes": 535,
+            "plane": "Airbus A330",
+            "to": "FRA",
+            "to_name": "Frankfurt Airport"
+          },
+          {
+            "airline": "Lufthansa",
+            "arrive": "2027-06-05T12:30",
+            "depart": "2027-06-05T10:50",
+            "flight": "LH 312",
+            "from": "FRA",
+            "from_name": "Frankfurt Airport",
+            "minutes": 100,
+            "plane": "Embraer 190",
+            "to": "FLR",
+            "to_name": "Amerigo Vespucci Airport"
+          }
+        ]
+      },
+      "lodging": {
+        "destination": "FLR \u2192 SAY \u2192 FAH",
+        "check_in": "2027-06-05",
+        "check_out": "2027-06-13",
+        "property_name": "Chez Moi B&B (5n) + Siena Centro - Appartamento Moderno con Parcheggio Privato - Two-Bedroom Apartment (2n) + Sleep'n go Hotel (1n)",
+        "total_price": 2561.0,
+        "currency": "USD",
+        "property_id": "",
+        "nights": 8,
+        "rating": 4.3,
+        "stars": null,
+        "board_type": "",
+        "refundable": null,
+        "source": "google_hotels",
+        "deep_link": "",
+        "distance_miles": null
+      },
+      "ground_cost": 4450.0,
+      "ground_notes": "Plan's fixed costs: museums, pasta class, Bologna day, 4-day car, food",
+      "travel_mode": "air",
+      "flights_expected": true,
+      "flight_cost": 9146.0,
+      "lodging_cost": 2561.0,
+      "total_cost": 16157.0,
+      "is_complete": true,
+      "notes": [
+        "airfare from this week's Google Flights check (the free daily check found none for this route)",
+        "hotel price checked 1 day(s) ago",
+        "no Fattoria di Maiano within 3 mi met the rules for these dates",
+        "hotel price checked 1 day(s) ago",
+        "hotel price checked 1 day(s) ago"
+      ]
+    },
+    {
+      "trip_id": "florence-tuscany-summer",
+      "destination": "FLR \u2192 SAY \u2192 FAH",
+      "depart_date": "2027-06-22",
+      "return_date": "2027-06-30",
+      "nights": 8,
+      "currency": "USD",
+      "flight": null,
+      "lodging": null,
+      "ground_cost": 4450.0,
+      "ground_notes": "Plan's fixed costs: museums, pasta class, Bologna day, 4-day car, food",
+      "travel_mode": "air",
+      "flights_expected": true,
+      "flight_cost": 0.0,
+      "lodging_cost": 0.0,
+      "total_cost": 4450.0,
+      "is_complete": false,
+      "notes": [
+        "no lodging price yet for Fiesole, Italy, Siena, Italy, Rome Fiumicino airport hotel"
+      ]
+    },
+    {
+      "trip_id": "florence-tuscany-summer",
+      "destination": "FLR \u2192 SAY \u2192 FAH",
+      "depart_date": "2027-07-09",
+      "return_date": "2027-07-17",
+      "nights": 8,
+      "currency": "USD",
+      "flight": null,
+      "lodging": null,
+      "ground_cost": 4450.0,
+      "ground_notes": "Plan's fixed costs: museums, pasta class, Bologna day, 4-day car, food",
+      "travel_mode": "air",
+      "flights_expected": true,
+      "flight_cost": 0.0,
+      "lodging_cost": 0.0,
+      "total_cost": 4450.0,
+      "is_complete": false,
+      "notes": [
+        "no lodging price yet for Fiesole, Italy, Siena, Italy, Rome Fiumicino airport hotel"
+      ]
+    }
+  ]
+}

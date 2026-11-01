@@ -1,0 +1,215 @@
+{
+  "trip_id": "paris-versailles",
+  "captured_at": "2026-11-01T18:38:56.726015+00:00",
+  "queries_made": 3,
+  "errors": [
+    "hotel prices unavailable: hotel prices are re-checked each Sat"
+  ],
+  "quotes": [
+    {
+      "trip_id": "paris-versailles",
+      "destination": "CDG \u2192 SXB \u2192 RSY",
+      "depart_date": "2027-06-05",
+      "return_date": "2027-06-14",
+      "nights": 9,
+      "currency": "USD",
+      "flight": {
+        "origin": "STL",
+        "destination": "CDG",
+        "depart_date": "2027-06-04",
+        "return_date": "2027-06-14",
+        "total_price": 8658.0,
+        "currency": "USD",
+        "carriers": [
+          "American"
+        ],
+        "stops_out": 1,
+        "stops_back": null,
+        "source": "google_flights_scaled",
+        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20CDG%20from%20STL%20on%202027-06-04%20through%202027-06-14",
+        "outbound": [
+          {
+            "from": "STL",
+            "from_name": "St. Louis Lambert International Airport",
+            "to": "LGA",
+            "to_name": "LaGuardia Airport",
+            "depart": "2027-06-04T09:23",
+            "arrive": "2027-06-04T12:55",
+            "minutes": 152,
+            "airline": "",
+            "flight": "",
+            "plane": "Embraer 175"
+          },
+          {
+            "from": "JFK",
+            "from_name": "John F. Kennedy International Airport",
+            "to": "CDG",
+            "to_name": "A\u00e9roport de Paris-Charles de Gaulle",
+            "depart": "2027-06-04T17:50",
+            "arrive": "2027-06-05T07:20",
+            "minutes": 450,
+            "airline": "",
+            "flight": "",
+            "plane": "Boeing 777"
+          }
+        ]
+      },
+      "lodging": {
+        "destination": "CDG \u2192 SXB \u2192 RSY",
+        "check_in": "2027-06-05",
+        "check_out": "2027-06-14",
+        "property_name": "Tr\u00e8s beau T3 proche RER Port Royal 6 pers - Two-Bedroom Apartment (6n) + Downtown Apartment, Quiet and Spacious (2n) + Hampton by Hilton Paris Charles de Gaulle Airport (1n)",
+        "total_price": 2701.0,
+        "currency": "USD",
+        "property_id": "",
+        "nights": 9,
+        "rating": 4.1235046,
+        "stars": null,
+        "board_type": "",
+        "refundable": null,
+        "source": "google_hotels",
+        "deep_link": "",
+        "distance_miles": null
+      },
+      "ground_cost": 4250.0,
+      "ground_notes": "Plan's fixed costs: tickets, Disneyland day, TGV, transit, food",
+      "travel_mode": "air",
+      "flights_expected": true,
+      "flight_cost": 8658.0,
+      "lodging_cost": 2701.0,
+      "total_cost": 15609.0,
+      "is_complete": true,
+      "notes": [
+        "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)",
+        "hotel price checked 1 day(s) ago",
+        "hotel price checked 1 day(s) ago",
+        "hotel price checked 1 day(s) ago"
+      ]
+    },
+    {
+      "trip_id": "paris-versailles",
+      "destination": "CDG \u2192 SXB \u2192 RSY",
+      "depart_date": "2027-06-21",
+      "return_date": "2027-06-30",
+      "nights": 9,
+      "currency": "USD",
+      "flight": {
+        "origin": "STL",
+        "destination": "CDG",
+        "depart_date": "2027-06-20",
+        "return_date": "2027-06-30",
+        "total_price": 7818.0,
+        "currency": "USD",
+        "carriers": [
+          "Delta",
+          "Air France"
+        ],
+        "stops_out": 1,
+        "stops_back": null,
+        "source": "google_flights_scaled",
+        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20CDG%20from%20STL%20on%202027-06-20%20through%202027-06-30",
+        "outbound": [
+          {
+            "from": "STL",
+            "from_name": "St. Louis Lambert International Airport",
+            "to": "ATL",
+            "to_name": "Hartsfield-Jackson Atlanta International Airport",
+            "depart": "2027-06-20T09:00",
+            "arrive": "2027-06-20T11:38",
+            "minutes": 98,
+            "airline": "",
+            "flight": "",
+            "plane": "Boeing 737"
+          },
+          {
+            "from": "ATL",
+            "from_name": "Hartsfield-Jackson Atlanta International Airport",
+            "to": "CDG",
+            "to_name": "A\u00e9roport de Paris-Charles de Gaulle",
+            "depart": "2027-06-20T16:30",
+            "arrive": "2027-06-21T06:50",
+            "minutes": 500,
+            "airline": "",
+            "flight": "",
+            "plane": "Boeing 777"
+          }
+        ]
+      },
+      "lodging": null,
+      "ground_cost": 4250.0,
+      "ground_notes": "Plan's fixed costs: tickets, Disneyland day, TGV, transit, food",
+      "travel_mode": "air",
+      "flights_expected": true,
+      "flight_cost": 7818.0,
+      "lodging_cost": 0.0,
+      "total_cost": 12068.0,
+      "is_complete": false,
+      "notes": [
+        "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)",
+        "no lodging price yet for Paris, France, Strasbourg, France, Paris-CDG airport hotel"
+      ]
+    },
+    {
+      "trip_id": "paris-versailles",
+      "destination": "CDG \u2192 SXB \u2192 RSY",
+      "depart_date": "2027-07-08",
+      "return_date": "2027-07-17",
+      "nights": 9,
+      "currency": "USD",
+      "flight": {
+        "origin": "STL",
+        "destination": "CDG",
+        "depart_date": "2027-07-07",
+        "return_date": "2027-07-17",
+        "total_price": 7473.0,
+        "currency": "USD",
+        "carriers": [
+          "Icelandair"
+        ],
+        "stops_out": 1,
+        "stops_back": null,
+        "source": "google_flights_scaled",
+        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20CDG%20from%20STL%20on%202027-07-07%20through%202027-07-17",
+        "outbound": [
+          {
+            "from": "STL",
+            "from_name": "St. Louis Lambert International Airport",
+            "to": "KEF",
+            "to_name": "Keflav\u00edk International Airport",
+            "depart": "2027-07-07T20:45",
+            "arrive": "2027-07-08T08:20",
+            "minutes": 395,
+            "airline": "",
+            "flight": "",
+            "plane": "Boeing 737MAX 8 Passenger"
+          },
+          {
+            "from": "KEF",
+            "from_name": "Keflav\u00edk International Airport",
+            "to": "CDG",
+            "to_name": "A\u00e9roport de Paris-Charles de Gaulle",
+            "depart": "2027-07-08T10:50",
+            "arrive": "2027-07-08T16:15",
+            "minutes": 205,
+            "airline": "",
+            "flight": "",
+            "plane": "Airbus A320neo"
+          }
+        ]
+      },
+      "lodging": null,
+      "ground_cost": 4250.0,
+      "ground_notes": "Plan's fixed costs: tickets, Disneyland day, TGV, transit, food",
+      "travel_mode": "air",
+      "flights_expected": true,
+      "flight_cost": 7473.0,
+      "lodging_cost": 0.0,
+      "total_cost": 11723.0,
+      "is_complete": false,
+      "notes": [
+        "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)",
+        "no lodging price yet for Paris, France, Strasbourg, France, Paris-CDG airport hotel"
+      ]
+    }
+  ]
+}
