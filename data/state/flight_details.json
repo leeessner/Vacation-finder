@@ -1,14 +1,14 @@
 {
   "austria-bavaria-summer": {
     "arrive_at": "MUC",
-    "basis": "The cheapest fare for all 6 travellers on Nov 02 once one more stop than your limit was allowed; none was found within it. Only flights of 20 hours or less, gate to gate, count for the way out, and ones with every connection under 5 hours come first; the way home is picked when you book.",
+    "basis": "The cheapest fare for all 6 travellers on Nov 03 once one more stop than your limit was allowed; none was found within it. Only flights of 20 hours or less, gate to gate, count for the way out, and ones with every connection under 5 hours come first; the way home is picked when you book.",
     "carriers": [
       "Southwest",
       "Condor"
     ],
     "check_in": "2027-06-05",
     "check_out": "2027-06-15",
-    "checked_on": "2026-11-02",
+    "checked_on": "2026-11-03",
     "currency": "USD",
     "depart_date": "2027-06-04",
     "home_from": "MUC",
@@ -53,17 +53,17 @@
         "to_name": "Munich International Airport"
       }
     ],
-    "price": 7350.0,
+    "price": 7356.0,
     "return_date": "2027-06-15",
     "source": "google_flights_extra_stop"
   },
   "belgium-summer": {
     "arrive_at": "BRU",
-    "basis": "Google Flights' lowest price for all 6 travellers for these dates, from the weekly check (one paid search a week) on Nov 02, because the free daily check found no fares for this route. Only flights of 20 hours or less, gate to gate, count for the way out, and ones with every connection under 5 hours come first; the way home is picked when you book.",
+    "basis": "Google Flights' lowest price for all 6 travellers for these dates, from the weekly check (one paid search a week) on Nov 03, because the free daily check found no fares for this route. Only flights of 20 hours or less, gate to gate, count for the way out, and ones with every connection under 5 hours come first; the way home is picked when you book.",
     "carriers": [],
     "check_in": "2027-06-05",
     "check_out": "2027-06-14",
-    "checked_on": "2026-11-02",
+    "checked_on": "2026-11-03",
     "currency": "USD",
     "depart_date": "2027-06-04",
     "home_from": "BRU",
@@ -102,11 +102,11 @@
   },
   "florence-tuscany-summer": {
     "arrive_at": "FLR",
-    "basis": "Google Flights' lowest price for all 6 travellers for these dates, from the weekly check (one paid search a week) on Nov 02, because the free daily check found no fares for this route. Only flights of 20 hours or less, gate to gate, count for the way out, and ones with every connection under 5 hours come first; the way home is picked when you book.",
+    "basis": "Google Flights' lowest price for all 6 travellers for these dates, from the weekly check (one paid search a week) on Nov 03, because the free daily check found no fares for this route. Only flights of 20 hours or less, gate to gate, count for the way out, and ones with every connection under 5 hours come first; the way home is picked when you book.",
     "carriers": [],
     "check_in": "2027-06-05",
     "check_out": "2027-06-13",
-    "checked_on": "2026-11-02",
+    "checked_on": "2026-11-03",
     "currency": "USD",
     "depart_date": "2027-06-04",
     "home_from": "FCO",
@@ -172,13 +172,13 @@
   },
   "greece-summer": {
     "arrive_at": "ATH",
-    "basis": "An estimate. Google Flights' first page on Nov 02 showed no fares for 6 travellers, which is common for big parties on long-haul routes. So the tracker priced a smaller party (at most 1 stop(s) each way) and multiplied that per-person fare by 6. Children's economy fares to Europe are usually close to adult fares, so this is a fair guide, but it doesn't include checked bags. Only flights of 20 hours or less, gate to gate, count for the way out, and ones with every connection under 5 hours come first; the way home is picked when you book.",
+    "basis": "An estimate. Google Flights' first page on Nov 03 showed no fares for 6 travellers, which is common for big parties on long-haul routes. So the tracker priced a smaller party (at most 1 stop(s) each way) and multiplied that per-person fare by 6. Children's economy fares to Europe are usually close to adult fares, so this is a fair guide, but it doesn't include checked bags. Only flights of 20 hours or less, gate to gate, count for the way out, and ones with every connection under 5 hours come first; the way home is picked when you book.",
     "carriers": [
       "American"
     ],
     "check_in": "2027-06-05",
     "check_out": "2027-06-15",
-    "checked_on": "2026-11-02",
+    "checked_on": "2026-11-03",
     "currency": "USD",
     "depart_date": "2027-06-04",
     "home_from": "ATH",
@@ -244,11 +244,11 @@
   },
   "london-summer": {
     "arrive_at": "LHR",
-    "basis": "Google Flights' lowest price for all 6 travellers for these dates, from the weekly check (one paid search a week) on Nov 02, because the free daily check found no fares for this route. Only flights of 20 hours or less, gate to gate, count for the way out, and ones with every connection under 5 hours come first; the way home is picked when you book.",
+    "basis": "Google Flights' lowest price for all 6 travellers for these dates, from the weekly check (one paid search a week) on Nov 03, because the free daily check found no fares for this route. Only flights of 20 hours or less, gate to gate, count for the way out, and ones with every connection under 5 hours come first; the way home is picked when you book.",
     "carriers": [],
     "check_in": "2027-06-05",
     "check_out": "2027-06-14",
-    "checked_on": "2026-11-02",
+    "checked_on": "2026-11-03",
     "currency": "USD",
     "depart_date": "2027-06-04",
     "home_from": "MAN",
@@ -287,14 +287,14 @@
   },
   "milan-lake-como-summer": {
     "arrive_at": "MXP",
-    "basis": "The cheapest fare for all 6 travellers on Nov 02 once one more stop than your limit was allowed; none was found within it. Only flights of 20 hours or less, gate to gate, count for the way out, and ones with every connection under 5 hours come first; the way home is picked when you book.",
+    "basis": "The cheapest fare for all 6 travellers on Nov 03 once one more stop than your limit was allowed; none was found within it. Only flights of 20 hours or less, gate to gate, count for the way out, and ones with every connection under 5 hours come first; the way home is picked when you book.",
     "carriers": [
       "American",
       "Condor"
     ],
     "check_in": "2027-06-05",
     "check_out": "2027-06-14",
-    "checked_on": "2026-11-02",
+    "checked_on": "2026-11-03",
     "currency": "USD",
     "depart_date": "2027-06-04",
     "home_from": "MXP",
@@ -339,17 +339,17 @@
         "to_name": "Milano Malpensa Airport"
       }
     ],
-    "price": 6786.0,
+    "price": 6792.0,
     "return_date": "2027-06-14",
     "source": "google_flights_extra_stop"
   },
   "nice-riviera": {
     "arrive_at": "NCE",
-    "basis": "Google Flights' lowest price for all 6 travellers for these dates, from the weekly check (one paid search a week) on Nov 02, because the free daily check found no fares for this route. Only flights of 20 hours or less, gate to gate, count for the way out, and ones with every connection under 5 hours come first; the way home is picked when you book.",
+    "basis": "Google Flights' lowest price for all 6 travellers for these dates, from the weekly check (one paid search a week) on Nov 03, because the free daily check found no fares for this route. Only flights of 20 hours or less, gate to gate, count for the way out, and ones with every connection under 5 hours come first; the way home is picked when you book.",
     "carriers": [],
     "check_in": "2027-06-05",
     "check_out": "2027-06-14",
-    "checked_on": "2026-11-02",
+    "checked_on": "2026-11-03",
     "currency": "USD",
     "depart_date": "2027-06-04",
     "home_from": "NCE",
@@ -388,13 +388,13 @@
   },
   "paris-versailles": {
     "arrive_at": "CDG",
-    "basis": "An estimate. Google Flights' first page on Nov 02 showed no fares for 6 travellers, which is common for big parties on long-haul routes. So the tracker priced a smaller party (at most 1 stop(s) each way) and multiplied that per-person fare by 6. Children's economy fares to Europe are usually close to adult fares, so this is a fair guide, but it doesn't include checked bags. Only flights of 20 hours or less, gate to gate, count for the way out, and ones with every connection under 5 hours come first; the way home is picked when you book.",
+    "basis": "An estimate. Google Flights' first page on Nov 03 showed no fares for 6 travellers, which is common for big parties on long-haul routes. So the tracker priced a smaller party (at most 1 stop(s) each way) and multiplied that per-person fare by 6. Children's economy fares to Europe are usually close to adult fares, so this is a fair guide, but it doesn't include checked bags. Only flights of 20 hours or less, gate to gate, count for the way out, and ones with every connection under 5 hours come first; the way home is picked when you book.",
     "carriers": [
       "American"
     ],
     "check_in": "2027-06-05",
     "check_out": "2027-06-14",
-    "checked_on": "2026-11-02",
+    "checked_on": "2026-11-03",
     "currency": "USD",
     "depart_date": "2027-06-04",
     "home_from": "CDG",
@@ -460,42 +460,42 @@
   },
   "portugal-azores-summer": {
     "arrive_at": "OPO",
-    "basis": "Google Flights' lowest price for all 6 travellers for these dates, from the weekly check (one paid search a week) on Nov 02, because the free daily check found no fares for this route. Only flights of 20 hours or less, gate to gate, count for the way out, and ones with every connection under 5 hours come first; the way home is picked when you book.",
+    "basis": "Google Flights' lowest price for all 6 travellers for these dates, from the weekly check (one paid search a week) on Nov 03, because the free daily check found no fares for this route. Only flights of 20 hours or less, gate to gate, count for the way out, and ones with every connection under 5 hours come first; the way home is picked when you book.",
     "carriers": [],
     "check_in": "2027-06-05",
     "check_out": "2027-06-15",
-    "checked_on": "2026-11-02",
+    "checked_on": "2026-11-03",
     "currency": "USD",
     "depart_date": "2027-06-04",
     "home_from": "LIS",
     "inbound": [
       {
         "airline": "",
-        "arrive": "2027-06-15T15:45",
-        "depart": "2027-06-15T13:00",
+        "arrive": "2027-06-15T12:55",
+        "depart": "2027-06-15T10:25",
         "flight": "",
         "from": "LIS",
         "from_name": "Humberto Delgado Airport",
-        "minutes": 465,
-        "plane": "Boeing 777",
-        "to": "YYZ",
-        "to_name": "Toronto Pearson International Airport"
+        "minutes": 450,
+        "plane": "Boeing 787-10",
+        "to": "EWR",
+        "to_name": "Newark Liberty International Airport"
       },
       {
         "airline": "",
-        "arrive": "2027-06-15T19:54",
-        "depart": "2027-06-15T18:45",
+        "arrive": "2027-06-15T19:40",
+        "depart": "2027-06-15T17:45",
         "flight": "",
-        "from": "YYZ",
-        "from_name": "Toronto Pearson International Airport",
-        "minutes": 129,
-        "plane": "Canadair RJ 900",
+        "from": "EWR",
+        "from_name": "Newark Liberty International Airport",
+        "minutes": 175,
+        "plane": "Embraer 175",
         "to": "STL",
         "to_name": "St. Louis Lambert International Airport"
       }
     ],
     "inbound_airlines": [
-      "Air Canada"
+      "United"
     ],
     "origin": "STL",
     "outbound": [
@@ -530,13 +530,13 @@
   },
   "rome-summer": {
     "arrive_at": "FCO",
-    "basis": "An estimate. Google Flights' first page on Nov 02 showed no fares for 6 travellers, which is common for big parties on long-haul routes. So the tracker priced a smaller party (at most 1 stop(s) each way) and multiplied that per-person fare by 6. Children's economy fares to Europe are usually close to adult fares, so this is a fair guide, but it doesn't include checked bags. Only flights of 20 hours or less, gate to gate, count for the way out, and ones with every connection under 5 hours come first; the way home is picked when you book.",
+    "basis": "An estimate. Google Flights' first page on Nov 03 showed no fares for 6 travellers, which is common for big parties on long-haul routes. So the tracker priced a smaller party (at most 1 stop(s) each way) and multiplied that per-person fare by 6. Children's economy fares to Europe are usually close to adult fares, so this is a fair guide, but it doesn't include checked bags. Only flights of 20 hours or less, gate to gate, count for the way out, and ones with every connection under 5 hours come first; the way home is picked when you book.",
     "carriers": [
       "Lufthansa"
     ],
     "check_in": "2027-06-05",
     "check_out": "2027-06-12",
-    "checked_on": "2026-11-02",
+    "checked_on": "2026-11-03",
     "currency": "USD",
     "depart_date": "2027-06-04",
     "home_from": "FCO",
@@ -602,11 +602,11 @@
   },
   "spain-barcelona-madrid": {
     "arrive_at": "BCN",
-    "basis": "Google Flights' lowest price for all 6 travellers for these dates, from the weekly check (one paid search a week) on Nov 02, because the free daily check found no fares for this route. Only flights of 20 hours or less, gate to gate, count for the way out, and ones with every connection under 5 hours come first; the way home is picked when you book.",
+    "basis": "Google Flights' lowest price for all 6 travellers for these dates, from the weekly check (one paid search a week) on Nov 03, because the free daily check found no fares for this route. Only flights of 20 hours or less, gate to gate, count for the way out, and ones with every connection under 5 hours come first; the way home is picked when you book.",
     "carriers": [],
     "check_in": "2027-06-05",
     "check_out": "2027-06-15",
-    "checked_on": "2026-11-02",
+    "checked_on": "2026-11-03",
     "currency": "USD",
     "depart_date": "2027-06-04",
     "home_from": "MAD",
