@@ -39,6 +39,10 @@
     "last_fired": "2026-10-22",
     "last_price": 900.0
   },
+  "rome-summer:cheap_percentile": {
+    "last_fired": "2026-11-05",
+    "last_price": 11903.0
+  },
   "rome-summer:price_drop": {
     "last_fired": "2026-10-31",
     "last_price": 10832.0
