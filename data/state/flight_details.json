@@ -1,19 +1,46 @@
 {
   "austria-bavaria-summer": {
     "arrive_at": "MUC",
-    "basis": "The cheapest fare for all 6 travellers on Nov 06 once one more stop than your limit was allowed; none was found within it. Only flights of 20 hours or less, gate to gate, count for the way out, and ones with every connection under 5 hours come first; the way home is picked when you book.",
+    "basis": "The cheapest fare for all 6 travellers on Nov 07 once one more stop than your limit was allowed; none was found within it. Only flights of 20 hours or less, gate to gate, count for the way out, and ones with every connection under 5 hours come first; the way home is picked when you book.",
     "carriers": [
       "American",
       "Condor"
     ],
     "check_in": "2027-06-05",
     "check_out": "2027-06-15",
-    "checked_on": "2026-11-06",
+    "checked_on": "2026-11-07",
     "currency": "USD",
     "depart_date": "2027-06-04",
     "home_from": "MUC",
-    "inbound": [],
-    "inbound_airlines": [],
+    "inbound": [
+      {
+        "airline": "",
+        "arrive": "2027-06-15T13:40",
+        "depart": "2027-06-15T12:30",
+        "flight": "",
+        "from": "MUC",
+        "from_name": "Munich International Airport",
+        "minutes": 130,
+        "plane": "Airbus A320",
+        "to": "LHR",
+        "to_name": "Heathrow Airport"
+      },
+      {
+        "airline": "",
+        "arrive": "2027-06-15T19:30",
+        "depart": "2027-06-15T16:25",
+        "flight": "",
+        "from": "LHR",
+        "from_name": "Heathrow Airport",
+        "minutes": 545,
+        "plane": "Boeing 787",
+        "to": "STL",
+        "to_name": "St. Louis Lambert International Airport"
+      }
+    ],
+    "inbound_airlines": [
+      "British Airways"
+    ],
     "origin": "STL",
     "outbound": [
       {
@@ -53,17 +80,17 @@
         "to_name": "Munich International Airport"
       }
     ],
-    "price": 8010.0,
+    "price": 7998.0,
     "return_date": "2027-06-15",
     "source": "google_flights_extra_stop"
   },
   "belgium-summer": {
     "arrive_at": "BRU",
-    "basis": "Google Flights' lowest price for all 6 travellers for these dates, from the weekly check (one paid search a week) on Nov 06, because the free daily check found no fares for this route. Only flights of 20 hours or less, gate to gate, count for the way out, and ones with every connection under 5 hours come first; the way home is picked when you book.",
+    "basis": "Google Flights' lowest price for all 6 travellers for these dates, from the weekly check (one paid search a week) on Nov 07, because the free daily check found no fares for this route. Only flights of 20 hours or less, gate to gate, count for the way out, and ones with every connection under 5 hours come first; the way home is picked when you book.",
     "carriers": [],
     "check_in": "2027-06-05",
     "check_out": "2027-06-14",
-    "checked_on": "2026-11-06",
+    "checked_on": "2026-11-07",
     "currency": "USD",
     "depart_date": "2027-06-04",
     "home_from": "BRU",
@@ -102,42 +129,42 @@
   },
   "florence-tuscany-summer": {
     "arrive_at": "FLR",
-    "basis": "Google Flights' lowest price for all 6 travellers for these dates, from the weekly check (one paid search a week) on Nov 06, because the free daily check found no fares for this route. Only flights of 20 hours or less, gate to gate, count for the way out, and ones with every connection under 5 hours come first; the way home is picked when you book.",
+    "basis": "Google Flights' lowest price for all 6 travellers for these dates, from the weekly check (one paid search a week) on Nov 07, because the free daily check found no fares for this route. Only flights of 20 hours or less, gate to gate, count for the way out, and ones with every connection under 5 hours come first; the way home is picked when you book.",
     "carriers": [],
     "check_in": "2027-06-05",
     "check_out": "2027-06-13",
-    "checked_on": "2026-11-06",
+    "checked_on": "2026-11-07",
     "currency": "USD",
     "depart_date": "2027-06-04",
     "home_from": "FCO",
     "inbound": [
       {
         "airline": "",
-        "arrive": "2027-06-13T14:15",
-        "depart": "2027-06-13T11:30",
+        "arrive": "2027-06-13T18:48",
+        "depart": "2027-06-13T14:45",
         "flight": "",
         "from": "FCO",
         "from_name": "Leonardo da Vinci International Airport",
-        "minutes": 525,
-        "plane": "Boeing 777",
-        "to": "YUL",
-        "to_name": "Montr\u00e9al-Pierre Elliott Trudeau International Airport"
+        "minutes": 663,
+        "plane": "Airbus A330-900neo",
+        "to": "MSP",
+        "to_name": "Minneapolis-Saint Paul International Airport"
       },
       {
         "airline": "",
-        "arrive": "2027-06-13T18:21",
-        "depart": "2027-06-13T16:30",
+        "arrive": "2027-06-13T23:18",
+        "depart": "2027-06-13T21:45",
         "flight": "",
-        "from": "YUL",
-        "from_name": "Montr\u00e9al-Pierre Elliott Trudeau International Airport",
-        "minutes": 171,
-        "plane": "Canadair RJ 900",
+        "from": "MSP",
+        "from_name": "Minneapolis-Saint Paul International Airport",
+        "minutes": 93,
+        "plane": "Airbus A220-100 Passenger",
         "to": "STL",
         "to_name": "St. Louis Lambert International Airport"
       }
     ],
     "inbound_airlines": [
-      "Air Canada"
+      "Delta"
     ],
     "origin": "STL",
     "outbound": [
@@ -166,19 +193,19 @@
         "to_name": "Amerigo Vespucci Airport"
       }
     ],
-    "price": 9146.0,
+    "price": 8859.0,
     "return_date": "2027-06-13",
     "source": "google_flights_weekly"
   },
   "greece-summer": {
     "arrive_at": "ATH",
-    "basis": "An estimate. Google Flights' first page on Nov 06 showed no fares for 6 travellers, which is common for big parties on long-haul routes. So the tracker priced a smaller party (at most 1 stop(s) each way) and multiplied that per-person fare by 6. Children's economy fares to Europe are usually close to adult fares, so this is a fair guide, but it doesn't include checked bags. Only flights of 20 hours or less, gate to gate, count for the way out, and ones with every connection under 5 hours come first; the way home is picked when you book.",
+    "basis": "An estimate. Google Flights' first page on Nov 07 showed no fares for 6 travellers, which is common for big parties on long-haul routes. So the tracker priced a smaller party (at most 1 stop(s) each way) and multiplied that per-person fare by 6. Children's economy fares to Europe are usually close to adult fares, so this is a fair guide, but it doesn't include checked bags. Only flights of 20 hours or less, gate to gate, count for the way out, and ones with every connection under 5 hours come first; the way home is picked when you book.",
     "carriers": [
       "American"
     ],
     "check_in": "2027-06-05",
     "check_out": "2027-06-15",
-    "checked_on": "2026-11-06",
+    "checked_on": "2026-11-07",
     "currency": "USD",
     "depart_date": "2027-06-04",
     "home_from": "ATH",
@@ -244,11 +271,11 @@
   },
   "london-summer": {
     "arrive_at": "LHR",
-    "basis": "Google Flights' lowest price for all 6 travellers for these dates, from the weekly check (one paid search a week) on Nov 06, because the free daily check found no fares for this route. Only flights of 20 hours or less, gate to gate, count for the way out, and ones with every connection under 5 hours come first; the way home is picked when you book.",
+    "basis": "Google Flights' lowest price for all 6 travellers for these dates, from the weekly check (one paid search a week) on Nov 07, because the free daily check found no fares for this route. Only flights of 20 hours or less, gate to gate, count for the way out, and ones with every connection under 5 hours come first; the way home is picked when you book.",
     "carriers": [],
     "check_in": "2027-06-05",
     "check_out": "2027-06-14",
-    "checked_on": "2026-11-06",
+    "checked_on": "2026-11-07",
     "currency": "USD",
     "depart_date": "2027-06-04",
     "home_from": "MAN",
@@ -281,17 +308,20 @@
         "to_name": "Heathrow Airport"
       }
     ],
-    "price": 7833.0,
+    "price": 7838.0,
     "return_date": "2027-06-14",
     "source": "google_flights_weekly"
   },
   "milan-lake-como-summer": {
     "arrive_at": "MXP",
-    "basis": "Google Flights' lowest price for all 6 travellers for these dates, from the weekly check (one paid search a week) on Nov 06, because the free daily check found no fares for this route. Only flights of 20 hours or less, gate to gate, count for the way out, and ones with every connection under 5 hours come first; the way home is picked when you book.",
-    "carriers": [],
+    "basis": "The cheapest fare for all 6 travellers on Nov 07 once one more stop than your limit was allowed; none was found within it. Only flights of 20 hours or less, gate to gate, count for the way out, and ones with every connection under 5 hours come first; the way home is picked when you book.",
+    "carriers": [
+      "American",
+      "Condor"
+    ],
     "check_in": "2027-06-05",
     "check_out": "2027-06-14",
-    "checked_on": "2026-11-06",
+    "checked_on": "2026-11-07",
     "currency": "USD",
     "depart_date": "2027-06-04",
     "home_from": "MXP",
@@ -300,41 +330,53 @@
     "origin": "STL",
     "outbound": [
       {
-        "airline": "Lufthansa",
-        "arrive": "2027-06-05T07:25",
-        "depart": "2027-06-04T15:30",
-        "flight": "LH 449",
+        "airline": "",
+        "arrive": "2027-06-04T13:30",
+        "depart": "2027-06-04T09:45",
+        "flight": "",
         "from": "STL",
         "from_name": "St. Louis Lambert International Airport",
-        "minutes": 535,
-        "plane": "Airbus A330",
+        "minutes": 165,
+        "plane": "Embraer 175",
+        "to": "BOS",
+        "to_name": "Boston Logan International Airport"
+      },
+      {
+        "airline": "",
+        "arrive": "2027-06-05T05:45",
+        "depart": "2027-06-04T16:30",
+        "flight": "",
+        "from": "BOS",
+        "from_name": "Boston Logan International Airport",
+        "minutes": 435,
+        "plane": "Airbus A330-900neo",
         "to": "FRA",
         "to_name": "Frankfurt Airport"
       },
       {
-        "airline": "Lufthansa",
-        "arrive": "2027-06-05T10:15",
-        "depart": "2027-06-05T08:55",
-        "flight": "LH 248",
+        "airline": "",
+        "arrive": "2027-06-05T11:00",
+        "depart": "2027-06-05T09:40",
+        "flight": "",
         "from": "FRA",
         "from_name": "Frankfurt Airport",
         "minutes": 80,
-        "plane": "Airbus A320neo",
+        "plane": "Embraer 190",
         "to": "MXP",
         "to_name": "Milano Malpensa Airport"
       }
     ],
-    "price": 8220.0,
+    "price": 6786.0,
     "return_date": "2027-06-14",
-    "source": "google_flights_weekly"
+    "source": "google_flights_extra_stop"
   },
   "nice-riviera": {
     "arrive_at": "NCE",
-    "basis": "Google Flights' lowest price for all 6 travellers for these dates, from the weekly check (one paid search a week) on Nov 06, because the free daily check found no fares for this route. Only flights of 20 hours or less, gate to gate, count for the way out, and ones with every connection under 5 hours come first; the way home is picked when you book.",
+    "basis": "Google Flights' lowest price for all 6 travellers for these dates, from the weekly check (one paid search a week) on Nov 07, because the free daily check found no fares for this route. Only flights of 20 hours or less, gate to gate, count for the way out, and ones with every connection under 5 hours come first; the way home is picked when you book.",
     "carriers": [],
     "check_in": "2027-06-05",
     "check_out": "2027-06-14",
-    "checked_on": "2026-11-06",
+    "checked_on": "2026-11-07",
     "currency": "USD",
     "depart_date": "2027-06-04",
     "home_from": "NCE",
@@ -367,90 +409,89 @@
         "to_name": "Nice C\u00f4te d'Azur Airport"
       }
     ],
-    "price": 8504.0,
+    "price": 8507.0,
     "return_date": "2027-06-14",
     "source": "google_flights_weekly"
   },
   "paris-versailles": {
     "arrive_at": "CDG",
-    "basis": "An estimate. Google Flights' first page on Nov 06 showed no fares for 6 travellers, which is common for big parties on long-haul routes. So the tracker priced a smaller party (at most 1 stop(s) each way) and multiplied that per-person fare by 6. Children's economy fares to Europe are usually close to adult fares, so this is a fair guide, but it doesn't include checked bags. Only flights of 20 hours or less, gate to gate, count for the way out, and ones with every connection under 5 hours come first; the way home is picked when you book.",
+    "basis": "An estimate. Google Flights' first page on Nov 07 showed no fares for 6 travellers, which is common for big parties on long-haul routes. So the tracker priced a smaller party (at most 1 stop(s) each way) and multiplied that per-person fare by 6. Children's economy fares to Europe are usually close to adult fares, so this is a fair guide, but it doesn't include checked bags. Only flights of 20 hours or less, gate to gate, count for the way out, and ones with every connection under 5 hours come first; the way home is picked when you book.",
     "carriers": [
-      "Delta"
+      "Icelandair"
     ],
     "check_in": "2027-06-05",
     "check_out": "2027-06-14",
-    "checked_on": "2026-11-06",
+    "checked_on": "2026-11-07",
     "currency": "USD",
     "depart_date": "2027-06-04",
     "home_from": "CDG",
     "inbound": [
       {
         "airline": "",
-        "arrive": "2027-06-14T17:50",
-        "depart": "2027-06-14T15:45",
+        "arrive": "2027-06-14T11:47",
+        "depart": "2027-06-14T09:10",
         "flight": "",
         "from": "CDG",
         "from_name": "A\u00e9roport de Paris-Charles de Gaulle",
-        "minutes": 545,
-        "plane": "Boeing 777",
-        "to": "MSP",
-        "to_name": "Minneapolis-Saint Paul International Airport"
+        "minutes": 517,
+        "plane": "Airbus A330",
+        "to": "DTW",
+        "to_name": "Detroit Metropolitan Wayne County Airport"
       },
       {
         "airline": "",
-        "arrive": "2027-06-14T23:18",
-        "depart": "2027-06-14T21:45",
+        "arrive": "2027-06-14T16:50",
+        "depart": "2027-06-14T16:10",
         "flight": "",
-        "from": "MSP",
-        "from_name": "Minneapolis-Saint Paul International Airport",
-        "minutes": 93,
-        "plane": "Airbus A220-100 Passenger",
+        "from": "DTW",
+        "from_name": "Detroit Metropolitan Wayne County Airport",
+        "minutes": 100,
+        "plane": "Boeing 717",
         "to": "STL",
         "to_name": "St. Louis Lambert International Airport"
       }
     ],
     "inbound_airlines": [
-      "Air France",
       "Delta"
     ],
     "origin": "STL",
     "outbound": [
       {
         "airline": "",
-        "arrive": "2027-06-04T14:08",
-        "depart": "2027-06-04T12:30",
+        "arrive": "2027-06-05T08:20",
+        "depart": "2027-06-04T20:45",
         "flight": "",
         "from": "STL",
         "from_name": "St. Louis Lambert International Airport",
-        "minutes": 98,
-        "plane": "Airbus A220-100 Passenger",
-        "to": "MSP",
-        "to_name": "Minneapolis-Saint Paul International Airport"
+        "minutes": 395,
+        "plane": "Boeing 737MAX 8 Passenger",
+        "to": "KEF",
+        "to_name": "Keflav\u00edk International Airport"
       },
       {
         "airline": "",
-        "arrive": "2027-06-05T07:55",
-        "depart": "2027-06-04T16:30",
+        "arrive": "2027-06-05T16:15",
+        "depart": "2027-06-05T10:50",
         "flight": "",
-        "from": "MSP",
-        "from_name": "Minneapolis-Saint Paul International Airport",
-        "minutes": 505,
-        "plane": "Airbus A330",
+        "from": "KEF",
+        "from_name": "Keflav\u00edk International Airport",
+        "minutes": 205,
+        "plane": "Airbus A320neo",
         "to": "CDG",
         "to_name": "A\u00e9roport de Paris-Charles de Gaulle"
       }
     ],
-    "price": 8658.0,
+    "price": 7791.0,
     "return_date": "2027-06-14",
     "source": "google_flights_scaled"
   },
   "portugal-azores-summer": {
     "arrive_at": "OPO",
-    "basis": "Google Flights' lowest price for all 6 travellers for these dates, from the weekly check (one paid search a week) on Nov 06, because the free daily check found no fares for this route. Only flights of 20 hours or less, gate to gate, count for the way out, and ones with every connection under 5 hours come first; the way home is picked when you book.",
+    "basis": "Google Flights' lowest price for all 6 travellers for these dates, from the weekly check (one paid search a week) on Nov 07, because the free daily check found no fares for this route. Only flights of 20 hours or less, gate to gate, count for the way out, and ones with every connection under 5 hours come first; the way home is picked when you book.",
     "carriers": [],
     "check_in": "2027-06-05",
     "check_out": "2027-06-15",
-    "checked_on": "2026-11-06",
+    "checked_on": "2026-11-07",
     "currency": "USD",
     "depart_date": "2027-06-04",
     "home_from": "LIS",
@@ -510,19 +551,19 @@
         "to_name": "Francisco S\u00e1 Carneiro Airport"
       }
     ],
-    "price": 7421.0,
+    "price": 7635.0,
     "return_date": "2027-06-15",
     "source": "google_flights_weekly"
   },
   "rome-summer": {
     "arrive_at": "FCO",
-    "basis": "An estimate. Google Flights' first page on Nov 06 showed no fares for 6 travellers, which is common for big parties on long-haul routes. So the tracker priced a smaller party (at most 1 stop(s) each way) and multiplied that per-person fare by 6. Children's economy fares to Europe are usually close to adult fares, so this is a fair guide, but it doesn't include checked bags. Only flights of 20 hours or less, gate to gate, count for the way out, and ones with every connection under 5 hours come first; the way home is picked when you book.",
+    "basis": "An estimate. Google Flights' first page on Nov 07 showed no fares for 6 travellers, which is common for big parties on long-haul routes. So the tracker priced a smaller party (at most 1 stop(s) each way) and multiplied that per-person fare by 6. Children's economy fares to Europe are usually close to adult fares, so this is a fair guide, but it doesn't include checked bags. Only flights of 20 hours or less, gate to gate, count for the way out, and ones with every connection under 5 hours come first; the way home is picked when you book.",
     "carriers": [
       "Lufthansa"
     ],
     "check_in": "2027-06-05",
     "check_out": "2027-06-12",
-    "checked_on": "2026-11-06",
+    "checked_on": "2026-11-07",
     "currency": "USD",
     "depart_date": "2027-06-04",
     "home_from": "FCO",
@@ -588,36 +629,36 @@
   },
   "spain-barcelona-madrid": {
     "arrive_at": "BCN",
-    "basis": "Google Flights' lowest price for all 6 travellers for these dates, from the weekly check (one paid search a week) on Nov 06, because the free daily check found no fares for this route. Only flights of 20 hours or less, gate to gate, count for the way out, and ones with every connection under 5 hours come first; the way home is picked when you book.",
+    "basis": "Google Flights' lowest price for all 6 travellers for these dates, from the weekly check (one paid search a week) on Nov 07, because the free daily check found no fares for this route. Only flights of 20 hours or less, gate to gate, count for the way out, and ones with every connection under 5 hours come first; the way home is picked when you book.",
     "carriers": [],
     "check_in": "2027-06-05",
     "check_out": "2027-06-15",
-    "checked_on": "2026-11-06",
+    "checked_on": "2026-11-07",
     "currency": "USD",
     "depart_date": "2027-06-04",
     "home_from": "MAD",
     "inbound": [
       {
         "airline": "",
-        "arrive": "2027-06-15T14:55",
-        "depart": "2027-06-15T12:30",
+        "arrive": "2027-06-15T14:25",
+        "depart": "2027-06-15T11:45",
         "flight": "",
         "from": "MAD",
         "from_name": "Adolfo Su\u00e1rez Madrid-Barajas Airport",
-        "minutes": 505,
+        "minutes": 580,
         "plane": "Airbus A330",
-        "to": "JFK",
-        "to_name": "John F. Kennedy International Airport"
+        "to": "ORD",
+        "to_name": "Chicago O'Hare International Airport"
       },
       {
         "airline": "",
-        "arrive": "2027-06-15T20:52",
-        "depart": "2027-06-15T18:59",
+        "arrive": "2027-06-15T19:44",
+        "depart": "2027-06-15T18:17",
         "flight": "",
-        "from": "LGA",
-        "from_name": "LaGuardia Airport",
-        "minutes": 173,
-        "plane": "Embraer 175",
+        "from": "ORD",
+        "from_name": "Chicago O'Hare International Airport",
+        "minutes": 87,
+        "plane": "Embraer 170",
         "to": "STL",
         "to_name": "St. Louis Lambert International Airport"
       }
@@ -653,7 +694,7 @@
         "to_name": "Josep Tarradellas Barcelona-El Prat Airport"
       }
     ],
-    "price": 8196.0,
+    "price": 8203.0,
     "return_date": "2027-06-15",
     "source": "google_flights_weekly"
   }
