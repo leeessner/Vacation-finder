@@ -1,0 +1,132 @@
+{
+  "trip_id": "paris-versailles",
+  "captured_at": "2026-11-11T20:58:35.929808+00:00",
+  "queries_made": 3,
+  "errors": [
+    "hotel prices unavailable: hotel prices are re-checked each Sat"
+  ],
+  "quotes": [
+    {
+      "trip_id": "paris-versailles",
+      "destination": "CDG \u2192 SXB \u2192 RSY",
+      "depart_date": "2027-06-05",
+      "return_date": "2027-06-14",
+      "nights": 9,
+      "currency": "USD",
+      "flight": {
+        "origin": "STL",
+        "destination": "CDG",
+        "depart_date": "2027-06-04",
+        "return_date": "2027-06-14",
+        "total_price": 8754.0,
+        "currency": "USD",
+        "carriers": [
+          "British Airways"
+        ],
+        "stops_out": 1,
+        "stops_back": null,
+        "source": "google_flights_scaled",
+        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20CDG%20from%20STL%20on%202027-06-04%20through%202027-06-14",
+        "outbound": [
+          {
+            "from": "STL",
+            "from_name": "St. Louis Lambert International Airport",
+            "to": "LHR",
+            "to_name": "Heathrow Airport",
+            "depart": "2027-06-04T21:35",
+            "arrive": "2027-06-05T11:35",
+            "minutes": 480,
+            "airline": "",
+            "flight": "",
+            "plane": "Boeing 787"
+          },
+          {
+            "from": "LHR",
+            "from_name": "Heathrow Airport",
+            "to": "CDG",
+            "to_name": "A\u00e9roport de Paris-Charles de Gaulle",
+            "depart": "2027-06-05T15:45",
+            "arrive": "2027-06-05T18:10",
+            "minutes": 85,
+            "airline": "",
+            "flight": "",
+            "plane": "Airbus A319"
+          }
+        ]
+      },
+      "lodging": {
+        "destination": "CDG \u2192 SXB \u2192 RSY",
+        "check_in": "2027-06-05",
+        "check_out": "2027-06-14",
+        "property_name": "Tr\u00e8s beau T3 proche RER Port Royal 6 pers - Two-Bedroom Apartment (6n) + Downtown Apartment, Quiet and Spacious (2n) + Hampton by Hilton Paris Charles de Gaulle Airport (1n)",
+        "total_price": 2701.0,
+        "currency": "USD",
+        "property_id": "",
+        "nights": 9,
+        "rating": 4.1235046,
+        "stars": null,
+        "board_type": "",
+        "refundable": null,
+        "source": "google_hotels",
+        "deep_link": "",
+        "distance_miles": null
+      },
+      "ground_cost": 4250.0,
+      "ground_notes": "Plan's fixed costs: tickets, Disneyland day, TGV, transit, food",
+      "travel_mode": "air",
+      "flights_expected": true,
+      "flight_cost": 8754.0,
+      "lodging_cost": 2701.0,
+      "total_cost": 15705.0,
+      "is_complete": true,
+      "notes": [
+        "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)",
+        "hotel price checked 11 day(s) ago",
+        "hotel price checked 11 day(s) ago",
+        "hotel price checked 11 day(s) ago"
+      ]
+    },
+    {
+      "trip_id": "paris-versailles",
+      "destination": "CDG \u2192 SXB \u2192 RSY",
+      "depart_date": "2027-06-21",
+      "return_date": "2027-06-30",
+      "nights": 9,
+      "currency": "USD",
+      "flight": null,
+      "lodging": null,
+      "ground_cost": 4250.0,
+      "ground_notes": "Plan's fixed costs: tickets, Disneyland day, TGV, transit, food",
+      "travel_mode": "air",
+      "flights_expected": true,
+      "flight_cost": 0.0,
+      "lodging_cost": 0.0,
+      "total_cost": 4250.0,
+      "is_complete": false,
+      "notes": [
+        "no lodging price yet for Paris, France, Strasbourg, France, Paris-CDG airport hotel"
+      ]
+    },
+    {
+      "trip_id": "paris-versailles",
+      "destination": "CDG \u2192 SXB \u2192 RSY",
+      "depart_date": "2027-07-08",
+      "return_date": "2027-07-17",
+      "nights": 9,
+      "currency": "USD",
+      "flight": null,
+      "lodging": null,
+      "ground_cost": 4250.0,
+      "ground_notes": "Plan's fixed costs: tickets, Disneyland day, TGV, transit, food",
+      "travel_mode": "air",
+      "flights_expected": true,
+      "flight_cost": 0.0,
+      "lodging_cost": 0.0,
+      "total_cost": 4250.0,
+      "is_complete": false,
+      "notes": [
+        "no lodging price yet for Paris, France, Strasbourg, France, Paris-CDG airport hotel"
+      ]
+    }
+  ]
+}

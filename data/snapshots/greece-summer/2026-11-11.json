@@ -1,0 +1,130 @@
+{
+  "trip_id": "greece-summer",
+  "captured_at": "2026-11-11T20:58:49.885247+00:00",
+  "queries_made": 3,
+  "errors": [
+    "hotel prices unavailable: hotel prices are re-checked each Sat"
+  ],
+  "quotes": [
+    {
+      "trip_id": "greece-summer",
+      "destination": "ATH \u2192 JNX \u2192 AAH",
+      "depart_date": "2027-06-05",
+      "return_date": "2027-06-15",
+      "nights": 10,
+      "currency": "USD",
+      "flight": {
+        "origin": "STL",
+        "destination": "ATH",
+        "depart_date": "2027-06-04",
+        "return_date": "2027-06-15",
+        "total_price": 8099.0,
+        "currency": "USD",
+        "carriers": [],
+        "stops_out": null,
+        "stops_back": null,
+        "source": "google_flights_weekly",
+        "deep_link": "",
+        "outbound": [
+          {
+            "airline": "American",
+            "arrive": "2027-06-04T15:59",
+            "depart": "2027-06-04T14:32",
+            "flight": "AA 3622",
+            "from": "STL",
+            "from_name": "St. Louis Lambert International Airport",
+            "minutes": 87,
+            "plane": "Embraer 170",
+            "to": "ORD",
+            "to_name": "Chicago O'Hare International Airport"
+          },
+          {
+            "airline": "American",
+            "arrive": "2027-06-05T11:00",
+            "depart": "2027-06-04T16:45",
+            "flight": "AA 160",
+            "from": "ORD",
+            "from_name": "Chicago O'Hare International Airport",
+            "minutes": 615,
+            "plane": "Boeing 787",
+            "to": "ATH",
+            "to_name": "Athens International Airport \"Eleftherios Venizelos\""
+          }
+        ]
+      },
+      "lodging": {
+        "destination": "ATH \u2192 JNX \u2192 AAH",
+        "check_in": "2027-06-05",
+        "check_out": "2027-06-15",
+        "property_name": "George's Apartment in ''Pedion Areos'' area (4n) + Cledari Plaka Appartments (5n) + Alexander Apartments Airport (1n)",
+        "total_price": 1425.0,
+        "currency": "USD",
+        "property_id": "",
+        "nights": 10,
+        "rating": 4.45,
+        "stars": null,
+        "board_type": "",
+        "refundable": null,
+        "source": "google_hotels",
+        "deep_link": "",
+        "distance_miles": null
+      },
+      "ground_cost": 2950.0,
+      "ground_notes": "Plan's fixed costs: sites, ferries or flights to Naxos, island car, food",
+      "travel_mode": "air",
+      "flights_expected": true,
+      "flight_cost": 8099.0,
+      "lodging_cost": 1425.0,
+      "total_cost": 12474.0,
+      "is_complete": true,
+      "notes": [
+        "airfare from this week's Google Flights check (the free daily check found none for this route)",
+        "hotel price checked 11 day(s) ago",
+        "hotel price checked 11 day(s) ago",
+        "hotel price checked 11 day(s) ago"
+      ]
+    },
+    {
+      "trip_id": "greece-summer",
+      "destination": "ATH \u2192 JNX \u2192 AAH",
+      "depart_date": "2027-06-21",
+      "return_date": "2027-07-01",
+      "nights": 10,
+      "currency": "USD",
+      "flight": null,
+      "lodging": null,
+      "ground_cost": 2950.0,
+      "ground_notes": "Plan's fixed costs: sites, ferries or flights to Naxos, island car, food",
+      "travel_mode": "air",
+      "flights_expected": true,
+      "flight_cost": 0.0,
+      "lodging_cost": 0.0,
+      "total_cost": 2950.0,
+      "is_complete": false,
+      "notes": [
+        "no lodging price yet for Athens, Greece, Naxos, Greece, Athens airport hotel"
+      ]
+    },
+    {
+      "trip_id": "greece-summer",
+      "destination": "ATH \u2192 JNX \u2192 AAH",
+      "depart_date": "2027-07-07",
+      "return_date": "2027-07-17",
+      "nights": 10,
+      "currency": "USD",
+      "flight": null,
+      "lodging": null,
+      "ground_cost": 2950.0,
+      "ground_notes": "Plan's fixed costs: sites, ferries or flights to Naxos, island car, food",
+      "travel_mode": "air",
+      "flights_expected": true,
+      "flight_cost": 0.0,
+      "lodging_cost": 0.0,
+      "total_cost": 2950.0,
+      "is_complete": false,
+      "notes": [
+        "no lodging price yet for Athens, Greece, Naxos, Greece, Athens airport hotel"
+      ]
+    }
+  ]
+}
