@@ -1,0 +1,209 @@
+{
+  "trip_id": "paris-versailles",
+  "captured_at": "2026-11-16T23:04:30.645677+00:00",
+  "queries_made": 3,
+  "errors": [
+    "hotel prices unavailable: hotel prices are re-checked each Sat"
+  ],
+  "quotes": [
+    {
+      "trip_id": "paris-versailles",
+      "destination": "CDG \u2192 SXB \u2192 RSY",
+      "depart_date": "2027-06-05",
+      "return_date": "2027-06-14",
+      "nights": 9,
+      "currency": "USD",
+      "flight": {
+        "origin": "STL",
+        "destination": "CDG",
+        "depart_date": "2027-06-04",
+        "return_date": "2027-06-14",
+        "total_price": 8652.0,
+        "currency": "USD",
+        "carriers": [
+          "Delta"
+        ],
+        "stops_out": 1,
+        "stops_back": null,
+        "source": "google_flights_scaled",
+        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20CDG%20from%20STL%20on%202027-06-04%20through%202027-06-14",
+        "outbound": [
+          {
+            "from": "STL",
+            "from_name": "St. Louis Lambert International Airport",
+            "to": "MSP",
+            "to_name": "Minneapolis-Saint Paul International Airport",
+            "depart": "2027-06-04T12:30",
+            "arrive": "2027-06-04T14:08",
+            "minutes": 98,
+            "airline": "",
+            "flight": "",
+            "plane": "Airbus A220-100 Passenger"
+          },
+          {
+            "from": "MSP",
+            "from_name": "Minneapolis-Saint Paul International Airport",
+            "to": "CDG",
+            "to_name": "A\u00e9roport de Paris-Charles de Gaulle",
+            "depart": "2027-06-04T16:30",
+            "arrive": "2027-06-05T07:55",
+            "minutes": 505,
+            "airline": "",
+            "flight": "",
+            "plane": "Airbus A330"
+          }
+        ]
+      },
+      "lodging": null,
+      "ground_cost": 4250.0,
+      "ground_notes": "Plan's fixed costs: tickets, Disneyland day, TGV, transit, food",
+      "travel_mode": "air",
+      "flights_expected": true,
+      "flight_cost": 8652.0,
+      "lodging_cost": 0.0,
+      "total_cost": 12902.0,
+      "is_complete": false,
+      "notes": [
+        "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)",
+        "no lodging price yet for Paris, France, Strasbourg, France, Paris-CDG airport hotel"
+      ]
+    },
+    {
+      "trip_id": "paris-versailles",
+      "destination": "CDG \u2192 SXB \u2192 RSY",
+      "depart_date": "2027-06-21",
+      "return_date": "2027-06-30",
+      "nights": 9,
+      "currency": "USD",
+      "flight": {
+        "origin": "STL",
+        "destination": "CDG",
+        "depart_date": "2027-06-20",
+        "return_date": "2027-06-30",
+        "total_price": 6984.0,
+        "currency": "USD",
+        "carriers": [
+          "American",
+          "Condor"
+        ],
+        "stops_out": 2,
+        "stops_back": null,
+        "source": "google_flights_extra_stop",
+        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20CDG%20from%20STL%20on%202027-06-20%20through%202027-06-30",
+        "outbound": [
+          {
+            "from": "STL",
+            "from_name": "St. Louis Lambert International Airport",
+            "to": "BOS",
+            "to_name": "Boston Logan International Airport",
+            "depart": "2027-06-20T09:45",
+            "arrive": "2027-06-20T13:30",
+            "minutes": 165,
+            "airline": "",
+            "flight": "",
+            "plane": "Embraer 175"
+          },
+          {
+            "from": "BOS",
+            "from_name": "Boston Logan International Airport",
+            "to": "FRA",
+            "to_name": "Frankfurt Airport",
+            "depart": "2027-06-20T16:30",
+            "arrive": "2027-06-21T05:45",
+            "minutes": 435,
+            "airline": "",
+            "flight": "",
+            "plane": "Airbus A330-900neo"
+          },
+          {
+            "from": "FRA",
+            "from_name": "Frankfurt Airport",
+            "to": "CDG",
+            "to_name": "A\u00e9roport de Paris-Charles de Gaulle",
+            "depart": "2027-06-21T09:20",
+            "arrive": "2027-06-21T10:40",
+            "minutes": 80,
+            "airline": "",
+            "flight": "",
+            "plane": "Airbus A320neo"
+          }
+        ]
+      },
+      "lodging": null,
+      "ground_cost": 4250.0,
+      "ground_notes": "Plan's fixed costs: tickets, Disneyland day, TGV, transit, food",
+      "travel_mode": "air",
+      "flights_expected": true,
+      "flight_cost": 6984.0,
+      "lodging_cost": 0.0,
+      "total_cost": 11234.0,
+      "is_complete": false,
+      "notes": [
+        "airfare allows one more stop than your limit \u2014 none was found within it",
+        "no lodging price yet for Paris, France, Strasbourg, France, Paris-CDG airport hotel"
+      ]
+    },
+    {
+      "trip_id": "paris-versailles",
+      "destination": "CDG \u2192 SXB \u2192 RSY",
+      "depart_date": "2027-07-08",
+      "return_date": "2027-07-17",
+      "nights": 9,
+      "currency": "USD",
+      "flight": {
+        "origin": "STL",
+        "destination": "CDG",
+        "depart_date": "2027-07-07",
+        "return_date": "2027-07-17",
+        "total_price": 8202.0,
+        "currency": "USD",
+        "carriers": [
+          "United"
+        ],
+        "stops_out": 1,
+        "stops_back": null,
+        "source": "google_flights_scaled",
+        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20CDG%20from%20STL%20on%202027-07-07%20through%202027-07-17",
+        "outbound": [
+          {
+            "from": "STL",
+            "from_name": "St. Louis Lambert International Airport",
+            "to": "EWR",
+            "to_name": "Newark Liberty International Airport",
+            "depart": "2027-07-07T11:45",
+            "arrive": "2027-07-07T15:15",
+            "minutes": 150,
+            "airline": "",
+            "flight": "",
+            "plane": "Embraer 175"
+          },
+          {
+            "from": "EWR",
+            "from_name": "Newark Liberty International Airport",
+            "to": "CDG",
+            "to_name": "A\u00e9roport de Paris-Charles de Gaulle",
+            "depart": "2027-07-07T17:40",
+            "arrive": "2027-07-08T07:05",
+            "minutes": 445,
+            "airline": "",
+            "flight": "",
+            "plane": "Boeing 777"
+          }
+        ]
+      },
+      "lodging": null,
+      "ground_cost": 4250.0,
+      "ground_notes": "Plan's fixed costs: tickets, Disneyland day, TGV, transit, food",
+      "travel_mode": "air",
+      "flights_expected": true,
+      "flight_cost": 8202.0,
+      "lodging_cost": 0.0,
+      "total_cost": 12452.0,
+      "is_complete": false,
+      "notes": [
+        "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)",
+        "no lodging price yet for Paris, France, Strasbourg, France, Paris-CDG airport hotel"
+      ]
+    }
+  ]
+}
