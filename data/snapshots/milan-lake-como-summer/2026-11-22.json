@@ -1,0 +1,114 @@
+{
+  "trip_id": "milan-lake-como-summer",
+  "captured_at": "2026-11-22T20:30:39.304562+00:00",
+  "queries_made": 3,
+  "errors": [
+    "hotel prices unavailable: hotel prices are re-checked each Sat"
+  ],
+  "quotes": [
+    {
+      "trip_id": "milan-lake-como-summer",
+      "destination": "MXP \u2192 VAR \u2192 MPH",
+      "depart_date": "2027-06-05",
+      "return_date": "2027-06-14",
+      "nights": 9,
+      "currency": "USD",
+      "flight": {
+        "origin": "STL",
+        "destination": "MXP",
+        "depart_date": "2027-06-04",
+        "return_date": "2027-06-14",
+        "total_price": 9057.0,
+        "currency": "USD",
+        "carriers": [
+          "American"
+        ],
+        "stops_out": 1,
+        "stops_back": null,
+        "source": "google_flights_scaled",
+        "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20MXP%20from%20STL%20on%202027-06-04%20through%202027-06-14",
+        "outbound": [
+          {
+            "from": "STL",
+            "from_name": "St. Louis Lambert International Airport",
+            "to": "MIA",
+            "to_name": "Miami International Airport",
+            "depart": "2027-06-04T11:04",
+            "arrive": "2027-06-04T14:50",
+            "minutes": 166,
+            "airline": "",
+            "flight": "",
+            "plane": "Embraer 175"
+          },
+          {
+            "from": "MIA",
+            "from_name": "Miami International Airport",
+            "to": "MXP",
+            "to_name": "Milano Malpensa Airport",
+            "depart": "2027-06-04T19:50",
+            "arrive": "2027-06-05T11:30",
+            "minutes": 580,
+            "airline": "",
+            "flight": "",
+            "plane": "Boeing 787"
+          }
+        ]
+      },
+      "lodging": null,
+      "ground_cost": 2600.0,
+      "ground_notes": "Plan's fixed costs: Last Supper, museums, trains, ferries, food",
+      "travel_mode": "air",
+      "flights_expected": true,
+      "flight_cost": 9057.0,
+      "lodging_cost": 0.0,
+      "total_cost": 11657.0,
+      "is_complete": false,
+      "notes": [
+        "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)",
+        "no lodging price yet for Milan, Italy, Varenna, Italy, Milan Malpensa airport hotel"
+      ]
+    },
+    {
+      "trip_id": "milan-lake-como-summer",
+      "destination": "MXP \u2192 VAR \u2192 MPH",
+      "depart_date": "2027-06-21",
+      "return_date": "2027-06-30",
+      "nights": 9,
+      "currency": "USD",
+      "flight": null,
+      "lodging": null,
+      "ground_cost": 2600.0,
+      "ground_notes": "Plan's fixed costs: Last Supper, museums, trains, ferries, food",
+      "travel_mode": "air",
+      "flights_expected": true,
+      "flight_cost": 0.0,
+      "lodging_cost": 0.0,
+      "total_cost": 2600.0,
+      "is_complete": false,
+      "notes": [
+        "no lodging price yet for Milan, Italy, Varenna, Italy, Milan Malpensa airport hotel"
+      ]
+    },
+    {
+      "trip_id": "milan-lake-como-summer",
+      "destination": "MXP \u2192 VAR \u2192 MPH",
+      "depart_date": "2027-07-08",
+      "return_date": "2027-07-17",
+      "nights": 9,
+      "currency": "USD",
+      "flight": null,
+      "lodging": null,
+      "ground_cost": 2600.0,
+      "ground_notes": "Plan's fixed costs: Last Supper, museums, trains, ferries, food",
+      "travel_mode": "air",
+      "flights_expected": true,
+      "flight_cost": 0.0,
+      "lodging_cost": 0.0,
+      "total_cost": 2600.0,
+      "is_complete": false,
+      "notes": [
+        "no lodging price yet for Milan, Italy, Varenna, Italy, Milan Malpensa airport hotel"
+      ]
+    }
+  ]
+}
