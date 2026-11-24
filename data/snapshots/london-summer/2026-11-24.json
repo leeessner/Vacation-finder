@@ -1,6 +1,6 @@
 {
   "trip_id": "london-summer",
-  "captured_at": "2026-11-24T01:18:02.362166+00:00",
+  "captured_at": "2026-11-24T23:18:23.647759+00:00",
   "queries_made": 3,
   "errors": [
     "hotel prices unavailable: hotel prices are re-checked each Sat"

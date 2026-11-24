@@ -1,6 +1,6 @@
 {
   "trip_id": "greece-summer",
-  "captured_at": "2026-11-24T01:17:51.194029+00:00",
+  "captured_at": "2026-11-24T23:18:12.506810+00:00",
   "queries_made": 3,
   "errors": [
     "hotel prices unavailable: hotel prices are re-checked each Sat"
@@ -142,7 +142,7 @@
         "destination": "ATH",
         "depart_date": "2027-07-06",
         "return_date": "2027-07-17",
-        "total_price": 6930.0,
+        "total_price": 6876.0,
         "currency": "USD",
         "carriers": [
           "United"
@@ -155,26 +155,26 @@
           {
             "from": "STL",
             "from_name": "St. Louis Lambert International Airport",
-            "to": "ORD",
-            "to_name": "Chicago O'Hare International Airport",
-            "depart": "2027-07-06T10:23",
-            "arrive": "2027-07-06T11:55",
-            "minutes": 92,
+            "to": "EWR",
+            "to_name": "Newark Liberty International Airport",
+            "depart": "2027-07-06T07:30",
+            "arrive": "2027-07-06T11:02",
+            "minutes": 152,
             "airline": "",
             "flight": "",
-            "plane": "Bombardier Regional Jet 550"
+            "plane": "Embraer 175"
           },
           {
-            "from": "ORD",
-            "from_name": "Chicago O'Hare International Airport",
+            "from": "EWR",
+            "from_name": "Newark Liberty International Airport",
             "to": "ATH",
             "to_name": "Athens International Airport \"Eleftherios Venizelos\"",
-            "depart": "2027-07-06T16:10",
-            "arrive": "2027-07-07T10:35",
-            "minutes": 625,
+            "depart": "2027-07-06T15:50",
+            "arrive": "2027-07-07T08:10",
+            "minutes": 560,
             "airline": "",
             "flight": "",
-            "plane": "Boeing 787-10"
+            "plane": "Boeing 777"
           }
         ]
       },
@@ -183,9 +183,9 @@
       "ground_notes": "Plan's fixed costs: sites, ferries or flights to Naxos, island car, food",
       "travel_mode": "air",
       "flights_expected": true,
-      "flight_cost": 6930.0,
+      "flight_cost": 6876.0,
       "lodging_cost": 0.0,
-      "total_cost": 9880.0,
+      "total_cost": 9826.0,
       "is_complete": false,
       "notes": [
         "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)",

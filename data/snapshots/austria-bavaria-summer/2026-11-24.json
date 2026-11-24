@@ -1,6 +1,6 @@
 {
   "trip_id": "austria-bavaria-summer",
-  "captured_at": "2026-11-24T01:17:59.132882+00:00",
+  "captured_at": "2026-11-24T23:18:20.474393+00:00",
   "queries_made": 3,
   "errors": [
     "hotel prices unavailable: hotel prices are re-checked each Sat"
@@ -81,7 +81,7 @@
         "destination": "MUC",
         "depart_date": "2027-06-20",
         "return_date": "2027-07-01",
-        "total_price": 8478.0,
+        "total_price": 8466.0,
         "currency": "USD",
         "carriers": [
           "American",
@@ -135,9 +135,9 @@
       "ground_notes": "Plan's fixed costs: tickets, trains, 5-day car, food in Munich (resort meals are included)",
       "travel_mode": "air",
       "flights_expected": true,
-      "flight_cost": 8478.0,
+      "flight_cost": 8466.0,
       "lodging_cost": 0.0,
-      "total_cost": 11228.0,
+      "total_cost": 11216.0,
       "is_complete": false,
       "notes": [
         "airfare allows one more stop than your limit \u2014 none was found within it",
@@ -157,39 +157,52 @@
         "destination": "MUC",
         "depart_date": "2027-07-06",
         "return_date": "2027-07-17",
-        "total_price": 9474.0,
+        "total_price": 7692.0,
         "currency": "USD",
         "carriers": [
-          "United"
+          "Southwest",
+          "Condor"
         ],
-        "stops_out": 1,
+        "stops_out": 2,
         "stops_back": null,
-        "source": "google_flights_scaled",
+        "source": "google_flights_extra_stop",
         "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20MUC%20from%20STL%20on%202027-07-06%20through%202027-07-17",
         "outbound": [
           {
             "from": "STL",
             "from_name": "St. Louis Lambert International Airport",
-            "to": "EWR",
-            "to_name": "Newark Liberty International Airport",
-            "depart": "2027-07-06T11:45",
-            "arrive": "2027-07-06T15:15",
-            "minutes": 150,
+            "to": "BOS",
+            "to_name": "Boston Logan International Airport",
+            "depart": "2027-07-06T10:00",
+            "arrive": "2027-07-06T13:35",
+            "minutes": 155,
             "airline": "",
             "flight": "",
-            "plane": "Embraer 175"
+            "plane": "Boeing 737MAX 8 Passenger"
           },
           {
-            "from": "EWR",
-            "from_name": "Newark Liberty International Airport",
-            "to": "MUC",
-            "to_name": "Munich International Airport",
-            "depart": "2027-07-06T16:55",
-            "arrive": "2027-07-07T07:10",
-            "minutes": 495,
+            "from": "BOS",
+            "from_name": "Boston Logan International Airport",
+            "to": "FRA",
+            "to_name": "Frankfurt Airport",
+            "depart": "2027-07-06T16:30",
+            "arrive": "2027-07-07T05:45",
+            "minutes": 435,
             "airline": "",
             "flight": "",
-            "plane": "Boeing 767"
+            "plane": "Airbus A330-900neo"
+          },
+          {
+            "from": "FRA",
+            "from_name": "Frankfurt Airport",
+            "to": "MUC",
+            "to_name": "Munich International Airport",
+            "depart": "2027-07-07T07:10",
+            "arrive": "2027-07-07T08:10",
+            "minutes": 60,
+            "airline": "",
+            "flight": "",
+            "plane": "Airbus A320"
           }
         ]
       },
@@ -198,12 +211,12 @@
       "ground_notes": "Plan's fixed costs: tickets, trains, 5-day car, food in Munich (resort meals are included)",
       "travel_mode": "air",
       "flights_expected": true,
-      "flight_cost": 9474.0,
+      "flight_cost": 7692.0,
       "lodging_cost": 0.0,
-      "total_cost": 12224.0,
+      "total_cost": 10442.0,
       "is_complete": false,
       "notes": [
-        "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)",
+        "airfare allows one more stop than your limit \u2014 none was found within it",
         "Dachsteink\u00f6nig: an estimate (\u2248\u20ac4,600 for 4 nights all-inclusive), not a tracked price \u2014 replace with the resort's quote",
         "no lodging price yet for Munich, Germany, Munich airport hotel"
       ]

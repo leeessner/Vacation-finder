@@ -1,6 +1,6 @@
 {
   "trip_id": "milan-lake-como-summer",
-  "captured_at": "2026-11-24T01:18:10.093107+00:00",
+  "captured_at": "2026-11-24T23:18:30.846494+00:00",
   "queries_made": 3,
   "errors": [
     "hotel prices unavailable: hotel prices are re-checked each Sat"
@@ -80,7 +80,7 @@
         "destination": "MXP",
         "depart_date": "2027-06-20",
         "return_date": "2027-06-30",
-        "total_price": 6810.0,
+        "total_price": 6804.0,
         "currency": "USD",
         "carriers": [
           "American",
@@ -88,7 +88,7 @@
         ],
         "stops_out": 2,
         "stops_back": null,
-        "source": "google_flights_scaled_extra_stop",
+        "source": "google_flights_extra_stop",
         "deep_link": "https://www.google.com/travel/flights?q=Flights%20to%20MXP%20from%20STL%20on%202027-06-20%20through%202027-06-30",
         "outbound": [
           {
@@ -134,12 +134,11 @@
       "ground_notes": "Plan's fixed costs: Last Supper, museums, trains, ferries, food",
       "travel_mode": "air",
       "flights_expected": true,
-      "flight_cost": 6810.0,
+      "flight_cost": 6804.0,
       "lodging_cost": 0.0,
-      "total_cost": 9410.0,
+      "total_cost": 9404.0,
       "is_complete": false,
       "notes": [
-        "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)",
         "airfare allows one more stop than your limit \u2014 none was found within it",
         "no lodging price yet for Milan, Italy, Varenna, Italy, Milan Malpensa airport hotel"
       ]
@@ -156,7 +155,7 @@
         "destination": "MXP",
         "depart_date": "2027-07-07",
         "return_date": "2027-07-17",
-        "total_price": 7938.0,
+        "total_price": 7926.0,
         "currency": "USD",
         "carriers": [
           "American",
@@ -210,9 +209,9 @@
       "ground_notes": "Plan's fixed costs: Last Supper, museums, trains, ferries, food",
       "travel_mode": "air",
       "flights_expected": true,
-      "flight_cost": 7938.0,
+      "flight_cost": 7926.0,
       "lodging_cost": 0.0,
-      "total_cost": 10538.0,
+      "total_cost": 10526.0,
       "is_complete": false,
       "notes": [
         "airfare allows one more stop than your limit \u2014 none was found within it",

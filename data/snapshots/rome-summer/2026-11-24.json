@@ -1,6 +1,6 @@
 {
   "trip_id": "rome-summer",
-  "captured_at": "2026-11-24T01:18:07.275721+00:00",
+  "captured_at": "2026-11-24T23:18:28.373848+00:00",
   "queries_made": 3,
   "errors": [
     "hotel prices unavailable: hotel prices are re-checked each Sat"
@@ -140,7 +140,7 @@
         "destination": "FCO",
         "depart_date": "2027-07-09",
         "return_date": "2027-07-17",
-        "total_price": 7299.0,
+        "total_price": 7302.0,
         "currency": "USD",
         "carriers": [
           "Air Canada"
@@ -181,9 +181,9 @@
       "ground_notes": "Plan's fixed costs: Vatican, Borghese, Colosseum, Ostia, taxis, food. The Vatican Key Master's tour isn't priced yet (standard tickets are used)",
       "travel_mode": "air",
       "flights_expected": true,
-      "flight_cost": 7299.0,
+      "flight_cost": 7302.0,
       "lodging_cost": 0.0,
-      "total_cost": 9549.0,
+      "total_cost": 9552.0,
       "is_complete": false,
       "notes": [
         "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)"

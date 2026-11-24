@@ -1,6 +1,6 @@
 {
   "trip_id": "paris-versailles",
-  "captured_at": "2026-11-24T01:17:38.167837+00:00",
+  "captured_at": "2026-11-24T23:17:59.786600+00:00",
   "queries_made": 3,
   "errors": [
     "hotel prices unavailable: hotel prices are re-checked each Sat"
@@ -81,10 +81,10 @@
         "destination": "CDG",
         "depart_date": "2027-06-20",
         "return_date": "2027-06-30",
-        "total_price": 7179.0,
+        "total_price": 7809.0,
         "currency": "USD",
         "carriers": [
-          "Icelandair"
+          "Delta"
         ],
         "stops_out": 1,
         "stops_back": null,
@@ -94,26 +94,26 @@
           {
             "from": "STL",
             "from_name": "St. Louis Lambert International Airport",
-            "to": "KEF",
-            "to_name": "Keflav\u00edk International Airport",
-            "depart": "2027-06-20T20:45",
-            "arrive": "2027-06-21T08:20",
-            "minutes": 395,
+            "to": "MSP",
+            "to_name": "Minneapolis-Saint Paul International Airport",
+            "depart": "2027-06-20T12:30",
+            "arrive": "2027-06-20T14:08",
+            "minutes": 98,
             "airline": "",
             "flight": "",
-            "plane": "Boeing 737MAX 8 Passenger"
+            "plane": "Airbus A220-100 Passenger"
           },
           {
-            "from": "KEF",
-            "from_name": "Keflav\u00edk International Airport",
+            "from": "MSP",
+            "from_name": "Minneapolis-Saint Paul International Airport",
             "to": "CDG",
             "to_name": "A\u00e9roport de Paris-Charles de Gaulle",
-            "depart": "2027-06-21T10:50",
-            "arrive": "2027-06-21T16:15",
-            "minutes": 205,
+            "depart": "2027-06-20T16:30",
+            "arrive": "2027-06-21T07:55",
+            "minutes": 505,
             "airline": "",
             "flight": "",
-            "plane": "Airbus A320neo"
+            "plane": "Airbus A330"
           }
         ]
       },
@@ -122,9 +122,9 @@
       "ground_notes": "Plan's fixed costs: tickets, Disneyland day, TGV, transit, food",
       "travel_mode": "air",
       "flights_expected": true,
-      "flight_cost": 7179.0,
+      "flight_cost": 7809.0,
       "lodging_cost": 0.0,
-      "total_cost": 11429.0,
+      "total_cost": 12059.0,
       "is_complete": false,
       "notes": [
         "airfare estimated: a smaller party's fare scaled to yours (Google's page lists no fares for the whole party here)",

@@ -1,75 +1,61 @@
 {
   "austria-bavaria-summer": {
     "arrive_at": "MUC",
-    "basis": "An estimate. Google Flights' first page on Nov 24 showed no fares for 6 travellers, which is common for big parties on long-haul routes. So the tracker priced a smaller party (at most 1 stop(s) each way) and multiplied that per-person fare by 6. Children's economy fares to Europe are usually close to adult fares, so this is a fair guide, but it doesn't include checked bags. Only flights of 20 hours or less, gate to gate, count for the way out, and ones with every connection under 5 hours come first; the way home is picked when you book.",
+    "basis": "The cheapest fare for all 6 travellers on Nov 24 once one more stop than your limit was allowed; none was found within it. Only flights of 20 hours or less, gate to gate, count for the way out, and ones with every connection under 5 hours come first; the way home is picked when you book.",
     "carriers": [
-      "Delta"
+      "Southwest",
+      "Condor"
     ],
-    "check_in": "2027-06-05",
-    "check_out": "2027-06-15",
+    "check_in": "2027-07-07",
+    "check_out": "2027-07-17",
     "checked_on": "2026-11-24",
     "currency": "USD",
-    "depart_date": "2027-06-04",
+    "depart_date": "2027-07-06",
     "home_from": "MUC",
-    "inbound": [
-      {
-        "airline": "",
-        "arrive": "2027-06-15T13:40",
-        "depart": "2027-06-15T12:30",
-        "flight": "",
-        "from": "MUC",
-        "from_name": "Munich International Airport",
-        "minutes": 130,
-        "plane": "Airbus A320",
-        "to": "LHR",
-        "to_name": "Heathrow Airport"
-      },
-      {
-        "airline": "",
-        "arrive": "2027-06-15T19:30",
-        "depart": "2027-06-15T16:25",
-        "flight": "",
-        "from": "LHR",
-        "from_name": "Heathrow Airport",
-        "minutes": 545,
-        "plane": "Boeing 787",
-        "to": "STL",
-        "to_name": "St. Louis Lambert International Airport"
-      }
-    ],
-    "inbound_airlines": [
-      "British Airways"
-    ],
+    "inbound": [],
+    "inbound_airlines": [],
     "origin": "STL",
     "outbound": [
       {
         "airline": "",
-        "arrive": "2027-06-04T13:15",
-        "depart": "2027-06-04T10:45",
+        "arrive": "2027-07-06T13:35",
+        "depart": "2027-07-06T10:00",
         "flight": "",
         "from": "STL",
         "from_name": "St. Louis Lambert International Airport",
-        "minutes": 90,
-        "plane": "Boeing 717",
-        "to": "DTW",
-        "to_name": "Detroit Metropolitan Wayne County Airport"
+        "minutes": 155,
+        "plane": "Boeing 737MAX 8 Passenger",
+        "to": "BOS",
+        "to_name": "Boston Logan International Airport"
       },
       {
         "airline": "",
-        "arrive": "2027-06-05T06:55",
-        "depart": "2027-06-04T16:40",
+        "arrive": "2027-07-07T05:45",
+        "depart": "2027-07-06T16:30",
         "flight": "",
-        "from": "DTW",
-        "from_name": "Detroit Metropolitan Wayne County Airport",
-        "minutes": 495,
-        "plane": "Airbus A330",
+        "from": "BOS",
+        "from_name": "Boston Logan International Airport",
+        "minutes": 435,
+        "plane": "Airbus A330-900neo",
+        "to": "FRA",
+        "to_name": "Frankfurt Airport"
+      },
+      {
+        "airline": "",
+        "arrive": "2027-07-07T08:10",
+        "depart": "2027-07-07T07:10",
+        "flight": "",
+        "from": "FRA",
+        "from_name": "Frankfurt Airport",
+        "minutes": 60,
+        "plane": "Airbus A320",
         "to": "MUC",
         "to_name": "Munich International Airport"
       }
     ],
-    "price": 8049.0,
-    "return_date": "2027-06-15",
-    "source": "google_flights_scaled"
+    "price": 7692.0,
+    "return_date": "2027-07-17",
+    "source": "google_flights_extra_stop"
   },
   "belgium-summer": {
     "arrive_at": "BRU",
@@ -124,8 +110,35 @@
     "currency": "USD",
     "depart_date": "2027-06-04",
     "home_from": "FCO",
-    "inbound": [],
-    "inbound_airlines": [],
+    "inbound": [
+      {
+        "airline": "",
+        "arrive": "2027-06-13T14:05",
+        "depart": "2027-06-13T12:15",
+        "flight": "",
+        "from": "FCO",
+        "from_name": "Leonardo da Vinci International Airport",
+        "minutes": 170,
+        "plane": "Airbus A320",
+        "to": "LHR",
+        "to_name": "Heathrow Airport"
+      },
+      {
+        "airline": "",
+        "arrive": "2027-06-13T19:30",
+        "depart": "2027-06-13T16:25",
+        "flight": "",
+        "from": "LHR",
+        "from_name": "Heathrow Airport",
+        "minutes": 545,
+        "plane": "Boeing 787",
+        "to": "STL",
+        "to_name": "St. Louis Lambert International Airport"
+      }
+    ],
+    "inbound_airlines": [
+      "British Airways"
+    ],
     "origin": "STL",
     "outbound": [
       {
@@ -202,30 +215,30 @@
     "outbound": [
       {
         "airline": "",
-        "arrive": "2027-07-06T11:55",
-        "depart": "2027-07-06T10:23",
+        "arrive": "2027-07-06T11:02",
+        "depart": "2027-07-06T07:30",
         "flight": "",
         "from": "STL",
         "from_name": "St. Louis Lambert International Airport",
-        "minutes": 92,
-        "plane": "Bombardier Regional Jet 550",
-        "to": "ORD",
-        "to_name": "Chicago O'Hare International Airport"
+        "minutes": 152,
+        "plane": "Embraer 175",
+        "to": "EWR",
+        "to_name": "Newark Liberty International Airport"
       },
       {
         "airline": "",
-        "arrive": "2027-07-07T10:35",
-        "depart": "2027-07-06T16:10",
+        "arrive": "2027-07-07T08:10",
+        "depart": "2027-07-06T15:50",
         "flight": "",
-        "from": "ORD",
-        "from_name": "Chicago O'Hare International Airport",
-        "minutes": 625,
-        "plane": "Boeing 787-10",
+        "from": "EWR",
+        "from_name": "Newark Liberty International Airport",
+        "minutes": 560,
+        "plane": "Boeing 777",
         "to": "ATH",
         "to_name": "Athens International Airport \"Eleftherios Venizelos\""
       }
     ],
-    "price": 6930.0,
+    "price": 6876.0,
     "return_date": "2027-07-17",
     "source": "google_flights_scaled"
   },
@@ -239,8 +252,36 @@
     "currency": "USD",
     "depart_date": "2027-06-04",
     "home_from": "MAN",
-    "inbound": [],
-    "inbound_airlines": [],
+    "inbound": [
+      {
+        "airline": "",
+        "arrive": "2027-06-14T19:10",
+        "depart": "2027-06-14T14:55",
+        "flight": "",
+        "from": "MAN",
+        "from_name": "Manchester Airport",
+        "minutes": 555,
+        "plane": "Airbus A330-900neo",
+        "to": "ATL",
+        "to_name": "Hartsfield-Jackson Atlanta International Airport"
+      },
+      {
+        "airline": "",
+        "arrive": "2027-06-14T23:39",
+        "depart": "2027-06-14T22:55",
+        "flight": "",
+        "from": "ATL",
+        "from_name": "Hartsfield-Jackson Atlanta International Airport",
+        "minutes": 104,
+        "plane": "Boeing 737",
+        "to": "STL",
+        "to_name": "St. Louis Lambert International Airport"
+      }
+    ],
+    "inbound_airlines": [
+      "Virgin Atlantic",
+      "Delta"
+    ],
     "origin": "STL",
     "outbound": [
       {
@@ -274,7 +315,7 @@
   },
   "milan-lake-como-summer": {
     "arrive_at": "MXP",
-    "basis": "An estimate. Google Flights' first page on Nov 24 showed no fares for 6 travellers, which is common for big parties on long-haul routes. So the tracker priced a smaller party (at most 1 stop(s) each way) and multiplied that per-person fare by 6. Children's economy fares to Europe are usually close to adult fares, so this is a fair guide, but it doesn't include checked bags. One more stop than your limit was allowed, because none was found within it. Only flights of 20 hours or less, gate to gate, count for the way out, and ones with every connection under 5 hours come first; the way home is picked when you book.",
+    "basis": "The cheapest fare for all 6 travellers on Nov 24 once one more stop than your limit was allowed; none was found within it. Only flights of 20 hours or less, gate to gate, count for the way out, and ones with every connection under 5 hours come first; the way home is picked when you book.",
     "carriers": [
       "American",
       "Condor"
@@ -285,8 +326,35 @@
     "currency": "USD",
     "depart_date": "2027-06-20",
     "home_from": "MXP",
-    "inbound": [],
-    "inbound_airlines": [],
+    "inbound": [
+      {
+        "airline": "",
+        "arrive": "2027-06-30T14:00",
+        "depart": "2027-06-30T11:00",
+        "flight": "",
+        "from": "MXP",
+        "from_name": "Milano Malpensa Airport",
+        "minutes": 540,
+        "plane": "Boeing 777",
+        "to": "JFK",
+        "to_name": "John F. Kennedy International Airport"
+      },
+      {
+        "airline": "",
+        "arrive": "2027-06-30T20:52",
+        "depart": "2027-06-30T18:59",
+        "flight": "",
+        "from": "LGA",
+        "from_name": "LaGuardia Airport",
+        "minutes": 173,
+        "plane": "Embraer 175",
+        "to": "STL",
+        "to_name": "St. Louis Lambert International Airport"
+      }
+    ],
+    "inbound_airlines": [
+      "American"
+    ],
     "origin": "STL",
     "outbound": [
       {
@@ -326,9 +394,9 @@
         "to_name": "Milano Malpensa Airport"
       }
     ],
-    "price": 6810.0,
+    "price": 6804.0,
     "return_date": "2027-06-30",
-    "source": "google_flights_scaled_extra_stop"
+    "source": "google_flights_extra_stop"
   },
   "nice-riviera": {
     "arrive_at": "NCE",
@@ -379,20 +447,47 @@
     "carriers": [
       "Icelandair"
     ],
-    "check_in": "2027-06-21",
-    "check_out": "2027-06-30",
+    "check_in": "2027-07-08",
+    "check_out": "2027-07-17",
     "checked_on": "2026-11-24",
     "currency": "USD",
-    "depart_date": "2027-06-20",
+    "depart_date": "2027-07-07",
     "home_from": "CDG",
-    "inbound": [],
-    "inbound_airlines": [],
+    "inbound": [
+      {
+        "airline": "",
+        "arrive": "2027-07-17T19:25",
+        "depart": "2027-07-17T15:40",
+        "flight": "",
+        "from": "CDG",
+        "from_name": "A\u00e9roport de Paris-Charles de Gaulle",
+        "minutes": 585,
+        "plane": "Boeing 767",
+        "to": "ATL",
+        "to_name": "Hartsfield-Jackson Atlanta International Airport"
+      },
+      {
+        "airline": "",
+        "arrive": "2027-07-17T23:39",
+        "depart": "2027-07-17T22:55",
+        "flight": "",
+        "from": "ATL",
+        "from_name": "Hartsfield-Jackson Atlanta International Airport",
+        "minutes": 104,
+        "plane": "Boeing 737",
+        "to": "STL",
+        "to_name": "St. Louis Lambert International Airport"
+      }
+    ],
+    "inbound_airlines": [
+      "Delta"
+    ],
     "origin": "STL",
     "outbound": [
       {
         "airline": "",
-        "arrive": "2027-06-21T08:20",
-        "depart": "2027-06-20T20:45",
+        "arrive": "2027-07-08T08:20",
+        "depart": "2027-07-07T20:45",
         "flight": "",
         "from": "STL",
         "from_name": "St. Louis Lambert International Airport",
@@ -403,8 +498,8 @@
       },
       {
         "airline": "",
-        "arrive": "2027-06-21T16:15",
-        "depart": "2027-06-21T10:50",
+        "arrive": "2027-07-08T16:15",
+        "depart": "2027-07-08T10:50",
         "flight": "",
         "from": "KEF",
         "from_name": "Keflav\u00edk International Airport",
@@ -414,8 +509,8 @@
         "to_name": "A\u00e9roport de Paris-Charles de Gaulle"
       }
     ],
-    "price": 7179.0,
-    "return_date": "2027-06-30",
+    "price": 7485.0,
+    "return_date": "2027-07-17",
     "source": "google_flights_scaled"
   },
   "portugal-azores-summer": {
@@ -473,35 +568,8 @@
     "currency": "USD",
     "depart_date": "2027-07-09",
     "home_from": "FCO",
-    "inbound": [
-      {
-        "airline": "",
-        "arrive": "2027-07-17T13:30",
-        "depart": "2027-07-17T10:00",
-        "flight": "",
-        "from": "FCO",
-        "from_name": "Leonardo da Vinci International Airport",
-        "minutes": 630,
-        "plane": "Boeing 787",
-        "to": "ORD",
-        "to_name": "Chicago O'Hare International Airport"
-      },
-      {
-        "airline": "",
-        "arrive": "2027-07-17T17:46",
-        "depart": "2027-07-17T16:13",
-        "flight": "",
-        "from": "ORD",
-        "from_name": "Chicago O'Hare International Airport",
-        "minutes": 93,
-        "plane": "Embraer 175",
-        "to": "STL",
-        "to_name": "St. Louis Lambert International Airport"
-      }
-    ],
-    "inbound_airlines": [
-      "American"
-    ],
+    "inbound": [],
+    "inbound_airlines": [],
     "origin": "STL",
     "outbound": [
       {
@@ -529,7 +597,7 @@
         "to_name": "Leonardo da Vinci International Airport"
       }
     ],
-    "price": 7299.0,
+    "price": 7302.0,
     "return_date": "2027-07-17",
     "source": "google_flights_scaled"
   },
@@ -546,31 +614,30 @@
     "inbound": [
       {
         "airline": "",
-        "arrive": "2027-06-15T14:55",
-        "depart": "2027-06-15T12:30",
+        "arrive": "2027-06-15T16:40",
+        "depart": "2027-06-15T13:00",
         "flight": "",
         "from": "MAD",
         "from_name": "Adolfo Su\u00e1rez Madrid-Barajas Airport",
-        "minutes": 505,
-        "plane": "Airbus A330",
-        "to": "JFK",
-        "to_name": "John F. Kennedy International Airport"
+        "minutes": 580,
+        "plane": "Boeing 777",
+        "to": "MIA",
+        "to_name": "Miami International Airport"
       },
       {
         "airline": "",
-        "arrive": "2027-06-15T20:52",
-        "depart": "2027-06-15T18:59",
+        "arrive": "2027-06-15T22:58",
+        "depart": "2027-06-15T20:53",
         "flight": "",
-        "from": "LGA",
-        "from_name": "LaGuardia Airport",
-        "minutes": 173,
-        "plane": "Embraer 175",
+        "from": "MIA",
+        "from_name": "Miami International Airport",
+        "minutes": 185,
+        "plane": "Boeing 737",
         "to": "STL",
         "to_name": "St. Louis Lambert International Airport"
       }
     ],
     "inbound_airlines": [
-      "Iberia",
       "American"
     ],
     "origin": "STL",
